@@ -3,18 +3,12 @@ http_timeout_sec: 15
 http_retries: 2
 
 verify:
+  limit_default: 100
+  per_company_pause_sec: 0.10
   max_search_results: 8
-  # Keep discovery bounded per run so GitHub Actions doesn't hang.
-  # With 4 runs/day, 40 per run = ~160 companies/day.
-  per_company_pause_sec: 0.2
-  # Process a small batch each run; schedule handles the rest.
-  limit_default: 30
-
-  # Log progress every N companies so Actions logs show movement.
   log_every: 20
-
-  # Hard stop for discovery in a single run (minutes). Prevents long hangs.
-  max_discovery_minutes: 6
+  max_discovery_minutes: 8
+  max_workers: 3
 
 track:
   mark_closed_after_days_not_seen: 10
