@@ -1,9 +1,12 @@
 import re
 import time
+from dataclasses import dataclass
+from datetime import datetime
 from urllib.parse import quote
 
 from bs4 import BeautifulSoup
 import yaml
+from concurrent.futures import ThreadPoolExecutor, as_completed
 
 from src.utils.db import connect, ensure_tables
 from src.utils.http import get
@@ -13,28 +16,42 @@ SETTINGS = yaml.safe_load(open("src/config/settings.yml"))
 DB_PATH = SETTINGS["db_path"]
 TIMEOUT = SETTINGS["http_timeout_sec"]
 RETRIES = SETTINGS["http_retries"]
-MAX_RESULTS = SETTINGS["verify"]["max_search_results"]
-PAUSE = SETTINGS["verify"]["per_company_pause_sec"]
-LIMIT_DEFAULT = SETTINGS["verify"]["limit_default"]
-MAX_MINUTES = SETTINGS["verify"].get("max_discovery_minutes", 8)
-LOG_EVERY = SETTINGS["verify"].get("log_every", 20)
+
+VERIFY = SETTINGS.get("verify", {})
+MAX_RESULTS = int(VERIFY.get("max_search_results", 8))
+PAUSE = float(VERIFY.get("per_company_pause_sec", 0.1))
+LIMIT_DEFAULT = int(VERIFY.get("limit_default", 100))
+LOG_EVERY = int(VERIFY.get("log_every", 20))
+MAX_MINUTES = float(VERIFY.get("max_discovery_minutes", 8))
+MAX_WORKERS = int(VERIFY.get("max_workers", 3))
 
 GREENHOUSE_RE = re.compile(r"(boards\.greenhouse\.io|api\.greenhouse\.io)", re.I)
 LEVER_RE = re.compile(r"(jobs\.lever\.co|api\.lever\.co)", re.I)
 WORKDAY_RE = re.compile(r"(myworkdayjobs\.com)", re.I)
 
+@dataclass
+class DiscoverResult:
+    company_id: int
+    employer_name: str
+    best_url: str | None
+    source_type: str | None
+    ok: bool
+    reason: str | None = None
+
 def detect_source_type(url: str) -> str:
     u = (url or "").lower()
-    if GREENHOUSE_RE.search(u): return "greenhouse"
-    if LEVER_RE.search(u): return "lever"
-    if WORKDAY_RE.search(u): return "workday"
+    if GREENHOUSE_RE.search(u):
+        return "greenhouse"
+    if LEVER_RE.search(u):
+        return "lever"
+    if WORKDAY_RE.search(u):
+        return "workday"
     return "custom"
 
 def ddg_search(query: str) -> list[str]:
     q = quote(query)
     url = f"https://duckduckgo.com/html/?q={q}"
-    # Small pause to be polite and reduce rate-limit risk.
-    r = get(url, timeout=TIMEOUT, retries=RETRIES, pause=0.0)
+    r = get(url, timeout=TIMEOUT, retries=RETRIES)
     if not r or r.status_code != 200:
         return []
     soup = BeautifulSoup(r.text, "lxml")
@@ -43,7 +60,7 @@ def ddg_search(query: str) -> list[str]:
         href = a.get("href")
         if href:
             links.append(href)
-    # de-dupe
+
     out, seen = [], set()
     for l in links:
         if l not in seen:
@@ -64,104 +81,141 @@ def choose_best(links: list[str]) -> str | None:
             return l
     return links[0] if links else None
 
+def discover_one(company_id: int, employer_name: str) -> DiscoverResult:
+    try:
+        # Polite pause per task (still applies even with threads)
+        if PAUSE:
+            time.sleep(PAUSE)
+
+        links = ddg_search(f"{employer_name} careers jobs greenhouse lever workday")
+        best = choose_best(links)
+        if not best:
+            return DiscoverResult(company_id, employer_name, None, None, False, "no_links")
+
+        stype = detect_source_type(best)
+        return DiscoverResult(company_id, employer_name, best, stype, True, None)
+    except Exception as e:
+        return DiscoverResult(company_id, employer_name, None, None, False, f"exception:{type(e).__name__}")
+
+def ensure_state_table(con):
+    con.execute(
+        """CREATE TABLE IF NOT EXISTS state_kv (
+          k TEXT PRIMARY KEY,
+          v TEXT NOT NULL,
+          updated_at TEXT NOT NULL DEFAULT (datetime('now'))
+        );"""
+    )
+
+def get_cursor(cur) -> int:
+    cur.execute("SELECT v FROM state_kv WHERE k='discover_cursor'")
+    row = cur.fetchone()
+    if not row:
+        return 0
+    try:
+        return int(row[0])
+    except Exception:
+        return 0
+
+def set_cursor(cur, v: int):
+    cur.execute(
+        """INSERT INTO state_kv (k, v, updated_at)
+           VALUES ('discover_cursor', ?, datetime('now'))
+           ON CONFLICT(k) DO UPDATE SET v=excluded.v, updated_at=datetime('now')""",
+        (str(v),),
+    )
+
 def main(limit: int = LIMIT_DEFAULT):
+    t0 = time.time()
+    deadline = t0 + (MAX_MINUTES * 60)
+
     with connect(DB_PATH) as con:
         ensure_tables(con)
+        ensure_state_table(con)
         cur = con.cursor()
 
-        # Cursor-based batching: we remember the last company_id we attempted,
-        # so each scheduled run keeps moving forward and does not restart from the top.
-        # If we reach the end, we wrap around.
-        cur.execute(
-            """CREATE TABLE IF NOT EXISTS state_kv (
-                 k TEXT PRIMARY KEY,
-                 v TEXT NOT NULL,
-                 updated_at TEXT NOT NULL DEFAULT (datetime('now'))
-               );"""
-        )
-        cur.execute("SELECT v FROM state_kv WHERE k='discover_cursor'")
-        row = cur.fetchone()
-        cursor = int(row[0]) if row and str(row[0]).isdigit() else 0
+        # Cursor batching: continue from last cursor
+        cursor = get_cursor(cur)
 
-        def fetch_batch(after_company_id: int):
+        # Select next batch of companies that DON'T have sources, starting after cursor
+        cur.execute(
+            """
+            SELECT company_id, employer_name
+            FROM companies
+            WHERE company_id > ?
+              AND company_id NOT IN (SELECT company_id FROM company_job_sources)
+            ORDER BY company_id
+            LIMIT ?
+            """,
+            (cursor, limit),
+        )
+        batch = cur.fetchall()
+
+        # If we hit the end, wrap around from 0
+        if not batch:
             cur.execute(
                 """
-                SELECT c.company_id, c.employer_name
-                FROM companies c
-                LEFT JOIN company_job_sources s ON s.company_id=c.company_id
-                WHERE s.company_id IS NULL
-                  AND c.company_id > ?
-                ORDER BY c.company_id
+                SELECT company_id, employer_name
+                FROM companies
+                WHERE company_id NOT IN (SELECT company_id FROM company_job_sources)
+                ORDER BY company_id
                 LIMIT ?
                 """,
-                (after_company_id, limit),
+                (limit,),
             )
-            return cur.fetchall()
-
-        companies = fetch_batch(cursor)
-        if not companies:
-            # Wrap around (run finished a full pass)
+            batch = cur.fetchall()
             cursor = 0
-            companies = fetch_batch(cursor)
-
-        inserted = 0
-        processed = 0
-        started = time.monotonic()
-        last_company_id = cursor
 
         print(
-            f"[discover] starting batch: limit={limit}, cursor={cursor}, max_minutes={MAX_MINUTES}, log_every={LOG_EVERY}",
+            f"[discover] start batch size={len(batch)} limit={limit} workers={MAX_WORKERS} "
+            f"cursor={cursor} time_budget_min={MAX_MINUTES}",
             flush=True,
         )
 
-        for company_id, employer_name in companies:
-            processed += 1
-            last_company_id = company_id
+        inserted = 0
+        processed = 0
+        last_company_id = cursor
 
-            # Hard stop so the job never runs forever.
-            elapsed_min = (time.monotonic() - started) / 60.0
-            if elapsed_min >= float(MAX_MINUTES):
-                print(
-                    f"[discover] time budget reached ({elapsed_min:.1f}m). stopping early.",
-                    flush=True,
-                )
-                break
+        # Run network discovery in threads, write results in main thread (safe for sqlite)
+        with ThreadPoolExecutor(max_workers=MAX_WORKERS) as ex:
+            futures = [ex.submit(discover_one, cid, name) for cid, name in batch]
 
-            if PAUSE:
-                time.sleep(PAUSE)
+            for fut in as_completed(futures):
+                if time.time() > deadline:
+                    print("[discover] time budget reached, stopping early", flush=True)
+                    break
 
-            # Progress log (every N companies) so Actions doesn't look frozen.
-            if processed == 1 or processed % int(LOG_EVERY) == 0 or processed == len(companies):
-                print(
-                    f"[discover] progress: {processed}/{len(companies)} | last_id={company_id} | inserted={inserted}",
-                    flush=True,
-                )
+                res = fut.result()
+                processed += 1
+                last_company_id = max(last_company_id, res.company_id)
 
-            links = ddg_search(f"{employer_name} careers jobs greenhouse lever workday")
-            best = choose_best(links)
-            if not best:
-                continue
+                if res.ok and res.best_url and res.source_type:
+                    cur.execute(
+                        """
+                        INSERT INTO company_job_sources (company_id, source_type, careers_url, is_active, created_at)
+                        VALUES (?, ?, ?, 1, datetime('now'))
+                        ON CONFLICT(company_id, careers_url) DO UPDATE SET
+                          source_type=excluded.source_type,
+                          is_active=1
+                        """,
+                        (res.company_id, res.source_type, res.best_url),
+                    )
+                    inserted += 1
 
-            stype = detect_source_type(best)
-            cur.execute("""
-                INSERT INTO company_job_sources (company_id, source_type, careers_url, is_active, created_at)
-                VALUES (?, ?, ?, 1, datetime('now'))
-                ON CONFLICT(company_id, careers_url) DO UPDATE SET
-                  source_type=excluded.source_type,
-                  is_active=1
-            """, (company_id, stype, best))
-            inserted += 1
+                if processed % LOG_EVERY == 0:
+                    elapsed = time.time() - t0
+                    print(
+                        f"[discover] progress {processed}/{len(batch)} inserted={inserted} "
+                        f"last_id={last_company_id} elapsed_sec={int(elapsed)}",
+                        flush=True,
+                    )
 
-        # Persist cursor for next run.
-        cur.execute(
-            """INSERT INTO state_kv(k, v, updated_at)
-                 VALUES('discover_cursor', ?, datetime('now'))
-                 ON CONFLICT(k) DO UPDATE SET v=excluded.v, updated_at=datetime('now');""",
-            (str(last_company_id),),
-        )
+        # Update cursor to the last seen company id so next run continues
+        set_cursor(cur, last_company_id)
 
+        elapsed = time.time() - t0
         print(
-            f"[discover] done: inserted={inserted}, processed={processed}, next_cursor={last_company_id}",
+            f"[discover] done processed={processed} inserted={inserted} next_cursor={last_company_id} "
+            f"elapsed_sec={int(elapsed)}",
             flush=True,
         )
 
