@@ -1,0 +1,55 @@
+role_family_rules:
+  bioinformatics:
+    title_any: ["bioinformatics", "bio informatics"]
+  comp_bio:
+    title_any: ["computational biology", "comp bio"]
+  genomics:
+    title_any: ["genomics", "genomic", "genetics", "ngs", "sequencing", "omics", "multi-omics", "transcriptomics", "single-cell", "scrna"]
+  ds_bio:
+    title_any: ["data scientist"]
+    desc_any: ["genomics", "biology", "biomedical", "health", "clinical"]
+
+score_rules:
+  title_boost:
+    bioinformatics: 6
+    comp_bio: 5
+    genomics: 4
+    ds_bio: 2
+
+  desc_positive:
+    - ["rna-seq", 2]
+    - ["scrna-seq", 3]
+    - ["single-cell", 2]
+    - ["atac-seq", 2]
+    - ["gwas", 2]
+    - ["twas", 2]
+    - ["predixcan", 2]
+    - ["eqtl", 2]
+    - ["nextflow", 2]
+    - ["snakemake", 2]
+    - ["scanpy", 2]
+    - ["seurat", 2]
+    - ["scvi", 2]
+    - ["deseq2", 2]
+    - ["edger", 2]
+    - ["gatk", 2]
+    - ["samtools", 1]
+    - ["bcftools", 1]
+    - ["bwa", 1]
+    - ["star", 1]
+    - ["salmon", 1]
+    - ["kallisto", 1]
+    - ["docker", 1]
+    - ["conda", 1]
+    - ["slurm", 1]
+    - ["hpc", 1]
+    - ["python", 1]
+    - [" r ", 1]
+
+  desc_negative:
+    - ["account executive", -6]
+    - ["sales", -4]
+    - ["react", -3]
+    - ["android", -3]
+    - ["ios", -3]
+    - ["front-end", -3]

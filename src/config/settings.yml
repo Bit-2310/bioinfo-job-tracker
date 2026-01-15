@@ -1,0 +1,14 @@
+db_path: db/jobs.db
+http_timeout_sec: 15
+http_retries: 2
+
+verify:
+  max_search_results: 8
+  per_company_pause_sec: 0.5
+  limit_default: 300
+
+track:
+  mark_closed_after_days_not_seen: 10
+
+export:
+  new_window_hours: 24
