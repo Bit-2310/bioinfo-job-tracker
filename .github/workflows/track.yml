@@ -28,21 +28,22 @@ jobs:
           pip install -r requirements.txt
 
       - name: Discover sources
-        run: python src/verify/discover_sources.py
+        run: PYTHONPATH=. python src/verify/discover_sources.py
 
       - name: Validate sources
-        run: python src/verify/validate_sources.py
+        run: PYTHONPATH=. python src/verify/validate_sources.py
 
       - name: Track roles
-        run: python src/track/fetch_roles.py
+        run: PYTHONPATH=. python src/track/fetch_roles.py
 
       - name: Export JSON
-        run: python src/export/build_json.py
+        run: PYTHONPATH=. python src/export/build_json.py
 
       - name: Commit updates
         run: |
           git config user.name "job-tracker-bot"
           git config user.email "job-tracker-bot@users.noreply.github.com"
-          git add db/jobs.db site/data/*.json
+          # Pages is served from /docs; JSON is exported to docs/data
+          git add db/jobs.db docs/data/*.json || true
           git commit -m "Update jobs data" || echo "No changes"
           git push

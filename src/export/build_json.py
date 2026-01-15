@@ -83,11 +83,12 @@ def main():
         "counts": {"new_roles": len(new_roles), "active_roles": len(active_roles), "ranked_companies": len(rankings)}
     }
 
-    os.makedirs("site/data", exist_ok=True)
-    json.dump({"meta": meta, "roles": new_roles}, open("site/data/new_roles.json","w"), indent=2)
-    json.dump({"meta": meta, "roles": active_roles}, open("site/data/active_roles.json","w"), indent=2)
-    json.dump({"meta": meta, "companies": rankings}, open("site/data/company_rankings.json","w"), indent=2)
-    json.dump(meta, open("site/data/meta.json","w"), indent=2)
+    # GitHub Pages is served from /docs
+    os.makedirs("docs/data", exist_ok=True)
+    json.dump({"meta": meta, "roles": new_roles}, open("docs/data/new_roles.json","w"), indent=2)
+    json.dump({"meta": meta, "roles": active_roles}, open("docs/data/active_roles.json","w"), indent=2)
+    json.dump({"meta": meta, "companies": rankings}, open("docs/data/company_rankings.json","w"), indent=2)
+    json.dump(meta, open("docs/data/meta.json","w"), indent=2)
 
 if __name__ == "__main__":
     main()
