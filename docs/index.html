@@ -2,13 +2,68 @@
 <html>
 <head>
   <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
   <title>Bioinformatics Job Tracker</title>
   <link rel="stylesheet" href="styles.css"/>
 </head>
 <body>
-  <h1>New Bioinformatics Roles</h1>
-  <div id="last-updated"></div>
-  <table id="roles"></table>
+  <header class="header">
+    <div class="title">
+      <h1>Bioinformatics Job Tracker</h1>
+      <div class="sub">
+        <span id="last-updated">Last updated: —</span>
+        <span class="dot">•</span>
+        <span id="counts">—</span>
+      </div>
+    </div>
+    <div class="controls">
+      <input id="q" type="search" placeholder="Search company, role, location…" />
+      <select id="sort">
+        <option value="newest">Sort: newest</option>
+        <option value="score">Sort: best match</option>
+        <option value="company">Sort: company</option>
+      </select>
+      <select id="family">
+        <option value="all">All families</option>
+        <option value="bioinformatics">Bioinformatics</option>
+        <option value="comp_bio">Computational biology</option>
+        <option value="genomics">Genomics</option>
+        <option value="ds_bio">Data science (bio)</option>
+        <option value="other">Other</option>
+      </select>
+    </div>
+  </header>
+
+  <nav class="tabs">
+    <button class="tab active" data-tab="new">New</button>
+    <button class="tab" data-tab="active">Active</button>
+    <button class="tab" data-tab="rank">Rankings</button>
+  </nav>
+
+  <main class="main">
+    <section id="panel-new" class="panel show">
+      <h2>New roles (last 24h)</h2>
+      <div class="hint">These are roles first seen within the last 24 hours.</div>
+      <div id="new-table" class="table"></div>
+    </section>
+
+    <section id="panel-active" class="panel">
+      <h2>Active roles</h2>
+      <div class="hint">All roles currently marked active.</div>
+      <div id="active-table" class="table"></div>
+    </section>
+
+    <section id="panel-rank" class="panel">
+      <h2>Company rankings</h2>
+      <div class="hint">Prioritized by recent activity + total active roles + average match score.</div>
+      <div id="rank-table" class="table"></div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <span>Tip: run the workflow a few times to populate sources. Greenhouse/Lever roles will appear first.</span>
+  </footer>
+
   <script src="app.js"></script>
 </body>
 </html>
