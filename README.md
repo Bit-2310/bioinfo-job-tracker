@@ -100,15 +100,14 @@ All files are updated automatically after each run.
 
 ```mermaid
 flowchart TD
-    A[Companies classified by visa group (G1/G2/G3)]
-    B[Fetch job roles from source sites]
-    C[Save to jobs.db]
-    D[Build dashboard JSON: roles, rankings, groups]
-    E[Static site deploy (GitHub Pages)]
+    A[Companies classified into Group 1, 2, or 3]
+    B[Fetch job roles from source websites]
+    C[Save to SQLite database]
+    D[Build JSON: roles, rankings, analytics]
+    E[Deploy static site (GitHub Pages)]
 
     A --> B --> C --> D --> E
 ```
-
 ---
 
 ## 📱 Mobile Ready
