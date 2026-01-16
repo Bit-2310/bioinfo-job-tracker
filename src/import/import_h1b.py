@@ -1,23 +1,20 @@
-"""Import FY'25 H-1B sponsorship spreadsheet into jobs.db.
+"""Import FY'25 H-1B sponsorship spreadsheet as an *enrichment signal*.
 
-Purpose
-- Populate / refresh company sponsorship group classification used by the dashboard.
-- Group logic (matches repo README wording):
-  - Group 1: active sponsors (new petitions in FY'25)
-  - Group 2: past sponsors (only renewals / no new filings in FY'25)
-  - Group 3: non-sponsors
+Important
+This repo treats priority groups (Group 1/2) as a *curated target list*.
+H-1B information is optional and should NOT redefine your priority groups.
 
-The provided spreadsheet has a few preamble rows before the header row. We
-detect the header row by looking for the "Employer (Petitioner) Name" column.
+This importer stores the sponsorship grouping into the `company_signals` table
+under:
+  signal_key = "h1b_group"
+  signal_value = "1" | "2" | "3"
+
+By default, we only enrich companies that already exist in `companies`.
+Use --create-missing if you explicitly want to create new companies from the
+spreadsheet (not recommended for the job-tracker use case).
 
 Run (from repo root):
   PYTHONPATH=. python src/import/import_h1b.py --excel "<file.xlsx>" --db db/jobs.db
-
-By default, it reads these sheets if present:
-- "BioTechnology "
-- "Health Care & Public Health"
-
-No assumptions beyond the sheet contents; we only import what is present.
 """
 
 from __future__ import annotations
@@ -30,38 +27,18 @@ from typing import Iterable, Iterator
 
 import pandas as pd
 
+from src.utils.db import connect, ensure_tables
+
 
 def norm_name(name: str) -> str:
-    """Normalize employer names for de-duping."""
     s = (name or "").strip().lower()
     s = re.sub(r"\s+", " ", s)
     return s
 
 
-def ensure_core_tables(con: sqlite3.Connection) -> None:
-    # companies table (matches existing schema)
-    con.execute(
-        """CREATE TABLE IF NOT EXISTS companies (
-          company_id INTEGER PRIMARY KEY,
-          employer_name TEXT NOT NULL,
-          employer_name_norm TEXT NOT NULL UNIQUE,
-          primary_industry TEXT,
-          created_at TEXT NOT NULL DEFAULT (datetime('now'))
-        );"""
-    )
-
-    con.execute(
-        """CREATE TABLE IF NOT EXISTS company_classification (
-          company_id INTEGER PRIMARY KEY,
-          "group" INTEGER NOT NULL,
-          FOREIGN KEY (company_id) REFERENCES companies(company_id)
-        );"""
-    )
-
-
 def find_header_row(df: pd.DataFrame) -> int | None:
     target = "Employer (Petitioner) Name".lower()
-    for i in range(min(len(df), 50)):
+    for i in range(min(len(df), 60)):
         row = [str(x).strip().lower() for x in df.iloc[i].tolist()]
         if target in row:
             return i
@@ -71,8 +48,8 @@ def find_header_row(df: pd.DataFrame) -> int | None:
 def iter_records(excel_path: Path, sheets: Iterable[str]) -> Iterator[tuple[str, int]]:
     xl = pd.ExcelFile(excel_path)
 
-    # Map requested sheets to actual sheet names (handles trailing spaces)
     requested = [s for s in sheets if s]
+    # Map requested sheets to actual sheet names (handles trailing spaces)
     sheet_map: dict[str, str] = {}
     for s in requested:
         s_clean = s.strip().lower()
@@ -80,6 +57,14 @@ def iter_records(excel_path: Path, sheets: Iterable[str]) -> Iterator[tuple[str,
             if actual.strip().lower() == s_clean:
                 sheet_map[s] = actual
                 break
+
+    def as_int(x) -> int:
+        try:
+            if pd.isna(x):
+                return 0
+            return int(float(x))
+        except Exception:
+            return 0
 
     for s in requested:
         actual = sheet_map.get(s)
@@ -95,7 +80,6 @@ def iter_records(excel_path: Path, sheets: Iterable[str]) -> Iterator[tuple[str,
         df = raw.iloc[hdr_i + 1 :].copy()
         df.columns = headers
 
-        # Drop empty rows
         if "Employer (Petitioner) Name" not in df.columns:
             continue
 
@@ -105,17 +89,6 @@ def iter_records(excel_path: Path, sheets: Iterable[str]) -> Iterator[tuple[str,
             name = str(r.get("Employer (Petitioner) Name", "")).strip()
             if not name:
                 continue
-
-            # Determine group using counts:
-            # - new petitions indicated by any Initial Approval/Denial
-            # - renewals indicated by Continuing Approval/Denial
-            def as_int(x) -> int:
-                try:
-                    if pd.isna(x):
-                        return 0
-                    return int(float(x))
-                except Exception:
-                    return 0
 
             init = as_int(r.get("Initial Approval")) + as_int(r.get("Initial Denial"))
             cont = as_int(r.get("Continuing Approval")) + as_int(r.get("Continuing Denial"))
@@ -139,51 +112,71 @@ def upsert_company(con: sqlite3.Connection, employer_name: str) -> int:
         """,
         (employer_name.strip(), n),
     )
-    row = con.execute(
-        "SELECT company_id FROM companies WHERE employer_name_norm = ?", (n,)
-    ).fetchone()
+    row = con.execute("SELECT company_id FROM companies WHERE employer_name_norm=?", (n,)).fetchone()
     return int(row[0])
 
 
-def upsert_classification(con: sqlite3.Connection, company_id: int, group: int) -> None:
+def set_signal(con: sqlite3.Connection, company_id: int, key: str, value: str) -> None:
     con.execute(
-        """INSERT INTO company_classification (company_id, "group")
-           VALUES (?, ?)
-           ON CONFLICT(company_id) DO UPDATE SET "group"=excluded."group"
+        """INSERT INTO company_signals (company_id, signal_key, signal_value, updated_at)
+           VALUES (?, ?, ?, datetime('now'))
+           ON CONFLICT(company_id, signal_key) DO UPDATE SET
+             signal_value=excluded.signal_value,
+             updated_at=datetime('now')
         """,
-        (company_id, int(group)),
+        (company_id, key, value),
     )
 
 
 def main() -> None:
     ap = argparse.ArgumentParser()
-    ap.add_argument("--excel", required=True, help="Path to the FY'25 sponsorship Excel file")
-    ap.add_argument("--db", default="db/jobs.db", help="SQLite db path (default: db/jobs.db)")
+    ap.add_argument("--excel", required=True, help="Path to FY'25 sponsorship Excel file")
+    ap.add_argument("--db", default="db/jobs.db", help="SQLite db path")
     ap.add_argument(
         "--sheets",
         default="BioTechnology ,Health Care & Public Health",
-        help="Comma-separated sheet names to read (default matches provided file)",
+        help="Comma-separated sheet names to read",
+    )
+    ap.add_argument(
+        "--create-missing",
+        action="store_true",
+        help="Create new companies from Excel (not recommended for the curated tracker)",
     )
     args = ap.parse_args()
 
     excel_path = Path(args.excel)
-    db_path = Path(args.db)
     sheets = [s for s in (args.sheets or "").split(",")]
 
-    con = sqlite3.connect(db_path)
-    try:
-        ensure_core_tables(con)
+    imported = 0
+    skipped = 0
+    created = 0
 
-        imported = 0
+    with connect(args.db) as con:
+        ensure_tables(con)
+        cur = con.cursor()
+
         for name, group in iter_records(excel_path, sheets):
-            cid = upsert_company(con, name)
-            upsert_classification(con, cid, group)
+            n = norm_name(name)
+            row = cur.execute(
+                "SELECT company_id FROM companies WHERE employer_name_norm=?", (n,)
+            ).fetchone()
+
+            if row:
+                cid = int(row[0])
+            else:
+                if not args.create_missing:
+                    skipped += 1
+                    continue
+                cid = upsert_company(con, name)
+                created += 1
+
+            set_signal(con, cid, "h1b_group", str(int(group)))
             imported += 1
 
-        con.commit()
-        print(f"Imported {imported} company classifications into {db_path}")
-    finally:
-        con.close()
+    print(
+        f"h1b_import: enriched={imported} skipped_missing={skipped} created={created} db={args.db}",
+        flush=True,
+    )
 
 
 if __name__ == "__main__":

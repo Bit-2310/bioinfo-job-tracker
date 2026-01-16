@@ -20,8 +20,8 @@ Notes
 - "New" roles are based on `roles.first_seen_at` and the configured
   `export.new_window_hours` in `src/config/settings.yml`.
 - "Active" roles are `roles.status = 'active'`.
-- Company sponsorship groups come from `company_classification`.
-  If missing, group defaults to 3.
+- Priority groups come from `company_classification`.
+  Only groups (1,2) are included in dashboard outputs.
 """
 
 from __future__ import annotations
@@ -80,10 +80,11 @@ def fetch_roles(con: sqlite3.Connection, where_sql: str, params: tuple) -> list[
           r.status,
           r.apply_url,
           r.source_type,
-          COALESCE(cl."group", 3) AS grp
+          cl."group" AS grp
         FROM roles r
         JOIN companies c ON c.company_id = r.company_id
-        LEFT JOIN company_classification cl ON cl.company_id = r.company_id
+        JOIN company_classification cl ON cl.company_id = r.company_id
+        WHERE cl."group" IN (1,2)
         {where_sql}
         ORDER BY r.first_seen_at DESC
         """,
@@ -120,7 +121,7 @@ def fetch_roles(con: sqlite3.Connection, where_sql: str, params: tuple) -> list[
                 "status": status,
                 "apply_url": apply_url,
                 "source_type": source_type,
-                "group": int(grp) if grp is not None else 3,
+                "group": int(grp),
             }
         )
     return out
@@ -136,7 +137,7 @@ def build_company_rankings(active_roles: list[dict], top_n: int = 10) -> list[di
 
 def build_group_summary(con: sqlite3.Connection) -> dict:
     # Company counts per group
-    counts = {1: 0, 2: 0, 3: 0}
+    counts = {1: 0, 2: 0}
     try:
         for g, n in con.execute(
             'SELECT "group", COUNT(*) FROM company_classification GROUP BY "group"'
@@ -147,8 +148,8 @@ def build_group_summary(con: sqlite3.Connection) -> dict:
         pass
 
     # Example company names per group
-    examples = {"group1": [], "group2": [], "group3": []}
-    for g in (1, 2, 3):
+    examples = {"group1": [], "group2": []}
+    for g in (1, 2):
         try:
             rows = con.execute(
                 """
@@ -168,7 +169,6 @@ def build_group_summary(con: sqlite3.Connection) -> dict:
     return {
         "group1": int(counts[1]),
         "group2": int(counts[2]),
-        "group3": int(counts[3]),
         "examples": examples,
     }
 

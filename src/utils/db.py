@@ -46,6 +46,19 @@ def ensure_tables(con: sqlite3.Connection) -> None:
         );"""
     )
 
+    # Optional enrichment signals (non-authoritative hints).
+    # Example: H-1B sponsorship group, NAICS bucket, etc.
+    con.execute(
+        """CREATE TABLE IF NOT EXISTS company_signals (
+          company_id INTEGER NOT NULL,
+          signal_key TEXT NOT NULL,
+          signal_value TEXT NOT NULL,
+          updated_at TEXT NOT NULL DEFAULT (datetime('now')),
+          PRIMARY KEY(company_id, signal_key),
+          FOREIGN KEY(company_id) REFERENCES companies(company_id)
+        );"""
+    )
+
     con.execute(
         """CREATE TABLE IF NOT EXISTS company_job_sources (
           source_id INTEGER PRIMARY KEY,

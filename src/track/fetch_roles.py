@@ -18,7 +18,6 @@ RETRIES = SETTINGS["http_retries"]
 CLOSE_AFTER_DAYS = SETTINGS["track"]["mark_closed_after_days_not_seen"]
 MAX_SOURCES_PER_RUN = int(SETTINGS["track"].get("max_sources_per_run", 250))
 GROUP2_RESCAN_HOURS = int(SETTINGS["track"].get("group2_rescan_hours", 24))
-GROUP3_SAMPLE_PER_RUN = int(SETTINGS["track"].get("group3_sample_per_run", 15))
 
 GREENHOUSE_BOARD_RE = re.compile(r"boards\.greenhouse\.io/([^/?#]+)", re.I)
 LEVER_COMPANY_RE = re.compile(r"jobs\.lever\.co/([^/?#]+)", re.I)
@@ -103,16 +102,17 @@ def _pick_sources(cur) -> List[Tuple[int, int, str, str, int, str]]:
 
     - Group 1: always scan
     - Group 2: scan if not checked in GROUP2_RESCAN_HOURS
-    - Group 3: sample a small number per run
+    - Group 3+: ignored (not part of the curated target universe)
     """
     cur.execute(
         """
         SELECT s.source_id, s.company_id, s.source_type, s.careers_url,
-               COALESCE(cl.`group`, 3) AS grp,
+               cl.`group` AS grp,
                s.last_checked_at
         FROM company_job_sources s
-        LEFT JOIN company_classification cl ON cl.company_id = s.company_id
+        JOIN company_classification cl ON cl.company_id = s.company_id
         WHERE s.is_active=1
+          AND cl.`group` IN (1, 2)
         ORDER BY grp ASC
         """
     )
@@ -120,7 +120,6 @@ def _pick_sources(cur) -> List[Tuple[int, int, str, str, int, str]]:
 
     group1 = []
     group2 = []
-    group3 = []
     cutoff_g2 = datetime.now(timezone.utc) - timedelta(hours=GROUP2_RESCAN_HOURS)
     for source_id, company_id, stype, url, grp, last_checked_at in rows:
         if grp == 1:
@@ -135,16 +134,7 @@ def _pick_sources(cur) -> List[Tuple[int, int, str, str, int, str]]:
                     eligible = True
             if eligible:
                 group2.append((source_id, company_id, stype, url, grp, last_checked_at))
-        else:
-            group3.append((source_id, company_id, stype, url, grp, last_checked_at))
-
-    # stable sampling for group3 based on the UTC day
-    seed = int(datetime.now(timezone.utc).strftime("%Y%m%d"))
-    rng = random.Random(seed)
-    rng.shuffle(group3)
-    group3 = group3[:GROUP3_SAMPLE_PER_RUN]
-
-    picked = group1 + group2 + group3
+    picked = group1 + group2
     return picked[:MAX_SOURCES_PER_RUN]
 
 def main():

@@ -28,6 +28,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Load priority companies (required)
+        run: |
+          PYTHONPATH=. python src/import/import_priority_companies.py \
+            --csv data/priority_companies.csv \
+            --db db/jobs.db \
+            --prune \
+            --min-rows 5
+
       - name: Discover sources
         run: PYTHONPATH=. python src/verify/discover_sources.py
 

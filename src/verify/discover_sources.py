@@ -136,14 +136,17 @@ def main(limit: int = LIMIT_DEFAULT):
         # Cursor batching: continue from last cursor
         cursor = get_cursor(cur)
 
-        # Select next batch of companies that DON'T have sources, starting after cursor
+        # Only discover sources for priority companies (groups 1 and 2).
+        # This prevents the pipeline from wasting time on non-target companies.
         cur.execute(
             """
-            SELECT company_id, employer_name
-            FROM companies
-            WHERE company_id > ?
-              AND company_id NOT IN (SELECT company_id FROM company_job_sources)
-            ORDER BY company_id
+            SELECT c.company_id, c.employer_name
+            FROM companies c
+            JOIN company_classification cc ON cc.company_id = c.company_id
+            WHERE c.company_id > ?
+              AND cc.`group` IN (1, 2)
+              AND c.company_id NOT IN (SELECT company_id FROM company_job_sources)
+            ORDER BY c.company_id
             LIMIT ?
             """,
             (cursor, limit),
@@ -154,10 +157,12 @@ def main(limit: int = LIMIT_DEFAULT):
         if not batch:
             cur.execute(
                 """
-                SELECT company_id, employer_name
-                FROM companies
-                WHERE company_id NOT IN (SELECT company_id FROM company_job_sources)
-                ORDER BY company_id
+                SELECT c.company_id, c.employer_name
+                FROM companies c
+                JOIN company_classification cc ON cc.company_id = c.company_id
+                WHERE cc.`group` IN (1, 2)
+                  AND c.company_id NOT IN (SELECT company_id FROM company_job_sources)
+                ORDER BY c.company_id
                 LIMIT ?
                 """,
                 (limit,),

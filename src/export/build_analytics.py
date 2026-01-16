@@ -36,12 +36,32 @@ def get_discover_cursor(con) -> int:
 
 
 def compute_source_analytics(con) -> SourceAnalytics:
-    total_companies = con.execute("SELECT COUNT(*) FROM companies").fetchone()[0]
-    companies_with_sources = con.execute(
-        "SELECT COUNT(DISTINCT company_id) FROM company_job_sources WHERE is_active=1"
+    # Only count curated priority companies (groups 1 and 2)
+    total_companies = con.execute(
+        """
+        SELECT COUNT(*)
+        FROM companies c
+        JOIN company_classification cc ON cc.company_id=c.company_id
+        WHERE cc.`group` IN (1, 2)
+        """
     ).fetchone()[0]
+
+    companies_with_sources = con.execute(
+        """
+        SELECT COUNT(DISTINCT s.company_id)
+        FROM company_job_sources s
+        JOIN company_classification cc ON cc.company_id=s.company_id
+        WHERE s.is_active=1 AND cc.`group` IN (1, 2)
+        """
+    ).fetchone()[0]
+
     sources_total = con.execute(
-        "SELECT COUNT(*) FROM company_job_sources WHERE is_active=1"
+        """
+        SELECT COUNT(*)
+        FROM company_job_sources s
+        JOIN company_classification cc ON cc.company_id=s.company_id
+        WHERE s.is_active=1 AND cc.`group` IN (1, 2)
+        """
     ).fetchone()[0]
 
     rows = con.execute(
@@ -49,6 +69,7 @@ def compute_source_analytics(con) -> SourceAnalytics:
         SELECT source_type, COUNT(*)
         FROM company_job_sources
         WHERE is_active=1
+          AND company_id IN (SELECT company_id FROM company_classification WHERE `group` IN (1, 2))
         GROUP BY source_type
         ORDER BY COUNT(*) DESC
         """
@@ -153,17 +174,20 @@ def compute_company_priority(con) -> list[dict]:
         """
         SELECT
           c.employer_name,
+          cc.`group` AS grp,
           SUM(CASE WHEN r.first_seen_at >= datetime('now','-7 days') THEN 1 ELSE 0 END) AS new_7d,
           SUM(CASE WHEN r.status='active' THEN 1 ELSE 0 END) AS active_roles,
           AVG(COALESCE(r.match_score, 0)) AS avg_match
         FROM companies c
+        JOIN company_classification cc ON cc.company_id=c.company_id
         LEFT JOIN roles r ON r.company_id = c.company_id
+        WHERE cc.`group` IN (1, 2)
         GROUP BY c.company_id
         """
     ).fetchall()
 
     out = []
-    for name, new_7d, active_roles, avg_match in rows:
+    for name, grp, new_7d, active_roles, avg_match in rows:
         new_7d = int(new_7d or 0)
         active_roles = int(active_roles or 0)
         avg_match = float(avg_match or 0.0)
@@ -180,6 +204,7 @@ def compute_company_priority(con) -> list[dict]:
 
         out.append({
             "company": name,
+            "group": int(grp),
             "new_roles_7d": new_7d,
             "active_roles": active_roles,
             "avg_match_score": round(avg_match, 3),
@@ -193,8 +218,8 @@ def compute_company_priority(con) -> list[dict]:
 
 
 def compute_group_analytics(con) -> dict:
-    counts = {1: 0, 2: 0, 3: 0}
-    roles_by_group = {1: 0, 2: 0, 3: 0}
+    counts = {1: 0, 2: 0}
+    roles_by_group = {1: 0, 2: 0}
 
     for g, n in con.execute(
         'SELECT "group", COUNT(*) FROM company_classification GROUP BY "group"'
@@ -240,14 +265,9 @@ def main() -> None:
     write_json(OUT_DIR / "source_analytics.json", asdict(source_ana))
     write_json(OUT_DIR / "run_summary.json", run_summary)
     write_json(OUT_DIR / "company_priority.json", {"generated_at": utc_now_iso(), "companies": priority})
-    # "visa_group_analytics.json" is kept for backward compatibility with older dashboards.
-    # Backward compatible filename (older dashboards expected this)
-    write_json(OUT_DIR / "visa_group_analytics.json", group_data)
-    # Preferred name
-    write_json(OUT_DIR / "priority_group_analytics.json", group_data)
     write_json(OUT_DIR / "priority_group_analytics.json", group_data)
 
-    print("[analytics] wrote all summary files including visa_group_analytics.json")
+    print("[analytics] wrote all summary files")
 
 
 if __name__ == "__main__":
