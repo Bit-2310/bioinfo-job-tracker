@@ -66,22 +66,39 @@ def compute_source_analytics(con) -> SourceAnalytics:
 
 
 def compute_run_summary(con) -> dict:
+    """Build a compact summary of the most recent pipeline run.
+
+    The DB schema stores run start/end timestamps but does not include a
+    dedicated status column. We infer status based on whether finished_at
+    is NULL.
+
+    Active roles are stored using roles.status='active' (not an is_active
+    boolean).
+    """
+
     last_run = None
     try:
         row = con.execute(
-            "SELECT started_at, finished_at, status FROM runs ORDER BY run_id DESC LIMIT 1"
+            "SELECT started_at, finished_at FROM runs ORDER BY run_id DESC LIMIT 1"
         ).fetchone()
         if row:
-            last_run = {"started_at": row[0], "finished_at": row[1], "status": row[2]}
+            started_at, finished_at = row
+            status = "running" if finished_at is None else "success"
+            last_run = {
+                "started_at": started_at,
+                "finished_at": finished_at,
+                "status": status,
+            }
     except Exception:
         last_run = None
 
     roles_total = con.execute("SELECT COUNT(*) FROM roles").fetchone()[0]
-    active_total = con.execute("SELECT COUNT(*) FROM roles WHERE is_active=1").fetchone()[0]
-    try:
-        companies_ranked = con.execute("SELECT COUNT(*) FROM company_rankings").fetchone()[0]
-    except Exception:
-        companies_ranked = 0
+    active_total = con.execute(
+        "SELECT COUNT(*) FROM roles WHERE status='active'"
+    ).fetchone()[0]
+    companies_ranked = con.execute(
+        "SELECT COUNT(DISTINCT company_id) FROM roles"
+    ).fetchone()[0]
 
     return {
         "generated_at": utc_now_iso(),
@@ -99,8 +116,8 @@ def compute_company_priority(con) -> list[dict]:
         """
         SELECT
           c.employer_name,
-          SUM(CASE WHEN r.first_seen >= datetime('now','-7 days') THEN 1 ELSE 0 END) AS new_7d,
-          SUM(CASE WHEN r.is_active=1 THEN 1 ELSE 0 END) AS active_roles,
+          SUM(CASE WHEN r.first_seen_at >= datetime('now','-7 days') THEN 1 ELSE 0 END) AS new_7d,
+          SUM(CASE WHEN r.status='active' THEN 1 ELSE 0 END) AS active_roles,
           AVG(COALESCE(r.match_score, 0)) AS avg_match
         FROM companies c
         LEFT JOIN roles r ON r.company_id = c.company_id
@@ -140,30 +157,30 @@ def compute_company_priority(con) -> list[dict]:
 
 def compute_group_analytics(con) -> dict:
     counts = {1: 0, 2: 0, 3: 0}
-    roles = {1: 0, 2: 0, 3: 0}
+    roles_by_group = {1: 0, 2: 0, 3: 0}
 
-    for row in con.execute("SELECT group, COUNT(*) FROM company_classification GROUP BY group"):
-        g, n = row
-        counts[g] = n
+    for g, n in con.execute(
+        'SELECT "group", COUNT(*) FROM company_classification GROUP BY "group"'
+    ):
+        if g in counts:
+            counts[int(g)] = int(n)
 
-    for row in con.execute(
+    for g, n in con.execute(
         """
-        SELECT cl.group, COUNT(*)
+        SELECT cl."group", COUNT(*)
         FROM roles r
-        JOIN company_job_sources s ON r.source_id = s.source_id
-        JOIN companies c ON s.company_id = c.company_id
-        JOIN company_classification cl ON c.company_id = cl.company_id
-        WHERE r.is_active=1
-        GROUP BY cl.group
+        JOIN company_classification cl ON r.company_id = cl.company_id
+        WHERE r.status='active'
+        GROUP BY cl."group"
         """
     ):
-        g, n = row
-        roles[g] = n
+        if g in roles_by_group:
+            roles_by_group[int(g)] = int(n)
 
     return {
         "generated_at": utc_now_iso(),
         "group_counts": {f"group{g}": counts[g] for g in counts},
-        "roles_by_group": {f"group{g}": roles[g] for g in roles},
+        "roles_by_group": {f"group{g}": roles_by_group[g] for g in roles_by_group},
     }
 
 

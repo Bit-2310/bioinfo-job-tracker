@@ -1,9 +1,10 @@
 {
-  "group1": 183,
-  "group2": 112,
-  "group3": 4972,
- "examples": {
-  "group1": ["Biogen", "St. Jude", "Cleveland Clinic", "Memorial Sloan Kettering", "Quest Diagnostics", "Regeneron"],
-  "group2": ["MedGenome", "BeyondSpring Pharma", "Acutis Diagnostics", "Hookipa Pharma", "Tempus Labs", "Guardant Health"],
-  "group3": ["City of Chicago", "CVS Pharmacy", "Dept of Health MS", "HCA Healthcare", "Monroe County Hospital", "State Dept of Admin"]
-}}
+  "group1": 0,
+  "group2": 0,
+  "group3": 0,
+  "examples": {
+    "group1": [],
+    "group2": [],
+    "group3": []
+  }
+}
