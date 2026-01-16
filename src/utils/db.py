@@ -137,6 +137,9 @@ def ensure_tables(con: sqlite3.Connection) -> None:
     )
 
     # Backward/forward compatible migrations
+    _add_column_if_missing(con, "companies", "employer_name_norm", "TEXT")
+    _add_column_if_missing(con, "company_classification", "source_note", "TEXT")
+    _add_column_if_missing(con, "company_classification", "updated_at", "TEXT")
     _add_column_if_missing(con, "roles", "apply_url_canonical", "TEXT")
     _add_column_if_missing(con, "roles", "source_job_id", "TEXT")
 

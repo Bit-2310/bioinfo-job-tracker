@@ -33,7 +33,14 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from src.utils.db import connect, ensure_tables
-def ensure_company_classification_schema(cur):
+
+
+def ensure_company_classification_schema(cur) -> None:
+    """SQLite-safe migrations for older DBs.
+
+    The pipeline evolved to store a couple metadata fields on company_classification.
+    Older jobs.db files may not have them, so we add them if missing.
+    """
     cur.execute("PRAGMA table_info(company_classification)")
     existing_cols = {row[1] for row in cur.fetchall()}
 
@@ -41,6 +48,13 @@ def ensure_company_classification_schema(cur):
         cur.execute(
             "ALTER TABLE company_classification "
             "ADD COLUMN source_note TEXT"
+        )
+
+    if "updated_at" not in existing_cols:
+        # Keep it nullable for backward-compatibility; we'll write datetime('now') going forward.
+        cur.execute(
+            "ALTER TABLE company_classification "
+            "ADD COLUMN updated_at TEXT"
         )
 
 
@@ -90,8 +104,8 @@ def main() -> None:
     ap.add_argument(
         "--min-rows",
         type=int,
-        default=1,
-        help="Minimum non-empty rows required (safety check, default: 1)",
+        default=5,
+        help="Minimum non-empty rows required (safety check, default: 5)",
     )
     args = ap.parse_args()
 
@@ -112,16 +126,24 @@ def main() -> None:
 
         for r in rows:
             n = norm_name(r.company)
-            cur.execute(
-                """INSERT INTO companies (employer_name, employer_name_norm)
-                   VALUES (?, ?)
-                   ON CONFLICT(employer_name_norm) DO UPDATE SET employer_name=excluded.employer_name
-                """,
-                (r.company, n),
-            )
-            cid = cur.execute(
-                "SELECT company_id FROM companies WHERE employer_name_norm=?", (n,)
-            ).fetchone()[0]
+            # Be robust to older schemas that don't enforce a UNIQUE constraint on employer_name_norm.
+            row = cur.execute(
+                "SELECT company_id, employer_name FROM companies WHERE employer_name_norm=?",
+                (n,),
+            ).fetchone()
+            if row:
+                cid = row[0]
+                if (row[1] or "") != r.company:
+                    cur.execute(
+                        "UPDATE companies SET employer_name=? WHERE company_id=?",
+                        (r.company, cid),
+                    )
+            else:
+                cur.execute(
+                    "INSERT INTO companies (employer_name, employer_name_norm) VALUES (?, ?)",
+                    (r.company, n),
+                )
+                cid = cur.lastrowid
 
             cur.execute(
                 """INSERT INTO company_classification (company_id, `group`, source_note, updated_at)
@@ -153,10 +175,24 @@ def main() -> None:
             if keep_ids:
                 keep_marks = ",".join(["?"] * len(keep_ids))
 
+                # Delete dependents first (FK-safe order)
                 deleted_roles = cur.execute(
                     f"DELETE FROM roles WHERE company_id NOT IN ({keep_marks})",
                     tuple(keep_ids),
                 ).rowcount
+
+                # source_runs references both company_job_sources and companies
+                cur.execute(
+                    f"DELETE FROM source_runs WHERE company_id NOT IN ({keep_marks})",
+                    tuple(keep_ids),
+                )
+
+                # Some DBs may have H-1B enrichment rows that reference companies
+                cur.execute(
+                    f"DELETE FROM h1b_employer_sites WHERE company_id NOT IN ({keep_marks})",
+                    tuple(keep_ids),
+                )
+
                 deleted_sources = cur.execute(
                     f"DELETE FROM company_job_sources WHERE company_id NOT IN ({keep_marks})",
                     tuple(keep_ids),
