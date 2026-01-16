@@ -1,69 +1,65 @@
 <!DOCTYPE html>
-<html>
-<head>
-  <meta charset="utf-8"/>
-  <meta name="viewport" content="width=device-width, initial-scale=1"/>
-  <title>Bioinformatics Job Tracker</title>
-  <link rel="stylesheet" href="styles.css"/>
-</head>
-<body>
-  <header class="header">
-    <div class="title">
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bioinformatics Job Tracker</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  </head>
+  <body>
+    <main>
       <h1>Bioinformatics Job Tracker</h1>
-      <div class="sub">
-        <span id="last-updated">Last updated: —</span>
-        <span class="dot">•</span>
-        <span id="counts">—</span>
-      </div>
-    </div>
-    <div class="controls">
-      <input id="q" type="search" placeholder="Search company, role, location…" />
-      <select id="sort">
-        <option value="newest">Sort: newest</option>
-        <option value="score">Sort: best match</option>
-        <option value="company">Sort: company</option>
-      </select>
-      <select id="family">
-        <option value="all">All families</option>
-        <option value="bioinformatics">Bioinformatics</option>
-        <option value="comp_bio">Computational biology</option>
-        <option value="genomics">Genomics</option>
-        <option value="ds_bio">Data science (bio)</option>
-        <option value="other">Other</option>
-      </select>
-    </div>
-  </header>
 
-  <nav class="tabs">
-    <button class="tab active" data-tab="new">New</button>
-    <button class="tab" data-tab="active">Active</button>
-    <button class="tab" data-tab="rank">Rankings</button>
-  </nav>
+      <section class="summary-grid">
+        <div class="card">
+          <h2>Total New Roles</h2>
+          <p id="total-roles">...</p>
+        </div>
 
-  <main class="main">
-    <section id="panel-new" class="panel show">
-      <h2>New roles (last 24h)</h2>
-      <div class="hint">These are roles first seen within the last 24 hours.</div>
-      <div id="new-table" class="table"></div>
-    </section>
+        <div class="card">
+          <h2>Jobs by Source</h2>
+          <canvas id="sourceChart" height="150"></canvas>
+        </div>
 
-    <section id="panel-active" class="panel">
-      <h2>Active roles</h2>
-      <div class="hint">All roles currently marked active.</div>
-      <div id="active-table" class="table"></div>
-    </section>
+        <div class="card">
+          <h2>Top Companies</h2>
+          <ul id="top-companies"></ul>
+        </div>
 
-    <section id="panel-rank" class="panel">
-      <h2>Company rankings</h2>
-      <div class="hint">Prioritized by recent activity + total active roles + average match score.</div>
-      <div id="rank-table" class="table"></div>
-    </section>
-  </main>
+        <div class="card">
+          <h2>Visa Sponsorship Groups</h2>
+          <div id="group-summary">
+            <p><strong>Group 1</strong>: <span id="group1-count">...</span></p>
+            <p><strong>Group 2</strong>: <span id="group2-count">...</span></p>
+            <p><strong>Group 3</strong>: <span id="group3-count">...</span></p>
+            <label><input type="checkbox" id="toggle-group2" /> Include Group 2</label>
+          </div>
+        </div>
+      </section>
 
-  <footer class="footer">
-    <span>Tip: run the workflow a few times to populate sources. Greenhouse/Lever roles will appear first.</span>
-  </footer>
+      <section>
+        <h2>New Roles</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Company</th>
+              <th>Location</th>
+              <th>Posted</th>
+              <th>Link</th>
+            </tr>
+          </thead>
+          <tbody id="roles-table"></tbody>
+        </table>
+      </section>
 
-  <script src="app.js"></script>
-</body>
+      <section>
+        <h2>Run Summary</h2>
+        <pre id="track-yml"></pre>
+      </section>
+    </main>
+
+    <script src="app.js"></script>
+  </body>
 </html>
