@@ -13,29 +13,64 @@
 
       <section class="summary-grid">
         <div class="card">
-          <h2>Total New Roles</h2>
-          <p id="total-roles">...</p>
+          <h2>New Roles</h2>
+          <p class="big" id="total-new-roles">...</p>
+          <p class="muted">in the last window</p>
         </div>
 
         <div class="card">
-          <h2>Jobs by Source</h2>
+          <h2>Active Roles</h2>
+          <p class="big" id="total-active-roles">...</p>
+          <p class="muted">currently open</p>
+        </div>
+
+        <div class="card">
+          <h2>Roles by ATS</h2>
           <canvas id="sourceChart" height="150"></canvas>
         </div>
 
         <div class="card">
-          <h2>Top Companies</h2>
-          <ul id="top-companies"></ul>
-        </div>
-
-        <div class="card">
-          <h2>Visa Sponsorship Groups</h2>
+          <h2>Priority Groups</h2>
           <div id="group-summary">
             <p><strong>Group 1</strong>: <span id="group1-count">...</span></p>
             <p><strong>Group 2</strong>: <span id="group2-count">...</span></p>
             <p><strong>Group 3</strong>: <span id="group3-count">...</span></p>
-            <label><input type="checkbox" id="toggle-group2" /> Include Group 2</label>
+            <label><input type="checkbox" id="toggle-group2" /> Include Group 2 in tables</label>
           </div>
         </div>
+
+        <div class="card">
+          <h2>Pipeline Health</h2>
+          <div class="kv">
+            <div><span class="k">Last status</span><span id="last-run-status">...</span></div>
+            <div><span class="k">Last finished</span><span id="last-run-finished">...</span></div>
+            <div><span class="k">Sources ok</span><span id="sources-success">...</span></div>
+            <div><span class="k">Sources failed</span><span id="sources-fail">...</span></div>
+            <div><span class="k">Roles seen</span><span id="roles-seen">...</span></div>
+            <div><span class="k">New roles</span><span id="roles-new">...</span></div>
+            <div><span class="k">Companies</span><span id="total-companies">...</span></div>
+            <div><span class="k">With sources</span><span id="companies-with-sources">...</span></div>
+            <div><span class="k">Active sources</span><span id="sources-total">...</span></div>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h2>Top Picks (apply today)</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Title</th>
+              <th>Company</th>
+              <th>Location</th>
+              <th>Family</th>
+              <th>Score</th>
+              <th>Seen</th>
+              <th>Link</th>
+            </tr>
+          </thead>
+          <tbody id="top-picks-table"></tbody>
+        </table>
       </section>
 
       <section>
@@ -46,17 +81,29 @@
               <th>Title</th>
               <th>Company</th>
               <th>Location</th>
-              <th>Posted</th>
+              <th>Score</th>
+              <th>Seen</th>
               <th>Link</th>
             </tr>
           </thead>
-          <tbody id="roles-table"></tbody>
+          <tbody id="new-roles-table"></tbody>
         </table>
       </section>
 
       <section>
-        <h2>Run Summary</h2>
-        <pre id="track-yml"></pre>
+        <h2>Company Leaderboard</h2>
+        <table>
+          <thead>
+            <tr>
+              <th>Company</th>
+              <th>Label</th>
+              <th>New (7d)</th>
+              <th>Active</th>
+              <th>Avg Score</th>
+            </tr>
+          </thead>
+          <tbody id="company-leaderboard"></tbody>
+        </table>
       </section>
     </main>
 

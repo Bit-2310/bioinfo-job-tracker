@@ -100,6 +100,42 @@ def compute_run_summary(con) -> dict:
         "SELECT COUNT(DISTINCT company_id) FROM roles"
     ).fetchone()[0]
 
+    # Per-source telemetry for the last run (if present)
+    src_stats = {
+        "sources_success": 0,
+        "sources_fail": 0,
+        "roles_seen": 0,
+        "new_roles": 0,
+        "updated_roles": 0,
+    }
+    try:
+        row = con.execute("SELECT run_id FROM runs ORDER BY run_id DESC LIMIT 1").fetchone()
+        if row:
+            last_run_id = int(row[0])
+            s = con.execute(
+                """
+                SELECT
+                  SUM(CASE WHEN status='success' THEN 1 ELSE 0 END),
+                  SUM(CASE WHEN status='fail' THEN 1 ELSE 0 END),
+                  SUM(roles_seen),
+                  SUM(new_roles),
+                  SUM(updated_roles)
+                FROM source_runs
+                WHERE run_id=?
+                """,
+                (last_run_id,),
+            ).fetchone()
+            if s:
+                src_stats = {
+                    "sources_success": int(s[0] or 0),
+                    "sources_fail": int(s[1] or 0),
+                    "roles_seen": int(s[2] or 0),
+                    "new_roles": int(s[3] or 0),
+                    "updated_roles": int(s[4] or 0),
+                }
+    except Exception:
+        pass
+
     return {
         "generated_at": utc_now_iso(),
         "last_run": last_run,
@@ -108,6 +144,7 @@ def compute_run_summary(con) -> dict:
             "active_roles": int(active_total),
             "ranked_companies": int(companies_ranked),
         },
+        "sources": src_stats,
     }
 
 
@@ -203,7 +240,12 @@ def main() -> None:
     write_json(OUT_DIR / "source_analytics.json", asdict(source_ana))
     write_json(OUT_DIR / "run_summary.json", run_summary)
     write_json(OUT_DIR / "company_priority.json", {"generated_at": utc_now_iso(), "companies": priority})
+    # "visa_group_analytics.json" is kept for backward compatibility with older dashboards.
+    # Backward compatible filename (older dashboards expected this)
     write_json(OUT_DIR / "visa_group_analytics.json", group_data)
+    # Preferred name
+    write_json(OUT_DIR / "priority_group_analytics.json", group_data)
+    write_json(OUT_DIR / "priority_group_analytics.json", group_data)
 
     print("[analytics] wrote all summary files including visa_group_analytics.json")
 

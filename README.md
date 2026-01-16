@@ -1,16 +1,16 @@
 # Bioinfo Job Tracker
 
-Track and analyze bioinformatics job postings from curated company sources, with an integrated dashboard, sponsor-aware filtering, and smart analytics.
+Track and analyze bioinformatics job postings from curated company sources, with an integrated dashboard and smart analytics.
 
 ---
 
 ## 🚀 What This Does
 
 - Collects and tracks bioinformatics job postings
-- Prioritizes companies by **H-1B sponsorship activity**:
-  - **Group 1**: Active sponsors (new petitions in FY’25)
-  - **Group 2**: Past sponsors (only renewals, no new filings in FY’25)
-  - **Group 3**: Non-sponsors (excluded from tracking)
+- Prioritizes companies by **your job-fit priority groups**:
+  - **Group 1**: Highest priority companies (best fit for Pranava)
+  - **Group 2**: Medium priority companies (good fit, lower urgency)
+  - **Group 3**: Low priority / exploration companies
 - Outputs clean frontend JSON to power a GitHub Pages dashboard
 - Auto-builds analytics like job counts, top companies, source breakdown
 
@@ -52,17 +52,17 @@ Then push to GitHub → dashboard updates via GitHub Pages.
 
 ---
 
-## 📊 Visa Sponsorship Grouping (FY’25)
+## 🎯 Priority Grouping
 
-We use the FY’25 H-1B disclosure dataset to score and classify companies:
+The three groups are used as *priority tiers* for scanning and for the dashboard. H-1B sponsorship is a helpful signal, but it is not what defines the groups.
 
-| Group | Description                              | Behavior         |
-|-------|------------------------------------------|------------------|
-| G1    | Active sponsors (new H-1Bs approved/filed) | ✅ Always tracked |
-| G2    | Past sponsors (only renewals, no new)    | ⚙️ Optional       |
-| G3    | No record of H-1B filings                | 🚫 Skipped        |
+| Group | Meaning (for Pranava)                               | Default scanning |
+|-------|------------------------------------------------------|-----------------|
+| G1    | High-fit, high priority companies                    | ✅ Every run      |
+| G2    | Good fit but lower urgency                           | ⚙️ Every ~24h     |
+| G3    | Low priority / exploration                           | 🧪 Sampled        |
 
-Toggle inclusion of Group 2 in the dashboard via checkbox.
+You can toggle inclusion of Group 2 in dashboard tables via checkbox.
 
 ### Example output (`group_summary.json`):
 ```json
@@ -89,8 +89,9 @@ Toggle inclusion of Group 2 in the dashboard via checkbox.
 | `run_summary.json`          | Time, counts, status of latest pipeline run |
 | `source_analytics.json`     | Sources per company + types                 |
 | `company_priority.json`     | Tiered ranking of most active companies     |
-| `group_summary.json`        | Visa sponsor group counts + examples        |
-| `visa_group_analytics.json` | Roles per group (G1/G2/G3 breakdown)        |
+| `group_summary.json`        | Priority group counts + examples            |
+| `priority_group_analytics.json` | Roles per group (G1/G2/G3 breakdown)    |
+| `visa_group_analytics.json` | Backward-compatible alias                    |
 
 All files are updated automatically after each run.
 
@@ -117,14 +118,15 @@ flowchart TD
 
 ---
 
-## 🧩 To Do (Next Phases)
-- [ ] Score companies based on role frequency (ranking inside groups)
-- [ ] Add Workday JSON parser (for better job extraction)
+## 🧩 Next Phases
+- [ ] Improve discovery/verification so sources grow steadily (less reliance on DDG HTML)
+- [ ] Add Workday adapter (major coverage win)
+- [ ] Add seed source import (`data/sources_seed.csv`) for deterministic sources
 - [ ] Expand email/alert integrations
 
 ---
 
 ## 📎 Credits
-- H-1B Data via [USCIS FY’25 Disclosure Dataset]
+- Optional sponsorship signal can be derived from the USCIS FY’25 Disclosure Dataset
 - Dashboard built with Chart.js + GitHub Pages
 - Inspired by real-world job hunting challenges in bioinformatics

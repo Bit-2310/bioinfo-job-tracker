@@ -12,6 +12,9 @@ verify:
 
 track:
   mark_closed_after_days_not_seen: 10
+  max_sources_per_run: 250
+  group2_rescan_hours: 24
+  group3_sample_per_run: 15
 
 export:
   new_window_hours: 24

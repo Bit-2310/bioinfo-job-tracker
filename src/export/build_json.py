@@ -14,6 +14,7 @@ Outputs (written to `docs/data/`):
 - active_roles.json
 - company_rankings.json
 - group_summary.json
+ - top_picks.json
 
 Notes
 - "New" roles are based on `roles.first_seen_at` and the configured
@@ -172,6 +173,25 @@ def build_group_summary(con: sqlite3.Connection) -> dict:
     }
 
 
+def build_top_picks(active_roles: list[dict], limit: int = 25) -> list[dict]:
+    """Select the best roles to apply to today.
+
+    Heuristic:
+    - Prefer group 1 + group 2
+    - Sort by match_score desc, then most recent first_seen_at
+    """
+    picked = [r for r in active_roles if r.get("group") in (1, 2)]
+    # Sort by score desc, then recency desc.
+    picked.sort(
+        key=lambda r: (
+            float(r.get("match_score") or 0.0),
+            str(r.get("first_seen_at") or ""),
+        ),
+        reverse=True,
+    )
+    return picked[:limit]
+
+
 def main() -> None:
     con = sqlite3.connect(DB_PATH)
     try:
@@ -190,6 +210,7 @@ def main() -> None:
 
         rankings = build_company_rankings(active_roles)
         group_summary = build_group_summary(con)
+        top_picks = build_top_picks(active_roles, limit=25)
 
         meta = {
             "last_run": last_run,
@@ -206,6 +227,7 @@ def main() -> None:
         write_json(OUT_DIR / "active_roles.json", {"meta": meta, "roles": active_roles})
         write_json(OUT_DIR / "company_rankings.json", {"meta": meta, "companies": rankings})
         write_json(OUT_DIR / "group_summary.json", group_summary)
+        write_json(OUT_DIR / "top_picks.json", {"meta": meta, "roles": top_picks})
 
         print("✅ JSON exports complete.")
     finally:

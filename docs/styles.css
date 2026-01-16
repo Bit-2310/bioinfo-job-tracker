@@ -19,6 +19,31 @@ h1 {
   margin-bottom: 1rem;
 }
 
+.big {
+  font-size: 2rem;
+  margin: 0.25rem 0;
+}
+
+.muted {
+  color: #b5b5b5;
+  margin: 0;
+}
+
+.kv {
+  display: grid;
+  gap: 0.35rem;
+}
+
+.kv > div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.kv .k {
+  color: #b5b5b5;
+}
+
 .card {
   background-color: #2a2a2a;
   padding: 1rem;

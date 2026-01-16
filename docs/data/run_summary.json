@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-01-16T18:48:09+00:00",
+  "generated_at": "2026-01-16T19:57:52+00:00",
   "last_run": {
     "started_at": "2026-01-15T22:58:17+00:00",
     "finished_at": "2026-01-15T22:58:17+00:00",
@@ -9,5 +9,12 @@
     "roles_total": 0,
     "active_roles": 0,
     "ranked_companies": 0
+  },
+  "sources": {
+    "sources_success": 0,
+    "sources_fail": 0,
+    "roles_seen": 0,
+    "new_roles": 0,
+    "updated_roles": 0
   }
 }
