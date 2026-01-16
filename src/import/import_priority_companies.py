@@ -33,6 +33,15 @@ from dataclasses import dataclass
 from pathlib import Path
 
 from src.utils.db import connect, ensure_tables
+def ensure_company_classification_schema(cur):
+    cur.execute("PRAGMA table_info(company_classification)")
+    existing_cols = {row[1] for row in cur.fetchall()}
+
+    if "source_note" not in existing_cols:
+        cur.execute(
+            "ALTER TABLE company_classification "
+            "ADD COLUMN source_note TEXT"
+        )
 
 
 def norm_name(name: str) -> str:
@@ -99,6 +108,7 @@ def main() -> None:
     with connect(args.db) as con:
         ensure_tables(con)
         cur = con.cursor()
+        ensure_company_classification_schema(cur)
 
         for r in rows:
             n = norm_name(r.company)
