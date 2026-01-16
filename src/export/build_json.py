@@ -17,7 +17,7 @@ group_counts = defaultdict(int)
 group_company_counts = defaultdict(lambda: defaultdict(int))
 
 for row in c.execute("""
-  SELECT r.title, c.name, r.location, r.posted, r.url, r.source, cl.group
+  SELECT r.title, c.name, r.location, r.posted, r.url, r.source, cl."group"
   FROM roles r
   JOIN company_job_sources s ON r.source_id = s.source_id
   JOIN companies c ON s.company_id = c.company_id
