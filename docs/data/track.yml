@@ -43,16 +43,11 @@ jobs:
       - name: Build analytics
         run: PYTHONPATH=. python src/export/build_analytics.py
 
-      - name: Copy workflow to dashboard
-        run: |
-          mkdir -p docs/data
-          cp .github/workflows/track.yml docs/data/track.yml
-
       - name: Commit updates
         run: |
           git config user.name "job-tracker-bot"
           git config user.email "job-tracker-bot@users.noreply.github.com"
           # Pages is served from /docs; JSON is exported to docs/data
-          git add db/jobs.db docs/data/*.json docs/data/track.yml || true
+          git add db/jobs.db docs/data/*.json || true
           git commit -m "Update jobs data" || echo "No changes"
           git push
