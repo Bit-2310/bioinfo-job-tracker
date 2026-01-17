@@ -61,10 +61,19 @@ def get_last_run_ts(con: sqlite3.Connection) -> str:
     except Exception:
         pass
     return utc_now_iso()
+  def fetch_roles(con: sqlite3.Connection, where_sql: str, params: tuple) -> list[dict]:
+    """Fetch roles joined with company + classification.
 
+    where_sql can start with 'WHERE' or 'AND' or be empty.
+    This function always ensures the final SQL has exactly one WHERE clause.
+    """
+    where_sql = (where_sql or "").strip()
+    if where_sql:
+        if where_sql.upper().startswith("WHERE"):
+            where_sql = "AND " + where_sql[5:].strip()
+        elif not where_sql.upper().startswith("AND"):
+            where_sql = "AND " + where_sql
 
-def fetch_roles(con: sqlite3.Connection, where_sql: str, params: tuple) -> list[dict]:
-    """Fetch roles joined with company + classification."""
     rows = con.execute(
         f"""
         SELECT
@@ -125,7 +134,6 @@ def fetch_roles(con: sqlite3.Connection, where_sql: str, params: tuple) -> list[
             }
         )
     return out
-
 
 def build_company_rankings(active_roles: list[dict], top_n: int = 10) -> list[dict]:
     counts: dict[str, int] = {}
