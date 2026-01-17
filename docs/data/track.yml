@@ -28,6 +28,14 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
+      - name: Load priority companies (required)
+        run: |
+          PYTHONPATH=. python src/import/import_priority_companies.py \
+            --csv data/priority_companies.csv \
+            --db db/jobs.db \
+            --prune \
+            --min-rows 5
+
       - name: Discover sources
         run: PYTHONPATH=. python src/verify/discover_sources.py
 
@@ -43,11 +51,16 @@ jobs:
       - name: Build analytics
         run: PYTHONPATH=. python src/export/build_analytics.py
 
+      - name: Copy workflow to dashboard
+        run: |
+          mkdir -p docs/data
+          cp .github/workflows/track.yml docs/data/track.yml
+
       - name: Commit updates
         run: |
           git config user.name "job-tracker-bot"
           git config user.email "job-tracker-bot@users.noreply.github.com"
           # Pages is served from /docs; JSON is exported to docs/data
-          git add db/jobs.db docs/data/*.json || true
+          git add db/jobs.db docs/data/*.json docs/data/track.yml || true
           git commit -m "Update jobs data" || echo "No changes"
           git push
