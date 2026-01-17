@@ -60,18 +60,22 @@ function renderPipelineHealth(runSummary, sourceAnalytics) {
   setText("total-companies", sourceAnalytics.total_companies ?? 0);
   setText("companies-with-sources", sourceAnalytics.companies_with_sources ?? 0);
   setText("sources-total", sourceAnalytics.sources_total ?? 0);
+  setText("discover-cursor", sourceAnalytics.cursor ?? 0);
 }
 
 function renderGroupSummary(summary) {
   setText("group1-count", summary.group1 ?? 0);
   setText("group2-count", summary.group2 ?? 0);
-  setText("group3-count", summary.group3 ?? 0);
 }
 
 function renderTopPicks(roles) {
   const tbody = document.getElementById("top-picks-table");
+  const empty = document.getElementById("top-picks-empty");
   if (!tbody) return;
+
   tbody.innerHTML = "";
+  let n = 0;
+
   roles.filter(roleGroupOk).forEach(role => {
     const row = document.createElement("tr");
     row.innerHTML = `
@@ -84,13 +88,21 @@ function renderTopPicks(roles) {
       <td><a href="${role.apply_url}" target="_blank" rel="noreferrer">Apply</a></td>
     `;
     tbody.appendChild(row);
+    n += 1;
   });
+
+  if (empty) empty.style.display = n === 0 ? "block" : "none";
 }
+
 
 function renderNewRoles(roles) {
   const tbody = document.getElementById("new-roles-table");
+  const empty = document.getElementById("new-roles-empty");
   if (!tbody) return;
+
   tbody.innerHTML = "";
+  let n = 0;
+
   roles.filter(roleGroupOk).forEach(role => {
     const row = document.createElement("tr");
     row.innerHTML = `
@@ -102,8 +114,12 @@ function renderNewRoles(roles) {
       <td><a href="${role.apply_url}" target="_blank" rel="noreferrer">Apply</a></td>
     `;
     tbody.appendChild(row);
+    n += 1;
   });
+
+  if (empty) empty.style.display = n === 0 ? "block" : "none";
 }
+
 
 function renderSourceChart(roles) {
   const counts = {};
@@ -115,7 +131,15 @@ function renderSourceChart(roles) {
   const labels = Object.keys(counts);
   const data = labels.map(k => counts[k]);
 
-  new Chart(document.getElementById("sourceChart"), {
+  const canvas = document.getElementById("sourceChart");
+  if (!canvas) return;
+
+  // Avoid Chart.js errors when there is no data yet.
+  if (labels.length === 0) {
+    return;
+  }
+
+  new Chart(canvas, {
     type: "doughnut",
     data: {
       labels,

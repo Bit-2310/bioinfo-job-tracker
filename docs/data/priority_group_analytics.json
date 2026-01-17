@@ -1,13 +1,11 @@
 {
-  "generated_at": "2026-01-16T19:57:52+00:00",
+  "generated_at": "2026-01-17T02:24:42+00:00",
   "group_counts": {
-    "group1": 0,
-    "group2": 0,
-    "group3": 0
+    "group1": 240,
+    "group2": 16
   },
   "roles_by_group": {
     "group1": 0,
-    "group2": 0,
-    "group3": 0
+    "group2": 0
   }
 }

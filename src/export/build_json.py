@@ -61,7 +61,7 @@ def get_last_run_ts(con: sqlite3.Connection) -> str:
     except Exception:
         pass
     return utc_now_iso()
-  def fetch_roles(con: sqlite3.Connection, where_sql: str, params: tuple) -> list[dict]:
+def fetch_roles(con: sqlite3.Connection, where_sql: str, params: tuple) -> list[dict]:
     """Fetch roles joined with company + classification.
 
     where_sql can start with 'WHERE' or 'AND' or be empty.

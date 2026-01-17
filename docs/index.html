@@ -33,9 +33,7 @@
           <h2>Priority Groups</h2>
           <div id="group-summary">
             <p><strong>Group 1</strong>: <span id="group1-count">...</span></p>
-            <p><strong>Group 2</strong>: <span id="group2-count">...</span></p>
-            <p><strong>Group 3</strong>: <span id="group3-count">...</span></p>
-            <label><input type="checkbox" id="toggle-group2" /> Include Group 2 in tables</label>
+            <p><strong>Group 2</strong>: <span id="group2-count">...</span></p>            <label><input type="checkbox" id="toggle-group2" /> Include Group 2 in tables</label>
           </div>
         </div>
 
@@ -51,6 +49,7 @@
             <div><span class="k">Companies</span><span id="total-companies">...</span></div>
             <div><span class="k">With sources</span><span id="companies-with-sources">...</span></div>
             <div><span class="k">Active sources</span><span id="sources-total">...</span></div>
+            <div><span class="k">Discovery cursor</span><span id="discover-cursor">...</span></div>
           </div>
         </div>
       </section>
@@ -71,6 +70,7 @@
           </thead>
           <tbody id="top-picks-table"></tbody>
         </table>
+        <p id="top-picks-empty" class="muted empty-note" style="display:none;">No roles yet. Once sources are discovered for Group 1/2 companies, Top Picks will populate here.</p>
       </section>
 
       <section>
@@ -88,6 +88,7 @@
           </thead>
           <tbody id="new-roles-table"></tbody>
         </table>
+        <p id="new-roles-empty" class="muted empty-note" style="display:none;">No new roles in the current window.</p>
       </section>
 
       <section>

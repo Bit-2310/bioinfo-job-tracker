@@ -1,10 +1,22 @@
 {
-  "group1": 0,
-  "group2": 0,
-  "group3": 0,
+  "group1": 240,
+  "group2": 16,
   "examples": {
-    "group1": [],
-    "group2": [],
-    "group3": []
+    "group1": [
+      "10x Genomics",
+      "23andMe",
+      "AWS HealthOmics",
+      "AbbVie",
+      "Abbott Laboratories",
+      "Abbott Molecular"
+    ],
+    "group2": [
+      "Columbia University",
+      "Cornell University",
+      "Duke University",
+      "Emory University",
+      "Johns Hopkins University",
+      "Northwestern University"
+    ]
   }
 }
