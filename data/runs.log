@@ -1,0 +1,1 @@
+2026-01-23T22:02:25+00:00Z [OK] companies=2 fetched=49 new=49 dup=0 skipped_bad=0 fetched_by_source={'greenhouse': 49, 'lever': 0, 'ashby': 0, 'icims': 0} errors={'greenhouse': 0, 'lever': 0, 'ashby': 0, 'icims': 0}
