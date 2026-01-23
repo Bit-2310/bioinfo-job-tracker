@@ -1,328 +1,196 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="UTF-8" />
   <title>Bioinformatics Job Tracker</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
   <style>
-    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; margin: 20px; }
-    h1 { margin: 0 0 6px 0; font-size: 22px; }
-    .sub { color: #444; margin: 0 0 18px 0; }
-    .row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; margin: 12px 0; }
-    input, select { padding: 8px 10px; font-size: 14px; }
-    .pill { display: inline-block; padding: 2px 8px; border-radius: 999px; font-size: 12px; border: 1px solid #ccc; }
-    table { width: 100%; border-collapse: collapse; margin-top: 12px; }
-    th, td { border-bottom: 1px solid #e6e6e6; padding: 10px 8px; vertical-align: top; font-size: 13px; }
-    th { text-align: left; background: #fafafa; position: sticky; top: 0; z-index: 1; }
-    a { color: #0b57d0; text-decoration: none; }
-    a:hover { text-decoration: underline; }
-    .muted { color: #666; }
-    .right { margin-left: auto; }
-    .footer { margin-top: 18px; color: #666; font-size: 12px; }
-    .error { color: #b00020; }
-    .ok { color: #0b6; }
-    .nowrap { white-space: nowrap; }
+    body {
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      margin: 20px;
+      background: #fafafa;
+      color: #111;
+    }
+    h1 {
+      margin-bottom: 4px;
+    }
+    .sub {
+      color: #555;
+      margin-bottom: 16px;
+    }
+    .controls {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-bottom: 12px;
+    }
+    select, input {
+      padding: 6px 8px;
+      font-size: 14px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: #fff;
+    }
+    th, td {
+      padding: 8px;
+      border-bottom: 1px solid #e5e5e5;
+      font-size: 13px;
+      vertical-align: top;
+    }
+    th {
+      background: #f0f0f0;
+      text-align: left;
+      position: sticky;
+      top: 0;
+    }
+    a {
+      color: #0b57d0;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    .pill {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #eee;
+      font-size: 12px;
+    }
+    .status {
+      margin-top: 8px;
+      color: #555;
+      font-size: 13px;
+    }
+    .error {
+      color: #b00020;
+    }
   </style>
 </head>
 
 <body>
-  <h1>Bioinformatics Job Tracker</h1>
-  <p class="sub">
-    Updated by GitHub Actions. Default view shows <code>data/jobs_latest.csv</code> (new jobs from the most recent run).
-  </p>
 
-  <div class="row">
-    <label>
-      View:
-      <select id="view">
-        <option value="latest" selected>Latest (new)</option>
-        <option value="history">History (all)</option>
-      </select>
-    </label>
+<h1>Bioinformatics Job Tracker</h1>
+<p class="sub">
+  Automated ATS job tracking (Greenhouse, Lever, Ashby, iCIMS).
+</p>
 
-    <label>
-      Search:
-      <input id="q" type="search" placeholder="bioinformatics, genomics, company..." size="32" />
-    </label>
+<div class="controls">
+  <label>
+    View:
+    <select id="view">
+      <option value="latest">Latest (new)</option>
+      <option value="history">History (all)</option>
+    </select>
+  </label>
 
-    <label>
-      Remote:
-      <select id="remote">
-        <option value="">All</option>
-        <option value="remote">Remote</option>
-        <option value="hybrid">Hybrid</option>
-        <option value="onsite">Onsite</option>
-        <option value="unknown">Unknown</option>
-      </select>
-    </label>
+  <label>
+    Search:
+    <input id="search" type="search" placeholder="company, title, location…" />
+  </label>
+</div>
 
-    <label>
-      Source:
-      <select id="source">
-        <option value="">All</option>
-      </select>
-    </label>
+<table>
+  <thead>
+    <tr>
+      <th>Company</th>
+      <th>Job title</th>
+      <th>Location</th>
+      <th>Remote</th>
+      <th>Posted</th>
+      <th>Source</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody id="rows"></tbody>
+</table>
 
-    <span id="status" class="right muted">Loading…</span>
-  </div>
-
-  <div id="msg" class="muted"></div>
-
-  <table>
-    <thead>
-      <tr>
-        <th>Company</th>
-        <th>Job title</th>
-        <th>Location</th>
-        <th class="nowrap">Remote/Hybrid</th>
-        <th class="nowrap">Posting date</th>
-        <th class="nowrap">Source</th>
-        <th class="nowrap">Scraped</th>
-        <th>Link</th>
-      </tr>
-    </thead>
-    <tbody id="rows"></tbody>
-  </table>
-
-  <div class="footer">
-    Tip: If the table is empty, it usually means the latest run found no new jobs.
-    Check <code>data/runs.log</code> for the last run summary.
-  </div>
+<div id="status" class="status">Loading…</div>
 
 <script>
-  const PATHS = {
+  const FILES = {
     latest: "data/jobs_latest.csv",
-    history: "data/jobs_history.csv",
+    history: "data/jobs_history.csv"
   };
 
-  // Prevent giant history files from freezing the browser.
-  const MAX_RENDER = 750;
-
   function parseCSV(text) {
-    // Minimal CSV parser that supports quoted fields and commas inside quotes.
-    const rows = [];
-    let row = [];
-    let cur = "";
-    let inQuotes = false;
-
-    for (let i = 0; i < text.length; i++) {
-      const ch = text[i];
-      const next = text[i + 1];
-
-      if (ch === '"' && inQuotes && next === '"') { // escaped quote
-        cur += '"'; i++;
-      } else if (ch === '"') {
-        inQuotes = !inQuotes;
-      } else if (ch === "," && !inQuotes) {
-        row.push(cur); cur = "";
-      } else if ((ch === "\n" || ch === "\r") && !inQuotes) {
-        if (ch === "\r" && next === "\n") i++;
-        row.push(cur); cur = "";
-        // skip empty last line
-        if (row.length > 1 || row[0].trim() !== "") rows.push(row);
-        row = [];
-      } else {
-        cur += ch;
-      }
-    }
-    // last cell
-    if (cur.length || row.length) {
-      row.push(cur);
-      if (row.length > 1 || row[0].trim() !== "") rows.push(row);
-    }
-    return rows;
+    const lines = text.trim().split(/\r?\n/);
+    const headers = lines.shift().split(",");
+    return lines.map(line => {
+      const cols = line.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+      const obj = {};
+      headers.forEach((h, i) => obj[h.trim()] = (cols[i] || "").replace(/^"|"$/g, ""));
+      return obj;
+    });
   }
 
-  function norm(s) {
-    return (s || "").toString().trim().toLowerCase();
+  function normalize(s) {
+    return (s || "").toLowerCase();
   }
 
-  function escapeHTML(s) {
-    return (s || "").toString()
-      .replaceAll("&", "&amp;")
-      .replaceAll("<", "&lt;")
-      .replaceAll(">", "&gt;")
-      .replaceAll('"', "&quot;")
-      .replaceAll("'", "&#039;");
-  }
-
-  function renderTable(items, totalCount) {
+  function render(data) {
     const tbody = document.getElementById("rows");
     tbody.innerHTML = "";
 
-    for (const it of items) {
-      const url = it.job_url || "";
-      const link = url ? `<a href="${escapeHTML(url)}" target="_blank" rel="noopener">Open</a>` : "";
-      const posting = it.posting_date || "";
-      const scraped = it.date_scraped || "";
-      const remote = it.remote_or_hybrid || "unknown";
-
+    for (const r of data) {
       const tr = document.createElement("tr");
       tr.innerHTML = `
-        <td>${escapeHTML(it.company || "")}</td>
-        <td>${escapeHTML(it.job_title || "")}</td>
-        <td>${escapeHTML(it.location || "")}</td>
-        <td><span class="pill">${escapeHTML(remote)}</span></td>
-        <td class="nowrap">${escapeHTML(posting)}</td>
-        <td class="nowrap">${escapeHTML(it.source || "")}</td>
-        <td class="nowrap muted">${escapeHTML(scraped)}</td>
-        <td class="nowrap">${link}</td>
+        <td>${r.company || ""}</td>
+        <td>${r.job_title || ""}</td>
+        <td>${r.location || ""}</td>
+        <td><span class="pill">${r.remote_or_hybrid || "unknown"}</span></td>
+        <td>${r.posting_date || ""}</td>
+        <td>${r.source || ""}</td>
+        <td>${r.job_url ? `<a href="${r.job_url}" target="_blank">Open</a>` : ""}</td>
       `;
       tbody.appendChild(tr);
     }
-
-    const msg = document.getElementById("msg");
-    if ((totalCount ?? items.length) > items.length) {
-      msg.innerHTML = `<span class="ok">Loaded.</span> Showing first ${items.length} of ${totalCount} rows (history is large). Use search to narrow.`;
-    }
   }
 
-  function populateSourceFilter(items) {
-    const sel = document.getElementById("source");
-    // reset options to just "All"
-    sel.innerHTML = '<option value="">All</option>';
-    const sources = Array.from(new Set(items.map(x => x.source).filter(Boolean))).sort();
-    for (const s of sources) {
-      const opt = document.createElement("option");
-      opt.value = s;
-      opt.textContent = s;
-      sel.appendChild(opt);
-    }
-  }
-
-  function applyFilters(all, totalCount) {
-    const q = norm(document.getElementById("q").value);
-    const r = norm(document.getElementById("remote").value);
-    const s = norm(document.getElementById("source").value);
-
-    const filtered = all.filter(it => {
-      if (r && norm(it.remote_or_hybrid) !== r) return false;
-      if (s && norm(it.source) !== s) return false;
-
-      if (!q) return true;
-      const blob = norm([
-        it.company, it.target_role, it.job_title, it.location, it.source
-      ].join(" "));
-      return blob.includes(q);
-    });
-
-    renderTable(filtered, totalCount);
-
+  async function load() {
+    const view = document.getElementById("view").value;
     const status = document.getElementById("status");
-    status.textContent = `Showing ${filtered.length} / ${all.length}`;
-  }
-
-  async function loadCsv(kind) {
-    const path = PATHS[kind];
-    const res = await fetch(path, { cache: "no-store" });
-    if (!res.ok) throw new Error(`Failed to fetch ${path} (${res.status})`);
-    const text = await res.text();
-    const rows = parseCSV(text);
-    return { path, rows };
-  }
-
-  function rowsToItems(rows) {
-    if (!rows.length) return { items: [], totalCount: 0, header: [] };
-
-    const header = rows[0].map(h => h.trim());
-    const idx = {};
-    header.forEach((h, i) => idx[h] = i);
-
-    const required = ["company","job_title","location","remote_or_hybrid","posting_date","job_url","source","date_scraped"];
-    const missing = required.filter(k => !(k in idx));
-    if (missing.length) {
-      throw new Error(`Schema mismatch. Missing columns: ${missing.join(", ")}`);
-    }
-
-    const totalCount = Math.max(0, rows.length - 1);
-    const sliced = rows.slice(1, 1 + MAX_RENDER);
-
-    const items = sliced.map(r => {
-      const get = (k) => (r[idx[k]] || "").trim();
-      return {
-        company: get("company"),
-        target_role: (idx["target_role"] !== undefined ? get("target_role") : ""),
-        job_title: get("job_title"),
-        location: get("location"),
-        remote_or_hybrid: get("remote_or_hybrid"),
-        posting_date: get("posting_date"),
-        job_url: get("job_url"),
-        source: get("source"),
-        date_scraped: get("date_scraped"),
-      };
-    });
-
-    return { items, totalCount, header };
-  }
-
-  function resetFilters() {
-    document.getElementById("q").value = "";
-    document.getElementById("remote").value = "";
-    document.getElementById("source").value = "";
-  }
-
-  async function main() {
-    const status = document.getElementById("status");
-    const msg = document.getElementById("msg");
-
-    let cache = { latest: null, history: null };
-
-    async function render(kind) {
-      status.textContent = "Loading…";
-      msg.innerHTML = "";
-
-      if (!cache[kind]) {
-        const { rows } = await loadCsv(kind);
-        cache[kind] = rowsToItems(rows);
-      }
-
-      const { items, totalCount } = cache[kind];
-
-      populateSourceFilter(items);
-      applyFilters(items, totalCount);
-
-      if (totalCount === 0) {
-        if (kind === "latest") {
-          msg.innerHTML = `<span class="ok">Loaded.</span> No new jobs in the latest run. Switch to <b>History</b> to see all previously seen jobs.`;
-        } else {
-          msg.innerHTML = `<span class="ok">Loaded.</span> History is empty.`;
-        }
-      } else {
-        msg.innerHTML = `<span class="ok">Loaded.</span>`;
-      }
-    }
+    const search = normalize(document.getElementById("search").value);
 
     try {
-      document.getElementById("q").addEventListener("input", () => {
-        const kind = document.getElementById("view").value;
-        const c = cache[kind];
-        applyFilters(c.items, c.totalCount);
-      });
-      document.getElementById("remote").addEventListener("change", () => {
-        const kind = document.getElementById("view").value;
-        const c = cache[kind];
-        applyFilters(c.items, c.totalCount);
-      });
-      document.getElementById("source").addEventListener("change", () => {
-        const kind = document.getElementById("view").value;
-        const c = cache[kind];
-        applyFilters(c.items, c.totalCount);
-      });
+      const res = await fetch(FILES[view], { cache: "no-store" });
+      if (!res.ok) throw new Error("CSV not found");
 
-      document.getElementById("view").addEventListener("change", async () => {
-        resetFilters();
-        await render(document.getElementById("view").value);
-      });
+      const text = await res.text();
+      if (!text.trim()) {
+        status.textContent = "No data available.";
+        render([]);
+        return;
+      }
 
-      await render("latest");
+      let rows = parseCSV(text);
 
+      if (search) {
+        rows = rows.filter(r =>
+          normalize(
+            (r.company || "") +
+            (r.job_title || "") +
+            (r.location || "")
+          ).includes(search)
+        );
+      }
+
+      render(rows);
+      status.textContent = `Showing ${rows.length} jobs (${view})`;
     } catch (e) {
-      status.textContent = "Error";
-      msg.innerHTML = `<span class="error">${escapeHTML(e.message)}</span>`;
+      status.innerHTML = `<span class="error">Failed to load data.</span>`;
+      render([]);
     }
   }
 
-  main();
+  document.getElementById("view").addEventListener("change", load);
+  document.getElementById("search").addEventListener("input", load);
+
+  load();
 </script>
+
 </body>
 </html>
