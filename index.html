@@ -178,6 +178,13 @@
         );
       }
 
+      // Newest-first.
+      rows.sort((a, b) => {
+        const da = Date.parse(a.posting_date || a.first_seen || "") || 0;
+        const db = Date.parse(b.posting_date || b.first_seen || "") || 0;
+        return db - da;
+      });
+
       render(rows);
       status.textContent = `Showing ${rows.length} jobs (${view})`;
     } catch (e) {

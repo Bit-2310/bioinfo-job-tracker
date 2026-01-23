@@ -11,14 +11,14 @@ Minimal job ingestion pipeline that runs on **GitHub Actions**, keeps an **appen
 
 ## Input
 
-Edit: `targets/companies.csv`
+Put your canonical target list Excel file in the **repo root**:
 
-```csv
-company
-Illumina
-10x Genomics
-Guardant Health
-```
+- `Bioinformatics_Job_Target_List.xlsx`
+
+Expected columns:
+- `Company Name`
+- `Target Role Title`
+- `Careers Page URL`
 
 ## Outputs
 
