@@ -26,8 +26,6 @@ jobs:
           pip install -r requirements.txt
 
       - name: Run scraper
-        env:
-          JOBRIGHT_API_KEY: ${{ secrets.JOBRIGHT_API_KEY }}
         run: |
           mkdir -p data
           python src/run.py

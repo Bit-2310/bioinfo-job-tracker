@@ -1,4 +1,3 @@
-import os
 from pathlib import Path
 
 import pandas as pd
@@ -9,7 +8,6 @@ from core.dedupe import process_job
 from core.output import write_latest
 from core.runlog import log_line
 
-from ingest.jobright import fetch_jobright_jobs
 from ingest.greenhouse import fetch_greenhouse
 from ingest.lever import fetch_lever
 from ingest.ashby import fetch_ashby
@@ -63,21 +61,10 @@ def main():
     history = load_history(HISTORY_PATH)
 
     all_jobs = []
-    fetched_counts = {"jobright": 0, "greenhouse": 0, "lever": 0, "ashby": 0, "icims": 0}
-    error_counts = {"jobright": 0, "greenhouse": 0, "lever": 0, "ashby": 0, "icims": 0}
+    fetched_counts = {"greenhouse": 0, "lever": 0, "ashby": 0, "icims": 0}
+    error_counts = {"greenhouse": 0, "lever": 0, "ashby": 0, "icims": 0}
 
-    # Jobright (discovery) - do not hard fail if missing key
-    api_key = os.getenv("JOBRIGHT_API_KEY", "").strip()
-    if api_key:
-        try:
-            jr = fetch_jobright_jobs(api_key)
-            fetched_counts["jobright"] = len(jr)
-            all_jobs += jr
-        except Exception as e:
-            error_counts["jobright"] += 1
-            log_line(RUNLOG_PATH, f"[ERROR] jobright failed: {repr(e)}")
-    else:
-        log_line(RUNLOG_PATH, "[WARN] JOBRIGHT_API_KEY missing, skipping jobright")
+    # Jobright removed (no API access).
 
     # ATS sources (verification + coverage)
     for company in companies:

@@ -1,2 +1,0 @@
-2026-01-23T21:28:29+00:00Z [WARN] JOBRIGHT_API_KEY missing, skipping jobright
-2026-01-23T21:28:30+00:00Z [OK] companies=2 fetched=49 new=49 dup=0 skipped_bad=0 fetched_by_source={'jobright': 0, 'greenhouse': 49, 'lever': 0, 'ashby': 0, 'icims': 0} errors={'jobright': 0, 'greenhouse': 0, 'lever': 0, 'ashby': 0, 'icims': 0}
