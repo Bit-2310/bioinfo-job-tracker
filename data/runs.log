@@ -1,1 +1,105 @@
 2026-01-23T22:10:02+00:00Z [OK] companies=2 fetched=49 new=49 dup=0 skipped_bad=0 fetched_by_source={'greenhouse': 49, 'lever': 0, 'ashby': 0, 'icims': 0} errors={'greenhouse': 0, 'lever': 0, 'ashby': 0, 'icims': 0}
+2026-01-23T22:54:13+00:00Z [SKIP] company=Pfizer reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Pfizer reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Pfizer reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Roche reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Roche reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Genentech reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Genentech reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Novartis reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Novartis reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Merck (MSD) reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Merck (MSD) reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Johnson & Johnson (Janssen) reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Johnson & Johnson (Janssen) reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Bristol Myers Squibb reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Bristol Myers Squibb reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=AstraZeneca reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=AstraZeneca reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=GSK reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=GSK reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Sanofi reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Sanofi reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=AbbVie reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=AbbVie reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Amgen reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Amgen reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Takeda reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Takeda reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Regeneron reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Regeneron reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Biogen reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Biogen reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Eli Lilly reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Eli Lilly reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Moderna reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Moderna reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Vertex Pharmaceuticals reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Vertex Pharmaceuticals reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Gilead Sciences reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Gilead Sciences reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Seagen reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Seagen reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Alnylam reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Alnylam reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Ionis Pharmaceuticals reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Ionis Pharmaceuticals reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Sarepta Therapeutics reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Sarepta Therapeutics reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Blueprint Medicines reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Blueprint Medicines reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=CRISPR Therapeutics reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=CRISPR Therapeutics reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Intellia Therapeutics reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Intellia Therapeutics reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Editas Medicine reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Editas Medicine reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Beam Therapeutics reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Beam Therapeutics reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Illumina reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Illumina reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=10x Genomics reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=10x Genomics reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Oxford Nanopore Technologies reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Oxford Nanopore Technologies reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=PacBio reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=PacBio reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=QIAGEN reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=QIAGEN reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Thermo Fisher Scientific reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Thermo Fisher Scientific reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Standard BioTools (Fluidigm) reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Standard BioTools (Fluidigm) reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Twist Bioscience reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Twist Bioscience reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=NanoString Technologies reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=NanoString Technologies reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Tempus reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Tempus reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Guardant Health reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Guardant Health reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Natera reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Natera reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Foundation Medicine reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Foundation Medicine reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Exact Sciences reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Exact Sciences reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Grail reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Grail reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Personalis reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Personalis reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Fulgent Genetics reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Fulgent Genetics reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=IQVIA reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=IQVIA reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Labcorp Drug Development reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Labcorp Drug Development reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Charles River Laboratories reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Charles River Laboratories reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=PPD (Thermo Fisher) reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=PPD (Thermo Fisher) reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Evotec reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Evotec reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Lonza reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [SKIP] company=Lonza reason=unknown_ats url=nan
+2026-01-23T22:54:13+00:00Z [OK] targets=103 fetched=0 new=0 dup=0 skipped_bad=0 skipped_non_us=0 skipped_no_match=0 fetched_by_source={'greenhouse': 0, 'lever': 0, 'ashby': 0, 'icims': 0} errors={'greenhouse': 0, 'lever': 0, 'ashby': 0, 'icims': 0}
