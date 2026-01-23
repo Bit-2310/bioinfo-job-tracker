@@ -16,7 +16,9 @@ from ingest.ashby import fetch_ashby
 from ingest.icims import fetch_icims
 
 
-INPUT_XLSX = Path("Bioinformatics_Job_Target_List.xlsx")
+# v1 input: fast, simple CSV.
+# Required: targets/companies.csv with a single column: company
+INPUT_CSV = Path("targets/companies.csv")
 DATA_DIR = Path("data")
 HISTORY_PATH = DATA_DIR / "jobs_history.csv"
 LATEST_PATH = DATA_DIR / "jobs_latest.csv"
@@ -37,14 +39,27 @@ def slugify(company: str) -> str:
 def main():
     DATA_DIR.mkdir(parents=True, exist_ok=True)
 
-    if not INPUT_XLSX.exists():
-        raise FileNotFoundError(f"Missing input file: {INPUT_XLSX}")
+    if not INPUT_CSV.exists():
+        raise FileNotFoundError(
+            "Missing input file: targets/companies.csv\n"
+            "Create it with:\n\n"
+            "company\nIllumina\n10x Genomics\n"
+        )
 
-    targets = pd.read_excel(INPUT_XLSX, engine="openpyxl")
-    if "Company Name" not in targets.columns:
-        raise ValueError("Input missing required column: 'Company Name'")
+    targets = pd.read_csv(INPUT_CSV)
+    if "company" not in targets.columns:
+        raise ValueError("Input missing required column: 'company'")
 
-    companies = [c for c in targets["Company Name"].dropna().unique().tolist() if str(c).strip()]
+    companies = (
+        targets["company"]
+        .dropna()
+        .astype(str)
+        .str.strip()
+        .loc[lambda s: s != ""]
+        .unique()
+        .tolist()
+    )
+    companies = sorted(set(companies))
     history = load_history(HISTORY_PATH)
 
     all_jobs = []

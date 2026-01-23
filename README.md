@@ -13,18 +13,23 @@ It writes:
 
 ## Input (required)
 
-Place your canonical file at repo root:
+Create this file:
 
-`Bioinformatics_Job_Target_List.xlsx`
+`targets/companies.csv`
 
 Required columns:
-- `Company Name`
-- `Target Role Title`
-- `Careers Page URL`
+- `company`
 
-> v1 only uses **Company Name** for ATS slug attempts. No overrides.
+Example:
 
-A sample file is included as `Bioinformatics_Job_Target_List.sample.xlsx`.
+```csv
+company
+Illumina
+10x Genomics
+Guardant Health
+```
+
+Why CSV: faster, less fragile than Excel, and GitHub-friendly.
 
 ## Local run
 
@@ -36,6 +41,8 @@ pip install -r requirements.txt
 export JOBRIGHT_API_KEY="YOUR_KEY"
 python src/run.py
 ```
+
+If you do not set `JOBRIGHT_API_KEY`, the pipeline will still run (ATS-only) and will log a warning.
 
 ## GitHub Actions
 
