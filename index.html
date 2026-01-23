@@ -28,10 +28,18 @@
 <body>
   <h1>Bioinformatics Job Tracker</h1>
   <p class="sub">
-    Shows jobs from <code>data/jobs_latest.csv</code>. Updated by GitHub Actions.
+    Updated by GitHub Actions. Default view shows <code>data/jobs_latest.csv</code> (new jobs from the most recent run).
   </p>
 
   <div class="row">
+    <label>
+      View:
+      <select id="view">
+        <option value="latest" selected>Latest (new)</option>
+        <option value="history">History (all)</option>
+      </select>
+    </label>
+
     <label>
       Search:
       <input id="q" type="search" placeholder="bioinformatics, genomics, company..." size="32" />
@@ -82,7 +90,13 @@
   </div>
 
 <script>
-  const CSV_PATH = "data/jobs_latest.csv";
+  const PATHS = {
+    latest: "data/jobs_latest.csv",
+    history: "data/jobs_history.csv",
+  };
+
+  // Prevent giant history files from freezing the browser.
+  const MAX_RENDER = 750;
 
   function parseCSV(text) {
     // Minimal CSV parser that supports quoted fields and commas inside quotes.
@@ -132,7 +146,7 @@
       .replaceAll("'", "&#039;");
   }
 
-  function renderTable(items) {
+  function renderTable(items, totalCount) {
     const tbody = document.getElementById("rows");
     tbody.innerHTML = "";
 
@@ -156,10 +170,17 @@
       `;
       tbody.appendChild(tr);
     }
+
+    const msg = document.getElementById("msg");
+    if ((totalCount ?? items.length) > items.length) {
+      msg.innerHTML = `<span class="ok">Loaded.</span> Showing first ${items.length} of ${totalCount} rows (history is large). Use search to narrow.`;
+    }
   }
 
   function populateSourceFilter(items) {
     const sel = document.getElementById("source");
+    // reset options to just "All"
+    sel.innerHTML = '<option value="">All</option>';
     const sources = Array.from(new Set(items.map(x => x.source).filter(Boolean))).sort();
     for (const s of sources) {
       const opt = document.createElement("option");
@@ -169,7 +190,7 @@
     }
   }
 
-  function applyFilters(all) {
+  function applyFilters(all, totalCount) {
     const q = norm(document.getElementById("q").value);
     const r = norm(document.getElementById("remote").value);
     const s = norm(document.getElementById("source").value);
@@ -185,64 +206,115 @@
       return blob.includes(q);
     });
 
-    renderTable(filtered);
+    renderTable(filtered, totalCount);
 
     const status = document.getElementById("status");
     status.textContent = `Showing ${filtered.length} / ${all.length}`;
+  }
+
+  async function loadCsv(kind) {
+    const path = PATHS[kind];
+    const res = await fetch(path, { cache: "no-store" });
+    if (!res.ok) throw new Error(`Failed to fetch ${path} (${res.status})`);
+    const text = await res.text();
+    const rows = parseCSV(text);
+    return { path, rows };
+  }
+
+  function rowsToItems(rows) {
+    if (!rows.length) return { items: [], totalCount: 0, header: [] };
+
+    const header = rows[0].map(h => h.trim());
+    const idx = {};
+    header.forEach((h, i) => idx[h] = i);
+
+    const required = ["company","job_title","location","remote_or_hybrid","posting_date","job_url","source","date_scraped"];
+    const missing = required.filter(k => !(k in idx));
+    if (missing.length) {
+      throw new Error(`Schema mismatch. Missing columns: ${missing.join(", ")}`);
+    }
+
+    const totalCount = Math.max(0, rows.length - 1);
+    const sliced = rows.slice(1, 1 + MAX_RENDER);
+
+    const items = sliced.map(r => {
+      const get = (k) => (r[idx[k]] || "").trim();
+      return {
+        company: get("company"),
+        target_role: (idx["target_role"] !== undefined ? get("target_role") : ""),
+        job_title: get("job_title"),
+        location: get("location"),
+        remote_or_hybrid: get("remote_or_hybrid"),
+        posting_date: get("posting_date"),
+        job_url: get("job_url"),
+        source: get("source"),
+        date_scraped: get("date_scraped"),
+      };
+    });
+
+    return { items, totalCount, header };
+  }
+
+  function resetFilters() {
+    document.getElementById("q").value = "";
+    document.getElementById("remote").value = "";
+    document.getElementById("source").value = "";
   }
 
   async function main() {
     const status = document.getElementById("status");
     const msg = document.getElementById("msg");
 
-    try {
-      const res = await fetch(CSV_PATH, { cache: "no-store" });
-      if (!res.ok) throw new Error(`Failed to fetch ${CSV_PATH} (${res.status})`);
+    let cache = { latest: null, history: null };
 
-      const text = await res.text();
-      const rows = parseCSV(text);
+    async function render(kind) {
+      status.textContent = "Loading…";
+      msg.innerHTML = "";
 
-      if (!rows.length) {
-        status.textContent = "No data";
-        msg.innerHTML = `<span class="error">CSV is empty.</span>`;
-        return;
+      if (!cache[kind]) {
+        const { rows } = await loadCsv(kind);
+        cache[kind] = rowsToItems(rows);
       }
 
-      const header = rows[0].map(h => h.trim());
-      const idx = {};
-      header.forEach((h, i) => idx[h] = i);
-
-      const required = ["company","job_title","location","remote_or_hybrid","posting_date","job_url","source","date_scraped"];
-      const missing = required.filter(k => !(k in idx));
-      if (missing.length) {
-        status.textContent = "Schema mismatch";
-        msg.innerHTML = `<span class="error">Missing columns in CSV:</span> ${missing.join(", ")}`;
-        return;
-      }
-
-      const items = rows.slice(1).map(r => {
-        const get = (k) => (r[idx[k]] || "").trim();
-        return {
-          company: get("company"),
-          target_role: (idx["target_role"] !== undefined ? get("target_role") : ""),
-          job_title: get("job_title"),
-          location: get("location"),
-          remote_or_hybrid: get("remote_or_hybrid"),
-          posting_date: get("posting_date"),
-          job_url: get("job_url"),
-          source: get("source"),
-          date_scraped: get("date_scraped"),
-        };
-      });
+      const { items, totalCount } = cache[kind];
 
       populateSourceFilter(items);
+      applyFilters(items, totalCount);
 
-      document.getElementById("q").addEventListener("input", () => applyFilters(items));
-      document.getElementById("remote").addEventListener("change", () => applyFilters(items));
-      document.getElementById("source").addEventListener("change", () => applyFilters(items));
+      if (totalCount === 0) {
+        if (kind === "latest") {
+          msg.innerHTML = `<span class="ok">Loaded.</span> No new jobs in the latest run. Switch to <b>History</b> to see all previously seen jobs.`;
+        } else {
+          msg.innerHTML = `<span class="ok">Loaded.</span> History is empty.`;
+        }
+      } else {
+        msg.innerHTML = `<span class="ok">Loaded.</span>`;
+      }
+    }
 
-      msg.innerHTML = `<span class="ok">Loaded.</span>`;
-      applyFilters(items);
+    try {
+      document.getElementById("q").addEventListener("input", () => {
+        const kind = document.getElementById("view").value;
+        const c = cache[kind];
+        applyFilters(c.items, c.totalCount);
+      });
+      document.getElementById("remote").addEventListener("change", () => {
+        const kind = document.getElementById("view").value;
+        const c = cache[kind];
+        applyFilters(c.items, c.totalCount);
+      });
+      document.getElementById("source").addEventListener("change", () => {
+        const kind = document.getElementById("view").value;
+        const c = cache[kind];
+        applyFilters(c.items, c.totalCount);
+      });
+
+      document.getElementById("view").addEventListener("change", async () => {
+        resetFilters();
+        await render(document.getElementById("view").value);
+      });
+
+      await render("latest");
 
     } catch (e) {
       status.textContent = "Error";
