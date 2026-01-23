@@ -1,8 +1,8 @@
 import requests
 
 
-def fetch_ashby(board_token: str, company_name: str, target_role: str) -> list[dict]:
-    url = f"https://api.ashbyhq.com/posting-api/job-board/{board_token}"
+def fetch_ashby(company_slug: str) -> list[dict]:
+    url = f"https://api.ashbyhq.com/posting-api/job-board/{company_slug}"
     r = requests.get(url, timeout=30)
     if r.status_code != 200:
         return []
@@ -11,8 +11,7 @@ def fetch_ashby(board_token: str, company_name: str, target_role: str) -> list[d
     for j in r.json().get("jobs", []):
         jobs.append(
             {
-                "company": company_name,
-                "target_role": target_role,
+                "company": company_slug,
                 "job_title": j.get("title", ""),
                 "location": j.get("location") or "",
                 "remote_or_hybrid": "",

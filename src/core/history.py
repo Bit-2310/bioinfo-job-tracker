@@ -5,7 +5,6 @@ import pandas as pd
 HISTORY_COLUMNS = [
     "canonical_job_id",
     "company",
-    "target_role",
     "job_title",
     "location",
     "remote_or_hybrid",
@@ -20,11 +19,7 @@ HISTORY_COLUMNS = [
 def load_history(path: Path) -> pd.DataFrame:
     if not path.exists():
         return pd.DataFrame(columns=HISTORY_COLUMNS)
-    df = pd.read_csv(path)
-    for col in HISTORY_COLUMNS:
-        if col not in df.columns:
-            df[col] = ""
-    return df[HISTORY_COLUMNS]
+    return pd.read_csv(path)
 
 
 def save_history(path: Path, df: pd.DataFrame):

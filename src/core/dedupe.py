@@ -22,7 +22,6 @@ def process_job(job: dict, history_df):
         return "new", {
             "canonical_job_id": job["canonical_job_id"],
             "company": job.get("company", ""),
-            "target_role": job.get("target_role", ""),
             "job_title": job.get("job_title", ""),
             "location": job.get("location", ""),
             "remote_or_hybrid": job.get("remote_or_hybrid", ""),

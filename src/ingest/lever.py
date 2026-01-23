@@ -2,8 +2,8 @@ import requests
 from datetime import datetime, timezone
 
 
-def fetch_lever(board_token: str, company_name: str, target_role: str) -> list[dict]:
-    url = f"https://api.lever.co/v0/postings/{board_token}?mode=json"
+def fetch_lever(company_slug: str) -> list[dict]:
+    url = f"https://api.lever.co/v0/postings/{company_slug}?mode=json"
     r = requests.get(url, timeout=30)
     if r.status_code != 200:
         return []
@@ -20,8 +20,7 @@ def fetch_lever(board_token: str, company_name: str, target_role: str) -> list[d
 
         jobs.append(
             {
-                "company": company_name,
-                "target_role": target_role,
+                "company": company_slug,
                 "job_title": j.get("text", ""),
                 "location": (j.get("categories") or {}).get("location", ""),
                 "remote_or_hybrid": "",

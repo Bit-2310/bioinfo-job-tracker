@@ -1,8 +1,8 @@
 import requests
 
 
-def fetch_icims(host: str, company_name: str, target_role: str) -> list[dict]:
-    url = f"https://{host}/jobs/search"
+def fetch_icims(company_slug: str) -> list[dict]:
+    url = f"https://{company_slug}.icims.com/jobs/search"
     r = requests.get(url, timeout=30)
     if r.status_code != 200:
         return []
@@ -16,8 +16,7 @@ def fetch_icims(host: str, company_name: str, target_role: str) -> list[dict]:
     for j in data.get("jobs", []):
         jobs.append(
             {
-                "company": company_name,
-                "target_role": target_role,
+                "company": company_slug,
                 "job_title": j.get("title", ""),
                 "location": j.get("location", ""),
                 "remote_or_hybrid": "",
