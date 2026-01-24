@@ -1,39 +1,54 @@
-# Bioinformatics Job Tracker (v1)
+# Bioinformatics Job Tracker
 
-Minimal job ingestion pipeline that runs on **GitHub Actions**, keeps an **append-only history**, and writes a small "latest" CSV you can browse via `index.html`.
+Job ingestion pipeline that runs on **GitHub Actions**, keeps an **append-only history**, and writes a small "latest" CSV you can browse via `index.html`.
 
-## Sources (v1)
+## What changed (v2)
 
-- Greenhouse (API)
-- Lever (API)
-- Ashby (API)
-- iCIMS (best-effort)
+Instead of guessing ATS slugs from the company name (which is usually wrong), we build a **master ATS registry** from your Excel target list:
 
-## Input
+`Bioinformatics_Job_Target_List.xlsx` ➜ `data/master_registry.json` ➜ scraper routes each company to the right API.
 
-Edit: `targets/companies.csv`
+## Sources
 
-```csv
-company
-Illumina
-10x Genomics
-Guardant Health
-```
+- Greenhouse (public API)
+- Lever (public API)
+- Workday (common public `cxs` endpoint, best-effort)
+- Ashby (best-effort; endpoint varies)
+- iCIMS (best-effort; usually needs per-company config)
 
-## Outputs
+## Input (recommended)
+
+Commit this file at repo root:
+
+- `Bioinformatics_Job_Target_List.xlsx`
+
+Required columns:
+- `Company Name`
+- `Target Role Title`
+- `Careers Page URL`
+
+The workflow will auto-generate:
+- `data/master_registry.json`
+
+## Output
 
 Files in `data/`:
+- `master_registry.json`: detected ATS + tokens per company
 - `jobs_history.csv`: append-only history (first_seen, last_seen, sources_seen)
 - `jobs_latest.csv`: only jobs first seen in the latest run
 - `runs.log`: one-line audit summary per run
 
-## Run (GitHub Actions)
+## Run
 
-1. Push the repo.
-2. Open the **Actions** tab.
-3. Run the `job-scraper` workflow manually, or let the schedule run daily.
+Push the repo and let GitHub Actions run (Mon–Sat, 4x/day). No secrets needed.
 
-No secrets are required in v1.
+## Local run
+
+```bash
+pip install -r requirements.txt
+python src/build_master_registry.py --input Bioinformatics_Job_Target_List.xlsx --output data/master_registry.json
+python src/run.py
+```
 
 ## View
 
