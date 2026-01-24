@@ -1,7 +1,8 @@
-name: ATS Audit (one-time)
+name: ATS Audit (one-time JSON baseline)
 
 on:
   workflow_dispatch:
+
 
 permissions:
   contents: write
@@ -9,14 +10,21 @@ permissions:
 jobs:
   audit:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
+
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
+      - name: Debug - list repo files
+        run: |
+          ls -lah
+          find . -maxdepth 2 -type f | sed 's|^./||' | head -n 200
+
       - name: Set up Python
         uses: actions/setup-python@v5
         with:
-          python-version: "3.11"
+          python-version: '3.11'
 
       - name: Install dependencies
         run: |
@@ -25,12 +33,12 @@ jobs:
 
       - name: Run ATS audit (one-time)
         run: |
-          python src/ats_audit.py
+          python src/ats_audit_once.py
 
-      - name: Commit audit baseline
+      - name: Commit audit baseline JSON
         run: |
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git add data/ats_audit_baseline.json
-          git commit -m "Add ATS audit baseline" || echo "No changes to commit"
+          git commit -m "Add ATS audit baseline (one-time)" || echo "No changes to commit"
           git push
