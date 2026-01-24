@@ -1,7 +1,11 @@
+from __future__ import annotations
+
 from pathlib import Path
+from typing import Iterable
 
 import pandas as pd
 
+from core.ats_router import detect_ats, extract_org_slug
 from core.identity import compute_canonical_job_id
 from core.history import load_history, save_history
 from core.dedupe import process_job
@@ -11,135 +15,174 @@ from core.runlog import log_line
 from ingest.greenhouse import fetch_greenhouse
 from ingest.lever import fetch_lever
 from ingest.ashby import fetch_ashby
-from ingest.icims import fetch_icims
 from ingest.workday import fetch_workday
 
 
-## Inputs
-# Preferred (v2): Excel file with columns:
-#   Company Name | Target Role Title | Careers Page URL
-# Fallback (v1): targets/companies.csv with a single column: company
+# Canonical input file (repo root). Required columns:
+# Company Name, Target Role Title, Careers Page URL
 INPUT_XLSX = Path("Bioinformatics_Job_Target_List.xlsx")
-INPUT_CSV = Path("targets/companies.csv")
+
 DATA_DIR = Path("data")
 HISTORY_PATH = DATA_DIR / "jobs_history.csv"
-LATEST_PATH = DATA_DIR / "jobs_latest.csv"
+LATEST_PATH = DATA_DIR / "jobs_latest.csv"         # targeted (matches target roles)
+RAW_LATEST_PATH = DATA_DIR / "jobs_raw_latest.csv"  # all fetched (for debugging)
 RUNLOG_PATH = DATA_DIR / "runs.log"
 
 
-def slugify(company: str) -> str:
-    return (
-        str(company).lower()
-        .replace(" ", "")
-        .replace(".", "")
-        .replace(",", "")
-        .replace("-", "")
-        .replace("&", "and")
-    )
+def _norm(s: str) -> str:
+    return str(s or "").strip()
+
+
+def _to_list(x: object) -> list[str]:
+    if x is None:
+        return []
+    if isinstance(x, (list, tuple, set)):
+        return [str(i) for i in x]
+    return [str(x)]
+
+
+def load_targets(path: Path) -> tuple[pd.DataFrame, dict[str, list[str]]]:
+    """Load company rows and build a map: company -> target role keywords."""
+    df = pd.read_excel(path)
+    # Normalize column names (users sometimes edit the sheet)
+    df.columns = [str(c).strip() for c in df.columns]
+
+    required = {"Company Name", "Careers Page URL"}
+    missing = required - set(df.columns)
+    if missing:
+        raise ValueError(
+            f"Input Excel missing required columns: {sorted(missing)}. "
+            "Expected at least: Company Name, Careers Page URL"
+        )
+
+    df = df.dropna(subset=["Company Name", "Careers Page URL"]).copy()
+    df["Company Name"] = df["Company Name"].astype(str).str.strip()
+    df["Careers Page URL"] = df["Careers Page URL"].astype(str).str.strip()
+
+    if "Target Role Title" not in df.columns:
+        df["Target Role Title"] = ""
+    else:
+        df["Target Role Title"] = df["Target Role Title"].fillna("").astype(str).str.strip()
+
+    # Build role keyword map (company -> list of target role titles)
+    role_map: dict[str, list[str]] = {}
+    for _, row in df.iterrows():
+        company = _norm(row["Company Name"])
+        role = _norm(row.get("Target Role Title", ""))
+        if not company:
+            continue
+        role_map.setdefault(company, [])
+        if role and role.lower() not in {r.lower() for r in role_map[company]}:
+            role_map[company].append(role)
+
+    # Deduplicate companies by keeping the first URL per company.
+    df = df.drop_duplicates(subset=["Company Name"], keep="first")
+    return df, role_map
+
+
+def match_target_roles(job_title: str, target_roles: Iterable[str]) -> bool:
+    title = _norm(job_title).lower()
+    if not title:
+        return False
+    roles = [r.strip().lower() for r in target_roles if str(r).strip()]
+    if not roles:
+        return True  # no targets defined => keep all (debug-friendly)
+    return any(r in title for r in roles)
+
+
+def fetch_company_jobs(company: str, careers_url: str) -> tuple[list[dict], str, str | None]:
+    """Route a company to the correct ATS API and return normalized job dicts.
+
+    Returns: (jobs, ats, org_slug)
+    """
+    ats = detect_ats(careers_url)
+    org = extract_org_slug(ats, careers_url)
+
+    if ats == "greenhouse":
+        if not org:
+            return [], ats, org
+        rows = fetch_greenhouse(org)
+    elif ats == "lever":
+        if not org:
+            return [], ats, org
+        rows = fetch_lever(org)
+    elif ats == "ashby":
+        if not org:
+            return [], ats, org
+        rows = fetch_ashby(org)
+    elif ats == "workday":
+        rows = fetch_workday(careers_url)
+    elif ats == "icims":
+        # iCIMS does not offer a stable public JSON API; skipping is safer than throwing.
+        return [], ats, org
+    else:
+        return [], ats, org
+
+    # Ensure company name is preserved (not slug)
+    for r in rows:
+        r["company"] = company
+    return rows, ats, org
 
 
 def main():
     DATA_DIR.mkdir(parents=True, exist_ok=True)
 
-    # v2: Excel-driven targets (company + careers url)
-    company_to_careers_url = {}
-    if INPUT_XLSX.exists():
-        targets = pd.read_excel(INPUT_XLSX)
-        required = {"Company Name", "Careers Page URL"}
-        if not required.issubset(set(targets.columns)):
-            raise ValueError(
-                f"{INPUT_XLSX} must contain columns: {sorted(required)}"
-            )
-        tmp = targets[["Company Name", "Careers Page URL"]].dropna()
-        for company, url in tmp.itertuples(index=False):
-            c = str(company).strip()
-            u = str(url).strip()
-            if c and u and c not in company_to_careers_url:
-                company_to_careers_url[c] = u
-        companies = sorted(company_to_careers_url.keys())
-    else:
-        # v1: simple CSV
-        if not INPUT_CSV.exists():
-            raise FileNotFoundError(
-                "Missing input file. Provide either:\n"
-                "- Bioinformatics_Job_Target_List.xlsx\n"
-                "- targets/companies.csv\n"
-            )
-        targets = pd.read_csv(INPUT_CSV)
-        if "company" not in targets.columns:
-            raise ValueError("Input missing required column: 'company'")
-        companies = (
-            targets["company"]
-            .dropna()
-            .astype(str)
-            .str.strip()
-            .loc[lambda s: s != ""]
-            .unique()
-            .tolist()
+    if not INPUT_XLSX.exists():
+        raise FileNotFoundError(
+            "Missing input file: Bioinformatics_Job_Target_List.xlsx\n"
+            "Place it in the repo root (same folder as README.md)."
         )
-        companies = sorted(set(companies))
+
+    targets_df, role_map = load_targets(INPUT_XLSX)
+    companies = targets_df["Company Name"].tolist()
+
     history = load_history(HISTORY_PATH)
 
-    all_jobs = []
-    fetched_counts = {"greenhouse": 0, "lever": 0, "ashby": 0, "icims": 0, "workday": 0}
-    error_counts = {"greenhouse": 0, "lever": 0, "ashby": 0, "icims": 0, "workday": 0}
+    fetched_counts = {"greenhouse": 0, "lever": 0, "ashby": 0, "workday": 0, "icims": 0, "unknown": 0}
+    error_counts = {k: 0 for k in fetched_counts}
+    all_jobs: list[dict] = []
 
-    # Jobright removed (no API access).
+    for _, row in targets_df.iterrows():
+        company = _norm(row["Company Name"])
+        careers_url = _norm(row["Careers Page URL"])
 
-    # ATS sources (verification + coverage)
-    for company in companies:
-        slug = slugify(company)
-
-        careers_url = company_to_careers_url.get(company, "") if "company_to_careers_url" in locals() else ""
-        if careers_url and "myworkdayjobs.com" in str(careers_url).lower():
-            try:
-                rows = fetch_workday(str(careers_url), company=company)
-                fetched_counts["workday"] += len(rows)
-                all_jobs += rows
-            except Exception as e:
-                error_counts["workday"] += 1
-                log_line(RUNLOG_PATH, f"[ERROR] workday company={company} url={careers_url} err={repr(e)}")
+        if not company or not careers_url:
+            continue
 
         try:
-            rows = fetch_greenhouse(slug)
-            fetched_counts["greenhouse"] += len(rows)
+            rows, ats, org = fetch_company_jobs(company, careers_url)
+            fetched_counts[ats] = fetched_counts.get(ats, 0) + len(rows)
             all_jobs += rows
         except Exception as e:
-            error_counts["greenhouse"] += 1
-            log_line(RUNLOG_PATH, f"[ERROR] greenhouse slug={slug} err={repr(e)}")
+            ats = detect_ats(careers_url)
+            error_counts[ats] = error_counts.get(ats, 0) + 1
+            log_line(RUNLOG_PATH, f"[ERROR] ats={ats} company={company} url={careers_url} err={repr(e)}")
 
-        try:
-            rows = fetch_lever(slug)
-            fetched_counts["lever"] += len(rows)
-            all_jobs += rows
-        except Exception as e:
-            error_counts["lever"] += 1
-            log_line(RUNLOG_PATH, f"[ERROR] lever slug={slug} err={repr(e)}")
+    # Write raw output (debug)
+    raw_df = pd.DataFrame(all_jobs)
+    if not raw_df.empty:
+        raw_df.to_csv(RAW_LATEST_PATH, index=False)
+    else:
+        # Always write a file so the site doesn't break.
+        pd.DataFrame(columns=["company", "job_title", "location", "posting_date", "job_url", "source"]).to_csv(
+            RAW_LATEST_PATH, index=False
+        )
 
-        try:
-            rows = fetch_ashby(slug)
-            fetched_counts["ashby"] += len(rows)
-            all_jobs += rows
-        except Exception as e:
-            error_counts["ashby"] += 1
-            log_line(RUNLOG_PATH, f"[ERROR] ashby slug={slug} err={repr(e)}")
+    # Targeted filtering
+    targeted_jobs = [
+        j
+        for j in all_jobs
+        if match_target_roles(j.get("job_title", ""), role_map.get(j.get("company", ""), []))
+    ]
 
-        try:
-            rows = fetch_icims(slug)
-            fetched_counts["icims"] += len(rows)
-            all_jobs += rows
-        except Exception as e:
-            error_counts["icims"] += 1
-            log_line(RUNLOG_PATH, f"[ERROR] icims slug={slug} err={repr(e)}")
-
-    # Dedupe + history update
+    # Dedupe + history update (targeted)
     new_rows = []
     dup_count = 0
     skipped_bad = 0
 
-    for job in all_jobs:
-        title = str(job.get("job_title", "")).strip()
-        url = str(job.get("job_url", "")).strip()
+    for job in targeted_jobs:
+        title = _norm(job.get("job_title", ""))
+        url = _norm(job.get("job_url", ""))
         if not title or not url:
             skipped_bad += 1
             continue
