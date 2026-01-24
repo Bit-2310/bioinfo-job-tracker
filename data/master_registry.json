@@ -1,0 +1,25 @@
+{
+  "schema_version": 1,
+  "generated_at_utc": "2026-01-24T20:03:19Z",
+  "input_file": "Bioinformatics_Job_Target_List.xlsx",
+  "summary": {
+    "companies_total": 0,
+    "companies_scanned": 0,
+    "hits": {
+      "greenhouse": 0,
+      "lever": 0,
+      "ashby": 0,
+      "workday": 0,
+      "icims": 0
+    },
+    "validated": {
+      "greenhouse": 0,
+      "lever": 0,
+      "ashby": 0,
+      "workday": 0
+    },
+    "errors": 0,
+    "duration_sec": 0.0
+  },
+  "companies": []
+}
