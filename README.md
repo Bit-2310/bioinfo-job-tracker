@@ -9,16 +9,17 @@ Minimal job ingestion pipeline that runs on **GitHub Actions**, keeps an **appen
 - Ashby (API)
 - iCIMS (best-effort)
 
-## Input
+## Input (canonical)
 
-Edit: `targets/companies.csv`
+Place **Bioinformatics_Job_Target_List.xlsx** in the repo root.
 
-```csv
-company
-Illumina
-10x Genomics
-Guardant Health
-```
+Required columns:
+- `Company Name`
+- `Careers Page URL`
+
+(`Target Role Title` can exist in the sheet, but the runner only needs the two columns above.)
+
+Fallback (older): `targets/companies.csv` (single column: `company`).
 
 ## Outputs
 
@@ -34,6 +35,18 @@ Files in `data/`:
 3. Run the `job-scraper` workflow manually, or let the schedule run daily.
 
 No secrets are required in v1.
+
+## One-time ATS/API audit (recommended first)
+
+This repo includes a **one-time** workflow to scan all companies in your Excel input and record which ATS/API calls succeed.
+
+1. Actions → **ATS Audit (one-time)** → Run workflow
+2. After it finishes, check:
+   - `data/ats_audit_baseline.json`
+
+What it gives you:
+- Per company: detected ATS, API URL used, HTTP status, and a small job count signal.
+- A baseline to decide what connector to improve next (usually Workday edge cases and iCIMS).
 
 ## View
 
