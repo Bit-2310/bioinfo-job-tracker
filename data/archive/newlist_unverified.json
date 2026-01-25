@@ -1,0 +1,128 @@
+[
+  {
+    "company": "BROAD INSTITUTE",
+    "careers_url": "https://boards.greenhouse.io/broadinstitute",
+    "reason": "api_unverified",
+    "api_name": "greenhouse",
+    "api_url": "https://boards-api.greenhouse.io/v1/boards/broadinstitute/jobs"
+  },
+  {
+    "company": "TEMPUS",
+    "careers_url": "https://boards.greenhouse.io/tempus",
+    "reason": "api_unverified",
+    "api_name": "greenhouse",
+    "api_url": "https://boards-api.greenhouse.io/v1/boards/tempus/jobs"
+  },
+  {
+    "company": "INSITRO",
+    "careers_url": "https://boards.greenhouse.io/insitro",
+    "reason": "api_unverified",
+    "api_name": "greenhouse",
+    "api_url": "https://boards-api.greenhouse.io/v1/boards/insitro/jobs"
+  },
+  {
+    "company": "DNANEXUS",
+    "careers_url": "https://boards.greenhouse.io/dnanexus",
+    "reason": "api_unverified",
+    "api_name": "greenhouse",
+    "api_url": "https://boards-api.greenhouse.io/v1/boards/dnanexus/jobs"
+  },
+  {
+    "company": "SOPHIA GENETICS",
+    "careers_url": "https://boards.greenhouse.io/sophiagenetics",
+    "reason": "api_unverified",
+    "api_name": "greenhouse",
+    "api_url": "https://boards-api.greenhouse.io/v1/boards/sophiagenetics/jobs"
+  },
+  {
+    "company": "AMGEN",
+    "careers_url": "https://careers.amgen.com",
+    "reason": "api_unverified",
+    "api_name": "workday",
+    "api_url": "https://amgen.myworkdayjobs.com/wday/cxs/amgen/Careers/jobs"
+  },
+  {
+    "company": "MERCK",
+    "careers_url": "https://jobs.merck.com",
+    "reason": "api_unverified",
+    "api_name": "workday",
+    "api_url": "https://msd.myworkdayjobs.com/wday/cxs/msd/SearchJobs/jobs"
+  },
+  {
+    "company": "BRISTOL MYERS SQUIBB",
+    "careers_url": "https://careers.bms.com",
+    "reason": "api_unverified",
+    "api_name": "workday",
+    "api_url": "https://bristolmyerssquibb.myworkdayjobs.com/wday/cxs/bristolmyerssquibb/BMS/jobs"
+  },
+  {
+    "company": "DENALI THERAPEUTICS",
+    "careers_url": "https://boards.greenhouse.io/denalitherapeutics",
+    "reason": "api_unverified",
+    "api_name": "greenhouse",
+    "api_url": "https://boards-api.greenhouse.io/v1/boards/denalitherapeutics/jobs"
+  },
+  {
+    "company": "PERSONALIS",
+    "careers_url": "https://boards.greenhouse.io/personalis",
+    "reason": "api_unverified",
+    "api_name": "greenhouse",
+    "api_url": "https://boards-api.greenhouse.io/v1/boards/personalis/jobs"
+  },
+  {
+    "company": "FATE THERAPEUTICS",
+    "careers_url": "https://boards.greenhouse.io/fatetherapeutics",
+    "reason": "api_unverified",
+    "api_name": "greenhouse",
+    "api_url": "https://boards-api.greenhouse.io/v1/boards/fatetherapeutics/jobs"
+  },
+  {
+    "company": "EDITAS MEDICINE",
+    "careers_url": "https://boards.greenhouse.io/editasmedicine",
+    "reason": "api_unverified",
+    "api_name": "greenhouse",
+    "api_url": "https://boards-api.greenhouse.io/v1/boards/editasmedicine/jobs"
+  },
+  {
+    "company": "INTELLIA THERAPEUTICS",
+    "careers_url": "https://boards.greenhouse.io/intelliatx",
+    "reason": "api_unverified",
+    "api_name": "greenhouse",
+    "api_url": "https://boards-api.greenhouse.io/v1/boards/intelliatx/jobs"
+  },
+  {
+    "company": "CRISPR THERAPEUTICS",
+    "careers_url": "https://boards.greenhouse.io/crisprtx",
+    "reason": "api_unverified",
+    "api_name": "greenhouse",
+    "api_url": "https://boards-api.greenhouse.io/v1/boards/crisprtx/jobs"
+  },
+  {
+    "company": "SANGAMO THERAPEUTICS",
+    "careers_url": "https://boards.greenhouse.io/sangamotherapeutics",
+    "reason": "api_unverified",
+    "api_name": "greenhouse",
+    "api_url": "https://boards-api.greenhouse.io/v1/boards/sangamotherapeutics/jobs"
+  },
+  {
+    "company": "VIR BIOTECHNOLOGY",
+    "careers_url": "https://boards.greenhouse.io/virbiotechnology",
+    "reason": "api_unverified",
+    "api_name": "greenhouse",
+    "api_url": "https://boards-api.greenhouse.io/v1/boards/virbiotechnology/jobs"
+  },
+  {
+    "company": "EXELIXIS",
+    "careers_url": "https://boards.greenhouse.io/exelixis",
+    "reason": "api_unverified",
+    "api_name": "greenhouse",
+    "api_url": "https://boards-api.greenhouse.io/v1/boards/exelixis/jobs"
+  },
+  {
+    "company": "UNITY BIOTECHNOLOGY",
+    "careers_url": "https://boards.greenhouse.io/unitybiotechnology",
+    "reason": "api_unverified",
+    "api_name": "greenhouse",
+    "api_url": "https://boards-api.greenhouse.io/v1/boards/unitybiotechnology/jobs"
+  }
+]

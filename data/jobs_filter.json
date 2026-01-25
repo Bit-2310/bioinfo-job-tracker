@@ -1,0 +1,241 @@
+{
+  "version": "1.3",
+  "filter_name": "BIOINFO_COMBINED_US_FAST_HIRE",
+  "goal": "Secure a US-based Bioinformatics Scientist / Computational Biology role quickly (Feb timeline)",
+
+  "location_filter": {
+    "include_any": [
+      "UNITED STATES",
+      "UNITED STATES OF AMERICA",
+      "USA",
+      "US",
+      "REMOTE",
+      "REMOTE - US",
+      "REMOTE (US)",
+      "HYBRID"
+    ],
+    "exclude_any": [
+      "EU ONLY",
+      "UK ONLY",
+      "CANADA ONLY",
+      "INDIA",
+      "APAC",
+      "EMEA",
+      "LATAM",
+      "CHINA",
+      "SINGAPORE"
+    ]
+  },
+
+  "temporal_filter": {
+    "preferred_posting_age_days": 3,
+    "max_posting_age_days": 7,
+    "hard_exclude_older_than_days": 14
+  },
+
+  "title_filter": {
+    "strict_include_any": [
+      "BIOINFORMATICS SCIENTIST",
+      "BIOINFORMATICS SCIENTIST I",
+      "BIOINFORMATICS SCIENTIST II",
+      "COMPUTATIONAL BIOLOGIST",
+      "COMPUTATIONAL BIOLOGIST I",
+      "COMPUTATIONAL BIOLOGIST II",
+      "SCIENTIST, BIOINFORMATICS",
+      "SCIENTIST, COMPUTATIONAL BIOLOGY",
+      "COMPUTATIONAL SCIENTIST",
+      "GENOMICS SCIENTIST",
+      "GENOMIC DATA SCIENTIST",
+      "BIOINFORMATICS ANALYST",
+      "BIOMEDICAL DATA SCIENTIST",
+      "COMPUTATIONAL GENOMICS",
+      "ALGORITHMS SCIENTIST (GENOMICS)",
+      "BIOINFORMATICS ENGINEER",
+      "COMPUTATIONAL BIOLOGY ENGINEER"
+    ],
+    "soft_include_any": [
+      "BIOINFORMATICS",
+      "COMPUTATIONAL BIOLOGY",
+      "GENOMICS",
+      "GENOMIC",
+      "TRANSCRIPTOMICS",
+      "SINGLE CELL",
+      "SINGLE-CELL",
+      "OMICS",
+      "MULTI-OMICS",
+      "NGS",
+      "SEQUENCING",
+      "PIPELINE",
+      "WORKFLOW"
+    ],
+    "exclude_any": [
+      "SALES",
+      "ACCOUNT EXECUTIVE",
+      "BUSINESS DEVELOPMENT",
+      "CUSTOMER SUCCESS",
+      "CUSTOMER SUPPORT",
+      "MARKETING",
+      "RECRUITER",
+      "NURSE",
+      "PHLEBOTOMIST",
+      "LAB TECH",
+      "LABORATORY TECHNICIAN",
+      "CLINICAL RESEARCH COORDINATOR",
+      "REGULATORY",
+      "QUALITY ASSURANCE",
+      "QA",
+      "FRONT END",
+      "REACT",
+      "IOS",
+      "ANDROID",
+      "IT SUPPORT"
+    ]
+  },
+
+  "title_override_policy": {
+    "enabled": true,
+    "if_title_matches_strict_include": {
+      "auto_pass_scoring": true,
+      "auto_pass_hard_gates": true,
+      "still_enforce": [
+        "location_filter",
+        "temporal_filter",
+        "global_exclusions",
+        "employment_type_excludes_any"
+      ]
+    }
+  },
+
+  "experience_filter": {
+    "max_years_experience_allowed": 2,
+    "allow_if_contains_any": [
+      "0-2 YEARS",
+      "1-2 YEARS",
+      "UP TO 2 YEARS",
+      "ENTRY LEVEL",
+      "EARLY CAREER",
+      "NEW GRAD",
+      "RECENT GRADUATE"
+    ],
+    "exclude_if_contains_any": [
+      "3+ YEARS",
+      "4+ YEARS",
+      "5+ YEARS",
+      "3-5 YEARS",
+      "5-7 YEARS",
+      "MINIMUM 3 YEARS",
+      "AT LEAST 3 YEARS"
+    ]
+  },
+
+  "hard_gates": {
+    "must_have_any": [
+      "PYTHON",
+      "R"
+    ],
+    "must_match_at_least_one_domain_gate": true,
+    "domain_gates_any_of": [
+      {
+        "gate_name": "SINGLE_CELL_SIGNAL",
+        "requires_any": [
+          "SCRNA-SEQ",
+          "SINGLE CELL RNA-SEQ",
+          "SINGLE-CELL RNA-SEQ",
+          "SCANPY",
+          "SEURAT",
+          "SCVI"
+        ]
+      },
+      {
+        "gate_name": "BULK_RNASEQ_SIGNAL",
+        "requires_any": [
+          "RNA-SEQ",
+          "BULK RNA-SEQ",
+          "TRANSCRIPTOMICS",
+          "DIFFERENTIAL EXPRESSION",
+          "DESEQ2",
+          "EDGER"
+        ]
+      },
+      {
+        "gate_name": "PIPELINE_ENGINEERING_SIGNAL",
+        "requires_any": [
+          "PIPELINE",
+          "WORKFLOW",
+          "NEXTFLOW",
+          "SNAKEMAKE",
+          "SLURM",
+          "HPC"
+        ]
+      }
+    ]
+  },
+
+  "keyword_scoring": {
+    "weights": {
+      "strong": 5,
+      "medium": 2,
+      "nice_to_have": 1
+    },
+    "negative_keywords": {
+      "high_penalty": [
+        "WET LAB",
+        "BENCHWORK",
+        "PIPETTING",
+        "PHLEBOTOMY",
+        "PATIENT CARE",
+        "SALES QUOTA",
+        "COMMISSION"
+      ],
+      "medium_penalty": [
+        "REGULATORY",
+        "QUALITY ASSURANCE",
+        "QA"
+      ],
+      "penalty_weights": {
+        "high_penalty": -5,
+        "medium_penalty": -2
+      }
+    },
+    "thresholds": {
+      "min_total_score_keep": 10,
+      "min_strong_hits_keep": 1
+    }
+  },
+
+  "global_exclusions": {
+    "exclude_if_contains_any": [
+      "US CITIZENS ONLY",
+      "MUST HAVE ACTIVE CLEARANCE",
+      "SECURITY CLEARANCE REQUIRED",
+      "NO SPONSORSHIP"
+    ],
+    "employment_type_excludes_any": [
+      "INTERNSHIP",
+      "PART-TIME"
+    ]
+  },
+
+  "priority_logic": {
+    "fresh_posting_bonus": {
+      "days_0_to_3": 5,
+      "days_4_to_7": 2,
+      "older_than_7": -5
+    },
+    "title_strict_match_bonus": 6
+  },
+
+  "notes": {
+    "what_changed_from_v12": [
+      "Expanded title matching (major recall improvement)",
+      "Title strict match now auto-passes sparse descriptions",
+      "Added hard cap of 2 years experience",
+      "Softened penalties for QA/Regulatory terms"
+    ],
+    "why_this_is_safe": [
+      "Still enforces US + time window",
+      "Still excludes senior roles",
+      "Prevents 3–5 year roles from polluting queue"
+    ]
+  }
+}

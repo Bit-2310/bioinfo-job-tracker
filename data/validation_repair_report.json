@@ -1,0 +1,506 @@
+[
+  {
+    "company_name": "AMGEN",
+    "old_api_name": "workday",
+    "old_api_url": "https://amgen.myworkdayjobs.com/wday/cxs/amgen/Careers/jobs",
+    "new_api_name": "smartrecruiters",
+    "new_api_url": "https://api.smartrecruiters.com/v1/companies/Amgen3/postings/",
+    "verified": true,
+    "reason": null
+  },
+  {
+    "company_name": "BROAD INSTITUTE",
+    "old_api_name": "greenhouse",
+    "old_api_url": "https://boards-api.greenhouse.io/v1/boards/broadinstitute/jobs",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "Applied BioCode",
+    "old_api_name": "careers_url",
+    "old_api_url": "https://www.applied.com/",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "QIAGEN",
+    "old_api_name": "careers_url",
+    "old_api_url": "https://careers.qiagen.com",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "Advanced Sterilization Products",
+    "old_api_name": "careers_url",
+    "old_api_url": "https://shop.advanceautoparts.com/",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "NOVARTIS",
+    "old_api_name": "workday",
+    "old_api_url": "https://novartis.wd3.myworkdayjobs.com/Internal_Careers_for_Acquired_Entities/job/Basel-City/Novartis-Talent-Community_REQ-10067767",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "GENEWIZ",
+    "old_api_name": "careers_url",
+    "old_api_url": "https://www.genewiz.com/en/Public/Company/Careers",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "American CryoStem",
+    "old_api_name": "careers_url",
+    "old_api_url": "https://www.gatorcountry.com/swampgas/threads/countdown-to-kickoff-2025.637643/page-3",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "Aurita Bioscience",
+    "old_api_name": "careers_url",
+    "old_api_url": "https://auritabikes.com/",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "PACIFIC BIOSCIENCES",
+    "old_api_name": "workday",
+    "old_api_url": "https://pacbio.wd12.myworkdayjobs.com/PacBio-",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "Bio X Cell",
+    "old_api_name": "careers_url",
+    "old_api_url": "https://www.zhihu.com/question/373989063",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "Advanced Cellular Dynamics",
+    "old_api_name": "careers_url",
+    "old_api_url": "https://shop.advanceautoparts.com/",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "Applied Biomics",
+    "old_api_name": "careers_url",
+    "old_api_url": "https://www.applied.com/",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "Bio-Ocean",
+    "old_api_name": "careers_url",
+    "old_api_url": "https://www.zhihu.com/question/373989063",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "Abcam",
+    "old_api_name": "careers_url",
+    "old_api_url": "https://www.abcam.cn/",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "LONZA",
+    "old_api_name": "careers_url",
+    "old_api_url": "https://www.lonza.com/careers",
+    "new_api_name": "smartrecruiters",
+    "new_api_url": "https://api.smartrecruiters.com/v1/companies/Lonza/postings/",
+    "verified": true,
+    "reason": null
+  },
+  {
+    "company_name": "EDITAS MEDICINE",
+    "old_api_name": "greenhouse",
+    "old_api_url": "https://boards-api.greenhouse.io/v1/boards/editasmedicine/jobs",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "Abbott",
+    "old_api_name": "workday",
+    "old_api_url": "https://abbott.myworkdayjobs.com/wday/cxs/abbott/abbottcareers/jobs",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "Applied Genetics",
+    "old_api_name": "careers_url",
+    "old_api_url": "https://www.applied.com/",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "SAREPTA THERAPEUTICS",
+    "old_api_name": "workday",
+    "old_api_url": "https://sarepta.wd5.myworkdayjobs.com/sarepta_external",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "Strata Oncology",
+    "old_api_name": "careers_url",
+    "old_api_url": "https://www.foodnetwork.com/recipes/photos/strata-recipes",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "EVOTEC",
+    "old_api_name": "careers_url",
+    "old_api_url": "https://www.evotec.com/en/career",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "Base Pair Biotechnologies",
+    "old_api_name": "careers_url",
+    "old_api_url": "https://www.zhihu.com/question/412786723",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "64x Bio",
+    "old_api_name": "careers_url",
+    "old_api_url": "https://www.curseforge.com/minecraft/texture-packs/faithful-64x",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "Collaborative Drug Discovery",
+    "old_api_name": "careers_url",
+    "old_api_url": "https://www.zhihu.com/question/24216541",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "ANP Technologies",
+    "old_api_name": "careers_url",
+    "old_api_url": "https://www.gov.br/anp/pt-br",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "Becton Dickinson",
+    "old_api_name": "workday",
+    "old_api_url": "https://bdx.myworkdayjobs.com/wday/cxs/bdx/EXTERNAL_CAREER_SITE_USA/jobs",
+    "new_api_name": "smartrecruiters",
+    "new_api_url": "https://api.smartrecruiters.com/v1/companies/BectonDickinson2/postings/",
+    "verified": true,
+    "reason": null
+  },
+  {
+    "company_name": "Acro Biotech",
+    "old_api_name": "careers_url",
+    "old_api_url": "https://www.reef2reef.com/threads/what-what-colors-do-you-get-at-what-par-levels-with-pc-rainbow-acro.1054258/",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "Amber Bio",
+    "old_api_name": "careers_url",
+    "old_api_url": "https://www.zhihu.com/question/34300110",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "VIR BIOTECHNOLOGY",
+    "old_api_name": "greenhouse",
+    "old_api_url": "https://boards-api.greenhouse.io/v1/boards/virbiotechnology/jobs",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "Bionano Genomics",
+    "old_api_name": "careers_url",
+    "old_api_url": "https://bionano.com/careers/",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "SOPHIA GENETICS",
+    "old_api_name": "greenhouse",
+    "old_api_url": "https://boards-api.greenhouse.io/v1/boards/sophiagenetics/jobs",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "Analytical Biological Services",
+    "old_api_name": "careers_url",
+    "old_api_url": "https://pubs.acs.org/journal/ancham",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "INTELLIA THERAPEUTICS",
+    "old_api_name": "greenhouse",
+    "old_api_url": "https://boards-api.greenhouse.io/v1/boards/intelliatx/jobs",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "EXELIXIS",
+    "old_api_name": "greenhouse",
+    "old_api_url": "https://boards-api.greenhouse.io/v1/boards/exelixis/jobs",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "BIOGEN",
+    "old_api_name": "careers_url",
+    "old_api_url": "https://careers.biogen.com",
+    "new_api_name": "smartrecruiters",
+    "new_api_url": "https://api.smartrecruiters.com/v1/companies/biogen/postings/",
+    "verified": true,
+    "reason": null
+  },
+  {
+    "company_name": "GE Healthcare",
+    "old_api_name": "workday",
+    "old_api_url": "https://gehc.myworkdayjobs.com/wday/cxs/gehc/GEHC_ExternalSite/jobs",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "Allele Biotechnology",
+    "old_api_name": "careers_url",
+    "old_api_url": "https://www.zhihu.com/question/605100246",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "Ambient Biosciences",
+    "old_api_name": "careers_url",
+    "old_api_url": "https://www.zhihu.com/question/31374630",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "VERTEX PHARMACEUTICALS",
+    "old_api_name": "careers_url",
+    "old_api_url": "https://www.vrtx.com/careers.html",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "Advansta",
+    "old_api_name": "careers_url",
+    "old_api_url": "https://forums.malwarebytes.com/topic/268058-rakuten-viki-false-postives-for-phishing/",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "PERSONALIS",
+    "old_api_name": "greenhouse",
+    "old_api_url": "https://boards-api.greenhouse.io/v1/boards/personalis/jobs",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "Applied DNA Sciences",
+    "old_api_name": "careers_url",
+    "old_api_url": "https://www.applied.com/",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "MODERNA",
+    "old_api_name": "careers_url",
+    "old_api_url": "https://careers.modernatx.com",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "Applied Cells",
+    "old_api_name": "careers_url",
+    "old_api_url": "https://www.applied.com/",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "INSITRO",
+    "old_api_name": "greenhouse",
+    "old_api_url": "https://boards-api.greenhouse.io/v1/boards/insitro/jobs",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "ALK Abello",
+    "old_api_name": "careers_url",
+    "old_api_url": "https://www.reef2reef.com/threads/is-there-a-optimal-alkalinity-level.797595/",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "MERCK",
+    "old_api_name": "workday",
+    "old_api_url": "https://msd.myworkdayjobs.com/wday/cxs/msd/SearchJobs/jobs",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "DENALI THERAPEUTICS",
+    "old_api_name": "greenhouse",
+    "old_api_url": "https://boards-api.greenhouse.io/v1/boards/denalitherapeutics/jobs",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "Bio-Technical Resources",
+    "old_api_name": "careers_url",
+    "old_api_url": "https://www.zhihu.com/question/373989063",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "UNITY BIOTECHNOLOGY",
+    "old_api_name": "greenhouse",
+    "old_api_url": "https://boards-api.greenhouse.io/v1/boards/unitybiotechnology/jobs",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "iRhythm Technologies",
+    "old_api_name": "workday",
+    "old_api_url": "https://irhythmtech.myworkdayjobs.com/wday/cxs/irhythmtech/irhythm/jobs",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "Agulos Biotech",
+    "old_api_name": "careers_url",
+    "old_api_url": "https://www.zhihu.com/question/407450664",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "Viatris",
+    "old_api_name": "workday",
+    "old_api_url": "https://viatris.myworkdayjobs.com/wday/cxs/viatris/External/jobs",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "DNANEXUS",
+    "old_api_name": "greenhouse",
+    "old_api_url": "https://boards-api.greenhouse.io/v1/boards/dnanexus/jobs",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  },
+  {
+    "company_name": "BRISTOL MYERS SQUIBB",
+    "old_api_name": "workday",
+    "old_api_url": "https://bristolmyerssquibb.myworkdayjobs.com/wday/cxs/bristolmyerssquibb/BMS/jobs",
+    "new_api_name": null,
+    "new_api_url": null,
+    "verified": false,
+    "reason": "no_fix"
+  }
+]

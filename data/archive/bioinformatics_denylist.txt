@@ -1,0 +1,1 @@
+# One company name per line. These will be excluded even if matched.

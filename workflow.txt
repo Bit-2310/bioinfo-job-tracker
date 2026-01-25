@@ -1,0 +1,32 @@
+Here lies the instructions for you to build this work flow.
+
+(Done) Step 0 : Set up requirements.txt and a conda env, it should allow python scripts webscraping and json also api stuffs
+This tool will be hosted on github for personal use. and will use github actions to run pipelines
+
+I will give a dataset or you can collect the latest dataset available on the list of companies that have bioinformatics roles
+
+(Done) Step 1 : {Initial Setup Phase}
+	a. Make a csv of all company names required for Bioinformatics roles (data/companies.csv)
+	b. Create a script that will automatically collect data (scripts/company_api_collector.py)
+	c. What this script will do: For each company in company.csv it will ping the company using GreenHouse, Lever, Ashby, ICIMS etc APis that can be used for job search)
+	d. when we are calling a company if ping = true for workday,  greenhouse or lever etc we will save it all into a json in the following format
+Output Json Format (data/targeted_list.json)
+{company_name: '', api : (can be 0 to 4 or 5 encoded) }
+So for example if company x was pinged by api for greenhouse we will encode greenhouse to 1, and usually 0 means No api detected 
+
+For comopanies to which no api was detected shall be written into a different file
+
+(In Progress) Step 2 : {Main Pipeline Phase}
+	a. Verify the main datasets in data are completely safe, secure and reliable.
+	b. Create a script to pull from the json file (scripts/pull_jobs.py) . Store the jobs pulled in a format that is useful
+	c. Filter the jobs pulled using this file (data/jobs_filter.json) : Read it to understand how exactly to filter the jobs ( Filtering of Jobs can be done in the same script or a new one, just make sure the filtering logic is solid)
+	d. Once the jobs are filtered you will output it to a file which is linked to index.html ( I have already a mock up feel free to update it as needed ) 
+	
+	So atleast in my mind here is how the GitHub Actions Pipeline will work
+	(setup) -----> (scripts/pull_jobs.py) + [Uses targeted list (whichever one is the best one)] ------> unfiltered jobs ---> (same script/new script) + jobs_filter.json ------> Output (filtered_jobs) 
+	Linked to (will show up in github pages website (index.html)
+
+Once we have reached this point update me on what is going on u are allowed to take deicsions as appropriatly needed but just make sure they are right
+
+
+

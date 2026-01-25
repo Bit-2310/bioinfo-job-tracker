@@ -1,0 +1,301 @@
+company_name,source,score
+Abiosciences,biopharmguy_bioinformatics,1.0
+Accel Diagnostics,biopharmguy_bioinformatics,1.0
+Advanced Brain Monitoring,biopharmguy_bioinformatics,1.0
+Almaden Genomics,biopharmguy_bioinformatics,1.0
+Antigen Discovery,biopharmguy_bioinformatics,1.0
+Ariana Pharma,biopharmguy_bioinformatics,1.0
+Arzeda,biopharmguy_bioinformatics,1.0
+Basepair,biopharmguy_bioinformatics,1.0
+Beacon Biosignals,biopharmguy_bioinformatics,1.0
+Bio-Rad,biopharmguy_bioinformatics,1.0
+BioAge Labs,biopharmguy_bioinformatics,1.0
+BioMap,biopharmguy_bioinformatics,1.0
+Bionano Genomics,biopharmguy_bioinformatics,1.0
+BioTuring,biopharmguy_bioinformatics,1.0
+Blackrock Neurotech,biopharmguy_bioinformatics,1.0
+Cellworks,biopharmguy_bioinformatics,1.0
+Celmatix,biopharmguy_bioinformatics,1.0
+Centaur Labs,biopharmguy_bioinformatics,1.0
+Certara,biopharmguy_bioinformatics,1.0
+ChromaCode,biopharmguy_bioinformatics,1.0
+Collaborations Pharmaceuticals,biopharmguy_bioinformatics,1.0
+Collaborative Drug Discovery,biopharmguy_bioinformatics,1.0
+Cortechs.ai,biopharmguy_bioinformatics,1.0
+DNAnexus,biopharmguy_bioinformatics,1.0
+DNASTAR,biopharmguy_bioinformatics,1.0
+EpiVax,biopharmguy_bioinformatics,1.0
+Era7 Bioinformatics,biopharmguy_bioinformatics,1.0
+Flagship Biosciences,biopharmguy_bioinformatics,1.0
+Form Bio,biopharmguy_bioinformatics,1.0
+G3 Therapeutics,biopharmguy_bioinformatics,1.0
+Genetesis,biopharmguy_bioinformatics,1.0
+Genialis,biopharmguy_bioinformatics,1.0
+GenoSpace,biopharmguy_bioinformatics,1.0
+Glytec,biopharmguy_bioinformatics,1.0
+Igenbio,biopharmguy_bioinformatics,1.0
+Illumina,biopharmguy_bioinformatics,1.0
+Incogen,biopharmguy_bioinformatics,1.0
+iRhythm Technologies,biopharmguy_bioinformatics,1.0
+LatchBio,biopharmguy_bioinformatics,1.0
+Medivis,biopharmguy_bioinformatics,1.0
+Micron Solutions,biopharmguy_bioinformatics,1.0
+Mimetics,biopharmguy_bioinformatics,1.0
+Nexilico,biopharmguy_bioinformatics,1.0
+Omics Edge,biopharmguy_bioinformatics,1.0
+Optra Health,biopharmguy_bioinformatics,1.0
+Panorama Medicine,biopharmguy_bioinformatics,1.0
+Protein Metrics,biopharmguy_bioinformatics,1.0
+PsychoGenics,biopharmguy_bioinformatics,1.0
+Qrono,biopharmguy_bioinformatics,1.0
+Resonant Therapeutics,biopharmguy_bioinformatics,1.0
+RevivBio,biopharmguy_bioinformatics,1.0
+Sciex,biopharmguy_bioinformatics,1.0
+SciGenom,biopharmguy_bioinformatics,1.0
+Sirenas,biopharmguy_bioinformatics,1.0
+Strata Oncology,biopharmguy_bioinformatics,1.0
+Strateos,biopharmguy_bioinformatics,1.0
+Ten63 Therapeutics,biopharmguy_bioinformatics,1.0
+TeselaGen Biotechnology,biopharmguy_bioinformatics,1.0
+Varian Medical Systems,biopharmguy_bioinformatics,1.0
+Velsera,biopharmguy_bioinformatics,1.0
+Verana Health,biopharmguy_bioinformatics,1.0
+VeriSIM Life,biopharmguy_bioinformatics,1.0
+Via Scientific,biopharmguy_bioinformatics,1.0
+Johnson & Johnson,wikipedia_largest_biomedical_us,999
+Merck & Co.,wikipedia_largest_biomedical_us,996
+Pfizer,wikipedia_largest_biomedical_us,995
+AbbVie,wikipedia_largest_biomedical_us,994
+Bristol Myers Squibb,wikipedia_largest_biomedical_us,990
+Eli Lilly & Co,wikipedia_largest_biomedical_us,989
+Abbott Laboratories,wikipedia_largest_biomedical_us,987
+Amgen,wikipedia_largest_biomedical_us,983
+Gilead Sciences,wikipedia_largest_biomedical_us,980
+GE Healthcare,wikipedia_largest_biomedical_us,976
+Kenvue,wikipedia_largest_biomedical_us,973
+Viatris,wikipedia_largest_biomedical_us,972
+Regeneron Pharmaceuticals,wikipedia_largest_biomedical_us,971
+Vertex Pharmaceuticals,wikipedia_largest_biomedical_us,969
+Baxter International,wikipedia_largest_biomedical_us,968
+Moderna,wikipedia_largest_pharma_us,994
+Stryker Corporation,wikipedia_largest_pharma_us,984
+Zoetis,wikipedia_largest_pharma_us,983
+Biogen,wikipedia_largest_pharma_us,975
+Alexion Pharmaceuticals,wikipedia_largest_pharma_us,974
+Seagen,wikipedia_largest_pharma_us,973
+Alnylam Pharmaceuticals,wikipedia_largest_pharma_us,969
+Incyte,wikipedia_largest_pharma_us,968
+BioMarin,wikipedia_largest_pharma_us,967
+Horizon Therapeutics,wikipedia_largest_pharma_us,964
+10x Genomics,wikipedia_largest_pharma_us,963
+Elanco,wikipedia_largest_pharma_us,961
+AAT Bioquest,biopharmguy_biotech_keywords,1.0
+Active Motif,biopharmguy_biotech_keywords,1.0
+Ambry Genetics,biopharmguy_biotech_keywords,1.0
+Applied Biomics,biopharmguy_biotech_keywords,1.0
+ArgenTAG,biopharmguy_biotech_keywords,1.0
+BioDynami,biopharmguy_biotech_keywords,1.0
+BioReference Laboratories,biopharmguy_biotech_keywords,1.0
+CinderBio,biopharmguy_biotech_keywords,1.0
+Claret Bioscience,biopharmguy_biotech_keywords,1.0
+Codetta Biosciences,biopharmguy_biotech_keywords,1.0
+Creative Biogene,biopharmguy_biotech_keywords,1.0
+Daicel Arbor Biosciences,biopharmguy_biotech_keywords,1.0
+DNA Polymerase Technology,biopharmguy_biotech_keywords,1.0
+Edge BioSystems,biopharmguy_biotech_keywords,1.0
+Ellis Bio,biopharmguy_biotech_keywords,1.0
+EpiCypher,biopharmguy_biotech_keywords,1.0
+Epigentek,biopharmguy_biotech_keywords,1.0
+Functional Biosciences,biopharmguy_biotech_keywords,1.0
+GemPharmatech,biopharmguy_biotech_keywords,1.0
+Genemed Synthesis,biopharmguy_biotech_keywords,1.0
+Genewiz,biopharmguy_biotech_keywords,1.0
+Heligenics,biopharmguy_biotech_keywords,1.0
+Human Metabolome Technologies,biopharmguy_biotech_keywords,1.0
+Imanis Life Sciences,biopharmguy_biotech_keywords,1.0
+Integen LLC,biopharmguy_biotech_keywords,1.0
+iRepertoire,biopharmguy_biotech_keywords,1.0
+NeoGenomics,biopharmguy_biotech_keywords,1.0
+Omicsveu,biopharmguy_biotech_keywords,1.0
+Pacific Biosciences,biopharmguy_biotech_keywords,1.0
+Pictor,biopharmguy_biotech_keywords,1.0
+Polysciences,biopharmguy_biotech_keywords,1.0
+Proliant Biologicals,biopharmguy_biotech_keywords,1.0
+Proteovista,biopharmguy_biotech_keywords,1.0
+Proteowise,biopharmguy_biotech_keywords,1.0
+RealSeq Biosciences,biopharmguy_biotech_keywords,1.0
+SeqLL,biopharmguy_biotech_keywords,1.0
+Standard BioTools,biopharmguy_biotech_keywords,1.0
+Syenex,biopharmguy_biotech_keywords,1.0
+SynderBio,biopharmguy_biotech_keywords,1.0
+Taconic Biosciences,biopharmguy_biotech_keywords,1.0
+Vizgen,biopharmguy_biotech_keywords,1.0
+Zymo Research,biopharmguy_biotech_keywords,1.0
+20/20 BioLabs,biopharmguy_biotech_us,0.5
+28Bio,biopharmguy_biotech_us,0.5
+37degrees,biopharmguy_biotech_us,0.5
+3D Biotek,biopharmguy_biotech_us,0.5
+3D Health Solutions,biopharmguy_biotech_us,0.5
+3Helix,biopharmguy_biotech_us,0.5
+64x Bio,biopharmguy_biotech_us,0.5
+A-Alpha Bio,biopharmguy_biotech_us,0.5
+AAA Biotech,biopharmguy_biotech_us,0.5
+AAVnerGene,biopharmguy_biotech_us,0.5
+AB Biosciences,biopharmguy_biotech_us,0.5
+Abbiotec,biopharmguy_biotech_us,0.5
+AbboMax,biopharmguy_biotech_us,0.5
+Abbott,biopharmguy_biotech_us,0.5
+Abcam,biopharmguy_biotech_us,0.5
+Abcepta,biopharmguy_biotech_us,0.5
+Ablexis,biopharmguy_biotech_us,0.5
+Abpro,biopharmguy_biotech_us,0.5
+AbSci,biopharmguy_biotech_us,0.5
+Abterra Biosciences,biopharmguy_biotech_us,0.5
+AcceGen Biotechnology,biopharmguy_biotech_us,0.5
+AccelBio,biopharmguy_biotech_us,0.5
+Accelerated Biosciences,biopharmguy_biotech_us,0.5
+Acepix Biosciences,biopharmguy_biotech_us,0.5
+ACON Laboratories,biopharmguy_biotech_us,0.5
+Acro Biotech,biopharmguy_biotech_us,0.5
+ACROBiosystems,biopharmguy_biotech_us,0.5
+Adaptive Biotechnologies,biopharmguy_biotech_us,0.5
+Adaptyx Biosciences,biopharmguy_biotech_us,0.5
+Adari Cell Science,biopharmguy_biotech_us,0.5
+AddexBio,biopharmguy_biotech_us,0.5
+Adeptrix,biopharmguy_biotech_us,0.5
+ADS BIOTEC,biopharmguy_biotech_us,0.5
+Advanced BioScience Labs,biopharmguy_biotech_us,0.5
+Advanced Cell Diagnostics,biopharmguy_biotech_us,0.5
+Advanced Cellular Dynamics,biopharmguy_biotech_us,0.5
+Advanced Instruments,biopharmguy_biotech_us,0.5
+Advanced Sterilization Products,biopharmguy_biotech_us,0.5
+Advanced Targeting Systems,biopharmguy_biotech_us,0.5
+Advansta,biopharmguy_biotech_us,0.5
+Advion Interchim Scientific,biopharmguy_biotech_us,0.5
+Aelan Cell Technologies,biopharmguy_biotech_us,0.5
+Aether Biomachines,biopharmguy_biotech_us,0.5
+Affinity Biosciences,biopharmguy_biotech_us,0.5
+AG Scientific,biopharmguy_biotech_us,0.5
+Agathos Biologics,biopharmguy_biotech_us,0.5
+Aggredyne,biopharmguy_biotech_us,0.5
+Agilent,biopharmguy_biotech_us,0.5
+Agulos Biotech,biopharmguy_biotech_us,0.5
+AimPlex Biosciences,biopharmguy_biotech_us,0.5
+Akadeum Life Sciences,biopharmguy_biotech_us,0.5
+Akcell Biotech,biopharmguy_biotech_us,0.5
+Akina,biopharmguy_biotech_us,0.5
+Akonni Biosystems,biopharmguy_biotech_us,0.5
+Akoya Biosciences,biopharmguy_biotech_us,0.5
+AkrivisBio,biopharmguy_biotech_us,0.5
+Akron Biotechnology,biopharmguy_biotech_us,0.5
+Aladdin Scientific,biopharmguy_biotech_us,0.5
+Alator Biosciences,biopharmguy_biotech_us,0.5
+Aldatu Biosciences,biopharmguy_biotech_us,0.5
+Aldevron,biopharmguy_biotech_us,0.5
+Alfa Chemistry,biopharmguy_biotech_us,0.5
+ALK Abello,biopharmguy_biotech_us,0.5
+AllCells,biopharmguy_biotech_us,0.5
+Allele Biotechnology,biopharmguy_biotech_us,0.5
+Allez Health,biopharmguy_biotech_us,0.5
+Alliqua,biopharmguy_biotech_us,0.5
+AlpaLifeBio,biopharmguy_biotech_us,0.5
+ALPCO Diagnostics,biopharmguy_biotech_us,0.5
+Alpenglow Biosciences,biopharmguy_biotech_us,0.5
+Alphabioregen,biopharmguy_biotech_us,0.5
+AlphaThera,biopharmguy_biotech_us,0.5
+Alstem,biopharmguy_biotech_us,0.5
+Altis Biosystems,biopharmguy_biotech_us,0.5
+Altogen Biosystems,biopharmguy_biotech_us,0.5
+AM Chemicals,biopharmguy_biotech_us,0.5
+Amber Bio,biopharmguy_biotech_us,0.5
+Ambergen,biopharmguy_biotech_us,0.5
+Ambient Biosciences,biopharmguy_biotech_us,0.5
+American CryoStem,biopharmguy_biotech_us,0.5
+Amerigo Scientific,biopharmguy_biotech_us,0.5
+Amethyst Technologies,biopharmguy_biotech_us,0.5
+Amide Tech,biopharmguy_biotech_us,0.5
+AmideBio,biopharmguy_biotech_us,0.5
+Ampersand Biosciences,biopharmguy_biotech_us,0.5
+AMSBIO,biopharmguy_biotech_us,0.5
+Analytical Biological Services,biopharmguy_biotech_us,0.5
+AnaSpec,biopharmguy_biotech_us,0.5
+Anatomic,biopharmguy_biotech_us,0.5
+Anchor Molecular,biopharmguy_biotech_us,0.5
+ANDE Rapid DNA,biopharmguy_biotech_us,0.5
+Andson Biotech,biopharmguy_biotech_us,0.5
+Aniara Diagnostica,biopharmguy_biotech_us,0.5
+Animal Biotech,biopharmguy_biotech_us,0.5
+ANP Technologies,biopharmguy_biotech_us,0.5
+Ansh Labs,biopharmguy_biotech_us,0.5
+Antibodies Incorporated,biopharmguy_biotech_us,0.5
+Antibody Design Laboratories,biopharmguy_biotech_us,0.5
+Antibody Research,biopharmguy_biotech_us,0.5
+Apheon Bioscience,biopharmguy_biotech_us,0.5
+Applied BioCode,biopharmguy_biotech_us,0.5
+Applied Cells,biopharmguy_biotech_us,0.5
+Applied DNA Sciences,biopharmguy_biotech_us,0.5
+Applied Genetics,biopharmguy_biotech_us,0.5
+Applied StemCell,biopharmguy_biotech_us,0.5
+Aptagen,biopharmguy_biotech_us,0.5
+Aptitude Medical Systems,biopharmguy_biotech_us,0.5
+Aralez Bio,biopharmguy_biotech_us,0.5
+Arbor Assays,biopharmguy_biotech_us,0.5
+Areterna,biopharmguy_biotech_us,0.5
+Ark Diagnostics,biopharmguy_biotech_us,0.5
+Arraystar,biopharmguy_biotech_us,0.5
+Arsenal Medical,biopharmguy_biotech_us,0.5
+Artificial Axon Labs,biopharmguy_biotech_us,0.5
+Artificial Cell Technologies,biopharmguy_biotech_us,0.5
+ARX Sciences,biopharmguy_biotech_us,0.5
+AscentGene,biopharmguy_biotech_us,0.5
+Ascential Medical & Life Sciences,biopharmguy_biotech_us,0.5
+Asinex,biopharmguy_biotech_us,0.5
+Aspire Biotech,biopharmguy_biotech_us,0.5
+AssayQuant,biopharmguy_biotech_us,0.5
+Associates of Cape Cod,biopharmguy_biotech_us,0.5
+Astrolabe Diagnostics,biopharmguy_biotech_us,0.5
+Athens Research and Technology,biopharmguy_biotech_us,0.5
+Atonarp,biopharmguy_biotech_us,0.5
+ATUM,biopharmguy_biotech_us,0.5
+AUDIT MicroControls,biopharmguy_biotech_us,0.5
+AUM BioTech,biopharmguy_biotech_us,0.5
+AUM LifeTech,biopharmguy_biotech_us,0.5
+Aurita Bioscience,biopharmguy_biotech_us,0.5
+Aurora Biolabs,biopharmguy_biotech_us,0.5
+Aurora Microplates,biopharmguy_biotech_us,0.5
+AvantBio,biopharmguy_biotech_us,0.5
+Avanti Polar Lipids,biopharmguy_biotech_us,0.5
+Avantor Sciences,biopharmguy_biotech_us,0.5
+Avectas,biopharmguy_biotech_us,0.5
+Avidity,biopharmguy_biotech_us,0.5
+Avion Pharmaceuticals,biopharmguy_biotech_us,0.5
+Avitide,biopharmguy_biotech_us,0.5
+Aviva Systems Biology,biopharmguy_biotech_us,0.5
+AVS Bio,biopharmguy_biotech_us,0.5
+Axion BioSystems,biopharmguy_biotech_us,0.5
+axiVEND,biopharmguy_biotech_us,0.5
+Axogen,biopharmguy_biotech_us,0.5
+Axolotl Biologix,biopharmguy_biotech_us,0.5
+Azenta Life Sciences,biopharmguy_biotech_us,0.5
+Azura Genomics,biopharmguy_biotech_us,0.5
+BacStitch DNA,biopharmguy_biotech_us,0.5
+Bangs Laboratories,biopharmguy_biotech_us,0.5
+Base Pair Biotechnologies,biopharmguy_biotech_us,0.5
+Baxter,biopharmguy_biotech_us,0.5
+Bay BioSciences,biopharmguy_biotech_us,0.5
+BBI Solutions,biopharmguy_biotech_us,0.5
+Beckman Coulter Diagnostics,biopharmguy_biotech_us,0.5
+Beckman-Coulter,biopharmguy_biotech_us,0.5
+Becton Dickinson,biopharmguy_biotech_us,0.5
+BellBrook Labs,biopharmguy_biotech_us,0.5
+Bexorg,biopharmguy_biotech_us,0.5
+Bifrost Biosystems,biopharmguy_biotech_us,0.5
+Bio X Cell,biopharmguy_biotech_us,0.5
+Bio-Ocean,biopharmguy_biotech_us,0.5
+Bio-Technical Resources,biopharmguy_biotech_us,0.5
+BioAssay Systems,biopharmguy_biotech_us,0.5
+Bioassay Works,biopharmguy_biotech_us,0.5
+BioChain,biopharmguy_biotech_us,0.5
+Biocheck,biopharmguy_biotech_us,0.5
+Biocrede,biopharmguy_biotech_us,0.5
+BioCure,biopharmguy_biotech_us,0.5

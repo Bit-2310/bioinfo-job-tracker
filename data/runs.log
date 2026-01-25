@@ -1,3 +1,0 @@
-2026-01-23T22:10:02+00:00Z [OK] companies=2 fetched=49 new=49 dup=0 skipped_bad=0 fetched_by_source={'greenhouse': 49, 'lever': 0, 'ashby': 0, 'icims': 0} errors={'greenhouse': 0, 'lever': 0, 'ashby': 0, 'icims': 0}
-2026-01-24T20:03:19+00:00Z [WARN] registry missing; using legacy slugify mode companies=2
-2026-01-24T20:03:21+00:00Z [OK] companies=2 fetched=38 new=38 dup=0 skipped_bad=0 fetched_by_source={'greenhouse': 38, 'lever': 0, 'ashby': 0, 'icims': 0, 'workday': 0} errors={'greenhouse': 0, 'lever': 0, 'ashby': 0, 'icims': 0, 'workday': 0}

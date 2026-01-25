@@ -1,55 +1,62 @@
-# Bioinformatics Job Tracker
+# Bioinfo Job Tracker
 
-Job ingestion pipeline that runs on **GitHub Actions**, keeps an **append-only history**, and writes a small "latest" CSV you can browse via `index.html`.
+Initial setup for detecting ATS providers (Greenhouse, Lever, Ashby, iCIMS, Workday).
 
-## What changed (v2)
-
-Instead of guessing ATS slugs from the company name (which is usually wrong), we build a **master ATS registry** from your Excel target list:
-
-`Bioinformatics_Job_Target_List.xlsx` ➜ `data/master_registry.json` ➜ scraper routes each company to the right API.
-
-## Sources
-
-- Greenhouse (public API)
-- Lever (public API)
-- Workday (common public `cxs` endpoint, best-effort)
-- Ashby (best-effort; endpoint varies)
-- iCIMS (best-effort; usually needs per-company config)
-
-## Input (recommended)
-
-Commit this file at repo root:
-
-- `Bioinformatics_Job_Target_List.xlsx`
-
-Required columns:
-- `Company Name`
-- `Target Role Title`
-- `Careers Page URL`
-
-The workflow will auto-generate:
-- `data/master_registry.json`
-
-## Output
-
-Files in `data/`:
-- `master_registry.json`: detected ATS + tokens per company
-- `jobs_history.csv`: append-only history (first_seen, last_seen, sources_seen)
-- `jobs_latest.csv`: only jobs first seen in the latest run
-- `runs.log`: one-line audit summary per run
-
-## Run
-
-Push the repo and let GitHub Actions run (Mon–Sat, 4x/day). No secrets needed.
-
-## Local run
-
+## Local setup (conda)
 ```bash
-pip install -r requirements.txt
-python src/build_master_registry.py --input Bioinformatics_Job_Target_List.xlsx --output data/master_registry.json
-python src/run.py
+conda env create -f environment.yml
+conda activate bioinfo-job-tracker
 ```
 
-## View
+## Usage
+1. Edit `data/companies.csv` with company names (single column).
+   - Or generate it from the sponsorship file:
+     ```bash
+     python scripts/populate_companies_from_sponsorship.py --output data/companies_all.csv
+     ```
+   - Or curate a top-100 US bioinformatics list from public sources:
+     ```bash
+     python scripts/curate_top100_us_bioinformatics.py
+     ```
+     This uses BioPharmGuy's bioinformatics list plus BioPharmGuy's biotech list
+     filtered by bioinformatics-related keywords.
+     It also injects US-based Big Pharma from Wikipedia's largest biomedical
+     companies by revenue list.
+2. Verify/filter to bioinformatics/biotech companies using web sources:
+```bash
+python scripts/verify_bioinformatics_companies.py
+```
+   - Optional overrides:
+     - `data/bioinformatics_allowlist.txt`
+     - `data/bioinformatics_denylist.txt`
+   - Outputs:
+     - `data/companies.csv` (verified)
+     - `data/companies_unverified.csv`
+     - `data/biotech_reference_companies.csv`
+3. Run the collector:
+```bash
+python scripts/company_api_collector.py
+```
 
-Open `index.html` (or enable GitHub Pages) to view `data/jobs_latest.csv` as a searchable table.
+Outputs:
+- `data/targeted_list.json`
+- `data/no_api_companies.csv`
+
+Notes:
+- Greenhouse/Lever/Ashby detection uses their public job board APIs.
+- For large scans, you can resume using `--progress-dir` and `--resume`.
+
+4. Validate a random sample from `data/targeted_list.json`:
+```bash
+python scripts/validate_targeted_list.py --sample-size 250
+```
+Outputs:
+- `data/targeted_list_validation.json`
+
+## API codes
+- 0 = none
+- 1 = greenhouse
+- 2 = lever
+- 3 = ashby
+- 4 = icims
+- 5 = workday
