@@ -1,0 +1,954 @@
+[
+  {
+    "company_name": "ST JUDE CHILDRENS RESEARCH HOSPITAL",
+    "api_name": null,
+    "api_url": null,
+    "verified": false,
+    "reason": "no_results"
+  },
+  {
+    "company_name": "INTERNATIONAL QUALITY HOMECARE CORPORATION",
+    "api_name": "careers_url",
+    "api_url": "https://mexico.internationaltrucks.com/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "H LEE MOFFITT CANCER CENTER AND RESEARCH INSTITUTE INC",
+    "api_name": "careers_url",
+    "api_url": "https://en.wikipedia.org/wiki/H",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "ST BARNABAS HOSPITAL",
+    "api_name": "careers_url",
+    "api_url": "https://www.sbhny.org/careers/allied-health/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "LABORATORY CORPORATION OF AMERICA HOLDINGS",
+    "api_name": "careers_url",
+    "api_url": "https://www.aruplab.com/careers",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "UNIVERSITY OF ALABAMA HEALTH SERVICES FOUNDATION PC",
+    "api_name": "careers_url",
+    "api_url": "https://worldscholarshipforum.com/north-west-university-courses/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "ARL BIO PHARMA INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.arl-iowa.org/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "BILLINGS CLINIC",
+    "api_name": "careers_url",
+    "api_url": "https://www.billingsmt.gov/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "H LEE MOFFITT CANCER CENTER AND RESEARCH INSTITUTE LIFETIME CANCER SC",
+    "api_name": "careers_url",
+    "api_url": "https://en.wikipedia.org/wiki/H",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "THE CLIFTON SPRINGS SANITARIUM COMPANY D B A CLIFTON SPRINGS HOSPITAL",
+    "api_name": "careers_url",
+    "api_url": "http://cliftonnj.org/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "ATI HOLDINGS LLC",
+    "api_name": "careers_url",
+    "api_url": "https://user-management.atitesting.com/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "DEVANSH LAB WERKS INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.momjunction.com/baby-names/devansh/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "FATHER FLANAGANS BOYS HOME D B A BOYS TOWN NATIONAL RESEARCH HOSPITAL",
+    "api_name": "careers_url",
+    "api_url": "https://www.reddit.com/r/rule34gay/comments/13rbwzt/father_and_son/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "ST JUDE CHILDRENS RESEARCH HOSPITA",
+    "api_name": "careers_url",
+    "api_url": "https://www.zhihu.com/question/310711017",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "SVMC HOLDINGS INC",
+    "api_name": "careers_url",
+    "api_url": "https://patient.svhealthcare.org/Phm-PhmHome.HomePage.WR.mthr?hcis=SOVWEB.LIVEF&application=phm&message=You+have+signed+out+of+the+system%2E",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "ACADEMIC MEDICINE SERVICES INC D B A UBMD INTERNAL MEDICINE",
+    "api_name": "careers_url",
+    "api_url": "https://www.merriam-webster.com/dictionary/academic",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "FULGENT THERAPEUTICS LLC",
+    "api_name": "careers_url",
+    "api_url": "https://fulgentgenetics.com/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "LABORATORY CORPORATION OF AMERICA",
+    "api_name": "careers_url",
+    "api_url": "https://www.aruplab.com/careers",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "PT SOLUTIONS HOLDINGS LLC",
+    "api_name": "careers_url",
+    "api_url": "https://www.zhihu.com/tardis/bd/art/670847003",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "KINGS DAUGHTERS MEDICAL SPECIALTIES INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.ar15.com/forums/AR-15/BKings-Firearms-BKF-reviews-/4-746311/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "MARYS CENTER FOR MATERNAL AND CHILD CARE INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.mary.be/en/our-brand",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "MERCY HEALTH YOUNGSTOWN LLC D B A ST ELIZABETH YOUNGSTOWN HOSPITAL",
+    "api_name": "careers_url",
+    "api_url": "https://www.mercyone.org/location/mercyone-west-des-moines-medical-center",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "PLANET LABS PBC",
+    "api_name": "careers_url",
+    "api_url": "https://nineplanets.org/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "REHABILITATION INSTITUTE OF CHICAGO DBA SHIRLEY RYAN ABILITYLAB",
+    "api_name": "careers_url",
+    "api_url": "https://www.who.int/news-room/fact-sheets/detail/rehabilitation",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "AAYUSH PHARMA INC D B A VITAL CARE OF CORAL SPRINGS",
+    "api_name": "careers_url",
+    "api_url": "https://www.nfl.com/super-bowl/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "APEX THERAPEUTIC SERVICES LLC",
+    "api_name": "careers_url",
+    "api_url": "https://www.apexvs.com/ApexUI/default.aspx",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "ARUP LABORATORIES",
+    "api_name": "careers_url",
+    "api_url": "https://www.aruplab.com/careers",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "CARNEGIE ENDOWMENT FOR INTERNATIONAL PEACE",
+    "api_name": "careers_url",
+    "api_url": "https://en.wikipedia.org/wiki/Andrew_Carnegie",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "CHILDSMILES PC HOLDINGS NJ PA",
+    "api_name": "careers_url",
+    "api_url": "https://www.hunttalk.com/threads/best-hunting-essay-ever.278463/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "CIVISTA CLINICAL SERVICES LLC D B A UNIVERSITY OF MARYLAND CHARLES RE",
+    "api_name": "careers_url",
+    "api_url": "https://ttlc.intuit.com/community/taxes/discussion/received-a-check-from-civista-bank/00/717333",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "DETROIT EDUCATION AND RESEARCH",
+    "api_name": "careers_url",
+    "api_url": "https://www.reddit.com/r/Detroit/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "ENDEAVOR HEALTH CLINICAL OPERATIONS F K A NORTHSHORE UNIVERSITY HEALT",
+    "api_name": "careers_url",
+    "api_url": "http://www.jlaforums.com/album.php?search=Chucks%20Rohiti%20Jacob&search_cond=Pic%20Title&start=0",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "GREY PINE HOLDINGS LLC",
+    "api_name": "careers_url",
+    "api_url": "https://en.m.wikipedia.org/wiki/Grey",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "HEALTHCARE CLINICAL EMPLOYEE SERVICES P C",
+    "api_name": "careers_url",
+    "api_url": "https://www.healthcare.gov/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "HISTOGENETICS LLC",
+    "api_name": "careers_url",
+    "api_url": "https://www.riotgames.com/pt-br",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "INTERNAL MEDICINE OF MORRIS COUNTY",
+    "api_name": "careers_url",
+    "api_url": "https://www.merriam-webster.com/dictionary/internal",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "INTERNATIONAL SOS ASSISTANCE INC",
+    "api_name": "careers_url",
+    "api_url": "https://mexico.internationaltrucks.com/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "LANKENAU INSTITUTE FOR MEDICAL RESEARCH",
+    "api_name": "careers_url",
+    "api_url": "https://www.mainlinehealth.org/locations/lankenau-medical-center/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "NEW ALTERNATIVES FOR CHILDREN INC",
+    "api_name": "careers_url",
+    "api_url": "https://news.google.com/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "NORTHEAST INTERNAL MEDICINE ASSOCIATES P C",
+    "api_name": "careers_url",
+    "api_url": "https://northeast.edu/Admissions/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "QUEST DIAGNOSTICS INCORPORATED",
+    "api_name": "careers_url",
+    "api_url": "https://www.zhihu.com/question/421163782",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "ST BERNARDS HOSPITAL INC D B A ST BERNARDS MEDICAL CENTER",
+    "api_name": "careers_url",
+    "api_url": "https://www.zhihu.com/question/310711017",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "ACUTIS DIAGNOSTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://pubmed.ncbi.nlm.nih.gov/37049495/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "ADVANTAGE DENTAL ORAL HEALTH AND VISION CENTER OF ALABAMA P C D B A A",
+    "api_name": "careers_url",
+    "api_url": "https://www.usingenglish.com/teachers/articles/how-to-teach-advantages-disadvantages-looking-at-both-sides.html",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "ALABAMA VASCULAR SPECIALISTS PC",
+    "api_name": "careers_url",
+    "api_url": "https://www.city-data.com/city/Mobile-Alabama.html",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "ALLEGHENY SINGER RESEARCH INSTITUTE",
+    "api_name": "careers_url",
+    "api_url": "https://allegheny.edu/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "ALLIED INTERNAL MEDICINE PLLC",
+    "api_name": "careers_url",
+    "api_url": "https://www.alliedbenefit.com/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "BIG SPRINGS MEDICAL ASSOCIATION IN",
+    "api_name": "careers_url",
+    "api_url": "https://big.dk/careers",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "CHEMISYS LABORATORIES",
+    "api_name": "careers_url",
+    "api_url": "https://screenrant.com/where-to-watch-friends-streaming-online/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "CIRBY HOLDINGS LLC DBA MOUNTAIN VIEW HEALTHCARE CENTER",
+    "api_name": "careers_url",
+    "api_url": "https://support.microsoft.com/en-us/windows/restart-reboot-your-pc-110262aa-fc79-1c33-7b00-c140ae3a6dac",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "CLINICAL CONNECT LABORATORIES LLC",
+    "api_name": "careers_url",
+    "api_url": "https://www.merriam-webster.com/dictionary/clinical",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "COHESION PHENOMICS, LLC",
+    "api_name": "careers_url",
+    "api_url": "https://forum.cohesion3d.com/t/can-the-board-be-pre-wired-for-plugnplay/883",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "COLLABORATIVE THERAPY MENTAL HEALT",
+    "api_name": "careers_url",
+    "api_url": "https://www.zhihu.com/question/24216541",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "COUNCIL ON ALCHOHOL  DRUG ABUSE FOR GREATER NEW ORLEANS DBA CADA PREVE",
+    "api_name": "careers_url",
+    "api_url": "https://www.zhihu.com/question/303515212",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "DELAWARE DIAGNOSTIC LABS LLC",
+    "api_name": "careers_url",
+    "api_url": "https://en.wikipedia.org/wiki/Delaware",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "DENO INTERNATIONAL EDUCATION CONSULTANT LLC",
+    "api_name": "careers_url",
+    "api_url": "https://deno.land/std@0.224.0",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "GENERATION LAB INC",
+    "api_name": "careers_url",
+    "api_url": "https://parade.com/1113130/jessicasager/generation-names-and-years/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "IMC DIAGNOSTIC AND MEDICAL CLINIC LLC",
+    "api_name": "careers_url",
+    "api_url": "https://imcparts.net/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "INFECTIOUS DISEASES AND INTERNAL MEDICINE ASSOCIATES P C",
+    "api_name": "careers_url",
+    "api_url": "https://www.mayoclinichealthsystem.org/topics/infectious-diseases",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "INSTITUTE FOR CANCER RESEARCH DBA FOX CHASE CANCER CENTER",
+    "api_name": "careers_url",
+    "api_url": "https://institute.org/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "INTERNATIONAL COMMUNITY HEALTH SER",
+    "api_name": "careers_url",
+    "api_url": "https://mexico.internationaltrucks.com/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "INTERNATIONAL INSTITUTE FOR THE BRAIN LTD",
+    "api_name": "careers_url",
+    "api_url": "https://mexico.internationaltrucks.com/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "KINGS AGAINST VIOLENCE INITIATIVE PKA KAVI",
+    "api_name": "careers_url",
+    "api_url": "https://www.ar15.com/forums/AR-15/BKings-Firearms-BKF-reviews-/4-746311/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "LINGS ACUPUNCTURE INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.lingsmoment.com/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "LIVING WITH HOPE DBA HOPE MOBILITY INTERNATIONAL",
+    "api_name": "careers_url",
+    "api_url": "https://www.city-data.com/city/Bishop-California.html",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "MARQUIS LABS LLC",
+    "api_name": "careers_url",
+    "api_url": "https://sensorstechforum.com/search-marquis-virus/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "MED-CURE INTERNAL MEDICINE PLC",
+    "api_name": "careers_url",
+    "api_url": "https://www.webmd.com/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "MEDGENOME INC DBA SIGNIOSBIO",
+    "api_name": "careers_url",
+    "api_url": "https://www.google.com.br/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "NEW IBENA HOLDINGS INC",
+    "api_name": "careers_url",
+    "api_url": "https://news.google.com/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "NORTH CHARLES MENTAL HEALTH RESEARCH AND TRAINING FOUNDATION INC D B",
+    "api_name": "careers_url",
+    "api_url": "https://en.m.wikipedia.org/wiki/North",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "PERFORMANCE THERAPEUTICS - CORPORATE LLC",
+    "api_name": "careers_url",
+    "api_url": "https://hbr.org/topic/subject/employee-performance-management",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "PHARMERIT INTERNATIONAL LP D B A OPEN HEALTH",
+    "api_name": "careers_url",
+    "api_url": "https://en.wikipedia.org/wiki/1925",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "SCL HEALTH MEDICAL GROUP BILLINGS LLC D/B/A INTERMOUNTAIN HEALTH",
+    "api_name": "careers_url",
+    "api_url": "https://mychart.sclhealth.org/CCMyChart/Authentication/Login/LoginWidget",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "SIERRA PATHOLOGY LABORATORY INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.sierra.com/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "SOUTHERN ALABAMA AHEC",
+    "api_name": "careers_url",
+    "api_url": "https://www.reddit.com/r/WestVirginia/comments/wn4ts6/is_west_virginia_considered_a_southern_state/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "ST BERNARDS PHYSICIAN CLINICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.zhihu.com/question/310711017",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "THERAPEUTIC RESOURCES PHYSICAL OCCUP AND SPEECH THERAPY SERVICES, LLP.",
+    "api_name": "careers_url",
+    "api_url": "https://www.merriam-webster.com/dictionary/therapeutic",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "UT MEDICAL GROUP D B A UNIVERSITY CLINICAL HEALTH",
+    "api_name": "careers_url",
+    "api_url": "https://www.utexas.edu/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "VHS UNIVERSITY LABORATORIES INC DB",
+    "api_name": "careers_url",
+    "api_url": "https://www.volkshochschule.de/kursfinder.php",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "ACCUPATH DIAGNOSTIC LABORATORIES INC A LABCORP SUBSIDIARY",
+    "api_name": "careers_url",
+    "api_url": "https://finance.yahoo.com/quote/FFIV/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "ACM MEDICAL LABORATORY INC DBA ACM",
+    "api_name": "careers_url",
+    "api_url": "https://www.zhihu.com/question/620799703?write",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "APT HOLDINGS LLC D B A ACTIVE PHYSICAL THERAPY",
+    "api_name": "careers_url",
+    "api_url": "https://askubuntu.com/questions/3167/what-is-difference-between-the-options-autoclean-autoremove-and-clean",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "ARCHWELL HEALTH PROFESSIONAL SERVICES OF ALABAMA LLC",
+    "api_name": "careers_url",
+    "api_url": "https://archwellhealth.com/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "BLESSINGS HOME HEALTH LLC D B A VIRGINIA HOME HEALTH CARE",
+    "api_name": "careers_url",
+    "api_url": "https://www.biblestudytools.com/topical-verses/bible-verses-about-blessings/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "BODE CELLMARK FORENSICS, INC.",
+    "api_name": "careers_url",
+    "api_url": "https://www.merriam-webster.com/dictionary/bode",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "CALIFORNIA HEALTHCARE CLINICAL EMPLOYEE SERVICES P C",
+    "api_name": "careers_url",
+    "api_url": "https://en.m.wikipedia.org/wiki/California",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "CARNEGIE ENDOWMENT FOR INTERNATION",
+    "api_name": "careers_url",
+    "api_url": "https://en.wikipedia.org/wiki/Andrew_Carnegie",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "CLINICAL LAB CONSULTING OF INDIANA LLC",
+    "api_name": "careers_url",
+    "api_url": "https://www.merriam-webster.com/dictionary/clinical",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "CLINICAL REFERENCE LABORATORY INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.merriam-webster.com/dictionary/clinical",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "CORNERSTONE MEDICAL HOLDINGS PLC",
+    "api_name": "careers_url",
+    "api_url": "https://www.cornerstonesva.org/careers/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "DENTAL EXCELLENCE OF ALLENTOWN PC DBA ADVANCED ORAL DYNAMICS",
+    "api_name": "careers_url",
+    "api_url": "https://support.google.com/youtube/answer/1646861?hl=en",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "DIAGNOSTIC AND CLINICAL CARDIOLOGY PA D B A NEW JERSEY CARDIOLOGY ASS",
+    "api_name": "careers_url",
+    "api_url": "https://www.tenforums.com/tutorials/91174-run-windows-memory-diagnostics-tool-windows-10-a.html",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "DIAGNOSTIC PATHOLOGY SERVICES INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.tenforums.com/tutorials/91174-run-windows-memory-diagnostics-tool-windows-10-a.html",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "ELECTRODIAGNOSTIC AND PHYSICAL MED",
+    "api_name": "careers_url",
+    "api_url": "https://www.reddit.com/r/privacy/comments/17x4qd4/temu_appthey_got_me/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "GREENWOOD GENETIC CENTER INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.greenwoodmn.gov/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "ICON CLINICAL RESEARCH LLC",
+    "api_name": "careers_url",
+    "api_url": "https://www.flaticon.com/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "INCYTE PATHOLOGY, P.S. DBA INCYTE DIAGNOSTICS",
+    "api_name": "careers_url",
+    "api_url": "https://careers.incyte.com/jobs",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "INFINITY LABORATORY GROUP INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.infinitiusa.com/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "INPATIENT CONSULTANTS OF ALABAMA I",
+    "api_name": "careers_url",
+    "api_url": "https://www.uhc.com/news-articles/benefits-and-coverage/inpatient-vs-outpatient-care",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "INTERNATIONAL AIR TRANSPORT ASSOCIATION",
+    "api_name": "careers_url",
+    "api_url": "https://mexico.internationaltrucks.com/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "INTERNATIONAL CRISIS GROUP",
+    "api_name": "careers_url",
+    "api_url": "https://mexico.internationaltrucks.com/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "INTERNATIONAL MEDICAL CLINIC PLLC",
+    "api_name": "careers_url",
+    "api_url": "https://mexico.internationaltrucks.com/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "INTERPACE BIOSCIENCES, INC.",
+    "api_name": "careers_url",
+    "api_url": "https://torzon-market.wiki/wiki/registration-guide",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "JSI RESEARCH AND TRAINING INSTITUT",
+    "api_name": "careers_url",
+    "api_url": "https://careers.jsi.com/JSIInternet/Careers/index.cfm",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "JUJUBE HOLDINGS LLC D B A SUNNYVALE POST ACUTE",
+    "api_name": "careers_url",
+    "api_url": "https://en.wikipedia.org/wiki/Jujube",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "KINGS DENTAL GUNACAR INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.ar15.com/forums/AR-15/BKings-Firearms-BKF-reviews-/4-746311/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "LABETTE COUNTY MEDICAL CENTER DBA LABETTE HEALTH",
+    "api_name": "careers_url",
+    "api_url": "https://support.microsoft.com/es-es/windows/explorador-de-archivos-en-windows-ef370130-1cca-9dc5-e0df-2f7416fe1cb1",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "MEDICAL DIAGNOSTIC  SERVICES INC",
+    "api_name": "careers_url",
+    "api_url": "https://support.google.com/fitbit/answer/14566053?hl=en",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "MEDICAL LABORATORY SERVICES INC",
+    "api_name": "careers_url",
+    "api_url": "https://support.google.com/fitbit/answer/14566053?hl=en",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "MORNINGSIDE ACQUISITION I LLC DBA",
+    "api_name": "careers_url",
+    "api_url": "https://www.morningsidetlh.org/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "MUNSTER MEDICAL RESEARCH FOUNDATION INC D B A THE COMMUNITY HOSPITAL",
+    "api_name": "careers_url",
+    "api_url": "https://www.munster.org/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "MYRIAD GENETICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.insideevsforum.com/community/threads/myriad-issues-after-software-recall-what-have-you-experienced.20060/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "MYRTLE SPRINGS HEALTHCARE INC",
+    "api_name": "careers_url",
+    "api_url": "https://en.wikipedia.org/wiki/Myrtus",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "NEOBEGINNINGS PLLC",
+    "api_name": "careers_url",
+    "api_url": "https://www.dailymail.co.uk/ushome/index.html",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "NEOGENOMICS LABORATORIES, INC.",
+    "api_name": "careers_url",
+    "api_url": "https://neogenomics.com/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "ORANGE DOOR COLLABORATIVE LLC",
+    "api_name": "careers_url",
+    "api_url": "https://english.stackexchange.com/questions/310952/how-many-syllables-does-orange-have-and-what-regional-dialects-show-a-differe",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "OXFORD CLINICAL LABORATORY INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.ox.ac.uk/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "PATHOLOGY SERVICES LABORATORY P A",
+    "api_name": "careers_url",
+    "api_url": "https://en.wikipedia.org/wiki/Pathology",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "PEAR HOLDINGS LLC D B A PENINSULA POST ACUTE",
+    "api_name": "careers_url",
+    "api_url": "https://en.m.wikipedia.org/wiki/Pear",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "PEDIATRIX MEDICAL GROUP OF ALABAMA INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.pediatrix.com/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "PERFORMANCE THERAPEUTICS - CORPORA",
+    "api_name": "careers_url",
+    "api_url": "https://hbr.org/topic/subject/employee-performance-management",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "PERSONAL GENOME DIAGNOSTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.personal.com.ar/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "PLAN INTERNATIONAL USA INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.merriam-webster.com/dictionary/plan",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "PROTEAN BIODIAGNOSTICS INC.",
+    "api_name": "careers_url",
+    "api_url": "https://www.protean-tinpan.com/downloads/pan/downloads-pan.html/download/download/download/download/Form_49AA.PDF",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "PYLON LABS INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.merriam-webster.com/dictionary/pylon",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "RF LABWORKS LLC",
+    "api_name": "careers_url",
+    "api_url": "https://www.zhihu.com/question/589293468",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "ROCKY MOUNTAIN LABORATORIES, LLC",
+    "api_name": "careers_url",
+    "api_url": "https://m.imdb.com/title/tt0075148",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "SMABIO LABS SERVICES",
+    "api_name": "careers_url",
+    "api_url": "https://www.tiktok.com/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "SMILE PEDIATRIC SPEECH THERAPY AND DIAGNOSTICS",
+    "api_name": "careers_url",
+    "api_url": "https://www.reddit.com/r/Allon4ImplantDentures/comments/1azhx33/anyone_had_experience_with_bionic_smile_in_las/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "SOCIETY FOR INTERNATIONAL DEVELOPMENT UNITED STATES OF AMERICA CHAPTE",
+    "api_name": "careers_url",
+    "api_url": "https://en.wikipedia.org/wiki/Society",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "TEXAS INSTITUTE OF MUSCULOSKELETAL EXCELLENCE IN ORTHOPEDICS PLLC D B",
+    "api_name": "careers_url",
+    "api_url": "https://texags.com/aggie-basketball/schedule",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "ULMUS HOLDINGS LLC D B A ROCK CREE",
+    "api_name": "careers_url",
+    "api_url": "https://morsecode.world/international/translator.html",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "UNIVERSITY OF ALABAMA HEALTH SERVI",
+    "api_name": "careers_url",
+    "api_url": "https://worldscholarshipforum.com/north-west-university-courses/",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "UNIVERSITY OF SOUTH ALABAMA",
+    "api_name": "careers_url",
+    "api_url": "https://careers.usahealthsystem.com/careers-home",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "UOUTLOOK INTERNATIONAL EDUCATION INC DBA STAR A KIDZ",
+    "api_name": "careers_url",
+    "api_url": "https://outlook.office365.com/mail/login.html?authRedirect=true&bO=1",
+    "verified": false,
+    "reason": "careers_url_only"
+  },
+  {
+    "company_name": "WHAT BRINGS YOU IN TODAY MENTAL HEALTH COUNSELING",
+    "api_name": "careers_url",
+    "api_url": "https://www.merriam-webster.com/dictionary/brings",
+    "verified": false,
+    "reason": "careers_url_only"
+  }
+]

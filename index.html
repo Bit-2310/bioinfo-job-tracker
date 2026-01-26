@@ -290,13 +290,39 @@
 
   function parseCSV(text) {
     const lines = text.trim().split(/\r?\n/);
-    const headers = lines.shift().split(",");
+    const headers = parseCSVLine(lines.shift() || "");
     return lines.map(line => {
-      const cols = line.split(/,(?=(?:(?:[^"]*"){2})*[^"]*$)/);
+      const cols = parseCSVLine(line);
       const obj = {};
       headers.forEach((h, i) => obj[h.trim()] = (cols[i] || "").replace(/^"|"$/g, ""));
       return obj;
     });
+  }
+
+  function parseCSVLine(line) {
+    const out = [];
+    let cur = "";
+    let inQuotes = false;
+    for (let i = 0; i < line.length; i++) {
+      const ch = line[i];
+      if (ch === '"' && line[i + 1] === '"') {
+        cur += '"';
+        i++;
+        continue;
+      }
+      if (ch === '"') {
+        inQuotes = !inQuotes;
+        continue;
+      }
+      if (ch === "," && !inQuotes) {
+        out.push(cur);
+        cur = "";
+        continue;
+      }
+      cur += ch;
+    }
+    out.push(cur);
+    return out;
   }
 
   function normalize(s) {
@@ -487,14 +513,27 @@
       if (!res.ok) throw new Error("unfiltered not found");
       const text = await res.text();
       const lines = text.trim().split(/\r?\n/).filter(Boolean);
-      const rows = lines.map(line => JSON.parse(line));
+      let rows = lines.map(line => JSON.parse(line));
+      const search = normalize(document.getElementById("search").value);
+      if (search) {
+        rows = rows.filter(r =>
+          normalize(
+            (r.company || "") +
+            (r.job_title || "") +
+            (r.location || "")
+          ).includes(search)
+        );
+      }
       renderUnfiltered(rows);
     } catch (e) {
       renderUnfiltered([]);
     }
   }
 
+  let currentTab = "jobs";
+
   function switchTab(tab) {
+    currentTab = tab;
     const panels = ["jobs", "targeted", "filter", "outputs", "unfiltered"];
     for (const name of panels) {
       const el = document.getElementById(`tab-${name}`);
@@ -510,13 +549,18 @@
     if (tab === "unfiltered") loadUnfiltered();
   }
 
-  document.getElementById("view").addEventListener("change", load);
-  document.getElementById("search").addEventListener("input", load);
-  document.getElementById("sort").addEventListener("change", load);
-  document.getElementById("minScore").addEventListener("input", load);
-  document.getElementById("onlyRecent").addEventListener("change", load);
-  document.getElementById("onlyRemote").addEventListener("change", load);
-  document.getElementById("hideNA").addEventListener("change", load);
+  function refreshCurrent() {
+    if (currentTab === "jobs") load();
+    if (currentTab === "unfiltered") loadUnfiltered();
+  }
+
+  document.getElementById("view").addEventListener("change", refreshCurrent);
+  document.getElementById("search").addEventListener("input", refreshCurrent);
+  document.getElementById("sort").addEventListener("change", refreshCurrent);
+  document.getElementById("minScore").addEventListener("input", refreshCurrent);
+  document.getElementById("onlyRecent").addEventListener("change", refreshCurrent);
+  document.getElementById("onlyRemote").addEventListener("change", refreshCurrent);
+  document.getElementById("hideNA").addEventListener("change", refreshCurrent);
   document.querySelectorAll(".tab-btn").forEach(btn => {
     btn.addEventListener("click", () => switchTab(btn.dataset.tab));
   });

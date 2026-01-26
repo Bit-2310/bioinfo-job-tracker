@@ -1,0 +1,70 @@
+name: job-scraper-pipeline
+
+on:
+  workflow_dispatch:
+  schedule:
+    # 4 runs/day, Mon-Sat (EST). GitHub Actions uses UTC.
+    # 08:30 EST -> 13:30 UTC (Mon-Sat)
+    # 12:30 EST -> 17:30 UTC (Mon-Sat)
+    # 17:50 EST -> 22:50 UTC (Mon-Sat)
+    # 21:30 EST -> 02:30 UTC (Tue-Sun) to avoid Sunday EST
+    - cron: "30 13 * * 1-6"
+    - cron: "30 17 * * 1-6"
+    - cron: "50 22 * * 1-6"
+    - cron: "30 2 * * 2-6,0"
+
+permissions:
+  contents: write
+
+jobs:
+  scrape:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - name: Install dependencies
+        run: |
+          set -euo pipefail
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+
+      - name: Merge targets
+        run: |
+          set -euo pipefail
+          python -u scripts/merge_targets.py --inputs \
+            data/targeted_list.json \
+            data/targeted_list_validation.json \
+            data/target_sponsor.json \
+            data/targeted_list_biotech_reference_verified.json \
+            --output data/targeted_list_combined.json
+          echo "Combined targets:"
+          wc -l data/targeted_list_combined.json || true
+
+      - name: Run pull_jobs
+        run: |
+          set -euo pipefail
+          mkdir -p data
+          python scripts/pull_jobs.py --targeted \
+            data/targeted_list_combined.json
+          echo "Outputs:"
+          ls -lh data/jobs_latest.csv data/jobs_history.csv data/jobs_unfiltered.jsonl data/jobs_filtered.jsonl || true
+
+      - name: Commit outputs
+        run: |
+          set -euo pipefail
+          git config user.name "job-scraper-bot"
+          git config user.email "job-scraper-bot@users.noreply.github.com"
+          git add data/targeted_list_combined.json data/jobs_history.csv data/jobs_latest.csv data/jobs_unfiltered.jsonl data/jobs_filtered.jsonl || true
+          if git diff --cached --quiet; then
+            echo "No changes to commit."
+            exit 0
+          fi
+          git commit -m "Update job scrape outputs"
+          git push

@@ -1,0 +1,122 @@
+[
+  {
+    "company_name": "INTERNATIONAL QUALITY HOMECARE CORPORATION",
+    "api_code": 0,
+    "api_name": "careers_url",
+    "api_url": "https://www.internationalquality.com/caregiving-careers/"
+  },
+  {
+    "company_name": "H LEE MOFFITT CANCER CENTER AND RESEARCH INSTITUTE INC",
+    "api_code": 0,
+    "api_name": "careers_url",
+    "api_url": "https://www.moffitt.org/careers/"
+  },
+  {
+    "company_name": "LABORATORY CORPORATION OF AMERICA HOLDINGS",
+    "api_code": 0,
+    "api_name": "careers_url",
+    "api_url": "https://careers.labcorp.com/global/en"
+  },
+  {
+    "company_name": "UNIVERSITY OF ALABAMA HEALTH SERVICES FOUNDATION PC",
+    "api_code": 0,
+    "api_name": "careers_url",
+    "api_url": "https://careers.uabmedicine.org/"
+  },
+  {
+    "company_name": "ST JUDE CHILDRENS RESEARCH HOSPITAL",
+    "api_code": 0,
+    "api_name": "careers_url",
+    "api_url": "https://www.stjude.org/jobs/hospital.html"
+  },
+  {
+    "company_name": "BIOGEN INC",
+    "api_code": 0,
+    "api_name": "careers_url",
+    "api_url": "https://www.biogen.com/careers.html"
+  },
+  {
+    "company_name": "ST BARNABAS HOSPITAL",
+    "api_code": 0,
+    "api_name": "careers_url",
+    "api_url": "https://www.sbhny.org/careers/"
+  },
+  {
+    "company_name": "ST BARNABAS HOSPITAL",
+    "api_code": 0,
+    "api_name": "careers_url",
+    "api_url": "https://stbarnabashealthsystem.com/careers/"
+  },
+  {
+    "company_name": "ARUP LABORATORIES",
+    "api_code": 0,
+    "api_name": "careers_url",
+    "api_url": "https://www.aruplab.com/careers"
+  },
+  {
+    "company_name": "QUEST DIAGNOSTICS INCORPORATED",
+    "api_code": 0,
+    "api_name": "careers_url",
+    "api_url": "https://careers.questdiagnostics.com/"
+  },
+  {
+    "company_name": "PLANET LABS PBC",
+    "api_code": 1,
+    "api_name": "greenhouse",
+    "api_url": "https://boards-api.greenhouse.io/v1/boards/planetlabs/jobs"
+  },
+  {
+    "company_name": "ARL BIO PHARMA INC",
+    "api_code": 0,
+    "api_name": "careers_url",
+    "api_url": "https://www.arlok.com/careers"
+  },
+  {
+    "company_name": "FULGENT THERAPEUTICS LLC",
+    "api_code": 0,
+    "api_name": "careers_url",
+    "api_url": "https://fulgentpharma.com/careers"
+  },
+  {
+    "company_name": "REHABILITATION INSTITUTE OF CHICAGO DBA SHIRLEY RYAN ABILITYLAB",
+    "api_code": 0,
+    "api_name": "careers_url",
+    "api_url": "https://www.sralab.org/careers"
+  },
+  {
+    "company_name": "HISTOGENETICS LLC",
+    "api_code": 0,
+    "api_name": "careers_url",
+    "api_url": "https://www.histogenetics.com/careers/"
+  },
+  {
+    "company_name": "LANKENAU INSTITUTE FOR MEDICAL RESEARCH",
+    "api_code": 0,
+    "api_name": "careers_url",
+    "api_url": "https://careers.mainlinehealth.org/"
+  },
+  {
+    "company_name": "BILLINGS CLINIC",
+    "api_code": 0,
+    "api_name": "careers_url",
+    "api_url": "https://www.billingsclinic.com/careers/"
+  },
+  {
+    "company_name": "THE CLIFTON SPRINGS SANITARIUM COMPANY D B A CLIFTON SPRINGS HOSPITAL",
+    "api_code": 0,
+    "api_name": "careers_url",
+    "api_url": "https://careers.rochesterregional.org/"
+  },
+  {
+    "company_name": "ST JUDE CHILDRENS RESEARCH HOSPITA",
+    "api_code": 0,
+    "api_name": "careers_url",
+    "api_url": "https://www.stjude.org/jobs/hospital.html"
+  },
+  {
+    "company_name": "LABORATORY CORPORATION OF AMERICA",
+    "api_code": 0,
+    "api_name": "careers_url",
+    "api_url": "https://careers.labcorp.com/global/en"
+  }
+]

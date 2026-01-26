@@ -1,1 +1,0 @@
-# One company name per line. These will be forced into the verified list.

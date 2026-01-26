@@ -107,7 +107,7 @@
   },
 
   "experience_filter": {
-    "max_years_experience_allowed": 2,
+    "max_years_experience_allowed": 3,
     "allow_if_contains_any": [
       "0-2 YEARS",
       "1-2 YEARS",
@@ -118,13 +118,14 @@
       "RECENT GRADUATE"
     ],
     "exclude_if_contains_any": [
-      "3+ YEARS",
-      "4+ YEARS",
       "5+ YEARS",
-      "3-5 YEARS",
+      "7+ YEARS",
+      "8+ YEARS",
+      "10+ YEARS",
       "5-7 YEARS",
-      "MINIMUM 3 YEARS",
-      "AT LEAST 3 YEARS"
+      "7-10 YEARS",
+      "MINIMUM 5 YEARS",
+      "AT LEAST 5 YEARS"
     ]
   },
 

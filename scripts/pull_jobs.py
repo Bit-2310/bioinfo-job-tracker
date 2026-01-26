@@ -132,6 +132,9 @@ def detect_remote(text: str) -> str:
 
 
 def pull_greenhouse(company: str, url: str, session: requests.Session, list_source: str) -> list[JobRecord]:
+    if "content=true" not in url:
+        separator = "&" if "?" in url else "?"
+        url = f"{url}{separator}content=true"
     payload = request_json(url, session)
     if not isinstance(payload, dict):
         return []
@@ -223,33 +226,41 @@ def pull_ashby(company: str, url: str, session: requests.Session, list_source: s
 
 
 def pull_smartrecruiters(company: str, url: str, session: requests.Session, list_source: str) -> list[JobRecord]:
-    payload = request_json(url, session)
-    if not isinstance(payload, dict):
-        return []
-    jobs = payload.get("content", [])
-    if not isinstance(jobs, list):
-        return []
     results = []
-    for job in jobs:
-        title = normalize_text(job.get("name"))
-        loc = normalize_text(job.get("location", {}).get("city", ""))
-        job_url = normalize_text(job.get("ref", ""))
-        posted = parse_date(job.get("releasedDate") or "")
-        remote = detect_remote(title + " " + loc)
-        results.append(
-            JobRecord(
-                company=company,
-                job_title=title,
-                location=loc,
-                remote_or_hybrid=remote,
-                posting_date=posted,
-                source="smartrecruiters",
-                job_url=job_url,
-                job_id=str(job.get("id", "")),
-                description=normalize_text(job.get("jobAd", {}).get("sections", {}).get("jobDescription", "")),
-                list_source=list_source,
+    offset = 0
+    limit = 100
+    while True:
+        separator = "&" if "?" in url else "?"
+        page_url = f"{url}{separator}offset={offset}&limit={limit}&country=us"
+        payload = request_json(page_url, session)
+        if not isinstance(payload, dict):
+            break
+        jobs = payload.get("content", [])
+        if not isinstance(jobs, list) or not jobs:
+            break
+        for job in jobs:
+            title = normalize_text(job.get("name"))
+            loc = normalize_text(job.get("location", {}).get("city", ""))
+            job_url = normalize_text(job.get("ref", ""))
+            posted = parse_date(job.get("releasedDate") or "")
+            remote = detect_remote(title + " " + loc)
+            results.append(
+                JobRecord(
+                    company=company,
+                    job_title=title,
+                    location=loc,
+                    remote_or_hybrid=remote,
+                    posting_date=posted,
+                    source="smartrecruiters",
+                    job_url=job_url,
+                    job_id=str(job.get("id", "")),
+                    description=normalize_text(job.get("jobAd", {}).get("sections", {}).get("jobDescription", "")),
+                    list_source=list_source,
+                )
             )
-        )
+        if len(jobs) < limit:
+            break
+        offset += limit
     return results
 
 
@@ -566,15 +577,39 @@ def filter_jobs(jobs: list[JobRecord], filter_cfg: dict) -> list[dict]:
         location_basis = normalize(" ".join([job.location or "", job.job_title or ""]))
         has_description = len((job.description or "").strip()) >= 40
 
-        # Location include/exclude
+        # Location include/exclude (soft include, hard exclude)
         location_match = False
         if location_basis:
             location_match = is_us_location(location_basis)
         if not location_match and location_include and location_basis:
             location_match = match_any(location_include, location_basis)
-        if location_basis and not location_match:
-            continue
+        non_us_tokens = [
+            "CANADA",
+            "UNITED KINGDOM",
+            "UK",
+            "ENGLAND",
+            "LONDON",
+            "EUROPE",
+            "EMEA",
+            "APAC",
+            "LATAM",
+            "INDIA",
+            "CHINA",
+            "SINGAPORE",
+            "GERMANY",
+            "FRANCE",
+            "SPAIN",
+            "ITALY",
+            "JAPAN",
+            "KOREA",
+            "AUSTRALIA",
+            "IRELAND",
+            "NETHERLANDS",
+            "SWITZERLAND",
+        ]
         if match_any(location_exclude, text):
+            continue
+        if location_basis and match_any(non_us_tokens, location_basis) and not is_us_location(location_basis):
             continue
 
         # Title include/exclude
@@ -589,6 +624,11 @@ def filter_jobs(jobs: list[JobRecord], filter_cfg: dict) -> list[dict]:
         if title_soft and not title_match:
             title_match = match_any(title_soft, title)
         if match_any(title_exclude, title):
+            continue
+        if match_any(["PIPELINE"], title) and match_any(
+            ["COMMERCIAL", "MARKET ACCESS", "STRATEGY", "OPERATIONS", "SALES", "MARKETING"],
+            title,
+        ):
             continue
 
         # Seniority include/exclude
