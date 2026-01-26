@@ -1,7 +1,4 @@
 company,job_title,location,remote_or_hybrid,posting_date,source,job_url,score,list_source
 NEWLIMIT,"Senior/Research Associate, Functional Genomics","South San Francisco, CA",onsite,2026-01-22,greenhouse,https://job-boards.greenhouse.io/newlimit/jobs/5570891004,9,targeted_list_combined.json
 FREENOME,Senior Computational Biologist I,"Brisbane, California",onsite,2026-01-23,greenhouse,https://job-boards.greenhouse.io/freenome/jobs/8322335002,25,targeted_list_combined.json
-REGENERON,Regeneron Genetics Center (RGC),NA,onsite,NA,careers_url,https://careers.regeneron.com/en/our-teams/regeneron-genetics-center-rgc/,5,targeted_list_combined.json
 ABBVIE,"Associate Director – Global Pipeline Forecasting, Oncology",North Chicago,onsite,2026-01-23,smartrecruiters,https://api.smartrecruiters.com/v1/companies/AbbVie/postings/3743990011319666,10,targeted_list_combined.json
-Regeneron Pharmaceuticals,Regeneron Genetics Center (RGC),NA,onsite,NA,careers_url,https://careers.regeneron.com/en/our-teams/regeneron-genetics-center-rgc/,5,targeted_list_combined.json
-Regeneron Pharmaceuticals,Principal Software Engineer (Genomics),NA,onsite,NA,careers_url,https://careers.regeneron.com/en/jobs/r44731/principal-software-engineer-genomics/,5,targeted_list_combined.json
