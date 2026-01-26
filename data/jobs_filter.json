@@ -107,25 +107,14 @@
   },
 
   "experience_filter": {
-    "max_years_experience_allowed": 3,
-    "allow_if_contains_any": [
-      "0-2 YEARS",
-      "1-2 YEARS",
-      "UP TO 2 YEARS",
-      "ENTRY LEVEL",
-      "EARLY CAREER",
-      "NEW GRAD",
-      "RECENT GRADUATE"
-    ],
     "exclude_if_contains_any": [
+      "3+ YEARS",
+      "4+ YEARS",
       "5+ YEARS",
-      "7+ YEARS",
-      "8+ YEARS",
-      "10+ YEARS",
+      "3-5 YEARS",
       "5-7 YEARS",
-      "7-10 YEARS",
-      "MINIMUM 5 YEARS",
-      "AT LEAST 5 YEARS"
+      "MINIMUM 3 YEARS",
+      "AT LEAST 3 YEARS"
     ]
   },
 
@@ -178,6 +167,53 @@
       "medium": 2,
       "nice_to_have": 1
     },
+    "strong": [
+      "SCRNA-SEQ",
+      "SCRNASEQ",
+      "SCANPY",
+      "SEURAT",
+      "SCVI",
+      "RNA-SEQ",
+      "RNASEQ",
+      "TRANSCRIPTOMICS",
+      "DIFFERENTIAL EXPRESSION",
+      "DESEQ2",
+      "EDGER",
+      "NEXTFLOW",
+      "SNAKEMAKE",
+      "SLURM",
+      "HPC"
+    ],
+    "medium": [
+      "PYTHON",
+      "R",
+      "BASH",
+      "LINUX",
+      "CONDA",
+      "DOCKER",
+      "GIT",
+      "QC",
+      "NORMALIZATION",
+      "CLUSTERING",
+      "CELL TYPE ANNOTATION",
+      "VISUALIZATION",
+      "PATHWAY",
+      "ENRICHMENT",
+      "NGS"
+    ],
+    "nice_to_have": [
+      "TWAS",
+      "PREDIXCAN",
+      "GTEX",
+      "EQTL",
+      "CLINVAR",
+      "VARIANT INTERPRETATION",
+      "MULTI-OMICS",
+      "ATAC-SEQ",
+      "SPATIAL TRANSCRIPTOMICS",
+      "PYTORCH",
+      "SCIKIT-LEARN"
+    ],
     "negative_keywords": {
       "high_penalty": [
         "WET LAB",

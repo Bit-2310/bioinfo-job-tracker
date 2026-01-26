@@ -345,6 +345,83 @@ def pull_careers_url(company: str, url: str, session: requests.Session, list_sou
     base_host = urlparse(resp.url).hostname or ""
     results = []
     seen = set()
+    # Basic role title guard to avoid nav links like "students and graduates"
+    role_keywords = [
+        "SCIENTIST",
+        "ENGINEER",
+        "ANALYST",
+        "BIOINFORMATICS",
+        "COMPUTATIONAL",
+        "DATA",
+        "RESEARCH",
+        "DEVELOPER",
+        "PROGRAMMER",
+        "BIOLOGIST",
+        "GENOMICS",
+        "INFORMATICS",
+        "SOFTWARE",
+        "ML",
+        "AI",
+        "MACHINE LEARNING",
+        "STATISTICIAN",
+        "BIOSTATISTICIAN",
+        "QA",
+        "QC",
+        "INTERN",
+        "ASSOCIATE",
+        "FELLOW",
+        "MANAGER",
+        "DIRECTOR",
+        "LEAD",
+        "SENIOR",
+        "PRINCIPAL",
+    ]
+    nav_phrases = [
+        "STUDENTS AND GRADUATES",
+        "WHY",
+        "YOUR CAREER",
+        "OUR DEPARTMENTS",
+        "MEET OUR COLLEAGUES",
+        "LATEST UPDATES",
+        "INFORMATION CENTRE",
+        "EXPLORE ALL CAREERS",
+        "GLOBAL",
+        "CAREERS",
+        "JOBS",
+        "OPENINGS",
+        "POSITIONS",
+        "COUNTRY",
+        "REGION",
+    ]
+    country_terms = [
+        "AUSTRIA",
+        "BELGIUM",
+        "BRAZIL",
+        "CHILE",
+        "COLOMBIA",
+        "COSTA RICA",
+        "DENMARK",
+        "FINLAND",
+        "FRANCE",
+        "GERMANY",
+        "INDIA",
+        "IRELAND",
+        "ITALY",
+        "JAPAN",
+        "KOREA",
+        "MEXICO",
+        "NETHERLANDS",
+        "NORWAY",
+        "POLAND",
+        "PORTUGAL",
+        "SINGAPORE",
+        "SPAIN",
+        "SWEDEN",
+        "SWITZERLAND",
+        "UNITED KINGDOM",
+        "UK",
+        "CANADA",
+    ]
     for a in soup.find_all("a", href=True):
         href = a["href"]
         if not href:
@@ -356,8 +433,16 @@ def pull_careers_url(company: str, url: str, session: requests.Session, list_sou
             continue
         if not re.search(r"\bjob(s)?\b|careers|positions|openings", href, re.IGNORECASE):
             continue
-        title = normalize_text(a.get_text(" "))
+        title_raw = a.get_text(" ")
+        title = normalize_text(title_raw)
         if not title:
+            continue
+        title_norm = normalize(title)
+        if not match_any(role_keywords, title_norm):
+            continue
+        if match_any(nav_phrases, title_norm):
+            continue
+        if match_any(country_terms, title_norm):
             continue
         key = (title, href)
         if key in seen:
@@ -446,7 +531,6 @@ def build_filter_text(job: JobRecord) -> str:
                 job.job_title,
                 job.location,
                 job.description,
-                job.company,
             ]
         )
     )
@@ -467,12 +551,38 @@ US_STATE_ABBREVIATIONS = {
     "VA", "WA", "WV", "WI", "WY", "DC",
 }
 
+NON_US_LOCATION_TOKENS = [
+    "CANADA",
+    "UNITED KINGDOM",
+    "UK",
+    "ENGLAND",
+    "LONDON",
+    "EUROPE",
+    "EMEA",
+    "APAC",
+    "LATAM",
+    "INDIA",
+    "CHINA",
+    "SINGAPORE",
+    "GERMANY",
+    "FRANCE",
+    "SPAIN",
+    "ITALY",
+    "JAPAN",
+    "KOREA",
+    "AUSTRALIA",
+    "IRELAND",
+    "NETHERLANDS",
+    "SWITZERLAND",
+]
 
 def is_us_location(text: str) -> bool:
     value = normalize(text or "")
     if not value:
         return False
-    if match_any(["UNITED STATES", "USA", "US", "REMOTE", "HYBRID"], value):
+    if match_any(["UNITED STATES", "USA", "US"], value):
+        return True
+    if match_any(["REMOTE", "HYBRID"], value) and not match_any(NON_US_LOCATION_TOKENS, value):
         return True
     if "WASHINGTON DC" in value:
         return True
@@ -487,8 +597,10 @@ def is_us_location(text: str) -> bool:
     return False
 
 
-def filter_jobs(jobs: list[JobRecord], filter_cfg: dict) -> list[dict]:
-    results = []
+def filter_jobs(jobs: list[JobRecord], filter_cfg: dict) -> tuple[list[dict], list[dict], dict]:
+    results: list[dict] = []
+    dropped: list[dict] = []
+    drop_stats: dict[str, int] = {}
     location_include = upper_list(filter_cfg.get("location_filter", {}).get("include_any", []))
     location_exclude = upper_list(filter_cfg.get("location_filter", {}).get("exclude_any", []))
     title_filter = filter_cfg.get("title_filter", {})
@@ -497,18 +609,28 @@ def filter_jobs(jobs: list[JobRecord], filter_cfg: dict) -> list[dict]:
     title_soft = upper_list(title_filter.get("soft_include_any", []))
     title_soft.extend(
         [
+            "BIOINFORMATICS",
             "BIOINFORMATICS SCIENTIST",
-            "COMPUTATIONAL SCIENTIST",
-            "GENOMICS SCIENTIST",
-            "COMPUTATIONAL GENOMICS",
-            "NGS",
-            "GENETICS",
-            "OMICS",
-            "GENOMIC DATA SCIENTIST",
-            "DATA SCIENTIST, GENOMICS",
-            "SCIENTIST, DATA SCIENCE (GENOMICS)",
             "BIOINFORMATICS ANALYST",
             "BIOINFORMATICS ENGINEER",
+            "COMPUTATIONAL BIOLOGY",
+            "COMPUTATIONAL BIOLOGIST",
+            "COMPUTATIONAL SCIENTIST",
+            "COMPUTATIONAL GENOMICS",
+            "GENOMICS",
+            "GENOMICS SCIENTIST",
+            "GENOMIC",
+            "GENOMIC DATA SCIENTIST",
+            "BIOMEDICAL DATA SCIENTIST",
+            "TRANSCRIPTOMICS",
+            "SINGLE CELL",
+            "SINGLE-CELL",
+            "OMICS",
+            "MULTI-OMICS",
+            "NGS",
+            "SEQUENCING",
+            "PIPELINE",
+            "WORKFLOW",
             "ALGORITHMS SCIENTIST (GENOMICS)",
         ]
     )
@@ -516,7 +638,6 @@ def filter_jobs(jobs: list[JobRecord], filter_cfg: dict) -> list[dict]:
     seniority_exclude = upper_list(filter_cfg.get("seniority_filter", {}).get("exclude_any", []))
     experience_exclude = upper_list(filter_cfg.get("experience_traps", {}).get("exclude_if_contains_any", []))
     experience_filter = filter_cfg.get("experience_filter", {})
-    experience_allow = upper_list(experience_filter.get("allow_if_contains_any", []))
     experience_block = upper_list(experience_filter.get("exclude_if_contains_any", []))
     global_exclude = upper_list(filter_cfg.get("global_exclusions", {}).get("exclude_if_contains_any", []))
     employment_exclude = upper_list(filter_cfg.get("global_exclusions", {}).get("employment_type_excludes_any", []))
@@ -526,56 +647,45 @@ def filter_jobs(jobs: list[JobRecord], filter_cfg: dict) -> list[dict]:
     scoring_strong = upper_list(scoring.get("strong", []))
     scoring_medium = upper_list(scoring.get("medium", []))
     scoring_nice = upper_list(scoring.get("nice_to_have", []))
-    if not scoring_strong:
-        scoring_strong = [
-            "SCRNA-SEQ",
-            "SCANPY",
-            "SEURAT",
-            "SCVI",
-            "RNA-SEQ",
-            "TRANSCRIPTOMICS",
-            "DESEQ2",
-            "EDGER",
-            "NEXTFLOW",
-            "SNAKEMAKE",
-            "SLURM",
-            "HPC",
-        ]
-    if not scoring_medium:
-        scoring_medium = [
-            "PYTHON",
-            "R",
-            "BASH",
-            "LINUX",
-            "CONDA",
-            "DOCKER",
-            "GIT",
-            "QC",
-            "NORMALIZATION",
-            "CLUSTERING",
-            "CELL TYPE ANNOTATION",
-            "VISUALIZATION",
-        ]
-    if not scoring_nice:
-        scoring_nice = [
-            "TWAS",
-            "PREDIXCAN",
-            "GTEX",
-            "EQTL",
-            "MULTI-OMICS",
-            "ATAC-SEQ",
-            "SPATIAL TRANSCRIPTOMICS",
-            "PYTORCH",
-            "SCIKIT-LEARN",
-        ]
     scoring_neg_high = upper_list(scoring.get("negative_keywords", {}).get("high_penalty", []))
     scoring_neg_medium = upper_list(scoring.get("negative_keywords", {}).get("medium_penalty", []))
+    weak_domain_signals = [
+        "GENOM",
+        "RNA",
+        "OMICS",
+        "SEQUENC",
+        "TRANSCRIPT",
+        "VARIANT",
+        "SINGLE CELL",
+    ]
+    bio_context_terms = [
+        "GENE",
+        "GENOM",
+        "GENOME",
+        "DNA",
+        "RNA",
+        "PROTEIN",
+        "CELL",
+        "SEQUENC",
+        "OMICS",
+        "BIOINFORMATICS",
+        "TRANSCRIPTOMICS",
+        "NGS",
+        "ASSAY",
+        "EXPRESSION",
+        "VARIANT",
+        "PATHWAY",
+        "CLINICAL",
+        "MICROBIOME",
+    ]
     for job in jobs:
         text = build_filter_text(job)
         title = normalize(job.job_title or "")
         location = normalize(job.location or "")
-        location_basis = normalize(" ".join([job.location or "", job.job_title or ""]))
+        location_basis = normalize(job.location or "")
+        description = normalize(job.description or "")
         has_description = len((job.description or "").strip()) >= 40
+        stage1_pass_reasons = []
 
         # Location include/exclude (soft include, hard exclude)
         location_match = False
@@ -583,33 +693,40 @@ def filter_jobs(jobs: list[JobRecord], filter_cfg: dict) -> list[dict]:
             location_match = is_us_location(location_basis)
         if not location_match and location_include and location_basis:
             location_match = match_any(location_include, location_basis)
-        non_us_tokens = [
-            "CANADA",
-            "UNITED KINGDOM",
-            "UK",
-            "ENGLAND",
-            "LONDON",
-            "EUROPE",
-            "EMEA",
-            "APAC",
-            "LATAM",
-            "INDIA",
-            "CHINA",
-            "SINGAPORE",
-            "GERMANY",
-            "FRANCE",
-            "SPAIN",
-            "ITALY",
-            "JAPAN",
-            "KOREA",
-            "AUSTRALIA",
-            "IRELAND",
-            "NETHERLANDS",
-            "SWITZERLAND",
-        ]
+        non_us_tokens = NON_US_LOCATION_TOKENS
         if match_any(location_exclude, text):
+            dropped.append(
+                {
+                    "company": job.company,
+                    "job_title": job.job_title,
+                    "location": job.location,
+                    "remote_or_hybrid": job.remote_or_hybrid,
+                    "posting_date": job.posting_date,
+                    "source": job.source,
+                    "job_url": job.job_url,
+                    "score": 0,
+                    "list_source": job.list_source,
+                    "stage1_drop_reason": "location_exclude",
+                }
+            )
+            drop_stats["location_exclude"] = drop_stats.get("location_exclude", 0) + 1
             continue
         if location_basis and match_any(non_us_tokens, location_basis) and not is_us_location(location_basis):
+            dropped.append(
+                {
+                    "company": job.company,
+                    "job_title": job.job_title,
+                    "location": job.location,
+                    "remote_or_hybrid": job.remote_or_hybrid,
+                    "posting_date": job.posting_date,
+                    "source": job.source,
+                    "job_url": job.job_url,
+                    "score": 0,
+                    "list_source": job.list_source,
+                    "stage1_drop_reason": "location_exclude_non_us",
+                }
+            )
+            drop_stats["location_exclude_non_us"] = drop_stats.get("location_exclude_non_us", 0) + 1
             continue
 
         # Title include/exclude
@@ -624,46 +741,159 @@ def filter_jobs(jobs: list[JobRecord], filter_cfg: dict) -> list[dict]:
         if title_soft and not title_match:
             title_match = match_any(title_soft, title)
         if match_any(title_exclude, title):
+            dropped.append(
+                {
+                    "company": job.company,
+                    "job_title": job.job_title,
+                    "location": job.location,
+                    "remote_or_hybrid": job.remote_or_hybrid,
+                    "posting_date": job.posting_date,
+                    "source": job.source,
+                    "job_url": job.job_url,
+                    "score": 0,
+                    "list_source": job.list_source,
+                    "stage1_drop_reason": "title_exclude",
+                }
+            )
+            drop_stats["title_exclude"] = drop_stats.get("title_exclude", 0) + 1
             continue
         if match_any(["PIPELINE"], title) and match_any(
             ["COMMERCIAL", "MARKET ACCESS", "STRATEGY", "OPERATIONS", "SALES", "MARKETING"],
             title,
         ):
+            dropped.append(
+                {
+                    "company": job.company,
+                    "job_title": job.job_title,
+                    "location": job.location,
+                    "remote_or_hybrid": job.remote_or_hybrid,
+                    "posting_date": job.posting_date,
+                    "source": job.source,
+                    "job_url": job.job_url,
+                    "score": 0,
+                    "list_source": job.list_source,
+                    "stage1_drop_reason": "title_exclude_pipeline_business",
+                }
+            )
+            drop_stats["title_exclude_pipeline_business"] = drop_stats.get("title_exclude_pipeline_business", 0) + 1
             continue
 
         # Seniority include/exclude
         if match_any(seniority_exclude, title):
+            dropped.append(
+                {
+                    "company": job.company,
+                    "job_title": job.job_title,
+                    "location": job.location,
+                    "remote_or_hybrid": job.remote_or_hybrid,
+                    "posting_date": job.posting_date,
+                    "source": job.source,
+                    "job_url": job.job_url,
+                    "score": 0,
+                    "list_source": job.list_source,
+                    "stage1_drop_reason": "seniority_exclude",
+                }
+            )
+            drop_stats["seniority_exclude"] = drop_stats.get("seniority_exclude", 0) + 1
             continue
         # If include_any provided, do not require match; just use to boost
 
         # Experience traps / filter
         if match_any(experience_exclude, text):
+            dropped.append(
+                {
+                    "company": job.company,
+                    "job_title": job.job_title,
+                    "location": job.location,
+                    "remote_or_hybrid": job.remote_or_hybrid,
+                    "posting_date": job.posting_date,
+                    "source": job.source,
+                    "job_url": job.job_url,
+                    "score": 0,
+                    "list_source": job.list_source,
+                    "stage1_drop_reason": "experience_exclude",
+                }
+            )
+            drop_stats["experience_exclude"] = drop_stats.get("experience_exclude", 0) + 1
             continue
         if experience_block and match_any(experience_block, text):
+            dropped.append(
+                {
+                    "company": job.company,
+                    "job_title": job.job_title,
+                    "location": job.location,
+                    "remote_or_hybrid": job.remote_or_hybrid,
+                    "posting_date": job.posting_date,
+                    "source": job.source,
+                    "job_url": job.job_url,
+                    "score": 0,
+                    "list_source": job.list_source,
+                    "stage1_drop_reason": "experience_exclude",
+                }
+            )
+            drop_stats["experience_exclude"] = drop_stats.get("experience_exclude", 0) + 1
             continue
-        if experience_allow and not any(token in text for token in experience_allow):
-            pass
 
         # Global exclusions
         if match_any(global_exclude, text):
+            dropped.append(
+                {
+                    "company": job.company,
+                    "job_title": job.job_title,
+                    "location": job.location,
+                    "remote_or_hybrid": job.remote_or_hybrid,
+                    "posting_date": job.posting_date,
+                    "source": job.source,
+                    "job_url": job.job_url,
+                    "score": 0,
+                    "list_source": job.list_source,
+                    "stage1_drop_reason": "global_exclude",
+                }
+            )
+            drop_stats["global_exclude"] = drop_stats.get("global_exclude", 0) + 1
             continue
         if match_any(employment_exclude, text):
+            dropped.append(
+                {
+                    "company": job.company,
+                    "job_title": job.job_title,
+                    "location": job.location,
+                    "remote_or_hybrid": job.remote_or_hybrid,
+                    "posting_date": job.posting_date,
+                    "source": job.source,
+                    "job_url": job.job_url,
+                    "score": 0,
+                    "list_source": job.list_source,
+                    "stage1_drop_reason": "employment_exclude",
+                }
+            )
+            drop_stats["employment_exclude"] = drop_stats.get("employment_exclude", 0) + 1
             continue
 
-        # Hard gates (used as signal, not absolute blockers unless required)
-        hard = filter_cfg.get("hard_gates", {})
-        has_must = match_any(hard_must_have, text) if hard_must_have else False
-        domain_hit = False
-        for gate in domain_gates:
-            gate_tokens = upper_list(gate.get("requires_any", []))
-            if match_any(gate_tokens, text):
-                domain_hit = True
-                break
-        title_policy = filter_cfg.get("title_override_policy", {})
-        title_override = title_policy.get("enabled") and title_strict_match
-        if has_description and not (title_match or has_must or domain_hit):
-            if not title_override:
-                continue
+        # Stage 1 bioinfo-likely pass condition
+        if title_match:
+            stage1_pass_reasons.append("title_match")
+        weak_in_title = match_any(weak_domain_signals, title)
+        weak_in_desc = match_any(weak_domain_signals, description) and match_any(bio_context_terms, description)
+        if weak_in_title or weak_in_desc:
+            stage1_pass_reasons.append("weak_domain_signal")
+        if not stage1_pass_reasons:
+            dropped.append(
+                {
+                    "company": job.company,
+                    "job_title": job.job_title,
+                    "location": job.location,
+                    "remote_or_hybrid": job.remote_or_hybrid,
+                    "posting_date": job.posting_date,
+                    "source": job.source,
+                    "job_url": job.job_url,
+                    "score": 0,
+                    "list_source": job.list_source,
+                    "stage1_drop_reason": "no_bioinfo_signal",
+                }
+            )
+            drop_stats["no_bioinfo_signal"] = drop_stats.get("no_bioinfo_signal", 0) + 1
+            continue
 
         # Temporal filter (only if posting date is present)
         posting_age = age_days(job.posting_date)
@@ -672,8 +902,38 @@ def filter_jobs(jobs: list[JobRecord], filter_cfg: dict) -> list[dict]:
         max_days = temporal.get("max_posting_age_days")
         if posting_age is not None:
             if hard_exclude_days is not None and posting_age > hard_exclude_days:
+                dropped.append(
+                    {
+                        "company": job.company,
+                        "job_title": job.job_title,
+                        "location": job.location,
+                        "remote_or_hybrid": job.remote_or_hybrid,
+                        "posting_date": job.posting_date,
+                        "source": job.source,
+                        "job_url": job.job_url,
+                        "score": 0,
+                        "list_source": job.list_source,
+                        "stage1_drop_reason": "too_old_hard",
+                    }
+                )
+                drop_stats["too_old_hard"] = drop_stats.get("too_old_hard", 0) + 1
                 continue
             if max_days is not None and posting_age > max_days:
+                dropped.append(
+                    {
+                        "company": job.company,
+                        "job_title": job.job_title,
+                        "location": job.location,
+                        "remote_or_hybrid": job.remote_or_hybrid,
+                        "posting_date": job.posting_date,
+                        "source": job.source,
+                        "job_url": job.job_url,
+                        "score": 0,
+                        "list_source": job.list_source,
+                        "stage1_drop_reason": "too_old",
+                    }
+                )
+                drop_stats["too_old"] = drop_stats.get("too_old", 0) + 1
                 continue
 
         # Scoring
@@ -688,8 +948,6 @@ def filter_jobs(jobs: list[JobRecord], filter_cfg: dict) -> list[dict]:
         )
         if title_match:
             score += weights.get("strong", 0)
-            if strong_hits == 0:
-                strong_hits = 1
         if location_match:
             score += 1
 
@@ -699,12 +957,6 @@ def filter_jobs(jobs: list[JobRecord], filter_cfg: dict) -> list[dict]:
             score += neg.get("penalty_weights", {}).get("high_penalty", 0)
         if match_any(scoring_neg_medium, text):
             score += neg.get("penalty_weights", {}).get("medium_penalty", 0)
-
-        thresholds = scoring.get("thresholds", {})
-        min_score = thresholds.get("min_total_score_keep", 0)
-        scoring_active = bool(scoring_strong or scoring_medium or scoring_nice)
-        if scoring_active and score < min_score and not title_match and not title_override:
-            continue
 
         # Freshness bonus
         bonus = 0
@@ -731,9 +983,21 @@ def filter_jobs(jobs: list[JobRecord], filter_cfg: dict) -> list[dict]:
                 "job_url": job.job_url,
                 "score": score,
                 "list_source": job.list_source,
+                "stage1_pass_reasons": stage1_pass_reasons,
+                "score_breakdown": {
+                    "title_bonus": weights.get("strong", 0) if title_match else 0,
+                    "freshness_bonus": bonus,
+                    "strong_hits": strong_hits,
+                    "medium_hits": medium_hits,
+                    "nice_hits": nice_hits,
+                    "penalties": (
+                        (neg.get("penalty_weights", {}).get("high_penalty", 0) if match_any(scoring_neg_high, text) else 0)
+                        + (neg.get("penalty_weights", {}).get("medium_penalty", 0) if match_any(scoring_neg_medium, text) else 0)
+                    ),
+                },
             }
         )
-    return results
+    return results, dropped, drop_stats
 
 
 def write_csv(path: Path, rows: list[dict]) -> None:
@@ -749,6 +1013,16 @@ def write_csv(path: Path, rows: list[dict]) -> None:
         "score",
         "list_source",
     ]
+    optional_headers = [
+        "stage1_pass_reasons",
+        "stage1_drop_reason",
+        "score_breakdown",
+    ]
+    if rows:
+        present = {key for row in rows for key in row.keys()}
+        for key in optional_headers:
+            if key in present:
+                headers.append(key)
     with path.open("w", newline="", encoding="utf-8") as handle:
         writer = csv.DictWriter(handle, fieldnames=headers)
         writer.writeheader()
@@ -757,6 +1031,9 @@ def write_csv(path: Path, rows: list[dict]) -> None:
                 row["location"] = "NA"
             if not row.get("posting_date"):
                 row["posting_date"] = "NA"
+            for key in optional_headers:
+                if key in row and isinstance(row[key], (list, dict)):
+                    row[key] = json.dumps(row[key], ensure_ascii=True)
             writer.writerow(row)
 
 
@@ -841,7 +1118,7 @@ def main() -> int:
             with unfiltered_path.open("w", encoding="utf-8") as handle:
                 for job in all_jobs:
                     handle.write(json.dumps(job.__dict__, ensure_ascii=True) + "\n")
-            filtered_rows = filter_jobs(all_jobs, filter_cfg)
+            filtered_rows, dropped_rows, drop_stats = filter_jobs(all_jobs, filter_cfg)
             with filtered_path.open("w", encoding="utf-8") as handle:
                 for row in filtered_rows:
                     handle.write(json.dumps(row, ensure_ascii=True) + "\n")
@@ -849,6 +1126,9 @@ def main() -> int:
             history_rows = merge_history(history_csv_path, filtered_rows)
             write_csv(history_csv_path, history_rows)
             print(f"Batch write: {len(all_jobs)} jobs total; {len(filtered_rows)} filtered")
+            if drop_stats:
+                top_reasons = sorted(drop_stats.items(), key=lambda item: item[1], reverse=True)[:5]
+                print("Top drop reasons:", ", ".join(f"{reason}={count}" for reason, count in top_reasons))
             last_batch = time.monotonic()
 
     # Write unfiltered JSONL
@@ -856,7 +1136,7 @@ def main() -> int:
         for job in all_jobs:
             handle.write(json.dumps(job.__dict__, ensure_ascii=True) + "\n")
 
-    filtered_rows = filter_jobs(all_jobs, filter_cfg)
+    filtered_rows, dropped_rows, drop_stats = filter_jobs(all_jobs, filter_cfg)
 
     # Write filtered JSONL
     with filtered_path.open("w", encoding="utf-8") as handle:
@@ -869,6 +1149,9 @@ def main() -> int:
     write_csv(history_csv_path, history_rows)
 
     print(f"Pulled {len(all_jobs)} jobs; filtered to {len(filtered_rows)}")
+    if drop_stats:
+        top_reasons = sorted(drop_stats.items(), key=lambda item: item[1], reverse=True)[:5]
+        print("Top drop reasons:", ", ".join(f"{reason}={count}" for reason, count in top_reasons))
     return 0
 
 

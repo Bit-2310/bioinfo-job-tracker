@@ -1,60 +1,58 @@
 # Context Summary (Bioinfo Job Tracker)
 
-## What this repo does
-- Builds a company list (bioinformatics/biotech) and detects ATS/job board providers.
-- Produces `data/targeted_list.json` as the working dataset for job pulls.
-- Validates ATS endpoints and runs one-off job pull tests.
-- Intended to run locally now and later via GitHub Actions.
+## Current pipeline status
+- Main job pull script: `scripts/pull_jobs.py` (updated with improved matching, ATS pagination, and filters).
+- UI: `index.html` with tabs (Jobs, Targeted, Filter, Outputs, Unfiltered). Search now works on current tab and CSV parsing is robust.
+- GitHub Actions workflow: `.github/workflows/scrape.yml` runs merge + pull_jobs, logs outputs, commits artifacts.
 
-## Current key datasets (after user moved files)
-- Active:
-  - `data/targeted_list.json`
-  - `data/targeted_list_validation.json`
-  - `data/targeted_list_newlist.json`
-  - `data/job_pull_test.json`
-- Archived (moved by user):
-  - `data/archive/*` (companies lists, reports, old inputs)
-  - `scripts/archive/*` (older scripts)
+## Key datasets (active)
+- `data/targeted_list.json`
+- `data/targeted_list_validation.json`
+- `data/target_sponsor.json` (manually verified subset only)
+- `data/targeted_list_biotech_reference_verified.json`
+- `data/targeted_list_combined.json` (merged via `scripts/merge_targets.py`)
+- `data/jobs_filter.json` (updated experience filter: max 3 years, exclude 5+ years)
+- `data/jobs_unfiltered.jsonl`, `data/jobs_filtered.jsonl`, `data/jobs_latest.csv`, `data/jobs_history.csv`
 
-## Current stats (latest)
-- `data/targeted_list.json`: 347 entries, 0 duplicates.
-  - API breakdown: careers_url 297, greenhouse 32, workday 13, icims 3, lever 1, smartrecruiters 1.
-- Validation sample (250): 194 success, 56 fail. Failures mainly careers_url/greenhouse/workday.
-- One-off job pull test:
-  - 199 processed; 185 ok, 14 http_error.
-  - jobs_count available: 61 (mostly link heuristics + GH/SmartRecruiters/Lever).
+## Merge helper
+- `scripts/merge_targets.py` merges four lists into `data/targeted_list_combined.json` (dedupe by company_name + api_url).
 
-## Pipelines used
-- Curate companies (expanded):
-  - `scripts/archive/curate_top100_us_bioinformatics.py` (now archived)
-  - new: `scripts/curate_top100_us_bioinformatics.py` (expanded to 300 using BioPharmGuy + Wikipedia pharma lists).
-- ATS detection:
-  - `scripts/archive/company_api_collector.py` (older)
-  - current: `scripts/company_api_collector.py`
-- Enrichment from companies list (parallel via Bing RSS search):
-  - `scripts/tighten_ats_from_careers.py` (archived)
-  - `scripts/enrich_targeted_from_companies.py`
-- Enrichment from newlist:
-  - `scripts/enrich_targeted_from_newlist.py`
-- Repair failed validations:
-  - `scripts/repair_failed_validations.py`
-- Validation:
-  - `scripts/archive/validate_targeted_list.py`
-- One-off job pull:
-  - `scripts/job_pull_test.py`
+## Matching / filtering logic updates
+- Hybrid matcher (word boundaries for <=3 chars, substring for >=4, phrase match for multi-word) with normalization.
+- Location include is soft; non-US hard block uses location field only (no longer scans full description).
+- Added US location normalization (City, ST; DC; US/USA/Remote/Hybrid).
+- Added pipeline-business guard: exclude titles with PIPELINE + (COMMERCIAL/MARKET ACCESS/STRATEGY/OPERATIONS/SALES/MARKETING).
+- Expanded title soft includes (bioinformatics/computational/genomics terms).
+- Fallback scoring keyword lists if missing in filter JSON.
 
-## Notes on limitations
-- Many companies only have `careers_url` (no ATS API detected).
-- Workday often fails due to tenant/site path issues or blocking.
-- Static HTML parsing can’t see JS-rendered job listings.
-- Bing RSS search sometimes returns irrelevant results; some wrong careers URLs were corrected by fallback.
+## ATS pull improvements
+- Greenhouse: appends `content=true` to get full descriptions.
+- SmartRecruiters: paginates with `offset/limit` and uses `country=us`.
 
-## Latest key outputs
-- `data/companies.csv` replaced with curated top-300 list.
-- `data/targeted_list.json` includes all companies from `data/companies.csv` and `data/archive/newlist.csv`.
-- `data/companies_enrichment_report.json`, `data/ats_tighten_report.json`, `data/validation_repair_report.json` exist for audit.
+## GitHub Actions schedule (EST converted to UTC)
+- 08:30 EST -> 13:30 UTC (Mon–Sat)
+- 12:30 EST -> 17:30 UTC (Mon–Sat)
+- 17:50 EST -> 22:50 UTC (Mon–Sat)
+- 21:30 EST -> 02:30 UTC (Tue–Sun) to avoid Sunday EST run
 
-## GitHub Actions considerations
-- Prefer running light validation + job pulls in CI.
-- Heavier enrichment steps (web search, ATS repair) may be optional via flags/env vars.
+## Repo cleanup
+- `data/archive/` and `scripts/archive/` were zipped into `data/archive.zip` and `scripts/archive.zip`, then removed.
+
+## Sponsor list
+- `data/target_sponsor_candidates.json` created from sponsorship CSV prefilter.
+- `data/target_sponsor.json` currently contains only **verified** entries (manual additions). Many unverified auto entries were removed.
+
+## Biotech reference
+- `scripts/archive/enrich_targeted_from_companies.py` modified to support biotech reference file and `--bioinfo-only`, outputs to `data/targeted_list_biotech_reference.json` and report.
+- Verified subset saved to `data/targeted_list_biotech_reference_verified.json` (currently ~23 entries).
+
+## Latest run snapshot (last checked)
+- Unfiltered: ~2550–2777 jobs
+- Filtered: ~6 jobs
+- Bioinfo-titled misses: 44 (often due to age >7 days or seniority exclusions)
+
+## Known issues to revisit
+- Filter still strict; consider tuning seniority/age if recall too low.
+- Sponsor verification is slow; manual batches in progress.
+- `pull_jobs.py` uses combined list; ensure combined file exists before runs.
 
