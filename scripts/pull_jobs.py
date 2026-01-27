@@ -101,7 +101,7 @@ def load_targets(paths: list[Path]) -> list[tuple[dict, str]]:
     seen = set()
     unique: list[tuple[dict, str]] = []
     for row, source in rows:
-        key = (row.get("company_name"), row.get("api_url"))
+        key = (normalize_company(row.get("company_name", "")), row.get("api_url"))
         if key in seen:
             continue
         seen.add(key)
@@ -495,6 +495,12 @@ def normalize(text: str) -> str:
     value = re.sub(r"[^A-Za-z0-9]+", " ", text or "")
     value = re.sub(r"\s+", " ", value).strip()
     return value.upper()
+
+
+def normalize_company(name: str) -> str:
+    value = re.sub(r"[^A-Za-z0-9]+", " ", name or "")
+    value = re.sub(r"\s+", " ", value).strip()
+    return value.lower()
 
 
 def is_phrase(token: str) -> bool:
@@ -1037,6 +1043,12 @@ def write_csv(path: Path, rows: list[dict]) -> None:
             writer.writerow(row)
 
 
+def write_latest_json(path: Path, rows: list[dict]) -> None:
+    path.parent.mkdir(parents=True, exist_ok=True)
+    with path.open("w", encoding="utf-8") as handle:
+        json.dump(rows, handle, ensure_ascii=True, indent=2)
+
+
 def merge_history(history_path: Path, latest_rows: list[dict]) -> list[dict]:
     if not history_path.exists():
         return latest_rows
@@ -1045,10 +1057,10 @@ def merge_history(history_path: Path, latest_rows: list[dict]) -> list[dict]:
         reader = csv.DictReader(handle)
         existing = list(reader)
 
-    seen = {(row.get("job_url") or "", row.get("company") or "") for row in existing}
+    seen = {(row.get("job_url") or "", normalize_company(row.get("company") or "")) for row in existing}
     combined = existing[:]
     for row in latest_rows:
-        key = (row.get("job_url") or "", row.get("company") or "")
+        key = (row.get("job_url") or "", normalize_company(row.get("company") or ""))
         if key in seen:
             continue
         seen.add(key)
@@ -1063,6 +1075,7 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--unfiltered-output", default="data/jobs_unfiltered.jsonl")
     parser.add_argument("--filtered-output", default="data/jobs_filtered.jsonl")
     parser.add_argument("--latest-csv", default="data/jobs_latest.csv")
+    parser.add_argument("--latest-json", default="data/jobs_latest.json")
     parser.add_argument("--history-csv", default="data/jobs_history.csv")
     parser.add_argument("--batch-interval-seconds", type=int, default=120)
     parser.add_argument("--skip-network-check", action="store_true")
@@ -1103,10 +1116,12 @@ def main() -> int:
     unfiltered_path = Path(args.unfiltered_output)
     filtered_path = Path(args.filtered_output)
     latest_csv_path = Path(args.latest_csv)
+    latest_json_path = Path(args.latest_json)
     history_csv_path = Path(args.history_csv)
     unfiltered_path.parent.mkdir(parents=True, exist_ok=True)
     filtered_path.parent.mkdir(parents=True, exist_ok=True)
     latest_csv_path.parent.mkdir(parents=True, exist_ok=True)
+    latest_json_path.parent.mkdir(parents=True, exist_ok=True)
     history_csv_path.parent.mkdir(parents=True, exist_ok=True)
 
     last_batch = time.monotonic()
@@ -1123,6 +1138,7 @@ def main() -> int:
                 for row in filtered_rows:
                     handle.write(json.dumps(row, ensure_ascii=True) + "\n")
             write_csv(latest_csv_path, filtered_rows)
+            write_latest_json(latest_json_path, filtered_rows)
             history_rows = merge_history(history_csv_path, filtered_rows)
             write_csv(history_csv_path, history_rows)
             print(f"Batch write: {len(all_jobs)} jobs total; {len(filtered_rows)} filtered")
@@ -1144,6 +1160,7 @@ def main() -> int:
             handle.write(json.dumps(row, ensure_ascii=True) + "\n")
 
     write_csv(latest_csv_path, filtered_rows)
+    write_latest_json(latest_json_path, filtered_rows)
 
     history_rows = merge_history(history_csv_path, filtered_rows)
     write_csv(history_csv_path, history_rows)

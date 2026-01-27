@@ -49,6 +49,13 @@
       flex-wrap: wrap;
       margin-bottom: 12px;
     }
+    .tab-bar {
+      display: flex;
+      gap: 8px;
+      flex-wrap: nowrap;
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
+    }
     select, input {
       padding: 6px 8px;
       font-size: 14px;
@@ -73,6 +80,17 @@
       position: sticky;
       top: 0;
     }
+    th[data-sort] {
+      cursor: pointer;
+    }
+    th[data-sort]:hover {
+      background: #e6e6e6;
+    }
+    th[data-sort] .sort-indicator {
+      margin-left: 6px;
+      font-size: 11px;
+      color: #666;
+    }
     a {
       color: #0b57d0;
       text-decoration: none;
@@ -90,6 +108,21 @@
     .pill.source {
       background: #e8f0fe;
       color: #174ea6;
+    }
+    .pill.sponsor-yes {
+      background: #dcfce7;
+      color: #166534;
+      border: 1px solid #86efac;
+    }
+    .pill.sponsor-no {
+      background: #fee2e2;
+      color: #991b1b;
+      border: 1px solid #fecaca;
+    }
+    .pill.score {
+      background: #f3f4f6;
+      color: #111827;
+      border: 1px solid #e5e7eb;
     }
     .pill.recent {
       background: #e6f4ea;
@@ -130,6 +163,43 @@
     .table-wrap {
       overflow-x: auto;
     }
+    .card-view .table-wrap {
+      overflow: visible;
+    }
+    .card-view table {
+      border: none;
+    }
+    .card-view thead {
+      display: none;
+    }
+    .card-view tbody tr {
+      display: block;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      margin-bottom: 10px;
+      padding: 8px;
+      background: #fff;
+    }
+    .card-view tbody td {
+      display: block;
+      border: none;
+      padding: 2px 0;
+    }
+    .card-view .card-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+    }
+    .card-view .card-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      align-items: center;
+    }
+    .card-view .card-title {
+      font-weight: 600;
+    }
     @media (max-width: 720px) {
       body {
         margin: 12px;
@@ -141,12 +211,28 @@
       select, input, .tab-btn {
         width: 100%;
       }
+      .tab-bar {
+        flex-direction: row;
+        align-items: center;
+      }
+      .tab-bar .tab-btn {
+        width: auto;
+        flex: 0 0 auto;
+      }
       th, td {
         font-size: 12px;
         padding: 6px;
       }
+      th {
+        position: static;
+      }
       .card {
         padding: 10px;
+      }
+    }
+    @media (min-width: 721px) {
+      label.card-toggle {
+        display: none;
       }
     }
   </style>
@@ -173,6 +259,9 @@
     <select id="sort">
       <option value="date_desc">Posted (newest)</option>
       <option value="score_desc">Score (high)</option>
+      <option value="score_asc">Score (low)</option>
+      <option value="sponsor_desc">Sponsorship (Yes first)</option>
+      <option value="sponsor_asc">Sponsorship (No first)</option>
       <option value="company_asc">Company (A-Z)</option>
       <option value="title_asc">Title (A-Z)</option>
     </select>
@@ -202,9 +291,14 @@
     <input id="hideNA" type="checkbox" />
     Hide NA dates
   </label>
+
+  <label class="card-toggle">
+    <input id="cardView" type="checkbox" />
+    Card view
+  </label>
 </div>
 
-<div class="controls card">
+<div class="controls card tab-bar">
   <button class="tab-btn" data-tab="jobs">Jobs</button>
   <button class="tab-btn" data-tab="targeted">Targeted List</button>
   <button class="tab-btn" data-tab="filter">Filter</button>
@@ -223,7 +317,8 @@
       <th>Remote</th>
       <th>Posted</th>
       <th>Source</th>
-      <th>Score</th>
+      <th data-sort="sponsor">Sponsorship <span class="sort-indicator"></span></th>
+      <th data-sort="score">Score <span class="sort-indicator"></span></th>
       <th>Link</th>
     </tr>
   </thead>
@@ -255,6 +350,7 @@
 <div id="tab-outputs" class="tab-panel card" hidden>
   <ul>
     <li><a href="data/jobs_latest.csv" target="_blank">jobs_latest.csv</a></li>
+    <li><a href="data/jobs_latest.json" target="_blank">jobs_latest.json</a></li>
     <li><a href="data/jobs_history.csv" target="_blank">jobs_history.csv</a></li>
     <li><a href="data/jobs_unfiltered.jsonl" target="_blank">jobs_unfiltered.jsonl</a></li>
     <li><a href="data/jobs_filtered.jsonl" target="_blank">jobs_filtered.jsonl</a></li>
@@ -270,9 +366,10 @@
         <th>Job title</th>
         <th>Location</th>
         <th>Remote</th>
-        <th>Posted</th>
-        <th>Source</th>
-        <th>Link</th>
+      <th>Posted</th>
+      <th>Source</th>
+      <th>Sponsorship</th>
+      <th>Link</th>
       </tr>
     </thead>
     <tbody id="unfiltered-rows"></tbody>
@@ -287,6 +384,23 @@
     latest: "data/jobs_latest.csv",
     history: "data/jobs_history.csv"
   };
+  let sponsorSet = null;
+
+  async function loadSponsors() {
+    if (sponsorSet) return sponsorSet;
+    sponsorSet = new Set();
+    try {
+      const res = await fetch("data/target_sponsor.json", { cache: "no-store" });
+      if (!res.ok) return sponsorSet;
+      const data = await res.json();
+      for (const row of data) {
+        if (row.company_name) sponsorSet.add(row.company_name.toLowerCase());
+      }
+    } catch (e) {
+      return sponsorSet;
+    }
+    return sponsorSet;
+  }
 
   function parseCSV(text) {
     const lines = text.trim().split(/\r?\n/);
@@ -329,6 +443,11 @@
     return (s || "").toLowerCase();
   }
 
+  function sponsorValue(row) {
+    if (!sponsorSet) return 0;
+    return sponsorSet.has((row.company || "").toLowerCase()) ? 1 : 0;
+  }
+
   function parseDate(value) {
     if (!value || value === "NA") return null;
     const d = new Date(value);
@@ -360,16 +479,39 @@
       } else {
         datePill = `${r.posting_date || "NA"}`;
       }
-      tr.innerHTML = `
-        <td>${r.company || ""}</td>
-        <td>${r.job_title || ""}</td>
-        <td>${r.location || ""}</td>
-        <td><span class="pill">${r.remote_or_hybrid || "unknown"}</span></td>
-        <td>${datePill}</td>
-        <td><span class="pill source">${r.source || ""}</span></td>
-        <td>${r.score || ""}</td>
-        <td>${r.job_url ? `<a href="${r.job_url}" target="_blank">Open</a>` : ""}</td>
-      `;
+      const sponsor = sponsorSet && sponsorSet.has((r.company || "").toLowerCase());
+      const sponsorPill = sponsor
+        ? `<span class="pill sponsor-yes">Yes</span>`
+        : `<span class="pill sponsor-no">No</span>`;
+      const scorePill = `<span class="pill score">Score ${r.score || 0}</span>`;
+      const isCard = document.body.classList.contains("card-view");
+      if (isCard) {
+        tr.innerHTML = `
+          <td><span class="card-title">${r.company || ""}</span></td>
+          <td>${r.job_title || ""}</td>
+          <td>${r.location || ""}</td>
+          <td class="card-meta">
+            <span class="pill">${r.remote_or_hybrid || "unknown"}</span>
+            ${datePill}
+            <span class="pill source">${r.source || ""}</span>
+            ${sponsorPill}
+            ${scorePill}
+          </td>
+          <td>${r.job_url ? `<a href="${r.job_url}" target="_blank">Open</a>` : ""}</td>
+        `;
+      } else {
+        tr.innerHTML = `
+          <td>${r.company || ""}</td>
+          <td>${r.job_title || ""}</td>
+          <td>${r.location || ""}</td>
+          <td><span class="pill">${r.remote_or_hybrid || "unknown"}</span></td>
+          <td>${datePill}</td>
+          <td><span class="pill source">${r.source || ""}</span></td>
+          <td>${sponsorPill}</td>
+          <td>${r.score || ""}</td>
+          <td>${r.job_url ? `<a href="${r.job_url}" target="_blank">Open</a>` : ""}</td>
+        `;
+      }
       tbody.appendChild(tr);
     }
   }
@@ -385,6 +527,7 @@
     const sortMode = document.getElementById("sort").value;
 
     try {
+      await loadSponsors();
       const res = await fetch(FILES[view], { cache: "no-store" });
       if (!res.ok) throw new Error("CSV not found");
 
@@ -422,6 +565,19 @@
 
       rows.sort((a, b) => {
         if (sortMode === "score_desc") {
+          return Number(b.score || 0) - Number(a.score || 0);
+        }
+        if (sortMode === "score_asc") {
+          return Number(a.score || 0) - Number(b.score || 0);
+        }
+        if (sortMode === "sponsor_desc") {
+          const diff = sponsorValue(b) - sponsorValue(a);
+          if (diff !== 0) return diff;
+          return Number(b.score || 0) - Number(a.score || 0);
+        }
+        if (sortMode === "sponsor_asc") {
+          const diff = sponsorValue(a) - sponsorValue(b);
+          if (diff !== 0) return diff;
           return Number(b.score || 0) - Number(a.score || 0);
         }
         if (sortMode === "company_asc") {
@@ -494,13 +650,20 @@
     tbody.innerHTML = "";
     for (const r of data) {
       const tr = document.createElement("tr");
+      const sponsor = sponsorSet && sponsorSet.has((r.company || "").toLowerCase());
+      const sponsorPill = sponsor
+        ? `<span class="pill sponsor-yes">Yes</span>`
+        : `<span class="pill sponsor-no">No</span>`;
       tr.innerHTML = `
-        <td>${r.company || ""}</td>
+        <td><span class="card-title">${r.company || ""}</span></td>
         <td>${r.job_title || ""}</td>
         <td>${r.location || ""}</td>
-        <td><span class="pill">${r.remote_or_hybrid || "unknown"}</span></td>
-        <td>${r.posting_date || ""}</td>
-        <td><span class="pill source">${r.source || ""}</span></td>
+        <td class="card-meta">
+          <span class="pill">${r.remote_or_hybrid || "unknown"}</span>
+          <span class="pill recent">${r.posting_date || ""}</span>
+          <span class="pill source">${r.source || ""}</span>
+          ${sponsorPill}
+        </td>
         <td>${r.job_url ? `<a href="${r.job_url}" target="_blank">Open</a>` : ""}</td>
       `;
       tbody.appendChild(tr);
@@ -509,6 +672,7 @@
 
   async function loadUnfiltered() {
     try {
+      await loadSponsors();
       const res = await fetch("data/jobs_unfiltered.jsonl", { cache: "no-store" });
       if (!res.ok) throw new Error("unfiltered not found");
       const text = await res.text();
@@ -554,17 +718,70 @@
     if (currentTab === "unfiltered") loadUnfiltered();
   }
 
+  function updateSortIndicators() {
+    const sortMode = document.getElementById("sort").value;
+    const scoreInd = document.querySelector('th[data-sort="score"] .sort-indicator');
+    const sponsorInd = document.querySelector('th[data-sort="sponsor"] .sort-indicator');
+    if (scoreInd) scoreInd.textContent = sortMode === "score_desc" ? "↓" : sortMode === "score_asc" ? "↑" : "";
+    if (sponsorInd) {
+      sponsorInd.textContent = sortMode === "sponsor_desc" ? "↓" : sortMode === "sponsor_asc" ? "↑" : "";
+    }
+  }
+
   document.getElementById("view").addEventListener("change", refreshCurrent);
   document.getElementById("search").addEventListener("input", refreshCurrent);
-  document.getElementById("sort").addEventListener("change", refreshCurrent);
+  document.getElementById("sort").addEventListener("change", () => {
+    updateSortIndicators();
+    refreshCurrent();
+  });
   document.getElementById("minScore").addEventListener("input", refreshCurrent);
   document.getElementById("onlyRecent").addEventListener("change", refreshCurrent);
   document.getElementById("onlyRemote").addEventListener("change", refreshCurrent);
   document.getElementById("hideNA").addEventListener("change", refreshCurrent);
+  document.getElementById("cardView").addEventListener("change", e => {
+    document.body.classList.toggle("card-view", e.target.checked);
+  });
+  document.querySelectorAll("th[data-sort]").forEach(th => {
+    th.addEventListener("click", () => {
+      const key = th.dataset.sort;
+      const select = document.getElementById("sort");
+      let next = select.value;
+      if (key === "score") {
+        next = select.value === "score_desc" ? "score_asc" : "score_desc";
+      } else if (key === "sponsor") {
+        next = select.value === "sponsor_desc" ? "sponsor_asc" : "sponsor_desc";
+      }
+      select.value = next;
+      updateSortIndicators();
+      refreshCurrent();
+    });
+  });
   document.querySelectorAll(".tab-btn").forEach(btn => {
     btn.addEventListener("click", () => switchTab(btn.dataset.tab));
   });
 
+  const cardToggle = document.getElementById("cardView");
+  const mq = window.matchMedia("(max-width: 720px)");
+  if (cardToggle && mq.matches) {
+    cardToggle.checked = true;
+    document.body.classList.add("card-view");
+  }
+  if (cardToggle && !mq.matches) {
+    cardToggle.checked = false;
+    document.body.classList.remove("card-view");
+  }
+  if (cardToggle) {
+    mq.addEventListener("change", e => {
+      if (e.matches) {
+        cardToggle.checked = true;
+        document.body.classList.add("card-view");
+      } else {
+        cardToggle.checked = false;
+        document.body.classList.remove("card-view");
+      }
+    });
+  }
+  updateSortIndicators();
   switchTab("jobs");
 </script>
 
