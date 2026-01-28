@@ -1119,7 +1119,7 @@
     "company_name": "64x Bio",
     "api_code": 0,
     "api_name": "careers_url",
-    "api_url": "http://www.64xbio.com/careers"
+    "api_url": "https://64xbio.com/careers"
   },
   {
     "company_name": "A-Alpha Bio",
@@ -3578,8 +3578,8 @@
   {
     "company_name": "Stealth Mode Biotech",
     "api_code": 0,
-    "api_name": "careers_url",
-    "api_url": "https://ficoforums.myfico.com/t5/SmorgasBoard/Anyone-heard-of-Stealth-Investigations/td-p/5313226"
+    "api_name": "greenhouse",
+    "api_url": "https://boards-api.greenhouse.io/v1/boards/stealthmodebioco/jobs"
   },
   {
     "company_name": "Stemagen",
