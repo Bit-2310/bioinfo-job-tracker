@@ -1,0 +1,5 @@
+data/jobs_history.csv merge=ours
+data/jobs_latest.csv merge=ours
+data/jobs_latest.json merge=ours
+data/jobs_filtered.jsonl merge=ours
+data/jobs_unfiltered.jsonl merge=ours

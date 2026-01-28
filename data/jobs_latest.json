@@ -442,19 +442,6 @@
     "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 1, \"nice_hits\": 0, \"penalties\": 0}"
   },
   {
-    "company": "QUEST DIAGNOSTICS INCORPORATED",
-    "job_title": "Bioinformatics Operations Engineer (Hybrid)",
-    "location": "NA",
-    "remote_or_hybrid": "hybrid",
-    "posting_date": "NA",
-    "source": "careers_url",
-    "job_url": "https://careers.questdiagnostics.com/job/san-juan-capistrano/bioinformatics-operations-engineer-hybrid/38852/91095196864",
-    "score": 5,
-    "list_source": "targeted_list_combined.json",
-    "stage1_pass_reasons": "[\"title_match\"]",
-    "score_breakdown": "{\"title_bonus\": 5, \"freshness_bonus\": 0, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": 0}"
-  },
-  {
     "company": "PLANET LABS PBC",
     "job_title": "FP&A Revenue Manager",
     "location": "San Francisco, CA",
@@ -479,5 +466,18 @@
     "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 2, \"strong_hits\": 0, \"medium_hits\": 1, \"nice_hits\": 0, \"penalties\": 0}"
+  },
+  {
+    "company": "QUEST DIAGNOSTICS INCORPORATED",
+    "job_title": "Bioinformatics Operations Engineer (Hybrid)",
+    "location": "NA",
+    "remote_or_hybrid": "hybrid",
+    "posting_date": "NA",
+    "source": "careers_url",
+    "job_url": "https://careers.questdiagnostics.com/job/san-juan-capistrano/bioinformatics-operations-engineer-hybrid/38852/91095196864",
+    "score": 5,
+    "list_source": "targeted_list_combined.json",
+    "stage1_pass_reasons": "[\"title_match\"]",
+    "score_breakdown": "{\"title_bonus\": 5, \"freshness_bonus\": 0, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": 0}"
   }
 ]
