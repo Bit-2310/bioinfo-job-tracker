@@ -1,23 +1,7 @@
 {
-  "input": "data/targeted_list_combined.json",
-  "total_targets": 29,
+  "input": "data/targeted_list_combined_runtime.json",
+  "total_targets": 20,
   "results": [
-    {
-      "company_name": "QUEST DIAGNOSTICS INCORPORATED",
-      "api_name": "careers_url",
-      "api_url": "https://careers.questdiagnostics.com/",
-      "list_source": "",
-      "ok": true,
-      "status": "ok"
-    },
-    {
-      "company_name": "BIOGEN INC",
-      "api_name": "careers_url",
-      "api_url": "https://www.biogen.com/careers.html",
-      "list_source": "",
-      "ok": true,
-      "status": "ok"
-    },
     {
       "company_name": "H LEE MOFFITT CANCER CENTER AND RESEARCH INSTITUTE INC",
       "api_name": "careers_url",
@@ -27,17 +11,17 @@
       "status": "http_403"
     },
     {
-      "company_name": "ST BARNABAS HOSPITAL",
+      "company_name": "ARUP LABORATORIES",
       "api_name": "careers_url",
-      "api_url": "https://stbarnabashealthsystem.com/careers/",
+      "api_url": "https://www.aruplab.com/careers",
       "list_source": "",
       "ok": true,
       "status": "ok"
     },
     {
-      "company_name": "PLANET LABS PBC",
-      "api_name": "greenhouse",
-      "api_url": "https://boards-api.greenhouse.io/v1/boards/planetlabs/jobs",
+      "company_name": "BIOGEN INC",
+      "api_name": "careers_url",
+      "api_url": "https://www.biogen.com/careers.html",
       "list_source": "",
       "ok": true,
       "status": "ok"
@@ -59,6 +43,38 @@
       "status": "ok"
     },
     {
+      "company_name": "ST BARNABAS HOSPITAL",
+      "api_name": "careers_url",
+      "api_url": "https://stbarnabashealthsystem.com/careers/",
+      "list_source": "",
+      "ok": true,
+      "status": "ok"
+    },
+    {
+      "company_name": "PLANET LABS PBC",
+      "api_name": "greenhouse",
+      "api_url": "https://boards-api.greenhouse.io/v1/boards/planetlabs/jobs",
+      "list_source": "",
+      "ok": true,
+      "status": "ok"
+    },
+    {
+      "company_name": "ARL BIO PHARMA INC",
+      "api_name": "careers_url",
+      "api_url": "https://www.arlok.com/careers",
+      "list_source": "",
+      "ok": true,
+      "status": "ok"
+    },
+    {
+      "company_name": "FULGENT THERAPEUTICS LLC",
+      "api_name": "careers_url",
+      "api_url": "https://fulgentpharma.com/careers",
+      "list_source": "",
+      "ok": false,
+      "status": "http_403"
+    },
+    {
       "company_name": "INTERNATIONAL QUALITY HOMECARE CORPORATION",
       "api_name": "careers_url",
       "api_url": "https://www.internationalquality.com/caregiving-careers/",
@@ -75,14 +91,6 @@
       "status": "ok"
     },
     {
-      "company_name": "ARUP LABORATORIES",
-      "api_name": "careers_url",
-      "api_url": "https://www.aruplab.com/careers",
-      "list_source": "",
-      "ok": true,
-      "status": "ok"
-    },
-    {
       "company_name": "REHABILITATION INSTITUTE OF CHICAGO DBA SHIRLEY RYAN ABILITYLAB",
       "api_name": "careers_url",
       "api_url": "https://www.sralab.org/careers",
@@ -91,57 +99,9 @@
       "status": "ok"
     },
     {
-      "company_name": "ARL BIO PHARMA INC",
+      "company_name": "QUEST DIAGNOSTICS INCORPORATED",
       "api_name": "careers_url",
-      "api_url": "https://www.arlok.com/careers",
-      "list_source": "",
-      "ok": true,
-      "status": "ok"
-    },
-    {
-      "company_name": "BILLINGS CLINIC",
-      "api_name": "careers_url",
-      "api_url": "https://www.billingsclinic.com/careers/",
-      "list_source": "",
-      "ok": false,
-      "status": "http_403"
-    },
-    {
-      "company_name": "VIR BIOTECHNOLOGY",
-      "api_name": "greenhouse",
-      "api_url": "https://boards-api.greenhouse.io/v1/boards/virbiotechnologyinc/jobs",
-      "list_source": "",
-      "ok": true,
-      "status": "ok"
-    },
-    {
-      "company_name": "PERSONALIS",
-      "api_name": "greenhouse",
-      "api_url": "https://boards-api.greenhouse.io/v1/boards/personalisinc/jobs",
-      "list_source": "",
-      "ok": true,
-      "status": "ok"
-    },
-    {
-      "company_name": "FULGENT THERAPEUTICS LLC",
-      "api_name": "careers_url",
-      "api_url": "https://fulgentpharma.com/careers",
-      "list_source": "",
-      "ok": false,
-      "status": "http_403"
-    },
-    {
-      "company_name": "ST JUDE CHILDRENS RESEARCH HOSPITA",
-      "api_name": "careers_url",
-      "api_url": "https://www.stjude.org/jobs/hospital.html",
-      "list_source": "",
-      "ok": true,
-      "status": "ok"
-    },
-    {
-      "company_name": "HISTOGENETICS LLC",
-      "api_name": "careers_url",
-      "api_url": "https://www.histogenetics.com/careers/",
+      "api_url": "https://careers.questdiagnostics.com/",
       "list_source": "",
       "ok": true,
       "status": "ok"
@@ -155,49 +115,33 @@
       "status": "ok"
     },
     {
-      "company_name": "EDITAS MEDICINE",
+      "company_name": "HISTOGENETICS LLC",
       "api_name": "careers_url",
-      "api_url": "https://www.editasmedicine.com/careers/",
+      "api_url": "https://www.histogenetics.com/careers/",
       "list_source": "",
       "ok": true,
       "status": "ok"
     },
     {
-      "company_name": "SOPHIA GENETICS",
+      "company_name": "ST JUDE CHILDRENS RESEARCH HOSPITA",
       "api_name": "careers_url",
-      "api_url": "https://careers.sophiagenetics.com/",
+      "api_url": "https://www.stjude.org/jobs/hospital.html",
       "list_source": "",
       "ok": true,
       "status": "ok"
     },
     {
-      "company_name": "EXELIXIS",
+      "company_name": "BILLINGS CLINIC",
       "api_name": "careers_url",
-      "api_url": "https://www.exelixis.com/careers/",
+      "api_url": "https://www.billingsclinic.com/careers/",
       "list_source": "",
-      "ok": true,
-      "status": "ok"
+      "ok": false,
+      "status": "http_403"
     },
     {
-      "company_name": "SANGAMO THERAPEUTICS",
+      "company_name": "LABORATORY CORPORATION OF AMERICA",
       "api_name": "careers_url",
-      "api_url": "https://www.sangamo.com/careers/",
-      "list_source": "",
-      "ok": true,
-      "status": "ok"
-    },
-    {
-      "company_name": "FATE THERAPEUTICS",
-      "api_name": "lever",
-      "api_url": "https://api.lever.co/v0/postings/fatetherapeutics",
-      "list_source": "",
-      "ok": true,
-      "status": "ok"
-    },
-    {
-      "company_name": "DENALI THERAPEUTICS",
-      "api_name": "careers_url",
-      "api_url": "https://www.denalitherapeutics.com/careers/",
+      "api_url": "https://careers.labcorp.com/global/en",
       "list_source": "",
       "ok": false,
       "status": "not_found_marker"
@@ -211,22 +155,6 @@
       "status": "not_found_marker"
     },
     {
-      "company_name": "LABORATORY CORPORATION OF AMERICA",
-      "api_name": "careers_url",
-      "api_url": "https://careers.labcorp.com/global/en",
-      "list_source": "",
-      "ok": false,
-      "status": "not_found_marker"
-    },
-    {
-      "company_name": "INTELLIA THERAPEUTICS",
-      "api_name": "careers_url",
-      "api_url": "https://www.intelliatx.com/careers/join-us/",
-      "list_source": "",
-      "ok": true,
-      "status": "ok"
-    },
-    {
       "company_name": "UNIVERSITY OF ALABAMA HEALTH SERVICES FOUNDATION PC",
       "api_name": "careers_url",
       "api_url": "https://careers.uabmedicine.org/",
@@ -236,27 +164,23 @@
     }
   ],
   "summary": {
-    "total": 29,
-    "ok": 23,
-    "failed": 6,
+    "total": 20,
+    "ok": 15,
+    "failed": 5,
     "by_api": {
       "careers_url": {
-        "ok": 19,
-        "failed": 6
+        "ok": 14,
+        "failed": 5
       },
       "greenhouse": {
-        "ok": 3,
-        "failed": 0
-      },
-      "lever": {
         "ok": 1,
         "failed": 0
       }
     },
     "by_status": {
-      "ok": 23,
       "http_403": 3,
-      "not_found_marker": 3
+      "ok": 15,
+      "not_found_marker": 2
     }
   }
 }

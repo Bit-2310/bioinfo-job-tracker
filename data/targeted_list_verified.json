@@ -1,23 +1,13 @@
 [
   {
-    "company_name": "QUEST DIAGNOSTICS INCORPORATED",
+    "company_name": "ARUP LABORATORIES",
     "api_name": "careers_url",
-    "api_url": "https://careers.questdiagnostics.com/"
+    "api_url": "https://www.aruplab.com/careers"
   },
   {
     "company_name": "BIOGEN INC",
     "api_name": "careers_url",
     "api_url": "https://www.biogen.com/careers.html"
-  },
-  {
-    "company_name": "ST BARNABAS HOSPITAL",
-    "api_name": "careers_url",
-    "api_url": "https://stbarnabashealthsystem.com/careers/"
-  },
-  {
-    "company_name": "PLANET LABS PBC",
-    "api_name": "greenhouse",
-    "api_url": "https://boards-api.greenhouse.io/v1/boards/planetlabs/jobs"
   },
   {
     "company_name": "ST BARNABAS HOSPITAL",
@@ -30,6 +20,21 @@
     "api_url": "https://www.stjude.org/jobs/hospital.html"
   },
   {
+    "company_name": "ST BARNABAS HOSPITAL",
+    "api_name": "careers_url",
+    "api_url": "https://stbarnabashealthsystem.com/careers/"
+  },
+  {
+    "company_name": "PLANET LABS PBC",
+    "api_name": "greenhouse",
+    "api_url": "https://boards-api.greenhouse.io/v1/boards/planetlabs/jobs"
+  },
+  {
+    "company_name": "ARL BIO PHARMA INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.arlok.com/careers"
+  },
+  {
     "company_name": "INTERNATIONAL QUALITY HOMECARE CORPORATION",
     "api_name": "careers_url",
     "api_url": "https://www.internationalquality.com/caregiving-careers/"
@@ -40,39 +45,14 @@
     "api_url": "https://careers.mainlinehealth.org/"
   },
   {
-    "company_name": "ARUP LABORATORIES",
-    "api_name": "careers_url",
-    "api_url": "https://www.aruplab.com/careers"
-  },
-  {
     "company_name": "REHABILITATION INSTITUTE OF CHICAGO DBA SHIRLEY RYAN ABILITYLAB",
     "api_name": "careers_url",
     "api_url": "https://www.sralab.org/careers"
   },
   {
-    "company_name": "ARL BIO PHARMA INC",
+    "company_name": "QUEST DIAGNOSTICS INCORPORATED",
     "api_name": "careers_url",
-    "api_url": "https://www.arlok.com/careers"
-  },
-  {
-    "company_name": "VIR BIOTECHNOLOGY",
-    "api_name": "greenhouse",
-    "api_url": "https://boards-api.greenhouse.io/v1/boards/virbiotechnologyinc/jobs"
-  },
-  {
-    "company_name": "PERSONALIS",
-    "api_name": "greenhouse",
-    "api_url": "https://boards-api.greenhouse.io/v1/boards/personalisinc/jobs"
-  },
-  {
-    "company_name": "ST JUDE CHILDRENS RESEARCH HOSPITA",
-    "api_name": "careers_url",
-    "api_url": "https://www.stjude.org/jobs/hospital.html"
-  },
-  {
-    "company_name": "HISTOGENETICS LLC",
-    "api_name": "careers_url",
-    "api_url": "https://www.histogenetics.com/careers/"
+    "api_url": "https://careers.questdiagnostics.com/"
   },
   {
     "company_name": "THE CLIFTON SPRINGS SANITARIUM COMPANY D B A CLIFTON SPRINGS HOSPITAL",
@@ -80,34 +60,14 @@
     "api_url": "https://careers.rochesterregional.org/"
   },
   {
-    "company_name": "EDITAS MEDICINE",
+    "company_name": "HISTOGENETICS LLC",
     "api_name": "careers_url",
-    "api_url": "https://www.editasmedicine.com/careers/"
+    "api_url": "https://www.histogenetics.com/careers/"
   },
   {
-    "company_name": "SOPHIA GENETICS",
+    "company_name": "ST JUDE CHILDRENS RESEARCH HOSPITA",
     "api_name": "careers_url",
-    "api_url": "https://careers.sophiagenetics.com/"
-  },
-  {
-    "company_name": "EXELIXIS",
-    "api_name": "careers_url",
-    "api_url": "https://www.exelixis.com/careers/"
-  },
-  {
-    "company_name": "SANGAMO THERAPEUTICS",
-    "api_name": "careers_url",
-    "api_url": "https://www.sangamo.com/careers/"
-  },
-  {
-    "company_name": "FATE THERAPEUTICS",
-    "api_name": "lever",
-    "api_url": "https://api.lever.co/v0/postings/fatetherapeutics"
-  },
-  {
-    "company_name": "INTELLIA THERAPEUTICS",
-    "api_name": "careers_url",
-    "api_url": "https://www.intelliatx.com/careers/join-us/"
+    "api_url": "https://www.stjude.org/jobs/hospital.html"
   },
   {
     "company_name": "UNIVERSITY OF ALABAMA HEALTH SERVICES FOUNDATION PC",
