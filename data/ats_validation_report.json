@@ -79,6 +79,14 @@
       "api_name": "careers_url",
       "api_url": "https://www.histogenetics.com/careers/",
       "list_source": "",
+      "ok": false,
+      "status": "not_found_marker"
+    },
+    {
+      "company_name": "Nexilico",
+      "api_name": "careers_url",
+      "api_url": "https://community.ebay.com/rss/message?board.id=technicalissues-db&message.id=93790",
+      "list_source": "",
       "ok": true,
       "status": "ok"
     },
@@ -125,7 +133,7 @@
     {
       "company_name": "ST JUDE CHILDRENS RESEARCH HOSPITA",
       "api_name": "careers_url",
-      "api_url": "https://www.stjude.org/jobs/hospital.html",
+      "api_url": "https://careers.rochesterregional.org/",
       "list_source": "",
       "ok": true,
       "status": "ok"
@@ -133,7 +141,7 @@
     {
       "company_name": "THE CLIFTON SPRINGS SANITARIUM COMPANY D B A CLIFTON SPRINGS HOSPITAL",
       "api_name": "careers_url",
-      "api_url": "https://careers.rochesterregional.org/",
+      "api_url": "https://careers.uabmedicine.org/",
       "list_source": "",
       "ok": true,
       "status": "ok"
@@ -151,8 +159,8 @@
       "api_name": "careers_url",
       "api_url": "https://careers.labcorp.com/global/en",
       "list_source": "",
-      "ok": false,
-      "status": "not_found_marker"
+      "ok": true,
+      "status": "ok_content_length"
     },
     {
       "company_name": "ST BARNABAS HOSPITAL",
