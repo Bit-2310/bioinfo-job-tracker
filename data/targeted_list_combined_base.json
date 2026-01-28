@@ -314,32 +314,32 @@
   {
     "company_name": "BROAD INSTITUTE",
     "api_code": 1,
-    "api_name": "greenhouse",
-    "api_url": "https://boards-api.greenhouse.io/v1/boards/broadinstitute/jobs"
+    "api_name": "careers_url",
+    "api_url": "https://broadinstitute.avature.net/careers"
   },
   {
     "company_name": "TEMPUS",
     "api_code": 1,
-    "api_name": "greenhouse",
-    "api_url": "https://boards-api.greenhouse.io/v1/boards/tempus/jobs"
+    "api_name": "workday",
+    "api_url": "https://tempus.wd5.myworkdayjobs.com/wday/cxs/tempus/Tempus_Careers/jobs"
   },
   {
     "company_name": "INSITRO",
     "api_code": 1,
-    "api_name": "greenhouse",
-    "api_url": "https://boards-api.greenhouse.io/v1/boards/insitro/jobs"
+    "api_name": "ashby",
+    "api_url": "https://api.ashbyhq.com/posting-api/job-board/insitro"
   },
   {
     "company_name": "DNANEXUS",
     "api_code": 1,
-    "api_name": "greenhouse",
-    "api_url": "https://boards-api.greenhouse.io/v1/boards/dnanexus/jobs"
+    "api_name": "smartrecruiters",
+    "api_url": "https://api.smartrecruiters.com/v1/companies/DNAnexus/postings/"
   },
   {
     "company_name": "SOPHIA GENETICS",
     "api_code": 1,
-    "api_name": "greenhouse",
-    "api_url": "https://boards-api.greenhouse.io/v1/boards/sophiagenetics/jobs"
+    "api_name": "careers_url",
+    "api_url": "https://careers.sophiagenetics.com/"
   },
   {
     "company_name": "AMGEN",
@@ -351,13 +351,13 @@
     "company_name": "MERCK",
     "api_code": 5,
     "api_name": "workday",
-    "api_url": "https://msd.myworkdayjobs.com/wday/cxs/msd/SearchJobs/jobs"
+    "api_url": "https://msd.wd5.myworkdayjobs.com/wday/cxs/msd/SearchJobs/jobs"
   },
   {
     "company_name": "BRISTOL MYERS SQUIBB",
     "api_code": 5,
     "api_name": "workday",
-    "api_url": "https://bristolmyerssquibb.myworkdayjobs.com/wday/cxs/bristolmyerssquibb/BMS/jobs"
+    "api_url": "https://bristolmyerssquibb.wd5.myworkdayjobs.com/wday/cxs/bristolmyerssquibb/BMS/jobs"
   },
   {
     "company_name": "DENALI THERAPEUTICS",
@@ -392,14 +392,14 @@
   {
     "company_name": "CRISPR THERAPEUTICS",
     "api_code": 1,
-    "api_name": "greenhouse",
-    "api_url": "https://boards-api.greenhouse.io/v1/boards/crisprtx/jobs"
+    "api_name": "careers_url",
+    "api_url": "https://crisprtherapeutics.applytojob.com/"
   },
   {
     "company_name": "SANGAMO THERAPEUTICS",
     "api_code": 1,
-    "api_name": "greenhouse",
-    "api_url": "https://boards-api.greenhouse.io/v1/boards/sangamotherapeutics/jobs"
+    "api_name": "careers_url",
+    "api_url": "https://www.sangamo.com/careers/open-positions/"
   },
   {
     "company_name": "VIR BIOTECHNOLOGY",
@@ -416,8 +416,8 @@
   {
     "company_name": "UNITY BIOTECHNOLOGY",
     "api_code": 1,
-    "api_name": "greenhouse",
-    "api_url": "https://boards-api.greenhouse.io/v1/boards/unitybiotechnology/jobs"
+    "api_name": "careers_url",
+    "api_url": "https://unitybiotechnology.com/"
   },
   {
     "company_name": "Abiosciences",
@@ -603,7 +603,7 @@
     "company_name": "iRhythm Technologies",
     "api_code": 5,
     "api_name": "workday",
-    "api_url": "https://irhythmtech.myworkdayjobs.com/wday/cxs/irhythmtech/irhythm/jobs"
+    "api_url": "https://irhythmtech.wd5.myworkdayjobs.com/wday/cxs/irhythmtech/iRhythm/jobs"
   },
   {
     "company_name": "Medivis",
@@ -765,7 +765,7 @@
     "company_name": "Abbott Laboratories",
     "api_code": 5,
     "api_name": "workday",
-    "api_url": "https://abbott.myworkdayjobs.com/wday/cxs/abbott/abbottcareers/jobs"
+    "api_url": "https://abbott.wd5.myworkdayjobs.com/wday/cxs/abbott/abbottcareers/jobs"
   },
   {
     "company_name": "Gilead Sciences",
@@ -777,7 +777,7 @@
     "company_name": "GE Healthcare",
     "api_code": 5,
     "api_name": "workday",
-    "api_url": "https://gehc.myworkdayjobs.com/wday/cxs/gehc/GEHC_ExternalSite/jobs"
+    "api_url": "https://gehc.wd5.myworkdayjobs.com/wday/cxs/gehc/GEHC_ExternalSite/jobs"
   },
   {
     "company_name": "Kenvue",
@@ -789,7 +789,7 @@
     "company_name": "Viatris",
     "api_code": 5,
     "api_name": "workday",
-    "api_url": "https://viatris.myworkdayjobs.com/wday/cxs/viatris/External/jobs"
+    "api_url": "https://viatris.wd5.myworkdayjobs.com/wday/cxs/viatris/External/jobs"
   },
   {
     "company_name": "Regeneron Pharmaceuticals",
@@ -1161,7 +1161,7 @@
     "company_name": "Abbott",
     "api_code": 5,
     "api_name": "workday",
-    "api_url": "https://abbott.myworkdayjobs.com/wday/cxs/abbott/abbottcareers/jobs"
+    "api_url": "https://abbott.wd5.myworkdayjobs.com/wday/cxs/abbott/abbottcareers/jobs"
   },
   {
     "company_name": "Abcam",
@@ -3014,8 +3014,8 @@
   {
     "company_name": "Lonza Group",
     "api_code": 5,
-    "api_name": "workday",
-    "api_url": "https://lonza.myworkdayjobs.com/wday/cxs/lonza/Lonza_Careers/jobs"
+    "api_name": "careers_url",
+    "api_url": "https://www.lonza.com/careers/"
   },
   {
     "company_name": "Lumen Bioscience",
@@ -3790,12 +3790,6 @@
     "api_code": 0,
     "api_name": "careers_url",
     "api_url": "https://www.eluniversal.com.mx/deportes/ausencia-de-christian-martinoli-en-transmision-del-bolivia-vs-mexico-causa-revuelo-en-redes/"
-  },
-  {
-    "company_name": "INSITRO",
-    "api_code": 3,
-    "api_name": "ashby",
-    "api_url": "https://api.ashbyhq.com/posting-api/job-board/insitro"
   },
   {
     "company_name": "FATE THERAPEUTICS",
