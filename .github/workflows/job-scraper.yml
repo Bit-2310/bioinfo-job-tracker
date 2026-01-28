@@ -39,13 +39,8 @@ jobs:
         run: |
           set -euo pipefail
           mkdir -p data
-          python scripts/validate_targets_ats.py \
-            --input data/targeted_list_combined.json \
-            --output data/ats_validation_report.json \
-            --output-targeted data/targeted_list_verified.json \
-            --workers 10
           python scripts/pull_jobs.py --targeted \
-            data/targeted_list_verified.json
+            data/targeted_list_combined.json
           echo "Outputs:"
           ls -lh data/jobs_latest.csv data/jobs_history.csv data/jobs_unfiltered.jsonl data/jobs_filtered.jsonl || true
 
@@ -54,7 +49,7 @@ jobs:
           set -euo pipefail
           git config user.name "job-scraper-bot"
           git config user.email "job-scraper-bot@users.noreply.github.com"
-          git add data/targeted_list_combined.json data/targeted_list_verified.json data/ats_validation_report.json data/jobs_history.csv data/jobs_latest.csv data/jobs_latest.json data/jobs_unfiltered.jsonl data/jobs_filtered.jsonl || true
+          git add data/targeted_list_combined.json data/jobs_history.csv data/jobs_latest.csv data/jobs_latest.json data/jobs_unfiltered.jsonl data/jobs_filtered.jsonl || true
           if git diff --cached --quiet; then
             echo "No changes to commit."
             exit 0
