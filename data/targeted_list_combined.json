@@ -249,13 +249,13 @@
     "company_name": "VERTEX PHARMACEUTICALS",
     "api_code": 0,
     "api_name": "careers_url",
-    "api_url": "https://www.vrtx.com/careers.html"
+    "api_url": "https://www.vrtx.com/careers/"
   },
   {
     "company_name": "MODERNA",
     "api_code": 0,
     "api_name": "careers_url",
-    "api_url": "https://careers.modernatx.com"
+    "api_url": "https://www.modernatx.com/careers"
   },
   {
     "company_name": "ILLUMINA",
@@ -267,7 +267,7 @@
     "company_name": "QIAGEN",
     "api_code": 0,
     "api_name": "careers_url",
-    "api_url": "https://careers.qiagen.com"
+    "api_url": "https://www.qiagen.com/careers"
   },
   {
     "company_name": "BIOGEN",
@@ -279,19 +279,19 @@
     "company_name": "IONIS PHARMACEUTICALS",
     "api_code": 0,
     "api_name": "careers_url",
-    "api_url": "https://www.ionispharma.com/careers/"
+    "api_url": "https://ionis.com/careers"
   },
   {
     "company_name": "GENEWIZ",
     "api_code": 0,
     "api_name": "careers_url",
-    "api_url": "https://www.genewiz.com/en/Public/Company/Careers"
+    "api_url": "https://careers.azenta.com/"
   },
   {
     "company_name": "CATALENT",
     "api_code": 0,
     "api_name": "careers_url",
-    "api_url": "https://jobs.catalent.com"
+    "api_url": "https://careers.catalent.com/"
   },
   {
     "company_name": "LONZA",
@@ -309,7 +309,7 @@
     "company_name": "EVOTEC",
     "api_code": 0,
     "api_name": "careers_url",
-    "api_url": "https://www.evotec.com/en/career"
+    "api_url": "https://careers.evotec.com/"
   },
   {
     "company_name": "BROAD INSTITUTE",
@@ -483,7 +483,7 @@
     "company_name": "BioTuring",
     "api_code": 0,
     "api_name": "careers_url",
-    "api_url": "https://www.microsoft.com/en-US/store/top-free/games/pc"
+    "api_url": "https://bioturing.com/careers/"
   },
   {
     "company_name": "Blackrock Neurotech",
@@ -555,7 +555,7 @@
     "company_name": "Flagship Biosciences",
     "api_code": 0,
     "api_name": "careers_url",
-    "api_url": "https://mavicpilots.com/threads/the-mavic-4-pro-is-coming-to-canada-and-mexico-but-not-the-usa-for-now.151719/"
+    "api_url": "https://flagshipbio.com/about-us/careers/"
   },
   {
     "company_name": "G3 Therapeutics",
@@ -609,7 +609,7 @@
     "company_name": "Medivis",
     "api_code": 0,
     "api_name": "careers_url",
-    "api_url": "https://support.google.com/chrome/answer/95346?hl=ar-US&co=GENIE.Platform%3DDesktop"
+    "api_url": "https://www.medivis.com/careers"
   },
   {
     "company_name": "Micron Solutions",
@@ -699,7 +699,7 @@
     "company_name": "Strata Oncology",
     "api_code": 0,
     "api_name": "careers_url",
-    "api_url": "https://www.foodnetwork.com/recipes/photos/strata-recipes"
+    "api_url": "https://strataoncology.com/about"
   },
   {
     "company_name": "Strateos",
@@ -735,7 +735,7 @@
     "company_name": "VeriSIM Life",
     "api_code": 0,
     "api_name": "careers_url",
-    "api_url": "https://support.google.com/googleplay/answer/190860?hl=es"
+    "api_url": "https://www.verisimlife.com/careers"
   },
   {
     "company_name": "Via Scientific",
@@ -759,7 +759,7 @@
     "company_name": "Eli Lilly & Co",
     "api_code": 0,
     "api_name": "careers_url",
-    "api_url": "https://en.m.wikipedia.org/wiki/Eli_(biblical_figure)"
+    "api_url": "https://careers.lilly.com/"
   },
   {
     "company_name": "Abbott Laboratories",
@@ -819,7 +819,7 @@
     "company_name": "Alexion Pharmaceuticals",
     "api_code": 0,
     "api_name": "careers_url",
-    "api_url": "https://www.paramountplus.com/"
+    "api_url": "https://careers.alexion.com/"
   },
   {
     "company_name": "BioMarin",
@@ -1047,7 +1047,7 @@
     "company_name": "Standard BioTools",
     "api_code": 0,
     "api_name": "careers_url",
-    "api_url": "https://www.standard.com/"
+    "api_url": "https://www.standardbio.com/about/careers"
   },
   {
     "company_name": "Syenex",
@@ -2454,7 +2454,7 @@
     "api_url": "https://www.youtube.com/watch?v=ZbRqaQSXOHE"
   },
   {
-    "company_name": "Before investing in a fund, consider its investment objectives, risks, charges, and expenses. A prospectus (and/or summary prospectus) containing this and other information is available here (https://www.ssga.com/us/en/individual/fund-finder) or by calling 1-866-787-2257. Read it carefully.\n\nNot FDIC Insured * No Bank Guarantee * May Lose Value\n\n© 2025 State Street Corporation - All Rights Reserved.\nState Street Global Advisors Funds Distributors, LLC, One Iron Street, Boston, MA 02210\n\n4503082.7.9.AM.RTL\nExpiration: 01/31/2026\nSPD004341",
+    "company_name": "Before investing in a fund, consider its investment objectives, risks, charges, and expenses. A prospectus (and/or summary prospectus) containing this and other information is available here (https://www.ssga.com/us/en/individual/fund-finder) or by calling 1-866-787-2257. Read it carefully.\n\nNot FDIC Insured * No Bank Guarantee * May Lose Value\n\n\u00a9 2025 State Street Corporation - All Rights Reserved.\nState Street Global Advisors Funds Distributors, LLC, One Iron Street, Boston, MA 02210\n\n4503082.7.9.AM.RTL\nExpiration: 01/31/2026\nSPD004341",
     "api_code": 0,
     "api_name": "careers_url",
     "api_url": "https://stackoverflow.com/questions/7327326/what-is-the-difference-between-before-and-before"
@@ -2700,7 +2700,7 @@
     "api_url": "https://www.gmu.edu/"
   },
   {
-    "company_name": "DoubleLine® is a registered trademark of DoubleLine Capital LP.\n\nInvesting involves risk including the risk of loss of principal.\n\nAll information is from SSGA unless otherwise noted and has been obtained from sources believed to be reliable, but its accuracy is not guaranteed.  There is no representation or warranty as to the current accuracy, reliability or completeness of, nor liability for, decisions based on such information and it should not be relied on as such.",
+    "company_name": "DoubleLine\u00ae is a registered trademark of DoubleLine Capital LP.\n\nInvesting involves risk including the risk of loss of principal.\n\nAll information is from SSGA unless otherwise noted and has been obtained from sources believed to be reliable, but its accuracy is not guaranteed.  There is no representation or warranty as to the current accuracy, reliability or completeness of, nor liability for, decisions based on such information and it should not be relied on as such.",
     "api_code": 0,
     "api_name": "careers_url",
     "api_url": "https://doubleline.com/"
