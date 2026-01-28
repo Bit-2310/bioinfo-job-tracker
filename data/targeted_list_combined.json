@@ -81,7 +81,7 @@
     "company_name": "PACIFIC BIOSCIENCES",
     "api_code": 5,
     "api_name": "workday",
-    "api_url": "https://pacbio.wd12.myworkdayjobs.com/PacBio-"
+    "api_url": "https://pacbio.wd12.myworkdayjobs.com/wday/cxs/pacbio/PacBio-/jobs"
   },
   {
     "company_name": "TWIST BIOSCIENCE",
@@ -99,7 +99,7 @@
     "company_name": "NOVARTIS",
     "api_code": 5,
     "api_name": "workday",
-    "api_url": "https://novartis.wd3.myworkdayjobs.com/Internal_Careers_for_Acquired_Entities/job/Basel-City/Novartis-Talent-Community_REQ-10067767"
+    "api_url": "https://novartis.wd3.myworkdayjobs.com/wday/cxs/novartis/Novartis_Careers/jobs"
   },
   {
     "company_name": "FREENOME",
@@ -117,7 +117,7 @@
     "company_name": "EXACT SCIENCES",
     "api_code": 5,
     "api_name": "workday",
-    "api_url": "https://exactsciences.wd1.myworkdayjobs.com/Exact_Sciences"
+    "api_url": "https://exactsciences.wd1.myworkdayjobs.com/wday/cxs/exactsciences/Exact_Sciences/jobs"
   },
   {
     "company_name": "BEAM THERAPEUTICS",
@@ -141,7 +141,7 @@
     "company_name": "SAREPTA THERAPEUTICS",
     "api_code": 5,
     "api_name": "workday",
-    "api_url": "https://sarepta.wd5.myworkdayjobs.com/sarepta_external"
+    "api_url": "https://sarepta.wd5.myworkdayjobs.com/wday/cxs/sarepta/sarepta_external/jobs"
   },
   {
     "company_name": "NATERA",
@@ -331,9 +331,9 @@
   },
   {
     "company_name": "DNANEXUS",
-    "api_code": 1,
-    "api_name": "greenhouse",
-    "api_url": "https://boards-api.greenhouse.io/v1/boards/dnanexus/jobs"
+    "api_code": 0,
+    "api_name": "careers_url",
+    "api_url": "https://www.dnanexus.com/job-board"
   },
   {
     "company_name": "SOPHIA GENETICS",
@@ -357,7 +357,7 @@
     "company_name": "BRISTOL MYERS SQUIBB",
     "api_code": 5,
     "api_name": "workday",
-    "api_url": "https://bristolmyerssquibb.myworkdayjobs.com/wday/cxs/bristolmyerssquibb/BMS/jobs"
+    "api_url": "https://bristolmyerssquibb.wd5.myworkdayjobs.com/wday/cxs/bristolmyerssquibb/BMS/jobs"
   },
   {
     "company_name": "DENALI THERAPEUTICS",
@@ -385,9 +385,9 @@
   },
   {
     "company_name": "INTELLIA THERAPEUTICS",
-    "api_code": 1,
-    "api_name": "greenhouse",
-    "api_url": "https://boards-api.greenhouse.io/v1/boards/intelliatx/jobs"
+    "api_code": 5,
+    "api_name": "workday",
+    "api_url": "https://intelliatx.wd1.myworkdayjobs.com/wday/cxs/intelliatx/intelliatxcareers/jobs"
   },
   {
     "company_name": "CRISPR THERAPEUTICS",
@@ -2218,5 +2218,17 @@
     "api_code": 0,
     "api_name": "careers_url",
     "api_url": "https://guardanthealth.com/careers/"
+  },
+  {
+    "company_name": "MARAVAI LIFESCIENCES HOLDINGS INC",
+    "api_name": "greenhouse",
+    "api_url": "https://boards-api.greenhouse.io/v1/boards/maravailifesciences/jobs",
+    "api_code": 1
+  },
+  {
+    "company_name": "MEDPACE HOLDINGS INC",
+    "api_name": "icims",
+    "api_url": "https://medpace.icims.com/jobs/search?ss=1",
+    "api_code": 4
   }
 ]

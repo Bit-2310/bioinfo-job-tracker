@@ -26,6 +26,7 @@ API_CODES = {
     "icims": 4,
     "workday": 5,
     "smartrecruiters": 6,
+    "rippling": 7,
 }
 
 ATS_DOMAINS = [
@@ -37,6 +38,7 @@ ATS_DOMAINS = [
     "smartrecruiters.com",
     "myworkdayjobs.com",
     "icims.com",
+    "ats.rippling.com",
 ]
 
 NOT_FOUND_MARKERS = [
@@ -130,6 +132,17 @@ def smartrecruiters_api_from_url(url: str) -> str | None:
     return f"https://api.smartrecruiters.com/v1/companies/{slug}/postings/"
 
 
+def rippling_api_from_url(url: str) -> str | None:
+    parsed = urlparse(url)
+    if not parsed.hostname or "ats.rippling.com" not in parsed.hostname:
+        return None
+    path = parsed.path.strip("/")
+    if not path:
+        return None
+    slug = path.split("/")[0]
+    return f"https://ats.rippling.com/{slug}/jobs"
+
+
 def detect_from_url(url: str) -> tuple[str | None, str | None]:
     url_lower = url.lower()
     if "greenhouse.io" in url_lower:
@@ -144,6 +157,8 @@ def detect_from_url(url: str) -> tuple[str | None, str | None]:
         return "workday", workday_api_from_url(url)
     if "smartrecruiters.com" in url_lower:
         return "smartrecruiters", smartrecruiters_api_from_url(url)
+    if "ats.rippling.com" in url_lower:
+        return "rippling", rippling_api_from_url(url)
     return None, None
 
 
@@ -192,6 +207,9 @@ def request_ok(url: str, session: requests.Session, timeout: int, api_name: str)
         except ValueError:
             return False
         return isinstance(payload, dict) and isinstance(payload.get("content"), list)
+
+    if api_name == "rippling":
+        return True
 
     body = response.text.lower()
     if any(marker in body for marker in NOT_FOUND_MARKERS):

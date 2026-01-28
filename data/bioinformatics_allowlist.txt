@@ -1,0 +1,39 @@
+# US bioinformatics / computational biology / genomics companies.
+# Sources include U.S. computational biology market lists and U.S. NGS market key players.
+10x Genomics
+Aganitha
+Agilent Technologies
+Atomwise
+Azenta
+BD
+BioDigital
+Bio-Rad
+Cadence
+Certara
+Clear Labs
+DNAnexus
+DNASTAR
+Element Biosciences
+Fabric Genomics
+GenScript USA
+Ginkgo Bioworks
+Golden Helix
+Hamilton Company
+Helix
+Illumina
+McDonnell Genome Institute
+Nebula Genomics
+NeoGenomics Laboratories
+New England BioLabs
+New York Genome Center
+Pacific Biosciences
+Partek
+PierianDx
+Promega
+Schrodinger
+Seven Bridges Genomics
+Simulations Plus
+Thermo Fisher Scientific
+TimeLogic
+Twist Bioscience
+Ultima Genomics

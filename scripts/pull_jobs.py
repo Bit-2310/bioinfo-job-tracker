@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import os
 import csv
 import json
 import re
@@ -13,6 +14,8 @@ from dataclasses import dataclass
 from datetime import datetime, timezone
 from pathlib import Path
 from typing import Iterable
+from threading import Lock
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from urllib.parse import urlparse
 
 import requests
@@ -21,6 +24,30 @@ from bs4 import XMLParsedAsHTMLWarning
 import warnings
 
 USER_AGENT = "bioinfo-job-tracker/1.0"
+
+FAILURE_LOG: list[dict] = []
+FAILURE_LOCK = Lock()
+
+
+def log_failure(
+    company: str,
+    api_name: str,
+    api_url: str,
+    list_source: str,
+    reason: str,
+    status_code: int | None = None,
+) -> None:
+    with FAILURE_LOCK:
+        FAILURE_LOG.append(
+            {
+                "company_name": company,
+                "api_name": api_name,
+                "api_url": api_url,
+                "list_source": list_source,
+                "reason": reason,
+                "status_code": status_code,
+            }
+        )
 
 
 @dataclass
@@ -109,16 +136,38 @@ def load_targets(paths: list[Path]) -> list[tuple[dict, str]]:
     return unique
 
 
-def request_json(url: str, session: requests.Session, retries: int = 2) -> dict | list | None:
+RETRY_STATUS = {429, 500, 502, 503, 504}
+
+
+def request_json(url: str, session: requests.Session, retries: int = 2, timeout: int = 20) -> dict | list | None:
     for attempt in range(retries + 1):
         try:
-            resp = session.get(url, timeout=20, allow_redirects=True)
+            resp = session.get(url, timeout=timeout, allow_redirects=True)
+            if resp.status_code in RETRY_STATUS and attempt < retries:
+                time.sleep(0.8 * (attempt + 1))
+                continue
             if resp.status_code >= 400:
                 return None
             return resp.json()
         except Exception:
             if attempt >= retries:
                 return None
+            time.sleep(0.8 * (attempt + 1))
+    return None
+
+
+def request_text(url: str, session: requests.Session, retries: int = 2, timeout: int = 20) -> requests.Response | None:
+    for attempt in range(retries + 1):
+        try:
+            resp = session.get(url, timeout=timeout, allow_redirects=True, headers={"User-Agent": USER_AGENT})
+            if resp.status_code in RETRY_STATUS and attempt < retries:
+                time.sleep(0.8 * (attempt + 1))
+                continue
+            return resp
+        except Exception:
+            if attempt >= retries:
+                return None
+            time.sleep(0.8 * (attempt + 1))
     return None
 
 
@@ -137,9 +186,11 @@ def pull_greenhouse(company: str, url: str, session: requests.Session, list_sour
         url = f"{url}{separator}content=true"
     payload = request_json(url, session)
     if not isinstance(payload, dict):
+        log_failure(company, "greenhouse", url, list_source, "request_failed")
         return []
     jobs = payload.get("jobs", [])
     if not isinstance(jobs, list):
+        log_failure(company, "greenhouse", url, list_source, "invalid_payload")
         return []
     results = []
     for job in jobs:
@@ -168,6 +219,7 @@ def pull_greenhouse(company: str, url: str, session: requests.Session, list_sour
 def pull_lever(company: str, url: str, session: requests.Session, list_source: str) -> list[JobRecord]:
     payload = request_json(url, session)
     if not isinstance(payload, list):
+        log_failure(company, "lever", url, list_source, "request_failed")
         return []
     results = []
     for job in payload:
@@ -197,9 +249,11 @@ def pull_lever(company: str, url: str, session: requests.Session, list_source: s
 def pull_ashby(company: str, url: str, session: requests.Session, list_source: str) -> list[JobRecord]:
     payload = request_json(url, session)
     if not isinstance(payload, dict):
+        log_failure(company, "ashby", url, list_source, "request_failed")
         return []
     jobs = payload.get("jobs", [])
     if not isinstance(jobs, list):
+        log_failure(company, "ashby", url, list_source, "invalid_payload")
         return []
     results = []
     for job in jobs:
@@ -234,6 +288,8 @@ def pull_smartrecruiters(company: str, url: str, session: requests.Session, list
         page_url = f"{url}{separator}offset={offset}&limit={limit}&country=us"
         payload = request_json(page_url, session)
         if not isinstance(payload, dict):
+            if offset == 0:
+                log_failure(company, "smartrecruiters", url, list_source, "request_failed")
             break
         jobs = payload.get("content", [])
         if not isinstance(jobs, list) or not jobs:
@@ -267,9 +323,11 @@ def pull_smartrecruiters(company: str, url: str, session: requests.Session, list
 def pull_workday(company: str, url: str, session: requests.Session, list_source: str) -> list[JobRecord]:
     payload = request_json(url, session)
     if not isinstance(payload, dict):
+        log_failure(company, "workday", url, list_source, "request_failed")
         return []
     jobs = payload.get("jobPostings") or payload.get("items") or []
     if not isinstance(jobs, list):
+        log_failure(company, "workday", url, list_source, "invalid_payload")
         return []
     results = []
     for job in jobs:
@@ -297,12 +355,17 @@ def pull_workday(company: str, url: str, session: requests.Session, list_source:
 
 def pull_icims(company: str, url: str, session: requests.Session, list_source: str) -> list[JobRecord]:
     try:
-        resp = session.get(url, timeout=20, allow_redirects=True)
+        resp = request_text(url, session, retries=2, timeout=20)
+        if not resp:
+            log_failure(company, "icims", url, list_source, "request_error")
+            return []
         if resp.status_code >= 400:
+            log_failure(company, "icims", url, list_source, "http_error", resp.status_code)
             return []
         warnings.filterwarnings("ignore", category=XMLParsedAsHTMLWarning)
         soup = BeautifulSoup(resp.text, "html.parser")
     except Exception:
+        log_failure(company, "icims", url, list_source, "request_error")
         return []
 
     results = []
@@ -334,12 +397,17 @@ def pull_icims(company: str, url: str, session: requests.Session, list_source: s
 
 def pull_careers_url(company: str, url: str, session: requests.Session, list_source: str) -> list[JobRecord]:
     try:
-        resp = session.get(url, timeout=20, allow_redirects=True, headers={"User-Agent": USER_AGENT})
+        resp = request_text(url, session, retries=2, timeout=20)
+        if not resp:
+            log_failure(company, "careers_url", url, list_source, "request_error")
+            return []
         if resp.status_code >= 400:
+            log_failure(company, "careers_url", url, list_source, "http_error", resp.status_code)
             return []
         warnings.filterwarnings("ignore", category=XMLParsedAsHTMLWarning)
         soup = BeautifulSoup(resp.text, "html.parser")
     except Exception:
+        log_failure(company, "careers_url", url, list_source, "request_error")
         return []
 
     base_host = urlparse(resp.url).hostname or ""
@@ -465,6 +533,59 @@ def pull_careers_url(company: str, url: str, session: requests.Session, list_sou
     return results
 
 
+def pull_rippling(company: str, url: str, session: requests.Session, list_source: str) -> list[JobRecord]:
+    resp = request_text(url, session, retries=2, timeout=20)
+    if not resp:
+        log_failure(company, "rippling", url, list_source, "request_error")
+        return []
+    if resp.status_code >= 400:
+        log_failure(company, "rippling", url, list_source, "http_error", resp.status_code)
+        return []
+    try:
+        warnings.filterwarnings("ignore", category=XMLParsedAsHTMLWarning)
+        soup = BeautifulSoup(resp.text, "html.parser")
+    except Exception:
+        log_failure(company, "rippling", url, list_source, "parse_error")
+        return []
+
+    results = []
+    seen = set()
+    base_host = urlparse(resp.url).hostname or ""
+    for a in soup.find_all("a", href=True):
+        href = a["href"]
+        if "/jobs/" not in href:
+            continue
+        if href.startswith("/"):
+            href = f"{urlparse(resp.url).scheme}://{base_host}{href}"
+        host = urlparse(href).hostname or ""
+        if host and base_host and host != base_host:
+            continue
+        title = normalize_text(a.get_text(" "))
+        if not title:
+            continue
+        key = (title, href)
+        if key in seen:
+            continue
+        seen.add(key)
+        results.append(
+            JobRecord(
+                company=company,
+                job_title=title,
+                location="",
+                remote_or_hybrid=detect_remote(title),
+                posting_date="",
+                source="rippling",
+                job_url=href,
+                job_id="",
+                description="",
+                list_source=list_source,
+            )
+        )
+    if not results:
+        log_failure(company, "rippling", url, list_source, "no_jobs_found")
+    return results
+
+
 def pull_jobs_for_target(row: dict, session: requests.Session, list_source: str) -> list[JobRecord]:
     company = row.get("company_name", "")
     api_name = row.get("api_name", "")
@@ -487,7 +608,10 @@ def pull_jobs_for_target(row: dict, session: requests.Session, list_source: str)
         return pull_icims(company, api_url, session, list_source)
     if api_name == "careers_url":
         return pull_careers_url(company, api_url, session, list_source)
+    if api_name == "rippling":
+        return pull_rippling(company, api_url, session, list_source)
 
+    log_failure(company, api_name, api_url, list_source, "unknown_api")
     return []
 
 
@@ -1077,7 +1201,9 @@ def parse_args() -> argparse.Namespace:
     parser.add_argument("--latest-csv", default="data/jobs_latest.csv")
     parser.add_argument("--latest-json", default="data/jobs_latest.json")
     parser.add_argument("--history-csv", default="data/jobs_history.csv")
+    parser.add_argument("--failures-output", default="data/ats_pull_failures.jsonl")
     parser.add_argument("--batch-interval-seconds", type=int, default=120)
+    parser.add_argument("--workers", type=int, default=0)
     parser.add_argument("--skip-network-check", action="store_true")
     return parser.parse_args()
 
@@ -1109,43 +1235,94 @@ def main() -> int:
 
     filter_cfg = load_json(Path(args.filter))
 
-    session = requests.Session()
-    session.headers.update({"User-Agent": USER_AGENT})
-
     all_jobs: list[JobRecord] = []
     unfiltered_path = Path(args.unfiltered_output)
     filtered_path = Path(args.filtered_output)
     latest_csv_path = Path(args.latest_csv)
     latest_json_path = Path(args.latest_json)
     history_csv_path = Path(args.history_csv)
+    failures_path = Path(args.failures_output)
     unfiltered_path.parent.mkdir(parents=True, exist_ok=True)
     filtered_path.parent.mkdir(parents=True, exist_ok=True)
     latest_csv_path.parent.mkdir(parents=True, exist_ok=True)
     latest_json_path.parent.mkdir(parents=True, exist_ok=True)
     history_csv_path.parent.mkdir(parents=True, exist_ok=True)
+    failures_path.parent.mkdir(parents=True, exist_ok=True)
 
     last_batch = time.monotonic()
     batch_interval = max(0, args.batch_interval_seconds)
-    for row, list_source in targets:
-        if row.get("company_name"):
-            all_jobs.extend(pull_jobs_for_target(row, session, list_source))
-        if batch_interval and (time.monotonic() - last_batch) >= batch_interval:
-            with unfiltered_path.open("w", encoding="utf-8") as handle:
-                for job in all_jobs:
-                    handle.write(json.dumps(job.__dict__, ensure_ascii=True) + "\n")
-            filtered_rows, dropped_rows, drop_stats = filter_jobs(all_jobs, filter_cfg)
-            with filtered_path.open("w", encoding="utf-8") as handle:
-                for row in filtered_rows:
-                    handle.write(json.dumps(row, ensure_ascii=True) + "\n")
-            write_csv(latest_csv_path, filtered_rows)
-            write_latest_json(latest_json_path, filtered_rows)
-            history_rows = merge_history(history_csv_path, filtered_rows)
-            write_csv(history_csv_path, history_rows)
-            print(f"Batch write: {len(all_jobs)} jobs total; {len(filtered_rows)} filtered")
-            if drop_stats:
-                top_reasons = sorted(drop_stats.items(), key=lambda item: item[1], reverse=True)[:5]
-                print("Top drop reasons:", ", ".join(f"{reason}={count}" for reason, count in top_reasons))
-            last_batch = time.monotonic()
+
+    def fetch_target(target: tuple[dict, str]) -> list[JobRecord]:
+        row, list_source = target
+        if not row.get("company_name"):
+            return []
+        session = requests.Session()
+        session.headers.update({"User-Agent": USER_AGENT})
+        return pull_jobs_for_target(row, session, list_source)
+
+    cpu_count = os.cpu_count() or 1
+    if cpu_count < 1:
+        cpu_count = 1
+    auto_workers = int(cpu_count * 0.75)
+    if auto_workers < 1:
+        auto_workers = 1
+    if auto_workers > 32:
+        auto_workers = 32
+    workers = args.workers if args.workers and args.workers > 0 else auto_workers
+
+    if workers <= 1:
+        session = requests.Session()
+        session.headers.update({"User-Agent": USER_AGENT})
+        for row, list_source in targets:
+            if row.get("company_name"):
+                all_jobs.extend(pull_jobs_for_target(row, session, list_source))
+            if batch_interval and (time.monotonic() - last_batch) >= batch_interval:
+                with unfiltered_path.open("w", encoding="utf-8") as handle:
+                    for job in all_jobs:
+                        handle.write(json.dumps(job.__dict__, ensure_ascii=True) + "\n")
+                filtered_rows, dropped_rows, drop_stats = filter_jobs(all_jobs, filter_cfg)
+                with filtered_path.open("w", encoding="utf-8") as handle:
+                    for row in filtered_rows:
+                        handle.write(json.dumps(row, ensure_ascii=True) + "\n")
+                write_csv(latest_csv_path, filtered_rows)
+                write_latest_json(latest_json_path, filtered_rows)
+                history_rows = merge_history(history_csv_path, filtered_rows)
+                write_csv(history_csv_path, history_rows)
+                if FAILURE_LOG:
+                    with failures_path.open("w", encoding="utf-8") as handle:
+                        for row in FAILURE_LOG:
+                            handle.write(json.dumps(row, ensure_ascii=True) + "\n")
+                print(f"Batch write: {len(all_jobs)} jobs total; {len(filtered_rows)} filtered")
+                if drop_stats:
+                    top_reasons = sorted(drop_stats.items(), key=lambda item: item[1], reverse=True)[:5]
+                    print("Top drop reasons:", ", ".join(f"{reason}={count}" for reason, count in top_reasons))
+                last_batch = time.monotonic()
+    else:
+        with ThreadPoolExecutor(max_workers=max(1, workers)) as pool:
+            futures = {pool.submit(fetch_target, t): t for t in targets}
+            for idx, future in enumerate(as_completed(futures), 1):
+                all_jobs.extend(future.result())
+                if batch_interval and (time.monotonic() - last_batch) >= batch_interval:
+                    with unfiltered_path.open("w", encoding="utf-8") as handle:
+                        for job in all_jobs:
+                            handle.write(json.dumps(job.__dict__, ensure_ascii=True) + "\n")
+                    filtered_rows, dropped_rows, drop_stats = filter_jobs(all_jobs, filter_cfg)
+                    with filtered_path.open("w", encoding="utf-8") as handle:
+                        for row in filtered_rows:
+                            handle.write(json.dumps(row, ensure_ascii=True) + "\n")
+                    write_csv(latest_csv_path, filtered_rows)
+                    write_latest_json(latest_json_path, filtered_rows)
+                    history_rows = merge_history(history_csv_path, filtered_rows)
+                    write_csv(history_csv_path, history_rows)
+                    if FAILURE_LOG:
+                        with failures_path.open("w", encoding="utf-8") as handle:
+                            for row in FAILURE_LOG:
+                                handle.write(json.dumps(row, ensure_ascii=True) + "\n")
+                    print(f"Batch write: {len(all_jobs)} jobs total; {len(filtered_rows)} filtered")
+                    if drop_stats:
+                        top_reasons = sorted(drop_stats.items(), key=lambda item: item[1], reverse=True)[:5]
+                        print("Top drop reasons:", ", ".join(f"{reason}={count}" for reason, count in top_reasons))
+                    last_batch = time.monotonic()
 
     # Write unfiltered JSONL
     with unfiltered_path.open("w", encoding="utf-8") as handle:
@@ -1164,6 +1341,10 @@ def main() -> int:
 
     history_rows = merge_history(history_csv_path, filtered_rows)
     write_csv(history_csv_path, history_rows)
+    if FAILURE_LOG:
+        with failures_path.open("w", encoding="utf-8") as handle:
+            for row in FAILURE_LOG:
+                handle.write(json.dumps(row, ensure_ascii=True) + "\n")
 
     print(f"Pulled {len(all_jobs)} jobs; filtered to {len(filtered_rows)}")
     if drop_stats:
