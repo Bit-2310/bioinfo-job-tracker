@@ -1,8 +1,2033 @@
 [
   {
-    "company_name": "QUEST DIAGNOSTICS INCORPORATED",
+    "company_name": "RECURSION PHARMACEUTICALS",
+    "api_name": "greenhouse",
+    "api_url": "https://boards-api.greenhouse.io/v1/boards/recursionpharmaceuticals/jobs"
+  },
+  {
+    "company_name": "Form Bio",
+    "api_name": "greenhouse",
+    "api_url": "https://boards-api.greenhouse.io/v1/boards/formbio/jobs"
+  },
+  {
+    "company_name": "LatchBio",
+    "api_name": "greenhouse",
+    "api_url": "https://boards-api.greenhouse.io/v1/boards/latchbio/jobs"
+  },
+  {
+    "company_name": "10x Genomics",
+    "api_name": "greenhouse",
+    "api_url": "https://boards-api.greenhouse.io/v1/boards/10xgenomics/jobs"
+  },
+  {
+    "company_name": "GINKGO BIOWORKS",
+    "api_name": "greenhouse",
+    "api_url": "https://boards-api.greenhouse.io/v1/boards/ginkgobioworks/jobs"
+  },
+  {
+    "company_name": "Beacon Biosignals",
+    "api_name": "greenhouse",
+    "api_url": "https://boards-api.greenhouse.io/v1/boards/beaconbiosignals/jobs"
+  },
+  {
+    "company_name": "Verana Health",
+    "api_name": "greenhouse",
+    "api_url": "https://boards-api.greenhouse.io/v1/boards/veranahealth/jobs"
+  },
+  {
+    "company_name": "NEWLIMIT",
+    "api_name": "greenhouse",
+    "api_url": "https://boards-api.greenhouse.io/v1/boards/newlimit/jobs"
+  },
+  {
+    "company_name": "ALTOS LABS",
+    "api_name": "greenhouse",
+    "api_url": "https://boards-api.greenhouse.io/v1/boards/altoslabs/jobs"
+  },
+  {
+    "company_name": "GENERATE BIOMEDICINES",
+    "api_name": "greenhouse",
+    "api_url": "https://boards-api.greenhouse.io/v1/boards/generatebiomedicines/jobs"
+  },
+  {
+    "company_name": "TWIST BIOSCIENCE",
+    "api_name": "greenhouse",
+    "api_url": "https://boards-api.greenhouse.io/v1/boards/twistbioscience/jobs"
+  },
+  {
+    "company_name": "FREENOME",
+    "api_name": "greenhouse",
+    "api_url": "https://boards-api.greenhouse.io/v1/boards/freenome/jobs"
+  },
+  {
+    "company_name": "BEAM THERAPEUTICS",
+    "api_name": "greenhouse",
+    "api_url": "https://boards-api.greenhouse.io/v1/boards/beamtherapeutics/jobs"
+  },
+  {
+    "company_name": "BLUEPRINT MEDICINES",
+    "api_name": "greenhouse",
+    "api_url": "https://boards-api.greenhouse.io/v1/boards/blueprintmedicines/jobs"
+  },
+  {
+    "company_name": "CELLARITY",
+    "api_name": "greenhouse",
+    "api_url": "https://boards-api.greenhouse.io/v1/boards/cellarity/jobs"
+  },
+  {
+    "company_name": "BENCHLING",
+    "api_name": "greenhouse",
+    "api_url": "https://boards-api.greenhouse.io/v1/boards/benchling/jobs"
+  },
+  {
+    "company_name": "NATERA",
+    "api_name": "greenhouse",
+    "api_url": "https://boards-api.greenhouse.io/v1/boards/natera/jobs"
+  },
+  {
+    "company_name": "PACIFIC BIOSCIENCES",
+    "api_name": "workday",
+    "api_url": "https://pacbio.wd12.myworkdayjobs.com/PacBio-"
+  },
+  {
+    "company_name": "Certara",
+    "api_name": "icims",
+    "api_url": "https://certara.icims.com/jobs/search?ss=1"
+  },
+  {
+    "company_name": "Incyte",
+    "api_name": "icims",
+    "api_url": "https://incyte.icims.com/jobs/search?ss=1"
+  },
+  {
+    "company_name": "EXACT SCIENCES",
+    "api_name": "workday",
+    "api_url": "https://exactsciences.wd1.myworkdayjobs.com/Exact_Sciences"
+  },
+  {
+    "company_name": "REGENERON",
     "api_name": "careers_url",
-    "api_url": "https://careers.questdiagnostics.com/"
+    "api_url": "https://careers.regeneron.com"
+  },
+  {
+    "company_name": "Bio-Rad",
+    "api_name": "icims",
+    "api_url": "https://biorad.icims.com/jobs/search?ss=1"
+  },
+  {
+    "company_name": "ASTRAZENECA",
+    "api_name": "careers_url",
+    "api_url": "https://careers.astrazeneca.com"
+  },
+  {
+    "company_name": "PFIZER",
+    "api_name": "careers_url",
+    "api_url": "https://www.pfizer.com/careers"
+  },
+  {
+    "company_name": "NOVARTIS",
+    "api_name": "workday",
+    "api_url": "https://novartis.wd3.myworkdayjobs.com/Internal_Careers_for_Acquired_Entities/job/Basel-City/Novartis-Talent-Community_REQ-10067767"
+  },
+  {
+    "company_name": "SAREPTA THERAPEUTICS",
+    "api_name": "workday",
+    "api_url": "https://sarepta.wd5.myworkdayjobs.com/sarepta_external"
+  },
+  {
+    "company_name": "CALICO LIFE SCIENCES",
+    "api_name": "careers_url",
+    "api_url": "https://www.calicolabs.com/careers"
+  },
+  {
+    "company_name": "TAKEDA",
+    "api_name": "careers_url",
+    "api_url": "https://www.takedajobs.com"
+  },
+  {
+    "company_name": "ABBVIE",
+    "api_name": "smartrecruiters",
+    "api_url": "https://api.smartrecruiters.com/v1/companies/AbbVie/postings/"
+  },
+  {
+    "company_name": "SANOFI",
+    "api_name": "careers_url",
+    "api_url": "https://jobs.sanofi.com"
+  },
+  {
+    "company_name": "SEAGEN",
+    "api_name": "careers_url",
+    "api_url": "https://www.seagen.com/careers/"
+  },
+  {
+    "company_name": "ROCHE",
+    "api_name": "careers_url",
+    "api_url": "https://careers.roche.com"
+  },
+  {
+    "company_name": "GENENTECH",
+    "api_name": "careers_url",
+    "api_url": "https://www.gene.com/careers"
+  },
+  {
+    "company_name": "GUARDANT HEALTH",
+    "api_name": "careers_url",
+    "api_url": "https://guardanthealth.com/careers"
+  },
+  {
+    "company_name": "ALNYLAM PHARMACEUTICALS",
+    "api_name": "careers_url",
+    "api_url": "https://www.alnylam.com/careers/"
+  },
+  {
+    "company_name": "EUROFINS GENOMICS",
+    "api_name": "careers_url",
+    "api_url": "https://careers.eurofins.com"
+  },
+  {
+    "company_name": "GRAIL",
+    "api_name": "lever",
+    "api_url": "https://api.lever.co/v0/postings/grailbio"
+  },
+  {
+    "company_name": "ZAI LAB",
+    "api_name": "careers_url",
+    "api_url": "https://www.zailaboratory.com/careers"
+  },
+  {
+    "company_name": "HORIZON THERAPEUTICS",
+    "api_name": "careers_url",
+    "api_url": "https://www.horizontherapeutics.com/careers"
+  },
+  {
+    "company_name": "BIOGEN",
+    "api_name": "smartrecruiters",
+    "api_url": "https://api.smartrecruiters.com/v1/companies/biogen/postings/"
+  },
+  {
+    "company_name": "LONZA",
+    "api_name": "smartrecruiters",
+    "api_url": "https://api.smartrecruiters.com/v1/companies/Lonza/postings/"
+  },
+  {
+    "company_name": "BIOHAVEN",
+    "api_name": "careers_url",
+    "api_url": "https://www.biohavenpharma.com/careers/"
+  },
+  {
+    "company_name": "CHARLES RIVER LABORATORIES",
+    "api_name": "careers_url",
+    "api_url": "https://jobs.criver.com"
+  },
+  {
+    "company_name": "AMGEN",
+    "api_name": "smartrecruiters",
+    "api_url": "https://api.smartrecruiters.com/v1/companies/Amgen3/postings/"
+  },
+  {
+    "company_name": "Abiosciences",
+    "api_name": "careers_url",
+    "api_url": "https://www.youtube.com/"
+  },
+  {
+    "company_name": "Almaden Genomics",
+    "api_name": "careers_url",
+    "api_url": "https://www.almaden.com/"
+  },
+  {
+    "company_name": "BioAge Labs",
+    "api_name": "careers_url",
+    "api_url": "https://bioage.com/"
+  },
+  {
+    "company_name": "Cellworks",
+    "api_name": "careers_url",
+    "api_url": "https://www.who.int/news-room/fact-sheets/detail/hypertension"
+  },
+  {
+    "company_name": "Blackrock Neurotech",
+    "api_name": "careers_url",
+    "api_url": "https://www.blackrock.com/"
+  },
+  {
+    "company_name": "Centaur Labs",
+    "api_name": "careers_url",
+    "api_url": "https://mythopedia.com/topics/centaurs/"
+  },
+  {
+    "company_name": "Collaborations Pharmaceuticals",
+    "api_name": "careers_url",
+    "api_url": "https://en.wikipedia.org/wiki/Collaboration"
+  },
+  {
+    "company_name": "ChromaCode",
+    "api_name": "careers_url",
+    "api_url": "https://www.speedtest.net/"
+  },
+  {
+    "company_name": "Cortechs.ai",
+    "api_name": "careers_url",
+    "api_url": "https://www.receiteria.com.br/receitas-para-jantar-em-familia/"
+  },
+  {
+    "company_name": "Era7 Bioinformatics",
+    "api_name": "careers_url",
+    "api_url": "https://translate.google.com/?hl=es"
+  },
+  {
+    "company_name": "Genialis",
+    "api_name": "careers_url",
+    "api_url": "https://myturbotax.intuit.com/"
+  },
+  {
+    "company_name": "Genetesis",
+    "api_name": "careers_url",
+    "api_url": "https://bplan.ai/blogs/advertise-business/technology-consulting-services-advertise-business"
+  },
+  {
+    "company_name": "GenoSpace",
+    "api_name": "careers_url",
+    "api_url": "https://www.google.com/"
+  },
+  {
+    "company_name": "Igenbio",
+    "api_name": "careers_url",
+    "api_url": "https://en.m.wikipedia.org/wiki/List_of_Presidents_of_the_United_States"
+  },
+  {
+    "company_name": "Glytec",
+    "api_name": "careers_url",
+    "api_url": "https://m.youtube.com/watch?v=ko-WqI5YtPQ"
+  },
+  {
+    "company_name": "Micron Solutions",
+    "api_name": "careers_url",
+    "api_url": "https://www.micron.com/"
+  },
+  {
+    "company_name": "Nexilico",
+    "api_name": "careers_url",
+    "api_url": "https://community.ebay.com/rss/message?board.id=technicalissues-db&message.id=93790"
+  },
+  {
+    "company_name": "Protein Metrics",
+    "api_name": "careers_url",
+    "api_url": "https://www.mayoclinic.org/healthy-lifestyle/nutrition-and-healthy-eating/expert-answers/high-protein-diets/faq-20058207"
+  },
+  {
+    "company_name": "PsychoGenics",
+    "api_name": "careers_url",
+    "api_url": "https://www.bbc.com/hindi"
+  },
+  {
+    "company_name": "Resonant Therapeutics",
+    "api_name": "careers_url",
+    "api_url": "https://www.resonant.com/"
+  },
+  {
+    "company_name": "Sciex",
+    "api_name": "careers_url",
+    "api_url": "https://sciex.com/"
+  },
+  {
+    "company_name": "Ten63 Therapeutics",
+    "api_name": "careers_url",
+    "api_url": "https://www.audubon.org/es/guia-de-aves/ave/charran-artico"
+  },
+  {
+    "company_name": "SciGenom",
+    "api_name": "careers_url",
+    "api_url": "https://www.globalhealth.com/"
+  },
+  {
+    "company_name": "TeselaGen Biotechnology",
+    "api_name": "careers_url",
+    "api_url": "https://support.microsoft.com/pt-br/windows/libere-espa%C3%A7o-em-disco-no-windows-85529ccb-c365-490d-b548-831022bc9b32"
+  },
+  {
+    "company_name": "Varian Medical Systems",
+    "api_name": "careers_url",
+    "api_url": "https://www.varian.com/about-varian/careers"
+  },
+  {
+    "company_name": "Johnson & Johnson",
+    "api_name": "careers_url",
+    "api_url": "https://www.careers.jnj.com/en/jobs"
+  },
+  {
+    "company_name": "Via Scientific",
+    "api_name": "careers_url",
+    "api_url": "https://www.zhihu.com/tardis/bd/art/557005056"
+  },
+  {
+    "company_name": "Velsera",
+    "api_name": "careers_url",
+    "api_url": "https://www.pornhub.com/categories"
+  },
+  {
+    "company_name": "Mimetics",
+    "api_name": "careers_url",
+    "api_url": "https://msde.gov.in/ministry/our-organisation/details/indian-institute-of-entrepreneurship-iie-IjM1ATMtQWa"
+  },
+  {
+    "company_name": "Gilead Sciences",
+    "api_name": "careers_url",
+    "api_url": "https://www.gilead.com/careers"
+  },
+  {
+    "company_name": "Panorama Medicine",
+    "api_name": "careers_url",
+    "api_url": "https://www.panorama.com/nectoproduct/v16.2/help/flash/help_en/Importing_Data_from_a_Data_Source.htm"
+  },
+  {
+    "company_name": "Kenvue",
+    "api_name": "careers_url",
+    "api_url": "https://www.kenvue.com/careers"
+  },
+  {
+    "company_name": "Baxter International",
+    "api_name": "careers_url",
+    "api_url": "https://www.baxter.com/careers"
+  },
+  {
+    "company_name": "Regeneron Pharmaceuticals",
+    "api_name": "careers_url",
+    "api_url": "https://careers.regeneron.com/en/jobs/"
+  },
+  {
+    "company_name": "Merck & Co.",
+    "api_name": "careers_url",
+    "api_url": "https://jobs.merck.com/us/en"
+  },
+  {
+    "company_name": "Zoetis",
+    "api_name": "careers_url",
+    "api_url": "https://www.zoetis.com/join-us/careers-at-zoetis"
+  },
+  {
+    "company_name": "BioMarin",
+    "api_name": "careers_url",
+    "api_url": "https://careers.biomarin.com/"
+  },
+  {
+    "company_name": "Active Motif",
+    "api_name": "careers_url",
+    "api_url": "https://www.active.com/"
+  },
+  {
+    "company_name": "Elanco",
+    "api_name": "careers_url",
+    "api_url": "https://www.maryvilleforum.com/news/state_news/jimmy-kimmel-eviscerates-trump-for-trying-to-gaslight-americans-over-ice-shooting-death/article_fd42c61d-f6db-554d-b901-2d3fd50b4e79.html"
+  },
+  {
+    "company_name": "Optra Health",
+    "api_name": "careers_url",
+    "api_url": "https://www.idax.exchange/market"
+  },
+  {
+    "company_name": "ArgenTAG",
+    "api_name": "careers_url",
+    "api_url": "https://www.antena3.com/programas/pasapalabra/"
+  },
+  {
+    "company_name": "BioReference Laboratories",
+    "api_name": "careers_url",
+    "api_url": "https://www.bioreference.com/about/careers/"
+  },
+  {
+    "company_name": "BioDynami",
+    "api_name": "careers_url",
+    "api_url": "https://www.caranddriver.com/hyundai/tucson-hybrid"
+  },
+  {
+    "company_name": "Claret Bioscience",
+    "api_name": "careers_url",
+    "api_url": "https://www.decanter.com/learn/advice/what-is-claret-wine-ask-decanter-378401/"
+  },
+  {
+    "company_name": "Ambry Genetics",
+    "api_name": "careers_url",
+    "api_url": "https://www.ambrygen.com/company/careers"
+  },
+  {
+    "company_name": "AAT Bioquest",
+    "api_name": "careers_url",
+    "api_url": "https://forums.aat.org.uk/Forum/categories/aat-membership/"
+  },
+  {
+    "company_name": "Daicel Arbor Biosciences",
+    "api_name": "careers_url",
+    "api_url": "https://en.wikipedia.org/wiki/Israel_Mukuamu"
+  },
+  {
+    "company_name": "DNA Polymerase Technology",
+    "api_name": "careers_url",
+    "api_url": "https://www.daz3d.com/dna-citrus-suit-for-genesis-9"
+  },
+  {
+    "company_name": "Epigentek",
+    "api_name": "careers_url",
+    "api_url": "https://www.xnxx.com/search/vecina%20caliente"
+  },
+  {
+    "company_name": "Heligenics",
+    "api_name": "careers_url",
+    "api_url": "https://www.reddit.com/"
+  },
+  {
+    "company_name": "Edge BioSystems",
+    "api_name": "careers_url",
+    "api_url": "https://www.microsoft.com/edge"
+  },
+  {
+    "company_name": "Creative Biogene",
+    "api_name": "careers_url",
+    "api_url": "https://us.creative.com/"
+  },
+  {
+    "company_name": "Integen LLC",
+    "api_name": "careers_url",
+    "api_url": "https://www.google.com.br/chrome/index.html"
+  },
+  {
+    "company_name": "NeoGenomics",
+    "api_name": "careers_url",
+    "api_url": "https://neogenomics.com/"
+  },
+  {
+    "company_name": "Imanis Life Sciences",
+    "api_name": "careers_url",
+    "api_url": "https://ballardblossom.com/"
+  },
+  {
+    "company_name": "RealSeq Biosciences",
+    "api_name": "careers_url",
+    "api_url": "https://www.youtube.com/"
+  },
+  {
+    "company_name": "Proteowise",
+    "api_name": "careers_url",
+    "api_url": "https://www.pornhub.com/"
+  },
+  {
+    "company_name": "Taconic Biosciences",
+    "api_name": "careers_url",
+    "api_url": "https://www.taconic.com/about/careers"
+  },
+  {
+    "company_name": "Vizgen",
+    "api_name": "careers_url",
+    "api_url": "https://ja.wikipedia.org/wiki/%E3%82%AF%E3%83%AA%E3%83%9F%E3%82%A2%E5%8D%8A%E5%B3%B6"
+  },
+  {
+    "company_name": "Syenex",
+    "api_name": "careers_url",
+    "api_url": "https://www.youtube.com/"
+  },
+  {
+    "company_name": "GemPharmatech",
+    "api_name": "careers_url",
+    "api_url": "https://en.gempharmatech.com/"
+  },
+  {
+    "company_name": "28Bio",
+    "api_name": "careers_url",
+    "api_url": "https://kdp.amazon.com/en_US"
+  },
+  {
+    "company_name": "3Helix",
+    "api_name": "careers_url",
+    "api_url": "https://it.rutgers.edu/rutgers-connect/"
+  },
+  {
+    "company_name": "37degrees",
+    "api_name": "careers_url",
+    "api_url": "https://www.youtube.com/"
+  },
+  {
+    "company_name": "AAVnerGene",
+    "api_name": "careers_url",
+    "api_url": "https://game8.co/games/Arknights-Endfield/archives/522751"
+  },
+  {
+    "company_name": "3D Health Solutions",
+    "api_name": "careers_url",
+    "api_url": "https://sketchfab.com/"
+  },
+  {
+    "company_name": "3D Biotek",
+    "api_name": "careers_url",
+    "api_url": "https://sketchfab.com/"
+  },
+  {
+    "company_name": "Proteovista",
+    "api_name": "careers_url",
+    "api_url": "https://zhidao.baidu.com/question/2009561660736237908.html"
+  },
+  {
+    "company_name": "Abcepta",
+    "api_name": "careers_url",
+    "api_url": "https://www.wsaz.com/"
+  },
+  {
+    "company_name": "AB Biosciences",
+    "api_name": "careers_url",
+    "api_url": "https://www.ab.com/"
+  },
+  {
+    "company_name": "Zymo Research",
+    "api_name": "careers_url",
+    "api_url": "https://speedtest.mybroadband.co.za/"
+  },
+  {
+    "company_name": "AbSci",
+    "api_name": "careers_url",
+    "api_url": "https://www.absci.com/"
+  },
+  {
+    "company_name": "A-Alpha Bio",
+    "api_name": "careers_url",
+    "api_url": "https://www.youtube.com/watch?v=0PTfZNg9ri8"
+  },
+  {
+    "company_name": "AccelBio",
+    "api_name": "careers_url",
+    "api_url": "https://es.wikipedia.org/wiki/Sterna_paradisaea"
+  },
+  {
+    "company_name": "iRepertoire",
+    "api_name": "careers_url",
+    "api_url": "https://forum.conflictnations.com/"
+  },
+  {
+    "company_name": "AcceGen Biotechnology",
+    "api_name": "careers_url",
+    "api_url": "https://translate.google.com/?hl=es"
+  },
+  {
+    "company_name": "Abterra Biosciences",
+    "api_name": "careers_url",
+    "api_url": "https://www.sur-walks.com/"
+  },
+  {
+    "company_name": "ACON Laboratories",
+    "api_name": "careers_url",
+    "api_url": "https://us.acon24.com/collections/menu-trampolines"
+  },
+  {
+    "company_name": "Adeptrix",
+    "api_name": "careers_url",
+    "api_url": "https://www.lung.org/lung-health-diseases/lung-disease-lookup/asthma/learn-about-asthma/types/severe-asthma"
+  },
+  {
+    "company_name": "AddexBio",
+    "api_name": "careers_url",
+    "api_url": "https://www.reddit.com/user/nypost/"
+  },
+  {
+    "company_name": "Ablexis",
+    "api_name": "careers_url",
+    "api_url": "https://www.cancer.gov/about-cancer/treatment/types/targeted-therapies"
+  },
+  {
+    "company_name": "Aether Biomachines",
+    "api_name": "careers_url",
+    "api_url": "https://mythopedia.com/topics/aether/"
+  },
+  {
+    "company_name": "ACROBiosystems",
+    "api_name": "careers_url",
+    "api_url": "https://careers.acrobiosystems.com/why-acro/"
+  },
+  {
+    "company_name": "Agathos Biologics",
+    "api_name": "careers_url",
+    "api_url": "https://answers.microsoft.com/es-es/outlook_com/forum/all/soporte-t/db44e5a0-fa5d-439f-b017-3562012d2ec4"
+  },
+  {
+    "company_name": "Aelan Cell Technologies",
+    "api_name": "careers_url",
+    "api_url": "https://answers.microsoft.com/zh-hans/windows/forum/all/%E8%AF%B7%E6%B1%82%E5%B8%AE%E5%8A%A9%E8%BF%90/c67c00f3-e1a9-4c91-a8f4-775e4e4fff38"
+  },
+  {
+    "company_name": "Agilent",
+    "api_name": "careers_url",
+    "api_url": "https://www.wattpad.com/"
+  },
+  {
+    "company_name": "Akina",
+    "api_name": "careers_url",
+    "api_url": "https://akinadining.com/"
+  },
+  {
+    "company_name": "Akcell Biotech",
+    "api_name": "careers_url",
+    "api_url": "https://www.youtube.com/"
+  },
+  {
+    "company_name": "Akonni Biosystems",
+    "api_name": "careers_url",
+    "api_url": "https://zeno.fm/"
+  },
+  {
+    "company_name": "AkrivisBio",
+    "api_name": "careers_url",
+    "api_url": "https://www.youtube.com/"
+  },
+  {
+    "company_name": "Akadeum Life Sciences",
+    "api_name": "careers_url",
+    "api_url": "https://www.shopsbt.com/"
+  },
+  {
+    "company_name": "Akron Biotechnology",
+    "api_name": "careers_url",
+    "api_url": "https://www.uakron.edu/"
+  },
+  {
+    "company_name": "Aldatu Biosciences",
+    "api_name": "careers_url",
+    "api_url": "https://www.sportingnews.com/br/futebol/noticias/tabela-copinha-2026-grupos-jogos-onde-assistir/291e94be637ddf1129402ad8"
+  },
+  {
+    "company_name": "Alator Biosciences",
+    "api_name": "careers_url",
+    "api_url": "https://chatgpt.com/"
+  },
+  {
+    "company_name": "Aggredyne",
+    "api_name": "careers_url",
+    "api_url": "https://support.microsoft.com/en-us/windows/how-to-get-help-in-windows-711b6492-0435-0038-8706-7c6b0feb200a"
+  },
+  {
+    "company_name": "Alpenglow Biosciences",
+    "api_name": "careers_url",
+    "api_url": "https://en.wikipedia.org/wiki/Alpenglow"
+  },
+  {
+    "company_name": "Alliqua",
+    "api_name": "careers_url",
+    "api_url": "https://www.xvideos.com/tags/young-black-teen"
+  },
+  {
+    "company_name": "ALPCO Diagnostics",
+    "api_name": "careers_url",
+    "api_url": "https://answers.microsoft.com/zh-hans/msoffice/forum/all/%e6%9b%b4%e6%8d%a2%e5%be%ae%e8%bd%af%e8%b4%a6/583645ee-222c-4c69-9572-c145e7d10acc"
+  },
+  {
+    "company_name": "Alstem",
+    "api_name": "careers_url",
+    "api_url": "https://www.cnnbrasil.com.br/entretenimento/karla-sofia-gascon-fala-sobre-brasileiros-em-meio-a-polemica-de-oliver-laxe/"
+  },
+  {
+    "company_name": "Allez Health",
+    "api_name": "careers_url",
+    "api_url": "https://mobile-dictionary.reverso.net/french-english/allez"
+  },
+  {
+    "company_name": "Altis Biosystems",
+    "api_name": "careers_url",
+    "api_url": "https://www.altispowersports.com/"
+  },
+  {
+    "company_name": "Aldevron",
+    "api_name": "careers_url",
+    "api_url": "https://jobs.danaher.com/global/en/aldevron"
+  },
+  {
+    "company_name": "Altogen Biosystems",
+    "api_name": "careers_url",
+    "api_url": "https://www.answers.com/movies-and-television/What_songs_were_played_in_madea%27s_big_happy_family"
+  },
+  {
+    "company_name": "AmideBio",
+    "api_name": "careers_url",
+    "api_url": "https://www.roblox.com/"
+  },
+  {
+    "company_name": "AMSBIO",
+    "api_name": "careers_url",
+    "api_url": "https://www.twitch.tv/"
+  },
+  {
+    "company_name": "Ambergen",
+    "api_name": "careers_url",
+    "api_url": "https://www.hl.co.uk/shares/shares-search-results/t/tritax-big-box-reit-plc-ordinary-1p"
+  },
+  {
+    "company_name": "Anchor Molecular",
+    "api_name": "careers_url",
+    "api_url": "https://anchor.fm/s/10be76e34/podcast/rss"
+  },
+  {
+    "company_name": "Amethyst Technologies",
+    "api_name": "careers_url",
+    "api_url": "https://www.minerals.net/gemstone/amethyst_gemstone.aspx"
+  },
+  {
+    "company_name": "Aladdin Scientific",
+    "api_name": "careers_url",
+    "api_url": "https://www.aladdin-e.com/zh_cn/chemicals-and-biochemicals.html"
+  },
+  {
+    "company_name": "Ansh Labs",
+    "api_name": "careers_url",
+    "api_url": "https://ansh.org/"
+  },
+  {
+    "company_name": "Antibodies Incorporated",
+    "api_name": "careers_url",
+    "api_url": "https://www.mayoclinic.org/tests-procedures/covid-19-antibody-testing/about/pac-20489696"
+  },
+  {
+    "company_name": "Aralez Bio",
+    "api_name": "careers_url",
+    "api_url": "https://en.wikipedia.org/wiki/Aralez_(mythology)"
+  },
+  {
+    "company_name": "Aniara Diagnostica",
+    "api_name": "careers_url",
+    "api_url": "https://www.aniara.com/contact-us.html"
+  },
+  {
+    "company_name": "ANP Technologies",
+    "api_name": "careers_url",
+    "api_url": "https://www.gov.br/anp/pt-br"
+  },
+  {
+    "company_name": "Arbor Assays",
+    "api_name": "careers_url",
+    "api_url": "https://www.arborfcu.org/"
+  },
+  {
+    "company_name": "Ark Diagnostics",
+    "api_name": "careers_url",
+    "api_url": "https://survivetheark.com/"
+  },
+  {
+    "company_name": "Arsenal Medical",
+    "api_name": "careers_url",
+    "api_url": "https://www.ar15.com/forums/handguns/-Travis-Rideout-Arsenal-Dragon-pistol-made-in-VA-/4-217632/"
+  },
+  {
+    "company_name": "Asinex",
+    "api_name": "careers_url",
+    "api_url": "https://www.microsoft.com/en-us"
+  },
+  {
+    "company_name": "ARX Sciences",
+    "api_name": "careers_url",
+    "api_url": "https://forums.elderscrollsonline.com/en/discussion/677349/what-dungeons-can-be-solo-039-d-in-2025"
+  },
+  {
+    "company_name": "Aspire Biotech",
+    "api_name": "careers_url",
+    "api_url": "https://www.aspire.com/"
+  },
+  {
+    "company_name": "Associates of Cape Cod",
+    "api_name": "careers_url",
+    "api_url": "https://cmamgt.com/"
+  },
+  {
+    "company_name": "AnaSpec",
+    "api_name": "careers_url",
+    "api_url": "https://zhidao.baidu.com/question/3798819.html"
+  },
+  {
+    "company_name": "AssayQuant",
+    "api_name": "careers_url",
+    "api_url": "https://translate.google.com.ar/"
+  },
+  {
+    "company_name": "Athens Research and Technology",
+    "api_name": "careers_url",
+    "api_url": "https://www.athens.edu/"
+  },
+  {
+    "company_name": "Astrolabe Diagnostics",
+    "api_name": "careers_url",
+    "api_url": "https://alabe.com/freechart/default.asp"
+  },
+  {
+    "company_name": "AUM BioTech",
+    "api_name": "careers_url",
+    "api_url": "https://www.expat.com/en/forum/middle-east/kuwait/480767-american-university-of-the-middle-east-aum.html"
+  },
+  {
+    "company_name": "AUM LifeTech",
+    "api_name": "careers_url",
+    "api_url": "https://www.expat.com/en/forum/middle-east/kuwait/480767-american-university-of-the-middle-east-aum.html"
+  },
+  {
+    "company_name": "ATUM",
+    "api_name": "careers_url",
+    "api_url": "https://www.atum.bio/"
+  },
+  {
+    "company_name": "Areterna",
+    "api_name": "careers_url",
+    "api_url": "https://zhidao.baidu.com/question/700918429087647804.html"
+  },
+  {
+    "company_name": "Aurora Biolabs",
+    "api_name": "careers_url",
+    "api_url": "https://www.reddit.com/r/auroramusic/"
+  },
+  {
+    "company_name": "Aurora Microplates",
+    "api_name": "careers_url",
+    "api_url": "https://www.reddit.com/r/auroramusic/"
+  },
+  {
+    "company_name": "Avion Pharmaceuticals",
+    "api_name": "careers_url",
+    "api_url": "https://avionrx.com/careers/"
+  },
+  {
+    "company_name": "Avanti Polar Lipids",
+    "api_name": "careers_url",
+    "api_url": "https://www.avantiproducts.com/collections/all"
+  },
+  {
+    "company_name": "Avidity",
+    "api_name": "careers_url",
+    "api_url": "https://www.avidity.com/"
+  },
+  {
+    "company_name": "AvantBio",
+    "api_name": "careers_url",
+    "api_url": "https://nypost.com/2026/01/23/us-news/zohran-mamdani-says-nyc-kids-can-forget-about-traditional-snow-day-on-monday/"
+  },
+  {
+    "company_name": "Aviva Systems Biology",
+    "api_name": "careers_url",
+    "api_url": "https://www.aviva.com/"
+  },
+  {
+    "company_name": "Avitide",
+    "api_name": "careers_url",
+    "api_url": "http://forum.rojadirecta.es/"
+  },
+  {
+    "company_name": "Axion BioSystems",
+    "api_name": "careers_url",
+    "api_url": "https://shop.action.com/en-nl"
+  },
+  {
+    "company_name": "Axolotl Biologix",
+    "api_name": "careers_url",
+    "api_url": "https://www.caudata.org/cc/species/Ambystoma/A_mexicanum.shtml"
+  },
+  {
+    "company_name": "Axogen",
+    "api_name": "careers_url",
+    "api_url": "https://www.axogeninc.com/careers/"
+  },
+  {
+    "company_name": "Avectas",
+    "api_name": "careers_url",
+    "api_url": "https://www.straitstimes.com/business/companies-markets/grab-takeover-deal-for-gojek-parent-goto-hits-snag-sources-say"
+  },
+  {
+    "company_name": "Azura Genomics",
+    "api_name": "careers_url",
+    "api_url": "https://ebible.com/questions/7776-who-was-seth-s-wife-was-seth-s-wife-his-sister"
+  },
+  {
+    "company_name": "Baxter",
+    "api_name": "careers_url",
+    "api_url": "https://www.baxter.com/careers"
+  },
+  {
+    "company_name": "Bangs Laboratories",
+    "api_name": "careers_url",
+    "api_url": "https://www.instyle.com/types-of-bangs-11887768"
+  },
+  {
+    "company_name": "Avantor Sciences",
+    "api_name": "careers_url",
+    "api_url": "https://careers.avantorsciences.com/global/en/home"
+  },
+  {
+    "company_name": "BacStitch DNA",
+    "api_name": "careers_url",
+    "api_url": "https://mail.google.com/mail"
+  },
+  {
+    "company_name": "BBI Solutions",
+    "api_name": "careers_url",
+    "api_url": "https://corner.bigblueinteractive.com/index.php"
+  },
+  {
+    "company_name": "Bay BioSciences",
+    "api_name": "careers_url",
+    "api_url": "https://community.ebay.com/rss/message?board.id=shipping-returns-db&message.id=354164"
+  },
+  {
+    "company_name": "Bifrost Biosystems",
+    "api_name": "careers_url",
+    "api_url": "https://mythopedia.com/topics/bifrost/"
+  },
+  {
+    "company_name": "BellBrook Labs",
+    "api_name": "careers_url",
+    "api_url": "https://www.bellbrook.gov/"
+  },
+  {
+    "company_name": "Azenta Life Sciences",
+    "api_name": "careers_url",
+    "api_url": "https://www.azenta.com/"
+  },
+  {
+    "company_name": "Bexorg",
+    "api_name": "careers_url",
+    "api_url": "https://bexorg.com/careers"
+  },
+  {
+    "company_name": "Becton Dickinson",
+    "api_name": "smartrecruiters",
+    "api_url": "https://api.smartrecruiters.com/v1/companies/BectonDickinson2/postings/"
+  },
+  {
+    "company_name": "10X GENOMICS INC CLASS A",
+    "api_name": "careers_url",
+    "api_url": "https://10xhealthsystem.com/"
+  },
+  {
+    "company_name": "ABCELLERA BIOLOGICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.gmu.edu/"
+  },
+  {
+    "company_name": "ABIVAX AMERICAN DEPOSITARY SHARES",
+    "api_name": "careers_url",
+    "api_url": "https://www.abivax.com/"
+  },
+  {
+    "company_name": "GUARDANT HEALTH",
+    "api_name": "careers_url",
+    "api_url": "https://guardanthealth.com/careers/"
+  },
+  {
+    "company_name": "Biocheck",
+    "api_name": "careers_url",
+    "api_url": "https://www.supersmashflash.com/play/ssf2/downloads/"
+  },
+  {
+    "company_name": "AGIOS PHARMACEUTICALS INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.1800flowers.com/"
+  },
+  {
+    "company_name": "AIM ImmunoTech",
+    "api_name": "careers_url",
+    "api_url": "https://news.mit.edu/news-clip/financial-times-277"
+  },
+  {
+    "company_name": "ADC THERAPEUTICS SA",
+    "api_name": "careers_url",
+    "api_url": "https://www.city-data.com/so/so-Sparks-Nevada.html"
+  },
+  {
+    "company_name": "AKEBIA THERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://akebia.com/"
+  },
+  {
+    "company_name": "AKOUOS CVRS Prvt",
+    "api_name": "careers_url",
+    "api_url": "https://www.stylecraze.com/articles/letter-to-mom/"
+  },
+  {
+    "company_name": "Atonarp",
+    "api_name": "careers_url",
+    "api_url": "https://chigai3.fromation.co.jp/archives/8925"
+  },
+  {
+    "company_name": "AKERO THERAPEUTICS CVR",
+    "api_name": "careers_url",
+    "api_url": "https://linux.slashdot.org/story/26/01/24/2332205/former-canonical-developer-advocate-warns-snap-store-isnt-safe-after-slow-responses-to-malware-reports"
+  },
+  {
+    "company_name": "ALKERMES",
+    "api_name": "careers_url",
+    "api_url": "https://www.alkermes.com/careers"
+  },
+  {
+    "company_name": "ALTO NEUROSCIENCE INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.alto.com/careers"
+  },
+  {
+    "company_name": "ALUMIS INC",
+    "api_name": "careers_url",
+    "api_url": "https://opengov.com/products/procurement/"
+  },
+  {
+    "company_name": "ILLUMINA",
+    "api_name": "careers_url",
+    "api_url": "https://www.illumina.com/company/careers.html"
+  },
+  {
+    "company_name": "ALVOTECH SA",
+    "api_name": "careers_url",
+    "api_url": "https://www.usatoday.com/story/tech/internet/best-rural-internet-providers/86931681007/"
+  },
+  {
+    "company_name": "ANAPTYSBIO INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.jetbrains.com/idea/"
+  },
+  {
+    "company_name": "ALKERMES PLC",
+    "api_name": "careers_url",
+    "api_url": "http://www.alkermes.com/"
+  },
+  {
+    "company_name": "APOGEE THERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://apogeedigital.com/"
+  },
+  {
+    "company_name": "ARCUTIS BIOTHERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://en.wikipedia.org/wiki/Yes_(band)"
+  },
+  {
+    "company_name": "4D MOLECULAR THERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://fr.4d.com/"
+  },
+  {
+    "company_name": "ARCELLX INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.arcellx.com/"
+  },
+  {
+    "company_name": "ARGENX SE ADR",
+    "api_name": "careers_url",
+    "api_url": "https://careers.argenx.com/"
+  },
+  {
+    "company_name": "ARDELYX INC",
+    "api_name": "careers_url",
+    "api_url": "https://ardelyx.com/"
+  },
+  {
+    "company_name": "ARVINAS INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.arvinas.com/"
+  },
+  {
+    "company_name": "ARRIVENT BIOPHARMA INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.espn.com/nba/standings"
+  },
+  {
+    "company_name": "ANNEXON INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.amazon.fr/"
+  },
+  {
+    "company_name": "ASCENDIS PHARMA ADR REPRESENTING",
+    "api_name": "careers_url",
+    "api_url": "https://ascendispharma.com/careers/"
+  },
+  {
+    "company_name": "ATAIBECKLEY INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.choctawcasinos.com/idabel/"
+  },
+  {
+    "company_name": "ALLOGENE THERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.speedbeez.com/product/speed-beez-smith-wesson-686p-plus-speed-loader-38-357-seven-shot/"
+  },
+  {
+    "company_name": "ATEA PHARMACEUTICALS INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.atea.com/"
+  },
+  {
+    "company_name": "Acceleron Pharma",
+    "api_name": "careers_url",
+    "api_url": "https://accelleron.com/"
+  },
+  {
+    "company_name": "ARS PHARMACEUTICALS INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.ar15.com/forums/ar-15/_700_vs_the__2000__ARs__What_is_the_real_differance_/118-671680/"
+  },
+  {
+    "company_name": "AVIDITY BIOSCIENCES INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.avidity.com/"
+  },
+  {
+    "company_name": "AXSOME THERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.axsome.com/"
+  },
+  {
+    "company_name": "Algenetix",
+    "api_name": "careers_url",
+    "api_url": "https://dle.rae.es/reivindicar"
+  },
+  {
+    "company_name": "Amylin Pharmaceuticals",
+    "api_name": "careers_url",
+    "api_url": "https://www.youtube.com/"
+  },
+  {
+    "company_name": "Alzheon",
+    "api_name": "careers_url",
+    "api_url": "https://alzheon.com/"
+  },
+  {
+    "company_name": "AURINIA PHARMACEUTICALS INC",
+    "api_name": "careers_url",
+    "api_url": "https://sverigesrestauranger.se/malmos-basta-restauranger-2025/"
+  },
+  {
+    "company_name": "BIOMARIN PHARMACEUTICAL INC",
+    "api_name": "careers_url",
+    "api_url": "https://careers.biomarin.com/"
+  },
+  {
+    "company_name": "Arena Pharmaceuticals",
+    "api_name": "careers_url",
+    "api_url": "https://www.fedexforum.com/arena-info/about-fedexforum"
+  },
+  {
+    "company_name": "ArcticZymes Technologies",
+    "api_name": "careers_url",
+    "api_url": "https://translate.google.com/"
+  },
+  {
+    "company_name": "BRIDGEBIO PHARMA INC",
+    "api_name": "careers_url",
+    "api_url": "https://bridgebio.com/careers/"
+  },
+  {
+    "company_name": "BRIDGEBIO ONCOLOGY THERAPEUTICS IN",
+    "api_name": "careers_url",
+    "api_url": "https://bridgebio.com/careers/"
+  },
+  {
+    "company_name": "BIONTECH SE ADR",
+    "api_name": "careers_url",
+    "api_url": "https://www.biontech.com/int/en/home.html"
+  },
+  {
+    "company_name": "BIOCRYST PHARMACEUTICALS INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.biocryst.com/"
+  },
+  {
+    "company_name": "BLACK DIAMOND THERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.reddit.com/r/Ebony/about/"
+  },
+  {
+    "company_name": "Biosplice Therapeutics",
+    "api_name": "careers_url",
+    "api_url": "https://www.nfl.com/"
+  },
+  {
+    "company_name": "BRUKER CORP",
+    "api_name": "careers_url",
+    "api_url": "https://www.bruker.com/en/careers.html"
+  },
+  {
+    "company_name": "CATALYST PHARMACEUTICALS INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.catalyst.org/"
+  },
+  {
+    "company_name": "CARGO THERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.linkedin.com/posts/cargo-tx-inc_hiring-biotech-careers-activity-7234579986861486082-707p"
+  },
+  {
+    "company_name": "Baxalta",
+    "api_name": "careers_url",
+    "api_url": "https://www.youtube.com/watch?v=ZbRqaQSXOHE"
+  },
+  {
+    "company_name": "CELLDEX THERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://celldex.com/"
+  },
+  {
+    "company_name": "CABALETTA BIO INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.linkedin.com/jobs/open-job-roles-at-microsoft-usa-jobs"
+  },
+  {
+    "company_name": "CAREDX INC",
+    "api_name": "careers_url",
+    "api_url": "https://caredx.com/company/careers"
+  },
+  {
+    "company_name": "CELCUITY INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.celcuity.com/"
+  },
+  {
+    "company_name": "CONTINEUM THERAPEUTICS INC CLASS A",
+    "api_name": "careers_url",
+    "api_url": "https://www.gmu.edu/"
+  },
+  {
+    "company_name": "CODEXIS INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.codexis.com/"
+  },
+  {
+    "company_name": "CENTESSA PHARMACEUTICALS AMERICAN",
+    "api_name": "careers_url",
+    "api_url": "https://synadentix.online/"
+  },
+  {
+    "company_name": "Benitec Biopharma Ltd",
+    "api_name": "careers_url",
+    "api_url": "https://accessim.org/"
+  },
+  {
+    "company_name": "COGENT BIOSCIENCES INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.cogentco.com/en/"
+  },
+  {
+    "company_name": "CHARLES RIVER LABORATORIES INTERNA",
+    "api_name": "careers_url",
+    "api_url": "https://client.schwab.com/Areas/Access/Login"
+  },
+  {
+    "company_name": "CONTRA AKERO THERAPEUT",
+    "api_name": "careers_url",
+    "api_url": "https://contra.com/features/find-freelance-jobs"
+  },
+  {
+    "company_name": "CORVUS PHARMACEUTICALS INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.corvusinsurance.com/"
+  },
+  {
+    "company_name": "CONTRA INHIBRX INC",
+    "api_name": "careers_url",
+    "api_url": "https://contra.com/features/find-freelance-jobs"
+  },
+  {
+    "company_name": "CONTRA BLUEPRINT MEDIC",
+    "api_name": "careers_url",
+    "api_url": "https://contra.com/features/find-freelance-jobs"
+  },
+  {
+    "company_name": "CONTRA METSERA INC",
+    "api_name": "careers_url",
+    "api_url": "https://contra.com/features/find-freelance-jobs"
+  },
+  {
+    "company_name": "CONTRA VERVE THERAPEUT",
+    "api_name": "careers_url",
+    "api_url": "https://contra.com/features/find-freelance-jobs"
+  },
+  {
+    "company_name": "CONTRA MIRATI THERAPEU",
+    "api_name": "careers_url",
+    "api_url": "https://contra.com/features/find-freelance-jobs"
+  },
+  {
+    "company_name": "CRINETICS PHARMACEUTICALS INC",
+    "api_name": "careers_url",
+    "api_url": "https://crinetics.com/careers/"
+  },
+  {
+    "company_name": "CYTOMX THERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://cytomx.com/"
+  },
+  {
+    "company_name": "CYTOKINETICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://cytokinetics.com/careers/"
+  },
+  {
+    "company_name": "DAY ONE BIOPHARMACEUTICALS INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.nationalww2museum.org/war/articles/what-and-when-v-j-day"
+  },
+  {
+    "company_name": "DAY ONE BIOPHARMACEUTICALS I",
+    "api_name": "careers_url",
+    "api_url": "https://www.nationalww2museum.org/war/articles/what-and-when-v-j-day"
+  },
+  {
+    "company_name": "DYNE THERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://en.wikipedia.org/wiki/Dyne"
+  },
+  {
+    "company_name": "Distributor: State Street Global Advisors Funds Distributors, LLC (SSGA FD), Member FINRA (https://www.finra.org) and an indirect wholly owned subsidiary of State Street Corporation. References to State Street may include State Street Corporation and its affiliates. One Congress Street Boston, MA 02114. ALPS Distributors, Inc. (ALPS) is the distributor for SPY, MDY, and DIA, all unit investment trusts. SSGA FD and ALPS are not affiliated.",
+    "api_name": "careers_url",
+    "api_url": "https://www.gmu.edu/"
+  },
+  {
+    "company_name": "DYNAVAX TECHNOLOGIES CORP",
+    "api_name": "careers_url",
+    "api_url": "https://www.dynavax.com/"
+  },
+  {
+    "company_name": "DIANTHUS THERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.thespruce.com/perennial-dianthus-flower-1316045"
+  },
+  {
+    "company_name": "Cyrex Laboratories",
+    "api_name": "careers_url",
+    "api_url": "http://www.jybambooasianrestaurant.com/default.aspx"
+  },
+  {
+    "company_name": "EDGEWISE THERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://edgewisetx.com/company/careers/"
+  },
+  {
+    "company_name": "EMERGENT BIOSOLUTIONS INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.emergenthealth.org/careers/"
+  },
+  {
+    "company_name": "ENTRADA THERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.entrata.com/"
+  },
+  {
+    "company_name": "FOGHORN THERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://en.m.wikipedia.org/wiki/Foghorn"
+  },
+  {
+    "company_name": "DoubleLine\u00ae is a registered trademark of DoubleLine Capital LP.\n\nInvesting involves risk including the risk of loss of principal.\n\nAll information is from SSGA unless otherwise noted and has been obtained from sources believed to be reliable, but its accuracy is not guaranteed.  There is no representation or warranty as to the current accuracy, reliability or completeness of, nor liability for, decisions based on such information and it should not be relied on as such.",
+    "api_name": "careers_url",
+    "api_url": "https://doubleline.com/"
+  },
+  {
+    "company_name": "FULCRUM THERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://web.fulcrumapp.com/users/sign_in"
+  },
+  {
+    "company_name": "GENMAB SPONSORED ADR",
+    "api_name": "careers_url",
+    "api_url": "https://www.maryvilleforum.com/news/state_news/understand-causes-of-reproductive-failure/article_ea71e665-1e7b-5a07-8974-983bd540211a.html"
+  },
+  {
+    "company_name": "FORTREA HOLDINGS INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.fortrea.com/"
+  },
+  {
+    "company_name": "ENLIVEN THERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://mysticwordsanswers.org/game/twelve-dozen"
+  },
+  {
+    "company_name": "Formic Labs",
+    "api_name": "careers_url",
+    "api_url": "https://www.healthline.com/health/how-to-get-smell-out-of-clothes"
+  },
+  {
+    "company_name": "GERON CORP",
+    "api_name": "careers_url",
+    "api_url": "https://www.geron.com/careers/"
+  },
+  {
+    "company_name": "Gritstone bio",
+    "api_name": "careers_url",
+    "api_url": "https://www.pinterest.com/"
+  },
+  {
+    "company_name": "HALOZYME THERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://halozyme.com/"
+  },
+  {
+    "company_name": "IDEAYA BIOSCIENCES INC",
+    "api_name": "careers_url",
+    "api_url": "https://devforum.roblox.com/t/administer-modern-modular-free-admin-system-12/3179989"
+  },
+  {
+    "company_name": "IMMUNITYBIO INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.maryvilleforum.com/news/state_news/you-bought-it-but-do-you-own-it-the-new-subscription-model/article_a930ebbc-9042-5a9d-89b3-af8fa0b80a84.html"
+  },
+  {
+    "company_name": "IMMUNOME INC",
+    "api_name": "careers_url",
+    "api_url": "https://immunome.com/careers/"
+  },
+  {
+    "company_name": "IMMUNOCORE HOLDINGS ADR PLC",
+    "api_name": "careers_url",
+    "api_url": "https://www.immunocore.com/careers"
+  },
+  {
+    "company_name": "Hoffmann-La Roche",
+    "api_name": "careers_url",
+    "api_url": "https://www.hoffmann-group.com/US/en/hus/"
+  },
+  {
+    "company_name": "IMMUNEERING CORP CLASS A",
+    "api_name": "careers_url",
+    "api_url": "https://www.neuschwanstein.de/"
+  },
+  {
+    "company_name": "IMMUNOVANT INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.immunovant.com/join-us/explore-careers"
+  },
+  {
+    "company_name": "INHIBRX BIOSCIENCES INC",
+    "api_name": "careers_url",
+    "api_url": "https://inhibrx.com/"
+  },
+  {
+    "company_name": "INSMED INC",
+    "api_name": "careers_url",
+    "api_url": "https://insmed.com/"
+  },
+  {
+    "company_name": "IOVANCE BIOTHERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.iovance.com/"
+  },
+  {
+    "company_name": "JANUX THERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.januxrx.com/"
+  },
+  {
+    "company_name": "IRONWOOD PHARMA INC CLASS A",
+    "api_name": "careers_url",
+    "api_url": "https://apps.dnr.wi.gov/biodiversity/Home/detail/communities/9143"
+  },
+  {
+    "company_name": "IMMUNEERING CORP   CLASS A",
+    "api_name": "careers_url",
+    "api_url": "https://www.fdj.fr/jeux-de-tirage/resultats"
+  },
+  {
+    "company_name": "IMMUTEP ADS REPRESENTING LTD",
+    "api_name": "careers_url",
+    "api_url": "https://www.immutep.com/"
+  },
+  {
+    "company_name": "KRYSTAL BIOTECH INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.krystal.com/"
+  },
+  {
+    "company_name": "KURA ONCOLOGY INC",
+    "api_name": "careers_url",
+    "api_url": "https://kurasushi.com/"
+  },
+  {
+    "company_name": "KODIAK SCIENCES INC",
+    "api_name": "careers_url",
+    "api_url": "https://kodiakcakes.com/"
+  },
+  {
+    "company_name": "KYMERA THERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.kymeratx.com/careers-culture/"
+  },
+  {
+    "company_name": "IRONWOOD PHARMACEUTICALS INC",
+    "api_name": "careers_url",
+    "api_url": "https://apps.dnr.wi.gov/biodiversity/Home/detail/communities/9143"
+  },
+  {
+    "company_name": "LARIMAR THERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://en.wikipedia.org/wiki/Larimar"
+  },
+  {
+    "company_name": "KALVISTA PHARMACEUTICALS INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.kalvista.com/"
+  },
+  {
+    "company_name": "KYVERNA THERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://kyvernatx.com/careers/"
+  },
+  {
+    "company_name": "IDEAYA BIOSCIENCES INC",
+    "api_name": "careers_url",
+    "api_url": "https://tinhte.vn/thread/huong-dan-cach-tao-bang-trong-canva-mot-cach-nhanh-chong.3917461/"
+  },
+  {
+    "company_name": "LEXEO THERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.lexeotx.com/careers/"
+  },
+  {
+    "company_name": "LENZ THERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://lenzinc.com/"
+  },
+  {
+    "company_name": "Keraplast",
+    "api_name": "careers_url",
+    "api_url": "https://www.city-data.com/forum/hampton-roads-area/766263-no-credit-check-apartments.html"
+  },
+  {
+    "company_name": "Lumen Bioscience",
+    "api_name": "careers_url",
+    "api_url": "https://jobs.lumen.com/global/en/"
+  },
+  {
+    "company_name": "Life Technologies",
+    "api_name": "careers_url",
+    "api_url": "https://www.life.com/"
+  },
+  {
+    "company_name": "MARAVAI LIFESCIENCES HOLDINGS INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.espn.com/nfl/scoreboard"
+  },
+  {
+    "company_name": "LYELL IMMUNOPHARMA INC",
+    "api_name": "careers_url",
+    "api_url": "http://www.lyell.com/"
+  },
+  {
+    "company_name": "MANNKIND CORP",
+    "api_name": "careers_url",
+    "api_url": "https://www.google.com/intl/es_es/chrome/"
+  },
+  {
+    "company_name": "MBX BIOSCIENCES INC",
+    "api_name": "careers_url",
+    "api_url": "https://mbxbio.com/"
+  },
+  {
+    "company_name": "MEDPACE HOLDINGS INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.medpace.com/careers/"
+  },
+  {
+    "company_name": "MIMEDX GROUP INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.mimedx.com/"
+  },
+  {
+    "company_name": "MINERALYS THERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.nfl.com/super-bowl/"
+  },
+  {
+    "company_name": "MEIRAGTX HOLDINGS PLC",
+    "api_name": "careers_url",
+    "api_url": "https://revistaforum.com.br/brasil/2024/10/13/mais-pessoas-ficaram-sem-luz-em-so-paulo-com-chuva-do-que-florida-com-furaco-diz-metsul-167340.html"
+  },
+  {
+    "company_name": "MIRUM PHARMACEUTICALS INC",
+    "api_name": "careers_url",
+    "api_url": "https://forum.cfx.re/"
+  },
+  {
+    "company_name": "NEUMORA THERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://da.wikipedia.org/wiki/Antarktis"
+  },
+  {
+    "company_name": "NEWAMSTERDAM PHARMA NV",
+    "api_name": "careers_url",
+    "api_url": "https://oldschool.runescape.wiki/w/Amoxliatl%2FStrategies"
+  },
+  {
+    "company_name": "Miltenyi Biotec",
+    "api_name": "careers_url",
+    "api_url": "https://southernregional.edu/"
+  },
+  {
+    "company_name": "NOVAVAX INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.novavax.com/"
+  },
+  {
+    "company_name": "NOVOCURE LTD",
+    "api_name": "careers_url",
+    "api_url": "https://www.maryvilleforum.com/news/state_news/will-all-her-fault-return-for-season-2-what-we-know-about-show-s-future/article_e5f1d461-077a-5d51-91ed-3dbfcee8d7c6.html"
+  },
+  {
+    "company_name": "NURIX THERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.nurixtx.com/"
+  },
+  {
+    "company_name": "NUVATION BIO INC CLASS A",
+    "api_name": "careers_url",
+    "api_url": "https://nuvationbio.com/"
+  },
+  {
+    "company_name": "Novo Nordisk",
+    "api_name": "careers_url",
+    "api_url": "https://www.novonordisk.com/careers/find-a-job.html"
+  },
+  {
+    "company_name": "OMNIAB INC $12.50 VESTING Prvt",
+    "api_name": "careers_url",
+    "api_url": "https://www.roblox.com/"
+  },
+  {
+    "company_name": "OPKO HEALTH INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.speedtest.net/"
+  },
+  {
+    "company_name": "ORUKA THERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.gmu.edu/"
+  },
+  {
+    "company_name": "ORIC PHARMACEUTICALS INC",
+    "api_name": "careers_url",
+    "api_url": "https://oricpharma.com/"
+  },
+  {
+    "company_name": "Orphazyme",
+    "api_name": "careers_url",
+    "api_url": "https://geekchamp.com/how-to-see-all-bing-related-searches/"
+  },
+  {
+    "company_name": "OMNIAB INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.linkedin.com/jobs/open-job-roles-at-microsoft-usa-jobs"
+  },
+  {
+    "company_name": "OMNIAB INC   15.00 EARNOUT",
+    "api_name": "careers_url",
+    "api_url": "https://www.linkedin.com/jobs/open-job-roles-at-microsoft-usa-jobs"
+  },
+  {
+    "company_name": "ERASCA INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.erasca.com/"
+  },
+  {
+    "company_name": "P-last",
+    "api_name": "careers_url",
+    "api_url": "https://www.zhihu.com/tardis/zm/art/355699208"
+  },
+  {
+    "company_name": "PHARVARIS N V NV",
+    "api_name": "careers_url",
+    "api_url": "https://nubank.com.br/nu/conta"
+  },
+  {
+    "company_name": "PEPGEN INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.pepgen.com/"
+  },
+  {
+    "company_name": "PRAXIS PRECISION MEDICINES I",
+    "api_name": "careers_url",
+    "api_url": "https://praxis.ets.org/"
+  },
+  {
+    "company_name": "PRAXIS PRECISION MEDICINES INC",
+    "api_name": "careers_url",
+    "api_url": "https://praxis.ets.org/"
+  },
+  {
+    "company_name": "PROTHENA CORP PLC",
+    "api_name": "careers_url",
+    "api_url": "https://www.prothena.com/"
+  },
+  {
+    "company_name": "OMNIAB INC $15.00 VESTING Prvt",
+    "api_name": "careers_url",
+    "api_url": "https://www.nhl.com/panthers/standings"
+  },
+  {
+    "company_name": "PROTHENA PLC",
+    "api_name": "careers_url",
+    "api_url": "https://www.prothena.com/"
+  },
+  {
+    "company_name": "PROTAGONIST THERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://thinborne.com/collections/folable-phone-case"
+  },
+  {
+    "company_name": "PYXIS ONCOLOGY INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.bd.com/en-us/products-and-solutions/products/product-brands/pyxis"
+  },
+  {
+    "company_name": "Past performance is not a reliable indicator of future performance. Investment return and principal value will fluctuate, so you may have a gain or loss when shares are sold. Current performance may be higher or lower than that quoted. All results are historical and assume the reinvestment of dividends and capital gains. Visit www.ssga.com for most recent month-end performance.",
+    "api_name": "careers_url",
+    "api_url": "https://en.wikipedia.org/wiki/Past"
+  },
+  {
+    "company_name": "Portfolio holdings, allocations and weightings are as of the date indicated, are subject to change and should not be considered a recommendation to buy individual securities. For most recent information visit www.ssga.com.",
+    "api_name": "careers_url",
+    "api_url": "https://portfolio.adobe.com/"
+  },
+  {
+    "company_name": "PALVELLA THERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://funclicker.org/"
+  },
+  {
+    "company_name": "RELAY THERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.jetblue.com/"
+  },
+  {
+    "company_name": "RAPT THERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://rapt.com/"
+  },
+  {
+    "company_name": "RELAY THERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://relayfi.com/"
+  },
+  {
+    "company_name": "REPLIMUNE GROUP INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.replimune.com/"
+  },
+  {
+    "company_name": "REZOLUTE INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.youtube.com/"
+  },
+  {
+    "company_name": "ROIVANT SCIENCES LTD",
+    "api_name": "careers_url",
+    "api_url": "https://www.roivant.com/careers"
+  },
+  {
+    "company_name": "RIGEL PHARMACEUTICALS INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.rigel.com/"
+  },
+  {
+    "company_name": "QUANTERIX CORP",
+    "api_name": "careers_url",
+    "api_url": "https://www.quanterix.com/"
+  },
+  {
+    "company_name": "SAVARA INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.nbcnewyork.com/weather/nyc-snow-storm-predictions-inches-start-time-forecast/6447373/"
+  },
+  {
+    "company_name": "RHYTHM PHARMACEUTICALS INC",
+    "api_name": "careers_url",
+    "api_url": "https://cdn.gotrhythm.com/rhythm-tos-en-version-7.pdf"
+  },
+  {
+    "company_name": "RUSSELL 2000 EMINI CME MAR 26",
+    "api_name": "careers_url",
+    "api_url": "https://www.russellathletic.com/"
+  },
+  {
+    "company_name": "SCHOLAR ROCK HOLDING CORP",
+    "api_name": "careers_url",
+    "api_url": "https://scholar.google.com/"
+  },
+  {
+    "company_name": "SIONNA THERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.youtube.com/"
+  },
+  {
+    "company_name": "SIONNA THERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://careers.homedepot.com/career-areas/warehouse-jobs/"
+  },
+  {
+    "company_name": "SOLENO THERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://soleno.life/"
+  },
+  {
+    "company_name": "SOLID BIOSCIENCES INC",
+    "api_name": "careers_url",
+    "api_url": "https://en.m.wikipedia.org/wiki/Solid"
+  },
+  {
+    "company_name": "SSI US GOV MONEY MARKET CLASS",
+    "api_name": "careers_url",
+    "api_url": "https://www.aarp.org/social-security/faq/what-is-ssi/"
+  },
+  {
+    "company_name": "STEVANATO GROUP",
+    "api_name": "careers_url",
+    "api_url": "https://drexel.edu/soe/resources/student-teaching/advice/benefits-of-online-and-virtual-learning/"
+  },
+  {
+    "company_name": "SYNDAX PHARMACEUTICALS INC",
+    "api_name": "careers_url",
+    "api_url": "https://syndax.com/"
+  },
+  {
+    "company_name": "SANA BIOTECHNOLOGY INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.sanabenefits.com/"
+  },
+  {
+    "company_name": "Stemcell Technologies",
+    "api_name": "careers_url",
+    "api_url": "https://www.thirdway.org/careers"
+  },
+  {
+    "company_name": "TECTONIC THERAPEUTIC INC",
+    "api_name": "careers_url",
+    "api_url": "https://en.wikipedia.org/wiki/Tectonics"
+  },
+  {
+    "company_name": "TEMPUS AI INC CLASS A",
+    "api_name": "careers_url",
+    "api_url": "https://www.tempus.com/"
+  },
+  {
+    "company_name": "TENAYA THERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://screenrant.com/snow-white-fairest-in-the-land-meaning-explained/"
+  },
+  {
+    "company_name": "THERAVANCE BIOPHARMA INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.youtube.com/"
+  },
+  {
+    "company_name": "TRAVERE THERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://travere.com/"
+  },
+  {
+    "company_name": "TYRA BIOSCIENCES INC",
+    "api_name": "careers_url",
+    "api_url": "https://en.m.wikipedia.org/wiki/Tyra_Banks"
+  },
+  {
+    "company_name": "SAVARA INC",
+    "api_name": "careers_url",
+    "api_url": "http://www.minesweeper.cn/"
+  },
+  {
+    "company_name": "TG THERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.reddit.com/r/tg_caption/"
+  },
+  {
+    "company_name": "TAYSHA GENE THERAPIES INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.straitstimes.com/singapore/mental-health-professionals-who-they-are-what-they-do-whom-you-should-approach"
+  },
+  {
+    "company_name": "Stealth Mode Biotech",
+    "api_name": "careers_url",
+    "api_url": "https://ficoforums.myfico.com/t5/SmorgasBoard/Anyone-heard-of-Stealth-Investigations/td-p/5313226"
+  },
+  {
+    "company_name": "Thor Medical",
+    "api_name": "careers_url",
+    "api_url": "https://en.m.wikipedia.org/wiki/Thor_(film)"
+  },
+  {
+    "company_name": "STRUCTURE THERAPEUTICS ADR INC",
+    "api_name": "careers_url",
+    "api_url": "https://ejje.weblio.jp/content/structure"
+  },
+  {
+    "company_name": "UNIQURE NV",
+    "api_name": "careers_url",
+    "api_url": "https://www.uniqure.com/culture-careers/job-opportunities"
+  },
+  {
+    "company_name": "VANDA PHARMACEUTICALS INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.vandapharma.com/"
+  },
+  {
+    "company_name": "VAXCYTE INC",
+    "api_name": "careers_url",
+    "api_url": "https://vaxcyte.com/careers/"
+  },
+  {
+    "company_name": "UPSTREAM BIO INC",
+    "api_name": "careers_url",
+    "api_url": "https://upstream.org/insights/"
+  },
+  {
+    "company_name": "VERASTEM INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.verastem.com/"
+  },
+  {
+    "company_name": "VERICEL CORP",
+    "api_name": "careers_url",
+    "api_url": "https://www.vcel.com/"
+  },
+  {
+    "company_name": "VERACYTE INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.veracyte.com/careers/"
+  },
+  {
+    "company_name": "VIRIDIAN THERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://viridianweapontech.com/"
+  },
+  {
+    "company_name": "VENTYX BIOSCIENCES INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.tsescorts.com/"
+  },
+  {
+    "company_name": "XENCOR INC",
+    "api_name": "careers_url",
+    "api_url": "https://xencor.com/"
+  },
+  {
+    "company_name": "VOYAGER THERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.investvoyager.com/"
+  },
+  {
+    "company_name": "USD CASH",
+    "api_name": "careers_url",
+    "api_url": "https://www.usd.edu/"
+  },
+  {
+    "company_name": "ZENAS BIOPHARMA INC",
+    "api_name": "careers_url",
+    "api_url": "https://web.whatsapp.com/"
+  },
+  {
+    "company_name": "ULTRAGENYX PHARMACEUTICAL INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.ultragenyx.com/"
+  },
+  {
+    "company_name": "ULTRAGENYX PHARMACEUTICAL IN",
+    "api_name": "careers_url",
+    "api_url": "https://www.ultragenyx.com/"
+  },
+  {
+    "company_name": "INSITRO",
+    "api_name": "ashby",
+    "api_url": "https://api.ashbyhq.com/posting-api/job-board/insitro"
   },
   {
     "company_name": "BIOGEN INC",
@@ -10,14 +2035,14 @@
     "api_url": "https://www.biogen.com/careers.html"
   },
   {
+    "company_name": "INTERNATIONAL QUALITY HOMECARE CORPORATION",
+    "api_name": "careers_url",
+    "api_url": "https://www.internationalquality.com/caregiving-careers/"
+  },
+  {
     "company_name": "ST BARNABAS HOSPITAL",
     "api_name": "careers_url",
     "api_url": "https://stbarnabashealthsystem.com/careers/"
-  },
-  {
-    "company_name": "PLANET LABS PBC",
-    "api_name": "greenhouse",
-    "api_url": "https://boards-api.greenhouse.io/v1/boards/planetlabs/jobs"
   },
   {
     "company_name": "ST BARNABAS HOSPITAL",
@@ -25,24 +2050,24 @@
     "api_url": "https://www.sbhny.org/careers/"
   },
   {
+    "company_name": "FATE THERAPEUTICS",
+    "api_name": "lever",
+    "api_url": "https://api.lever.co/v0/postings/fatetherapeutics"
+  },
+  {
     "company_name": "ST JUDE CHILDRENS RESEARCH HOSPITAL",
     "api_name": "careers_url",
     "api_url": "https://www.stjude.org/jobs/hospital.html"
   },
   {
-    "company_name": "INTERNATIONAL QUALITY HOMECARE CORPORATION",
-    "api_name": "careers_url",
-    "api_url": "https://www.internationalquality.com/caregiving-careers/"
+    "company_name": "PLANET LABS PBC",
+    "api_name": "greenhouse",
+    "api_url": "https://boards-api.greenhouse.io/v1/boards/planetlabs/jobs"
   },
   {
-    "company_name": "LANKENAU INSTITUTE FOR MEDICAL RESEARCH",
+    "company_name": "QUEST DIAGNOSTICS INCORPORATED",
     "api_name": "careers_url",
-    "api_url": "https://careers.mainlinehealth.org/"
-  },
-  {
-    "company_name": "ARUP LABORATORIES",
-    "api_name": "careers_url",
-    "api_url": "https://www.aruplab.com/careers"
+    "api_url": "https://careers.questdiagnostics.com/"
   },
   {
     "company_name": "REHABILITATION INSTITUTE OF CHICAGO DBA SHIRLEY RYAN ABILITYLAB",
@@ -55,14 +2080,19 @@
     "api_url": "https://www.arlok.com/careers"
   },
   {
-    "company_name": "VIR BIOTECHNOLOGY",
-    "api_name": "greenhouse",
-    "api_url": "https://boards-api.greenhouse.io/v1/boards/virbiotechnologyinc/jobs"
+    "company_name": "LANKENAU INSTITUTE FOR MEDICAL RESEARCH",
+    "api_name": "careers_url",
+    "api_url": "https://careers.mainlinehealth.org/"
   },
   {
-    "company_name": "PERSONALIS",
-    "api_name": "greenhouse",
-    "api_url": "https://boards-api.greenhouse.io/v1/boards/personalisinc/jobs"
+    "company_name": "ARUP LABORATORIES",
+    "api_name": "careers_url",
+    "api_url": "https://www.aruplab.com/careers"
+  },
+  {
+    "company_name": "VIKING THERAPEUTICS INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.vikingdirect.nl/nl/"
   },
   {
     "company_name": "ST JUDE CHILDRENS RESEARCH HOSPITA",
@@ -80,34 +2110,14 @@
     "api_url": "https://careers.rochesterregional.org/"
   },
   {
-    "company_name": "EDITAS MEDICINE",
+    "company_name": "REPLIGEN CORP",
     "api_name": "careers_url",
-    "api_url": "https://www.editasmedicine.com/careers/"
+    "api_url": "https://www.repligen.com/company/careers"
   },
   {
-    "company_name": "SOPHIA GENETICS",
-    "api_name": "careers_url",
-    "api_url": "https://careers.sophiagenetics.com/"
-  },
-  {
-    "company_name": "EXELIXIS",
-    "api_name": "careers_url",
-    "api_url": "https://www.exelixis.com/careers/"
-  },
-  {
-    "company_name": "SANGAMO THERAPEUTICS",
-    "api_name": "careers_url",
-    "api_url": "https://www.sangamo.com/careers/"
-  },
-  {
-    "company_name": "FATE THERAPEUTICS",
-    "api_name": "lever",
-    "api_url": "https://api.lever.co/v0/postings/fatetherapeutics"
-  },
-  {
-    "company_name": "INTELLIA THERAPEUTICS",
-    "api_name": "careers_url",
-    "api_url": "https://www.intelliatx.com/careers/join-us/"
+    "company_name": "CATALENT",
+    "api_name": "icims",
+    "api_url": "https://catalent.icims.com/jobs/search?ss=1"
   },
   {
     "company_name": "UNIVERSITY OF ALABAMA HEALTH SERVICES FOUNDATION PC",
