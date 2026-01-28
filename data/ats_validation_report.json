@@ -1032,7 +1032,7 @@
       "api_url": "https://careers.stryker.com/",
       "list_source": "",
       "ok": false,
-      "status": "not_found_marker"
+      "status": "http_403"
     },
     {
       "company_name": "Alexion Pharmaceuticals",
