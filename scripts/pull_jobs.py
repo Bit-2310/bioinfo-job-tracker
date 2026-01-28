@@ -499,7 +499,7 @@ def pull_careers_url(company: str, url: str, session: requests.Session, list_sou
         host = urlparse(href).hostname or ""
         if host and base_host and host != base_host:
             continue
-        if not re.search(r"\bjob(s)?\b|careers|positions|openings", href, re.IGNORECASE):
+        if not re.search(r"\bjob(s)?\b|careers|positions|openings|job-postings", href, re.IGNORECASE):
             continue
         title_raw = a.get_text(" ")
         title = normalize_text(title_raw)
