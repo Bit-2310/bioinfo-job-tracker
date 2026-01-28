@@ -175,11 +175,11 @@
     "remote_or_hybrid": "onsite",
     "posting_date": "2026-01-23",
     "source": "greenhouse",
-    "job_url": "https://job-boards.greenhouse.io/freenome/jobs/8326802002",
-    "score": 6,
+    "job_url": "https://job-boards.greenhouse.io/freenome/jobs/8326792002",
+    "score": 8,
     "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
-    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 2, \"strong_hits\": 0, \"medium_hits\": 3, \"nice_hits\": 0, \"penalties\": -2}"
+    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 2, \"strong_hits\": 0, \"medium_hits\": 4, \"nice_hits\": 0, \"penalties\": -2}"
   },
   {
     "company": "FREENOME",
@@ -188,11 +188,11 @@
     "remote_or_hybrid": "onsite",
     "posting_date": "2026-01-23",
     "source": "greenhouse",
-    "job_url": "https://job-boards.greenhouse.io/freenome/jobs/8326792002",
-    "score": 8,
+    "job_url": "https://job-boards.greenhouse.io/freenome/jobs/8326802002",
+    "score": 6,
     "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
-    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 2, \"strong_hits\": 0, \"medium_hits\": 4, \"nice_hits\": 0, \"penalties\": -2}"
+    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 2, \"strong_hits\": 0, \"medium_hits\": 3, \"nice_hits\": 0, \"penalties\": -2}"
   },
   {
     "company": "FREENOME",
