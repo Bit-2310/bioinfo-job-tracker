@@ -8,7 +8,7 @@
     "source": "greenhouse",
     "job_url": "https://job-boards.greenhouse.io/newlimit/jobs/5778693004",
     "score": 8,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 2, \"strong_hits\": 0, \"medium_hits\": 3, \"nice_hits\": 0, \"penalties\": 0}"
   },
@@ -21,7 +21,7 @@
     "source": "greenhouse",
     "job_url": "https://job-boards.greenhouse.io/newlimit/jobs/5570891004",
     "score": 9,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"title_match\", \"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 5, \"freshness_bonus\": 2, \"strong_hits\": 0, \"medium_hits\": 1, \"nice_hits\": 0, \"penalties\": 0}"
   },
@@ -34,7 +34,7 @@
     "source": "greenhouse",
     "job_url": "https://job-boards.greenhouse.io/newlimit/jobs/5779542004",
     "score": 6,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 2, \"strong_hits\": 0, \"medium_hits\": 2, \"nice_hits\": 0, \"penalties\": 0}"
   },
@@ -47,7 +47,7 @@
     "source": "greenhouse",
     "job_url": "https://boards.greenhouse.io/10xgenomics/jobs/7565668?gh_jid=7565668",
     "score": 31,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"title_match\", \"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 5, \"freshness_bonus\": 5, \"strong_hits\": 3, \"medium_hits\": 2, \"nice_hits\": 1, \"penalties\": 0}"
   },
@@ -60,22 +60,9 @@
     "source": "greenhouse",
     "job_url": "https://boards.greenhouse.io/10xgenomics/jobs/7516962?gh_jid=7516962",
     "score": 6,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 1, \"nice_hits\": 0, \"penalties\": -2}"
-  },
-  {
-    "company": "TWIST BIOSCIENCE",
-    "job_title": "Senior / Staff Computational Scientist",
-    "location": "USA - South San Francisco, CA",
-    "remote_or_hybrid": "onsite",
-    "posting_date": "2026-01-22",
-    "source": "greenhouse",
-    "job_url": "https://job-boards.greenhouse.io/twistbioscience/jobs/7545144",
-    "score": 17,
-    "list_source": "targeted_list_verified.json",
-    "stage1_pass_reasons": "[\"title_match\", \"weak_domain_signal\"]",
-    "score_breakdown": "{\"title_bonus\": 5, \"freshness_bonus\": 8, \"strong_hits\": 0, \"medium_hits\": 3, \"nice_hits\": 2, \"penalties\": -5}"
   },
   {
     "company": "FREENOME",
@@ -86,7 +73,7 @@
     "source": "greenhouse",
     "job_url": "https://job-boards.greenhouse.io/freenome/jobs/4816672002",
     "score": 2,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 2, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": 0}"
   },
@@ -99,7 +86,7 @@
     "source": "greenhouse",
     "job_url": "https://job-boards.greenhouse.io/freenome/jobs/8326802002",
     "score": 6,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 2, \"strong_hits\": 0, \"medium_hits\": 3, \"nice_hits\": 0, \"penalties\": -2}"
   },
@@ -112,7 +99,7 @@
     "source": "greenhouse",
     "job_url": "https://job-boards.greenhouse.io/freenome/jobs/8326792002",
     "score": 8,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 2, \"strong_hits\": 0, \"medium_hits\": 4, \"nice_hits\": 0, \"penalties\": -2}"
   },
@@ -125,7 +112,7 @@
     "source": "greenhouse",
     "job_url": "https://job-boards.greenhouse.io/freenome/jobs/8317941002",
     "score": 8,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 2, \"strong_hits\": 0, \"medium_hits\": 3, \"nice_hits\": 0, \"penalties\": 0}"
   },
@@ -138,7 +125,7 @@
     "source": "greenhouse",
     "job_url": "https://job-boards.greenhouse.io/freenome/jobs/8318173002",
     "score": 2,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 2, \"strong_hits\": 0, \"medium_hits\": 1, \"nice_hits\": 0, \"penalties\": -2}"
   },
@@ -151,22 +138,22 @@
     "source": "greenhouse",
     "job_url": "https://job-boards.greenhouse.io/freenome/jobs/8215797002",
     "score": 11,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 2, \"strong_hits\": 0, \"medium_hits\": 4, \"nice_hits\": 1, \"penalties\": 0}"
   },
   {
-    "company": "RECURSION PHARMACEUTICALS",
-    "job_title": "Head of Early Discovery",
-    "location": "Salt Lake City, Utah",
+    "company": "TWIST BIOSCIENCE",
+    "job_title": "Senior / Staff Computational Scientist",
+    "location": "USA - South San Francisco, CA",
     "remote_or_hybrid": "onsite",
-    "posting_date": "2026-01-28",
+    "posting_date": "2026-01-22",
     "source": "greenhouse",
-    "job_url": "https://job-boards.greenhouse.io/recursionpharmaceuticals/jobs/7571580",
-    "score": 0,
-    "list_source": "targeted_list_verified.json",
-    "stage1_pass_reasons": "[\"weak_domain_signal\"]",
-    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": -5}"
+    "job_url": "https://job-boards.greenhouse.io/twistbioscience/jobs/7545144",
+    "score": 17,
+    "list_source": "targeted_list_combined.json",
+    "stage1_pass_reasons": "[\"title_match\", \"weak_domain_signal\"]",
+    "score_breakdown": "{\"title_bonus\": 5, \"freshness_bonus\": 8, \"strong_hits\": 0, \"medium_hits\": 3, \"nice_hits\": 2, \"penalties\": -5}"
   },
   {
     "company": "BEAM THERAPEUTICS",
@@ -177,7 +164,7 @@
     "source": "greenhouse",
     "job_url": "https://job-boards.greenhouse.io/beamtherapeutics/jobs/8387647002",
     "score": 2,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 2, \"strong_hits\": 0, \"medium_hits\": 1, \"nice_hits\": 0, \"penalties\": -2}"
   },
@@ -190,7 +177,7 @@
     "source": "greenhouse",
     "job_url": "https://job-boards.greenhouse.io/beamtherapeutics/jobs/8345551002",
     "score": 9,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 2, \"nice_hits\": 0, \"penalties\": 0}"
   },
@@ -203,7 +190,7 @@
     "source": "greenhouse",
     "job_url": "https://job-boards.greenhouse.io/beamtherapeutics/jobs/8350418002",
     "score": 3,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": -2}"
   },
@@ -216,7 +203,7 @@
     "source": "greenhouse",
     "job_url": "https://job-boards.greenhouse.io/beamtherapeutics/jobs/8350150002",
     "score": 3,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": -2}"
   },
@@ -229,7 +216,7 @@
     "source": "greenhouse",
     "job_url": "https://job-boards.greenhouse.io/beamtherapeutics/jobs/8384849002",
     "score": 2,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 2, \"strong_hits\": 0, \"medium_hits\": 1, \"nice_hits\": 0, \"penalties\": -2}"
   },
@@ -242,7 +229,7 @@
     "source": "greenhouse",
     "job_url": "https://job-boards.greenhouse.io/beamtherapeutics/jobs/8325725002",
     "score": 5,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 1, \"nice_hits\": 0, \"penalties\": -2}"
   },
@@ -255,7 +242,7 @@
     "source": "greenhouse",
     "job_url": "https://job-boards.greenhouse.io/beamtherapeutics/jobs/8392998002",
     "score": 5,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 1, \"nice_hits\": 0, \"penalties\": -2}"
   },
@@ -268,7 +255,7 @@
     "source": "greenhouse",
     "job_url": "https://job-boards.greenhouse.io/natera/jobs/5688076004",
     "score": 5,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 1, \"nice_hits\": 0, \"penalties\": -2}"
   },
@@ -281,7 +268,7 @@
     "source": "greenhouse",
     "job_url": "https://job-boards.greenhouse.io/natera/jobs/5712966004",
     "score": 5,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 1, \"nice_hits\": 0, \"penalties\": -2}"
   },
@@ -294,7 +281,7 @@
     "source": "greenhouse",
     "job_url": "https://job-boards.greenhouse.io/natera/jobs/5422443004",
     "score": 8,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 4, \"nice_hits\": 0, \"penalties\": -5}"
   },
@@ -307,7 +294,7 @@
     "source": "greenhouse",
     "job_url": "https://job-boards.greenhouse.io/natera/jobs/5734098004",
     "score": 7,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"title_match\", \"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 5, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 1, \"nice_hits\": 0, \"penalties\": -5}"
   },
@@ -320,7 +307,7 @@
     "source": "greenhouse",
     "job_url": "https://job-boards.greenhouse.io/natera/jobs/5753541004",
     "score": 5,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 1, \"nice_hits\": 0, \"penalties\": -2}"
   },
@@ -333,7 +320,7 @@
     "source": "greenhouse",
     "job_url": "https://job-boards.greenhouse.io/natera/jobs/5779892004",
     "score": 26,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"title_match\", \"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 5, \"freshness_bonus\": 11, \"strong_hits\": 1, \"medium_hits\": 2, \"nice_hits\": 1, \"penalties\": 0}"
   },
@@ -346,7 +333,7 @@
     "source": "greenhouse",
     "job_url": "https://job-boards.greenhouse.io/natera/jobs/5718942004",
     "score": 11,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 2, \"nice_hits\": 1, \"penalties\": 0}"
   },
@@ -359,7 +346,7 @@
     "source": "greenhouse",
     "job_url": "https://job-boards.greenhouse.io/natera/jobs/5737298004",
     "score": 21,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"title_match\", \"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 5, \"freshness_bonus\": 11, \"strong_hits\": 0, \"medium_hits\": 2, \"nice_hits\": 1, \"penalties\": 0}"
   },
@@ -372,7 +359,7 @@
     "source": "greenhouse",
     "job_url": "https://job-boards.greenhouse.io/natera/jobs/5748197004",
     "score": 25,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"title_match\", \"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 5, \"freshness_bonus\": 5, \"strong_hits\": 2, \"medium_hits\": 3, \"nice_hits\": 0, \"penalties\": -2}"
   },
@@ -385,7 +372,7 @@
     "source": "greenhouse",
     "job_url": "https://job-boards.greenhouse.io/natera/jobs/5712882004",
     "score": 7,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 2, \"nice_hits\": 0, \"penalties\": -2}"
   },
@@ -398,7 +385,7 @@
     "source": "greenhouse",
     "job_url": "https://job-boards.greenhouse.io/natera/jobs/5695391004",
     "score": 5,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 1, \"nice_hits\": 0, \"penalties\": -2}"
   },
@@ -411,7 +398,7 @@
     "source": "greenhouse",
     "job_url": "https://job-boards.greenhouse.io/natera/jobs/5692768004",
     "score": 16,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"title_match\", \"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 5, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 2, \"nice_hits\": 1, \"penalties\": 0}"
   },
@@ -424,7 +411,7 @@
     "source": "greenhouse",
     "job_url": "https://job-boards.greenhouse.io/natera/jobs/5530332004",
     "score": 3,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 1, \"nice_hits\": 0, \"penalties\": -5}"
   },
@@ -437,7 +424,7 @@
     "source": "lever",
     "job_url": "https://jobs.lever.co/grailbio/d0cd0390-840c-43b9-bfb4-a4c4f86d7508",
     "score": 8,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 1, \"nice_hits\": 0, \"penalties\": 0}"
   },
@@ -450,7 +437,7 @@
     "source": "lever",
     "job_url": "https://jobs.lever.co/grailbio/f6eb0ddc-13e6-46e7-864e-4498e23c0aa8",
     "score": 7,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 1, \"nice_hits\": 0, \"penalties\": 0}"
   },
@@ -463,7 +450,7 @@
     "source": "lever",
     "job_url": "https://jobs.lever.co/grailbio/8eef6597-bb71-45f5-8dc4-37092294c2e0",
     "score": 7,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 1, \"nice_hits\": 0, \"penalties\": 0}"
   },
@@ -476,7 +463,7 @@
     "source": "lever",
     "job_url": "https://jobs.lever.co/grailbio/a4cd0983-94b1-4174-803e-c6637ed2d350",
     "score": 4,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 2, \"strong_hits\": 0, \"medium_hits\": 1, \"nice_hits\": 0, \"penalties\": 0}"
   },
@@ -489,22 +476,87 @@
     "source": "lever",
     "job_url": "https://jobs.lever.co/grailbio/12afba6f-e990-4edb-a95c-0370453ea19e",
     "score": 7,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 1, \"nice_hits\": 0, \"penalties\": 0}"
   },
   {
-    "company": "Johnson & Johnson",
-    "job_title": "Health Economics, Market Access, & Reimbursement Manager",
+    "company": "PERSONALIS",
+    "job_title": "Associate Histotechnician, 3rd Shift (Tues-Sat)",
+    "location": "Fremont, CA",
+    "remote_or_hybrid": "onsite",
+    "posting_date": "2026-01-23",
+    "source": "greenhouse",
+    "job_url": "https://job-boards.greenhouse.io/personalisinc/jobs/7602807003",
+    "score": 2,
+    "list_source": "targeted_list_combined.json",
+    "stage1_pass_reasons": "[\"weak_domain_signal\"]",
+    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 2, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": 0}"
+  },
+  {
+    "company": "PERSONALIS",
+    "job_title": "Clinical Lab Associate 1 - Histology, 3rd Shift",
+    "location": "Fremont, CA",
+    "remote_or_hybrid": "onsite",
+    "posting_date": "2026-01-23",
+    "source": "greenhouse",
+    "job_url": "https://job-boards.greenhouse.io/personalisinc/jobs/7602700003",
+    "score": 2,
+    "list_source": "targeted_list_combined.json",
+    "stage1_pass_reasons": "[\"weak_domain_signal\"]",
+    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 2, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": 0}"
+  },
+  {
+    "company": "PERSONALIS",
+    "job_title": "Director, Informatics Project Portfolio Management",
+    "location": "Fremont, CA",
+    "remote_or_hybrid": "onsite",
+    "posting_date": "2026-01-27",
+    "source": "greenhouse",
+    "job_url": "https://job-boards.greenhouse.io/personalisinc/jobs/7607545003",
+    "score": 3,
+    "list_source": "targeted_list_combined.json",
+    "stage1_pass_reasons": "[\"weak_domain_signal\"]",
+    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": -2}"
+  },
+  {
+    "company": "PERSONALIS",
+    "job_title": "Scientist 1/Scientist 2, Advanced Technologies",
+    "location": "Fremont, CA",
+    "remote_or_hybrid": "onsite",
+    "posting_date": "2026-01-27",
+    "source": "greenhouse",
+    "job_url": "https://job-boards.greenhouse.io/personalisinc/jobs/7607470003",
+    "score": 11,
+    "list_source": "targeted_list_combined.json",
+    "stage1_pass_reasons": "[\"weak_domain_signal\"]",
+    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 3, \"nice_hits\": 0, \"penalties\": 0}"
+  },
+  {
+    "company": "BROAD INSTITUTE",
+    "job_title": "Postdoctoral Associate - Proteomics",
     "location": "NA",
     "remote_or_hybrid": "onsite",
     "posting_date": "NA",
     "source": "careers_url",
-    "job_url": "https://www.careers.jnj.com/en/jobs/r-054636/health-economics-market-access-reimbursement-manager/",
+    "job_url": "https://broadinstitute.avature.net/en_US/careers/JobDetail/Postdoctoral-Associate-Proteomics/21312",
     "score": 5,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"title_match\", \"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 5, \"freshness_bonus\": 0, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": 0}"
+  },
+  {
+    "company": "BROAD INSTITUTE",
+    "job_title": "Computational Scientist I - MDL",
+    "location": "NA",
+    "remote_or_hybrid": "onsite",
+    "posting_date": "NA",
+    "source": "careers_url",
+    "job_url": "https://broadinstitute.avature.net/en_US/careers/JobDetail/Computational-Scientist-I-MDL/21201",
+    "score": 11,
+    "list_source": "targeted_list_combined.json",
+    "stage1_pass_reasons": "[\"title_match\"]",
+    "score_breakdown": "{\"title_bonus\": 5, \"freshness_bonus\": 6, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": 0}"
   },
   {
     "company": "INSITRO",
@@ -515,7 +567,7 @@
     "source": "ashby",
     "job_url": "https://jobs.ashbyhq.com/insitro/7c03e284-892e-49bb-8821-748f413a1d9e",
     "score": 11,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"title_match\", \"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 5, \"freshness_bonus\": 6, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": 0}"
   },
@@ -528,7 +580,7 @@
     "source": "ashby",
     "job_url": "https://jobs.ashbyhq.com/insitro/71606d59-a7d1-4246-8fb3-f8c97ba8201b",
     "score": 5,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"title_match\", \"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 5, \"freshness_bonus\": 0, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": 0}"
   },
@@ -541,9 +593,48 @@
     "source": "ashby",
     "job_url": "https://jobs.ashbyhq.com/insitro/a24d863e-c34a-4657-8d98-2d7e631eb45e",
     "score": 11,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"title_match\"]",
     "score_breakdown": "{\"title_bonus\": 5, \"freshness_bonus\": 6, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": 0}"
+  },
+  {
+    "company": "RECURSION PHARMACEUTICALS",
+    "job_title": "Head of Early Discovery",
+    "location": "Salt Lake City, Utah",
+    "remote_or_hybrid": "onsite",
+    "posting_date": "2026-01-28",
+    "source": "greenhouse",
+    "job_url": "https://job-boards.greenhouse.io/recursionpharmaceuticals/jobs/7571580",
+    "score": 0,
+    "list_source": "targeted_list_combined.json",
+    "stage1_pass_reasons": "[\"weak_domain_signal\"]",
+    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": -5}"
+  },
+  {
+    "company": "Cellworks",
+    "job_title": "SCIENTIST COMPUTATIONAL BIOLOGY Bangalore POSTED ON  January 15, 2024",
+    "location": "NA",
+    "remote_or_hybrid": "onsite",
+    "posting_date": "NA",
+    "source": "careers_url",
+    "job_url": "https://cellworks.life/company/careers/scientist-computational-biology",
+    "score": 11,
+    "list_source": "targeted_list_combined.json",
+    "stage1_pass_reasons": "[\"title_match\"]",
+    "score_breakdown": "{\"title_bonus\": 5, \"freshness_bonus\": 6, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": 0}"
+  },
+  {
+    "company": "Johnson & Johnson",
+    "job_title": "Health Economics, Market Access, & Reimbursement Manager",
+    "location": "NA",
+    "remote_or_hybrid": "onsite",
+    "posting_date": "NA",
+    "source": "careers_url",
+    "job_url": "https://www.careers.jnj.com/en/jobs/r-054636/health-economics-market-access-reimbursement-manager/",
+    "score": 5,
+    "list_source": "targeted_list_combined.json",
+    "stage1_pass_reasons": "[\"title_match\", \"weak_domain_signal\"]",
+    "score_breakdown": "{\"title_bonus\": 5, \"freshness_bonus\": 0, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": 0}"
   },
   {
     "company": "PLANET LABS PBC",
@@ -554,7 +645,7 @@
     "source": "greenhouse",
     "job_url": "https://job-boards.greenhouse.io/planetlabs/jobs/7532263",
     "score": 6,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": 0}"
   },
@@ -567,7 +658,7 @@
     "source": "greenhouse",
     "job_url": "https://job-boards.greenhouse.io/planetlabs/jobs/7527437",
     "score": 9,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 2, \"nice_hits\": 0, \"penalties\": 0}"
   },
@@ -580,7 +671,7 @@
     "source": "greenhouse",
     "job_url": "https://job-boards.greenhouse.io/planetlabs/jobs/7357888",
     "score": 4,
-    "list_source": "targeted_list_verified.json",
+    "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 2, \"strong_hits\": 0, \"medium_hits\": 1, \"nice_hits\": 0, \"penalties\": 0}"
   }
