@@ -477,7 +477,7 @@
     "company_name": "BioMap",
     "api_code": 0,
     "api_name": "careers_url",
-    "api_url": "https://www.bio-map.com/careers/"
+    "api_url": "http://www.biomap.com/"
   },
   {
     "company_name": "BioTuring",
@@ -1479,7 +1479,7 @@
     "company_name": "AlpaLifeBio",
     "api_code": 0,
     "api_name": "careers_url",
-    "api_url": "https://opensea.io/"
+    "api_url": "https://www.alpalifebio.com/Careers/index.aspx"
   },
   {
     "company_name": "ALPCO Diagnostics",
@@ -1533,7 +1533,7 @@
     "company_name": "Amber Bio",
     "api_code": 0,
     "api_name": "careers_url",
-    "api_url": "https://www.zhihu.com/question/34300110"
+    "api_url": "https://www.amber.bio/"
   },
   {
     "company_name": "Ambergen",
@@ -1593,7 +1593,7 @@
     "company_name": "Analytical Biological Services",
     "api_code": 0,
     "api_name": "careers_url",
-    "api_url": "https://pubs.acs.org/journal/ancham"
+    "api_url": "https://absbio.com/careers/"
   },
   {
     "company_name": "AnaSpec",
@@ -2037,7 +2037,7 @@
     "company_name": "Bio-Ocean",
     "api_code": 0,
     "api_name": "careers_url",
-    "api_url": "https://www.zhihu.com/question/373989063"
+    "api_url": "https://www.bioocean.com/"
   },
   {
     "company_name": "Bio-Technical Resources",
@@ -2055,7 +2055,7 @@
     "company_name": "Bioassay Works",
     "api_code": 0,
     "api_name": "careers_url",
-    "api_url": "https://www.bioassayworks.com/careers/"
+    "api_url": "https://bioassayworks.com/"
   },
   {
     "company_name": "BioChain",
@@ -2073,13 +2073,13 @@
     "company_name": "Biocrede",
     "api_code": 0,
     "api_name": "careers_url",
-    "api_url": "https://latidate.com/checkout"
+    "api_url": "https://www.biocrede.com/company"
   },
   {
     "company_name": "BioCure",
     "api_code": 0,
     "api_name": "careers_url",
-    "api_url": "https://www.facebook.com/"
+    "api_url": "https://www.biocure.com/"
   },
   {
     "company_name": "10X GENOMICS INC CLASS A",
@@ -2469,7 +2469,7 @@
     "company_name": "BioLegend",
     "api_code": 0,
     "api_name": "careers_url",
-    "api_url": "https://jobs.revvity.com/workingwithbiolegendatrevvity"
+    "api_url": "https://jobs.revvity.com/"
   },
   {
     "company_name": "BiondVax",
