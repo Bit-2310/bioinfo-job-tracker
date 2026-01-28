@@ -5,24 +5,9 @@
     "api_url": "https://careers.questdiagnostics.com/"
   },
   {
-    "company_name": "ST BARNABAS HOSPITAL",
-    "api_name": "careers_url",
-    "api_url": "https://stbarnabashealthsystem.com/careers/"
-  },
-  {
-    "company_name": "BIOGEN INC",
-    "api_name": "careers_url",
-    "api_url": "https://www.biogen.com/careers.html"
-  },
-  {
     "company_name": "ARUP LABORATORIES",
     "api_name": "careers_url",
     "api_url": "https://www.aruplab.com/careers"
-  },
-  {
-    "company_name": "ST JUDE CHILDRENS RESEARCH HOSPITAL",
-    "api_name": "careers_url",
-    "api_url": "https://www.stjude.org/jobs/hospital.html"
   },
   {
     "company_name": "PLANET LABS PBC",
@@ -35,9 +20,44 @@
     "api_url": "https://www.sralab.org/careers"
   },
   {
+    "company_name": "BIOGEN INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.biogen.com/careers.html"
+  },
+  {
+    "company_name": "ST JUDE CHILDRENS RESEARCH HOSPITAL",
+    "api_name": "careers_url",
+    "api_url": "https://www.stjude.org/jobs/hospital.html"
+  },
+  {
+    "company_name": "ARL BIO PHARMA INC",
+    "api_name": "careers_url",
+    "api_url": "https://www.arlok.com/careers"
+  },
+  {
+    "company_name": "HISTOGENETICS LLC",
+    "api_name": "careers_url",
+    "api_url": "https://www.histogenetics.com/careers/"
+  },
+  {
+    "company_name": "ST BARNABAS HOSPITAL",
+    "api_name": "careers_url",
+    "api_url": "https://www.sbhny.org/careers/"
+  },
+  {
     "company_name": "INTERNATIONAL QUALITY HOMECARE CORPORATION",
     "api_name": "careers_url",
     "api_url": "https://www.internationalquality.com/caregiving-careers/"
+  },
+  {
+    "company_name": "UNIVERSITY OF ALABAMA HEALTH SERVICES FOUNDATION PC",
+    "api_name": "careers_url",
+    "api_url": "https://careers.uabmedicine.org/"
+  },
+  {
+    "company_name": "ST JUDE CHILDRENS RESEARCH HOSPITA",
+    "api_name": "careers_url",
+    "api_url": "https://www.stjude.org/jobs/hospital.html"
   },
   {
     "company_name": "THE CLIFTON SPRINGS SANITARIUM COMPANY D B A CLIFTON SPRINGS HOSPITAL",
@@ -50,28 +70,8 @@
     "api_url": "https://careers.mainlinehealth.org/"
   },
   {
-    "company_name": "ARL BIO PHARMA INC",
-    "api_name": "careers_url",
-    "api_url": "https://www.arlok.com/careers"
-  },
-  {
-    "company_name": "ST JUDE CHILDRENS RESEARCH HOSPITA",
-    "api_name": "careers_url",
-    "api_url": "https://www.stjude.org/jobs/hospital.html"
-  },
-  {
     "company_name": "ST BARNABAS HOSPITAL",
     "api_name": "careers_url",
-    "api_url": "https://www.sbhny.org/careers/"
-  },
-  {
-    "company_name": "HISTOGENETICS LLC",
-    "api_name": "careers_url",
-    "api_url": "https://www.histogenetics.com/careers/"
-  },
-  {
-    "company_name": "UNIVERSITY OF ALABAMA HEALTH SERVICES FOUNDATION PC",
-    "api_name": "careers_url",
-    "api_url": "https://careers.uabmedicine.org/"
+    "api_url": "https://stbarnabashealthsystem.com/careers/"
   }
 ]

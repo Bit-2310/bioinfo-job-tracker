@@ -3,14 +3,6 @@
   "total_targets": 20,
   "results": [
     {
-      "company_name": "H LEE MOFFITT CANCER CENTER AND RESEARCH INSTITUTE INC",
-      "api_name": "careers_url",
-      "api_url": "https://www.moffitt.org/careers/",
-      "list_source": "",
-      "ok": false,
-      "status": "http_403"
-    },
-    {
       "company_name": "QUEST DIAGNOSTICS INCORPORATED",
       "api_name": "careers_url",
       "api_url": "https://careers.questdiagnostics.com/",
@@ -19,33 +11,17 @@
       "status": "ok"
     },
     {
-      "company_name": "ST BARNABAS HOSPITAL",
+      "company_name": "H LEE MOFFITT CANCER CENTER AND RESEARCH INSTITUTE INC",
       "api_name": "careers_url",
-      "api_url": "https://stbarnabashealthsystem.com/careers/",
+      "api_url": "https://www.moffitt.org/careers/",
       "list_source": "",
-      "ok": true,
-      "status": "ok"
-    },
-    {
-      "company_name": "BIOGEN INC",
-      "api_name": "careers_url",
-      "api_url": "https://www.biogen.com/careers.html",
-      "list_source": "",
-      "ok": true,
-      "status": "ok"
+      "ok": false,
+      "status": "http_403"
     },
     {
       "company_name": "ARUP LABORATORIES",
       "api_name": "careers_url",
       "api_url": "https://www.aruplab.com/careers",
-      "list_source": "",
-      "ok": true,
-      "status": "ok"
-    },
-    {
-      "company_name": "ST JUDE CHILDRENS RESEARCH HOSPITAL",
-      "api_name": "careers_url",
-      "api_url": "https://www.stjude.org/jobs/hospital.html",
       "list_source": "",
       "ok": true,
       "status": "ok"
@@ -67,17 +43,9 @@
       "status": "ok"
     },
     {
-      "company_name": "INTERNATIONAL QUALITY HOMECARE CORPORATION",
+      "company_name": "BIOGEN INC",
       "api_name": "careers_url",
-      "api_url": "https://www.internationalquality.com/caregiving-careers/",
-      "list_source": "",
-      "ok": true,
-      "status": "ok"
-    },
-    {
-      "company_name": "THE CLIFTON SPRINGS SANITARIUM COMPANY D B A CLIFTON SPRINGS HOSPITAL",
-      "api_name": "careers_url",
-      "api_url": "https://careers.rochesterregional.org/",
+      "api_url": "https://www.biogen.com/careers.html",
       "list_source": "",
       "ok": true,
       "status": "ok"
@@ -91,9 +59,9 @@
       "status": "http_403"
     },
     {
-      "company_name": "LANKENAU INSTITUTE FOR MEDICAL RESEARCH",
+      "company_name": "ST JUDE CHILDRENS RESEARCH HOSPITAL",
       "api_name": "careers_url",
-      "api_url": "https://careers.mainlinehealth.org/",
+      "api_url": "https://www.stjude.org/jobs/hospital.html",
       "list_source": "",
       "ok": true,
       "status": "ok"
@@ -107,17 +75,9 @@
       "status": "ok"
     },
     {
-      "company_name": "BILLINGS CLINIC",
+      "company_name": "HISTOGENETICS LLC",
       "api_name": "careers_url",
-      "api_url": "https://www.billingsclinic.com/careers/",
-      "list_source": "",
-      "ok": false,
-      "status": "http_403"
-    },
-    {
-      "company_name": "ST JUDE CHILDRENS RESEARCH HOSPITA",
-      "api_name": "careers_url",
-      "api_url": "https://www.stjude.org/jobs/hospital.html",
+      "api_url": "https://www.histogenetics.com/careers/",
       "list_source": "",
       "ok": true,
       "status": "ok"
@@ -131,12 +91,20 @@
       "status": "ok"
     },
     {
-      "company_name": "HISTOGENETICS LLC",
+      "company_name": "INTERNATIONAL QUALITY HOMECARE CORPORATION",
       "api_name": "careers_url",
-      "api_url": "https://www.histogenetics.com/careers/",
+      "api_url": "https://www.internationalquality.com/caregiving-careers/",
       "list_source": "",
       "ok": true,
       "status": "ok"
+    },
+    {
+      "company_name": "BILLINGS CLINIC",
+      "api_name": "careers_url",
+      "api_url": "https://www.billingsclinic.com/careers/",
+      "list_source": "",
+      "ok": false,
+      "status": "http_403"
     },
     {
       "company_name": "LABORATORY CORPORATION OF AMERICA HOLDINGS",
@@ -155,12 +123,44 @@
       "status": "ok"
     },
     {
+      "company_name": "ST JUDE CHILDRENS RESEARCH HOSPITA",
+      "api_name": "careers_url",
+      "api_url": "https://www.stjude.org/jobs/hospital.html",
+      "list_source": "",
+      "ok": true,
+      "status": "ok"
+    },
+    {
+      "company_name": "THE CLIFTON SPRINGS SANITARIUM COMPANY D B A CLIFTON SPRINGS HOSPITAL",
+      "api_name": "careers_url",
+      "api_url": "https://careers.rochesterregional.org/",
+      "list_source": "",
+      "ok": true,
+      "status": "ok"
+    },
+    {
+      "company_name": "LANKENAU INSTITUTE FOR MEDICAL RESEARCH",
+      "api_name": "careers_url",
+      "api_url": "https://careers.mainlinehealth.org/",
+      "list_source": "",
+      "ok": true,
+      "status": "ok"
+    },
+    {
       "company_name": "LABORATORY CORPORATION OF AMERICA",
       "api_name": "careers_url",
       "api_url": "https://careers.labcorp.com/global/en",
       "list_source": "",
       "ok": false,
       "status": "not_found_marker"
+    },
+    {
+      "company_name": "ST BARNABAS HOSPITAL",
+      "api_name": "careers_url",
+      "api_url": "https://stbarnabashealthsystem.com/careers/",
+      "list_source": "",
+      "ok": true,
+      "status": "ok"
     }
   ],
   "summary": {
@@ -178,8 +178,8 @@
       }
     },
     "by_status": {
-      "http_403": 3,
       "ok": 15,
+      "http_403": 3,
       "not_found_marker": 2
     }
   }
