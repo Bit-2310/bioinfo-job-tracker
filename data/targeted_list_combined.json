@@ -465,7 +465,7 @@
     "company_name": "Basepair",
     "api_code": 0,
     "api_name": "careers_url",
-    "api_url": "https://www.espn.com/"
+    "api_url": "https://basepair.bio/careers"
   },
   {
     "company_name": "BioAge Labs",
@@ -495,7 +495,7 @@
     "company_name": "Cellworks",
     "api_code": 0,
     "api_name": "careers_url",
-    "api_url": "https://www.who.int/news-room/fact-sheets/detail/hypertension"
+    "api_url": "https://cellworks.life/company/careers"
   },
   {
     "company_name": "Celmatix",
@@ -573,13 +573,13 @@
     "company_name": "Genialis",
     "api_code": 0,
     "api_name": "careers_url",
-    "api_url": "https://myturbotax.intuit.com/"
+    "api_url": "https://genialis.com/careers/"
   },
   {
     "company_name": "GenoSpace",
     "api_code": 0,
     "api_name": "careers_url",
-    "api_url": "https://www.google.com/"
+    "api_url": "https://genospace.com/company/careers/"
   },
   {
     "company_name": "Glytec",
@@ -651,7 +651,7 @@
     "company_name": "Protein Metrics",
     "api_code": 0,
     "api_name": "careers_url",
-    "api_url": "https://www.mayoclinic.org/healthy-lifestyle/nutrition-and-healthy-eating/expert-answers/high-protein-diets/faq-20058207"
+    "api_url": "https://www.proteinmetrics.com/contacts/"
   },
   {
     "company_name": "PsychoGenics",
@@ -717,7 +717,7 @@
     "company_name": "TeselaGen Biotechnology",
     "api_code": 0,
     "api_name": "careers_url",
-    "api_url": "https://support.microsoft.com/pt-br/windows/libere-espa%C3%A7o-em-disco-no-windows-85529ccb-c365-490d-b548-831022bc9b32"
+    "api_url": "https://www.teselagen.com/careers/"
   },
   {
     "company_name": "Varian Medical Systems",
