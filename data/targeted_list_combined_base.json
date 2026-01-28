@@ -320,8 +320,8 @@
   {
     "company_name": "TEMPUS",
     "api_code": 1,
-    "api_name": "workday",
-    "api_url": "https://tempus.wd5.myworkdayjobs.com/wday/cxs/tempus/Tempus_Careers/jobs"
+    "api_name": "careers_url",
+    "api_url": "https://www.tempus.com/about-us/careers/"
   },
   {
     "company_name": "INSITRO",
@@ -351,13 +351,13 @@
     "company_name": "MERCK",
     "api_code": 5,
     "api_name": "workday",
-    "api_url": "https://msd.wd5.myworkdayjobs.com/wday/cxs/msd/SearchJobs/jobs"
+    "api_url": "https://msd.wd5.myworkdayjobs.com/SearchJobs"
   },
   {
     "company_name": "BRISTOL MYERS SQUIBB",
     "api_code": 5,
     "api_name": "workday",
-    "api_url": "https://bristolmyerssquibb.wd5.myworkdayjobs.com/wday/cxs/bristolmyerssquibb/BMS/jobs"
+    "api_url": "https://bristolmyerssquibb.wd5.myworkdayjobs.com/BMS"
   },
   {
     "company_name": "DENALI THERAPEUTICS",
@@ -603,7 +603,7 @@
     "company_name": "iRhythm Technologies",
     "api_code": 5,
     "api_name": "workday",
-    "api_url": "https://irhythmtech.wd5.myworkdayjobs.com/wday/cxs/irhythmtech/iRhythm/jobs"
+    "api_url": "https://irhythmtech.wd5.myworkdayjobs.com/iRhythm"
   },
   {
     "company_name": "Medivis",
@@ -765,7 +765,7 @@
     "company_name": "Abbott Laboratories",
     "api_code": 5,
     "api_name": "workday",
-    "api_url": "https://abbott.wd5.myworkdayjobs.com/wday/cxs/abbott/abbottcareers/jobs"
+    "api_url": "https://abbott.wd5.myworkdayjobs.com/abbottcareers"
   },
   {
     "company_name": "Gilead Sciences",
@@ -777,7 +777,7 @@
     "company_name": "GE Healthcare",
     "api_code": 5,
     "api_name": "workday",
-    "api_url": "https://gehc.wd5.myworkdayjobs.com/wday/cxs/gehc/GEHC_ExternalSite/jobs"
+    "api_url": "https://gehc.wd5.myworkdayjobs.com/GEHC_ExternalSite"
   },
   {
     "company_name": "Kenvue",
@@ -789,7 +789,7 @@
     "company_name": "Viatris",
     "api_code": 5,
     "api_name": "workday",
-    "api_url": "https://viatris.wd5.myworkdayjobs.com/wday/cxs/viatris/External/jobs"
+    "api_url": "https://viatris.wd5.myworkdayjobs.com/External"
   },
   {
     "company_name": "Regeneron Pharmaceuticals",
@@ -1161,7 +1161,7 @@
     "company_name": "Abbott",
     "api_code": 5,
     "api_name": "workday",
-    "api_url": "https://abbott.wd5.myworkdayjobs.com/wday/cxs/abbott/abbottcareers/jobs"
+    "api_url": "https://abbott.wd5.myworkdayjobs.com/abbottcareers"
   },
   {
     "company_name": "Abcam",
@@ -2924,8 +2924,8 @@
   {
     "company_name": "Jazz Pharmaceuticals",
     "api_code": 5,
-    "api_name": "workday",
-    "api_url": "https://vhr-jazz.myworkdayjobs.com/wday/cxs/vhr-jazz/JazzPharmaceuticals/jobs"
+    "api_name": "careers_url",
+    "api_url": "https://careers.jazzpharma.com/"
   },
   {
     "company_name": "Juno Therapeutics",
