@@ -24,7 +24,7 @@
     }
     .header {
       display: flex;
-      align-items: baseline;
+      align-items: flex-start;
       justify-content: space-between;
       gap: 12px;
       margin-bottom: 10px;
@@ -33,6 +33,50 @@
       font-size: 12px;
       color: #666;
       white-space: nowrap;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+    .update-box {
+      display: inline-flex;
+      flex-direction: column;
+      gap: 6px;
+      background: linear-gradient(135deg, #ffffff, #f1f5f9);
+      border: 1px solid #e2e8f0;
+      border-radius: 10px;
+      padding: 8px 10px;
+      box-shadow: 0 1px 0 rgba(0, 0, 0, 0.04);
+      min-width: 220px;
+    }
+    .update-row {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      font-size: 12px;
+      color: #334155;
+    }
+    .update-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 999px;
+      background: #22c55e;
+      box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.6);
+      animation: pulse 2s infinite;
+      flex: 0 0 auto;
+    }
+    .update-dot.next {
+      background: #0ea5e9;
+      box-shadow: 0 0 0 0 rgba(14, 165, 233, 0.6);
+      animation: pulse 2.4s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0.5); }
+      70% { box-shadow: 0 0 0 8px rgba(34, 197, 94, 0); }
+      100% { box-shadow: 0 0 0 0 rgba(34, 197, 94, 0); }
+    }
+    .update-label {
+      font-weight: 600;
+      color: #0f172a;
     }
     @media (max-width: 720px) {
       .header {
@@ -41,6 +85,12 @@
       }
       .header .right {
         white-space: normal;
+      }
+      .update-box {
+        width: 100%;
+      }
+      .update-row {
+        font-size: 11px;
       }
     }
     .controls {
@@ -68,6 +118,21 @@
       border-radius: 8px;
       overflow: hidden;
     }
+    .unfiltered-table {
+      table-layout: fixed;
+    }
+    .unfiltered-table th,
+    .unfiltered-table td {
+      overflow-wrap: anywhere;
+    }
+    .unfiltered-table th:nth-child(1) { width: 16%; }
+    .unfiltered-table th:nth-child(2) { width: 26%; }
+    .unfiltered-table th:nth-child(3) { width: 18%; }
+    .unfiltered-table th:nth-child(4) { width: 8%; }
+    .unfiltered-table th:nth-child(5) { width: 10%; }
+    .unfiltered-table th:nth-child(6) { width: 8%; }
+    .unfiltered-table th:nth-child(7) { width: 8%; }
+    .unfiltered-table th:nth-child(8) { width: 6%; }
     th, td {
       padding: 8px;
       border-bottom: 1px solid #e5e5e5;
@@ -151,6 +216,83 @@
       border: 1px solid #ddd;
       border-radius: 8px;
       padding: 12px;
+    }
+    .filter-box {
+      background: #0f172a;
+      color: #e2e8f0;
+      border-radius: 10px;
+      padding: 14px;
+      font-size: 12px;
+      line-height: 1.5;
+      overflow: auto;
+      max-height: 520px;
+      border: 1px solid #1f2937;
+      box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.03);
+    }
+    .filter-box code {
+      color: #93c5fd;
+    }
+    .filter-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .filter-card {
+      background: linear-gradient(180deg, #ffffff, #f8fafc);
+      border: 1px solid #e2e8f0;
+      border-radius: 12px;
+      padding: 12px;
+      box-shadow: 0 2px 10px rgba(15, 23, 42, 0.06);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      flex: 1 1 260px;
+      min-width: 220px;
+    }
+    .filter-card::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      border-radius: 12px;
+      box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.7);
+    }
+    .filter-card h3 {
+      margin: 0 0 8px 0;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #334155;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+    .filter-card h3::before {
+      content: "";
+      width: 10px;
+      height: 10px;
+      border-radius: 3px;
+      background: linear-gradient(135deg, #38bdf8, #6366f1);
+      box-shadow: 0 0 0 2px rgba(99, 102, 241, 0.15);
+    }
+    .filter-card ul {
+      margin: 0;
+      padding-left: 16px;
+      font-size: 12px;
+      color: #334155;
+    }
+    .filter-card li {
+      margin-bottom: 4px;
+    }
+    .filter-card .tag {
+      display: inline-block;
+      font-size: 11px;
+      color: #0f172a;
+      background: #e2e8f0;
+      border: 1px solid #cbd5f5;
+      border-radius: 999px;
+      padding: 2px 8px;
+      margin: 2px 4px 2px 0;
     }
     .status {
       margin-top: 8px;
@@ -242,7 +384,19 @@
 
 <div class="header">
   <h1>Bioinformatics Job Tracker</h1>
-  <div class="right">Automated ATS job tracking (Greenhouse, Lever, Ashby, iCIMS)</div>
+  <div class="right">
+    <div class="update-box" aria-live="polite">
+      <div class="update-row">
+        <span class="update-dot" aria-hidden="true"></span>
+        <span id="last-updated"><span class="update-label">Last updated:</span> Loading…</span>
+      </div>
+      <div class="update-row">
+        <span class="update-dot next" aria-hidden="true"></span>
+        <span id="next-run"><span class="update-label">Next run:</span> Calculating…</span>
+      </div>
+    </div>
+    <div class="sub">Automated ATS job tracking (Greenhouse, Lever, Ashby, iCIMS)</div>
+  </div>
 </div>
 
 <div class="controls card">
@@ -292,6 +446,11 @@
     Hide NA dates
   </label>
 
+  <label>
+    <input id="strictBio" type="checkbox" checked />
+    Strict bioinfo only
+  </label>
+
   <label class="card-toggle">
     <input id="cardView" type="checkbox" />
     Card view
@@ -300,10 +459,10 @@
 
 <div class="controls card tab-bar">
   <button class="tab-btn" data-tab="jobs">Jobs</button>
+  <button class="tab-btn" data-tab="unfiltered">Unfiltered Jobs</button>
   <button class="tab-btn" data-tab="targeted">Targeted List</button>
   <button class="tab-btn" data-tab="filter">Filter</button>
   <button class="tab-btn" data-tab="outputs">Outputs</button>
-  <button class="tab-btn" data-tab="unfiltered">Unfiltered Jobs</button>
 </div>
 
 <div id="tab-jobs" class="tab-panel card">
@@ -344,7 +503,7 @@
 </div>
 
 <div id="tab-filter" class="tab-panel card" hidden>
-  <pre id="filter-json" style="white-space: pre-wrap;"></pre>
+  <div id="filter-cards" class="filter-grid"></div>
 </div>
 
 <div id="tab-outputs" class="tab-panel card" hidden>
@@ -359,7 +518,7 @@
 
 <div id="tab-unfiltered" class="tab-panel card" hidden>
   <div class="table-wrap">
-  <table>
+  <table class="unfiltered-table">
     <thead>
       <tr>
         <th>Company</th>
@@ -475,7 +634,12 @@
 
   function isBioinfoTitle(title) {
     const t = (title || "").toLowerCase();
-    return /bioinformatics|bioinformatic|computational|genomics|genomic|genome|omics|ngs|sequenc|transcript|rna|dna|proteom|variant|single cell/.test(t);
+    return /bioinformatics|bioinformatic|computational|genomics|genomic|genome|omics|ngs|sequenc|transcript|rna|dna|proteom|variant|single cell|systems biology|bioinformatics analyst|bioinformatics engineer|computational biologist|computational scientist|data scientist|data science|machine learning|ml engineer|ai engineer|bioengineer|biostatistics|biostatistic|statistician|bioanalyst|informatics|genetics|geneticist|pipeline|workflow|clinical data|research scientist|research associate|scientist|bioinformatics pipelines|rna-seq|scRNA|scRNA-seq|single-cell|expression|multi-omics|multiomics|molecular/.test(t);
+  }
+
+  function isStrictBioinfoTitle(title) {
+    const t = (title || "").toLowerCase();
+    return /bioinformatics|bioinformatic|computational biology|computational biologist|genomics|genomic|genome|omics|ngs|sequenc|transcript|rna|dna|proteom|variant|single cell|single-cell|scRNA|scRNA-seq|rna-seq|multi-omics|multiomics|bioinformatics analyst|bioinformatics engineer/.test(t);
   }
 
   function daysAgo(date) {
@@ -662,14 +826,68 @@
   }
 
   async function loadFilter() {
-    const pre = document.getElementById("filter-json");
+    const container = document.getElementById("filter-cards");
+    container.innerHTML = "";
     try {
       const res = await fetch("data/jobs_filter.json", { cache: "no-store" });
       if (!res.ok) throw new Error("filter not found");
       const data = await res.json();
-      pre.textContent = JSON.stringify(data, null, 2);
+      const sectionOrder = [
+        "title_filter",
+        "title_exclude",
+        "location_filter",
+        "employment_filter",
+        "experience_filter",
+        "global_exclusions",
+        "keyword_scoring",
+        "domain_gates",
+        "hard_gates",
+        "negative_keywords",
+      ];
+      const sections = [];
+      for (const key of sectionOrder) {
+        if (data[key]) sections.push([key, data[key]]);
+      }
+      for (const [key, value] of Object.entries(data)) {
+        if (sectionOrder.includes(key)) continue;
+        sections.push([key, value]);
+      }
+      for (const [key, value] of sections) {
+        const card = document.createElement("div");
+        card.className = "filter-card";
+        const title = document.createElement("h3");
+        title.textContent = key.replace(/_/g, " ");
+        card.appendChild(title);
+        if (Array.isArray(value)) {
+          const list = document.createElement("ul");
+          for (const item of value) {
+            const li = document.createElement("li");
+            li.textContent = String(item);
+            list.appendChild(li);
+          }
+          card.appendChild(list);
+        } else if (typeof value === "object" && value !== null) {
+          const list = document.createElement("ul");
+          for (const [k, v] of Object.entries(value)) {
+            const li = document.createElement("li");
+            if (Array.isArray(v)) {
+              const tags = v.slice(0, 12).map(item => `<span class="tag">${item}</span>`).join("");
+              li.innerHTML = `<strong>${k}:</strong> ${tags}${v.length > 12 ? ` <span class="tag">+${v.length - 12} more</span>` : ""}`;
+            } else {
+              li.innerHTML = `<strong>${k}:</strong> ${String(v)}`;
+            }
+            list.appendChild(li);
+          }
+          card.appendChild(list);
+        } else {
+          const p = document.createElement("div");
+          p.textContent = String(value);
+          card.appendChild(p);
+        }
+        container.appendChild(card);
+      }
     } catch (e) {
-      pre.textContent = "Failed to load data/jobs_filter.json";
+      container.textContent = "Failed to load data/jobs_filter.json";
     }
   }
 
@@ -678,22 +896,46 @@
     tbody.innerHTML = "";
     for (const r of data) {
       const tr = document.createElement("tr");
+      const date = parseDate(r.posting_date);
+      const age = daysAgo(date);
+      let datePill = "";
+      if (age !== null && age <= 7) {
+        datePill = `<span class="pill recent">${r.posting_date}</span>`;
+      } else if (r.posting_date && r.posting_date !== "NA") {
+        datePill = `<span class="pill stale">${r.posting_date}</span>`;
+      } else {
+        datePill = `${r.posting_date || "NA"}`;
+      }
       const sponsor = sponsorSet && sponsorSet.has((r.company || "").toLowerCase());
       const sponsorPill = sponsor
         ? `<span class="pill sponsor-yes">Yes</span>`
         : `<span class="pill sponsor-no">No</span>`;
-      tr.innerHTML = `
-        <td><span class="card-title">${r.company || ""}</span></td>
-        <td>${r.job_title || ""}</td>
-        <td>${r.location || ""}</td>
-        <td class="card-meta">
-          <span class="pill">${r.remote_or_hybrid || "unknown"}</span>
-          <span class="pill recent">${r.posting_date || ""}</span>
-          <span class="pill source">${r.source || ""}</span>
-          ${sponsorPill}
-        </td>
-        <td>${r.job_url ? `<a href="${r.job_url}" target="_blank">Open</a>` : ""}</td>
-      `;
+      const isCard = document.body.classList.contains("card-view");
+      if (isCard) {
+        tr.innerHTML = `
+          <td><span class="card-title">${r.company || ""}</span></td>
+          <td>${r.job_title || ""}</td>
+          <td>${r.location || ""}</td>
+          <td class="card-meta">
+            <span class="pill">${r.remote_or_hybrid || "unknown"}</span>
+            ${datePill}
+            <span class="pill source">${r.source || ""}</span>
+            ${sponsorPill}
+          </td>
+          <td>${r.job_url ? `<a href="${r.job_url}" target="_blank">Open</a>` : ""}</td>
+        `;
+      } else {
+        tr.innerHTML = `
+          <td>${r.company || ""}</td>
+          <td>${r.job_title || ""}</td>
+          <td>${r.location || ""}</td>
+          <td><span class="pill">${r.remote_or_hybrid || "unknown"}</span></td>
+          <td>${datePill}</td>
+          <td><span class="pill source">${r.source || ""}</span></td>
+          <td>${sponsorPill}</td>
+          <td>${r.job_url ? `<a href="${r.job_url}" target="_blank">Open</a>` : ""}</td>
+        `;
+      }
       tbody.appendChild(tr);
     }
   }
@@ -707,6 +949,7 @@
       const lines = text.trim().split(/\r?\n/).filter(Boolean);
       let rows = lines.map(line => JSON.parse(line));
       const search = normalize(document.getElementById("search").value);
+      const strictBio = document.getElementById("strictBio").checked;
       if (search) {
         rows = rows.filter(r =>
           normalize(
@@ -718,7 +961,7 @@
       }
       // Keep unfiltered view focused on US bioinformatics roles
       rows = rows.filter(r => isUSLocation(r.location || "") || /remote|hybrid/i.test(r.remote_or_hybrid || ""));
-      rows = rows.filter(r => isBioinfoTitle(r.job_title || ""));
+      rows = rows.filter(r => strictBio ? isStrictBioinfoTitle(r.job_title || "") : isBioinfoTitle(r.job_title || ""));
       renderUnfiltered(rows);
     } catch (e) {
       renderUnfiltered([]);
@@ -749,6 +992,80 @@
     if (currentTab === "unfiltered") loadUnfiltered();
   }
 
+  function getESTParts(date = new Date()) {
+    const formatter = new Intl.DateTimeFormat("en-US", {
+      timeZone: "America/New_York",
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+      weekday: "short"
+    });
+    const parts = formatter.formatToParts(date);
+    const out = {};
+    for (const p of parts) {
+      if (p.type !== "literal") out[p.type] = p.value;
+    }
+    return out;
+  }
+
+  function formatEST(date) {
+    return new Intl.DateTimeFormat("en-US", {
+      timeZone: "America/New_York",
+      month: "short",
+      day: "2-digit",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit"
+    }).format(date);
+  }
+
+  function nextRunLabel() {
+    const nowParts = getESTParts();
+    const dayMap = { Sun: 0, Mon: 1, Tue: 2, Wed: 3, Thu: 4, Fri: 5, Sat: 6 };
+    const dayIdx = dayMap[nowParts.weekday] ?? 0;
+    const nowMinutes = Number(nowParts.hour) * 60 + Number(nowParts.minute);
+    const schedule = [
+      { h: 8, m: 30 },
+      { h: 12, m: 30 },
+      { h: 17, m: 50 },
+      { h: 21, m: 30 }
+    ];
+    const isSunday = dayIdx === 0;
+    if (isSunday) {
+      return "Mon 08:30 ET";
+    }
+    for (const slot of schedule) {
+      if (slot.h * 60 + slot.m > nowMinutes) {
+        return `Today ${String(slot.h).padStart(2, "0")}:${String(slot.m).padStart(2, "0")} ET`;
+      }
+    }
+    const nextDay = dayIdx === 6 ? 1 : dayIdx + 1;
+    const dayName = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"][nextDay];
+    return `${dayName} 08:30 ET`;
+  }
+
+  async function loadUpdateStatus() {
+    const lastEl = document.getElementById("last-updated");
+    const nextEl = document.getElementById("next-run");
+    if (nextEl) nextEl.textContent = `Next run: ${nextRunLabel()}`;
+    if (!lastEl) return;
+    try {
+      const res = await fetch(FILES.latest, { method: "HEAD", cache: "no-store" });
+      const last = res.headers.get("Last-Modified");
+      if (last) {
+        const date = new Date(last);
+        lastEl.textContent = `Last updated: ${formatEST(date)} ET`;
+      } else {
+        lastEl.textContent = "Last updated: Unknown";
+      }
+    } catch (e) {
+      lastEl.textContent = "Last updated: Unknown";
+    }
+  }
+
   function updateSortIndicators() {
     const sortMode = document.getElementById("sort").value;
     const scoreInd = document.querySelector('th[data-sort="score"] .sort-indicator');
@@ -769,6 +1086,7 @@
   document.getElementById("onlyRecent").addEventListener("change", refreshCurrent);
   document.getElementById("onlyRemote").addEventListener("change", refreshCurrent);
   document.getElementById("hideNA").addEventListener("change", refreshCurrent);
+  document.getElementById("strictBio").addEventListener("change", refreshCurrent);
   document.getElementById("cardView").addEventListener("change", e => {
     document.body.classList.toggle("card-view", e.target.checked);
   });
@@ -813,6 +1131,8 @@
     });
   }
   updateSortIndicators();
+  loadUpdateStatus();
+  setInterval(loadUpdateStatus, 60 * 1000);
   switchTab("jobs");
 </script>
 
