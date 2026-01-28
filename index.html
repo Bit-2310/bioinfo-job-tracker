@@ -454,6 +454,30 @@
     return isNaN(d.getTime()) ? null : d;
   }
 
+  const US_STATES = new Set([
+    "AL","AK","AZ","AR","CA","CO","CT","DE","FL","GA","HI","ID","IL","IN","IA","KS","KY","LA","ME","MD",
+    "MA","MI","MN","MS","MO","MT","NE","NV","NH","NJ","NM","NY","NC","ND","OH","OK","OR","PA","RI","SC",
+    "SD","TN","TX","UT","VT","VA","WA","WV","WI","WY","DC"
+  ]);
+
+  function isUSLocation(value) {
+    const text = (value || "").toUpperCase();
+    if (!text) return false;
+    if (text.includes("UNITED STATES") || text.includes("USA") || /\bUS\b/.test(text)) return true;
+    if (text.includes("WASHINGTON, DC") || text.includes("WASHINGTON, D.C.")) return true;
+    const parts = text.split(",").map(s => s.trim());
+    if (parts.length >= 2) {
+      const state = parts[parts.length - 1].replace(/\./g, "").trim();
+      if (US_STATES.has(state)) return true;
+    }
+    return false;
+  }
+
+  function isBioinfoTitle(title) {
+    const t = (title || "").toLowerCase();
+    return /bioinformatics|bioinformatic|computational|genomics|genomic|genome|omics|ngs|sequenc|transcript|rna|dna|proteom|variant|single cell/.test(t);
+  }
+
   function daysAgo(date) {
     if (!date) return null;
     const now = new Date();
@@ -608,7 +632,11 @@
   async function loadTargeted() {
     const tbody = document.getElementById("targeted-rows");
     tbody.innerHTML = "";
-    const files = ["data/targeted_list.json", "data/targeted_list_validation.json"];
+    const files = [
+      "data/targeted_list_combined.json",
+      "data/targeted_list.json",
+      "data/targeted_list_validation.json"
+    ];
     for (const file of files) {
       try {
         const res = await fetch(file, { cache: "no-store" });
@@ -688,6 +716,9 @@
           ).includes(search)
         );
       }
+      // Keep unfiltered view focused on US bioinformatics roles
+      rows = rows.filter(r => isUSLocation(r.location || "") || /remote|hybrid/i.test(r.remote_or_hybrid || ""));
+      rows = rows.filter(r => isBioinfoTitle(r.job_title || ""));
       renderUnfiltered(rows);
     } catch (e) {
       renderUnfiltered([]);
