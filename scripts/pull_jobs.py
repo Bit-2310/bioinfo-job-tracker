@@ -1270,6 +1270,7 @@ def main() -> int:
         auto_workers = 32
     workers = args.workers if args.workers and args.workers > 0 else auto_workers
 
+    print(f"Using workers: {workers}")
     if workers <= 1:
         session = requests.Session()
         session.headers.update({"User-Agent": USER_AGENT})

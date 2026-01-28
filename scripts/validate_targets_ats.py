@@ -6,8 +6,10 @@ from __future__ import annotations
 import argparse
 import json
 import sys
+import time
 from dataclasses import dataclass
 from pathlib import Path
+from urllib.parse import urlparse
 from typing import Iterable
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
@@ -66,10 +68,17 @@ def load_targets(path: Path) -> list[Target]:
 
 
 def request_ok(url: str, api_name: str, session: requests.Session, timeout: int) -> tuple[bool, str]:
-    try:
-        resp = session.get(url, timeout=timeout, allow_redirects=True)
-    except Exception as exc:
-        return False, f"request_error:{exc.__class__.__name__}"
+    last_exc = None
+    resp = None
+    for attempt in range(3):
+        try:
+            resp = session.get(url, timeout=timeout, allow_redirects=True)
+            break
+        except Exception as exc:
+            last_exc = exc
+            time.sleep(0.8 * (attempt + 1))
+    if resp is None:
+        return False, f"request_error:{last_exc.__class__.__name__ if last_exc else 'Unknown'}"
 
     if resp.status_code >= 400:
         return False, f"http_{resp.status_code}"
@@ -105,7 +114,22 @@ def request_ok(url: str, api_name: str, session: requests.Session, timeout: int)
     if any(marker in body for marker in NOT_FOUND_MARKERS):
         return False, "not_found_marker"
 
-    if api_name in {"workday", "icims", "smartrecruiters", "careers_url", "rippling"}:
+    if api_name == "careers_url":
+        path = urlparse(url).path.lower()
+        if any(token in path for token in ("/careers", "/jobs", "/openings", "/positions")):
+            return True, "ok"
+        if any(token in body for token in ("careers", "jobs", "openings", "positions")):
+            return True, "ok"
+        if len(body) > 5000:
+            return True, "ok_content_length"
+        return False, "missing_careers_marker"
+
+    if api_name == "rippling":
+        if "ats.rippling.com" in body or "/jobs/" in body:
+            return True, "ok"
+        return False, "missing_rippling_marker"
+
+    if api_name in {"workday", "icims", "smartrecruiters"}:
         return True, "ok"
 
     return True, "ok"
