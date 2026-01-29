@@ -1,18 +1,5 @@
 [
   {
-    "company": "RECURSION PHARMACEUTICALS",
-    "job_title": "Head of Early Discovery",
-    "location": "Salt Lake City, Utah",
-    "remote_or_hybrid": "onsite",
-    "posting_date": "2026-01-28",
-    "source": "greenhouse",
-    "job_url": "https://job-boards.greenhouse.io/recursionpharmaceuticals/jobs/7571580",
-    "score": 0,
-    "list_source": "targeted_list_combined.json",
-    "stage1_pass_reasons": "[\"weak_domain_signal\"]",
-    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": -5}"
-  },
-  {
     "company": "10x Genomics",
     "job_title": "Scientist II, Clinical Bioinformatics",
     "location": "Pleasanton, California, USA HQ",
@@ -37,6 +24,19 @@
     "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 1, \"nice_hits\": 0, \"penalties\": -2}"
+  },
+  {
+    "company": "RECURSION PHARMACEUTICALS",
+    "job_title": "Head of Early Discovery",
+    "location": "Salt Lake City, Utah",
+    "remote_or_hybrid": "onsite",
+    "posting_date": "2026-01-28",
+    "source": "greenhouse",
+    "job_url": "https://job-boards.greenhouse.io/recursionpharmaceuticals/jobs/7571580",
+    "score": 0,
+    "list_source": "targeted_list_combined.json",
+    "stage1_pass_reasons": "[\"weak_domain_signal\"]",
+    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": -5}"
   },
   {
     "company": "NEWLIMIT",
@@ -248,32 +248,6 @@
   },
   {
     "company": "BEAM THERAPEUTICS",
-    "job_title": "Medical Science Liaison \u2013 Chicago Region",
-    "location": "Chicago/Minneapolis",
-    "remote_or_hybrid": "onsite",
-    "posting_date": "2026-01-26",
-    "source": "greenhouse",
-    "job_url": "https://job-boards.greenhouse.io/beamtherapeutics/jobs/8350418002",
-    "score": 3,
-    "list_source": "targeted_list_combined.json",
-    "stage1_pass_reasons": "[\"weak_domain_signal\"]",
-    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": -2}"
-  },
-  {
-    "company": "BEAM THERAPEUTICS",
-    "job_title": "Medical Science Liaison \u2013 Mid-Atlantic Region",
-    "location": "DC/Baltimore/Richmond",
-    "remote_or_hybrid": "onsite",
-    "posting_date": "2026-01-27",
-    "source": "greenhouse",
-    "job_url": "https://job-boards.greenhouse.io/beamtherapeutics/jobs/8350150002",
-    "score": 3,
-    "list_source": "targeted_list_combined.json",
-    "stage1_pass_reasons": "[\"weak_domain_signal\"]",
-    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": -2}"
-  },
-  {
-    "company": "BEAM THERAPEUTICS",
     "job_title": "Senior Director, Value, Evidence & Development Strategy",
     "location": "Cambridge, MA",
     "remote_or_hybrid": "onsite",
@@ -284,6 +258,110 @@
     "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 2, \"strong_hits\": 0, \"medium_hits\": 1, \"nice_hits\": 0, \"penalties\": -2}"
+  },
+  {
+    "company": "BEAM THERAPEUTICS",
+    "job_title": "Senior Medical Science  Liaison/Medical Science Liaison \u2013 Chicago Region",
+    "location": "Chicago/Minneapolis",
+    "remote_or_hybrid": "onsite",
+    "posting_date": "2026-01-29",
+    "source": "greenhouse",
+    "job_url": "https://job-boards.greenhouse.io/beamtherapeutics/jobs/8350418002",
+    "score": 3,
+    "list_source": "targeted_list_combined.json",
+    "stage1_pass_reasons": "[\"weak_domain_signal\"]",
+    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": -2}"
+  },
+  {
+    "company": "BEAM THERAPEUTICS",
+    "job_title": "Senior Medical Science  Liaison/Medical Science Liaison  \u2013 Cleveland/Detroit Region",
+    "location": "Cleveland/Detroit",
+    "remote_or_hybrid": "onsite",
+    "posting_date": "2026-01-29",
+    "source": "greenhouse",
+    "job_url": "https://job-boards.greenhouse.io/beamtherapeutics/jobs/8350360002",
+    "score": 3,
+    "list_source": "targeted_list_combined.json",
+    "stage1_pass_reasons": "[\"weak_domain_signal\"]",
+    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": -2}"
+  },
+  {
+    "company": "BEAM THERAPEUTICS",
+    "job_title": "Senior Medical Science  Liaison/Medical Science Liaison \u2013  Florida Region",
+    "location": "Miami/Tampa",
+    "remote_or_hybrid": "onsite",
+    "posting_date": "2026-01-29",
+    "source": "greenhouse",
+    "job_url": "https://job-boards.greenhouse.io/beamtherapeutics/jobs/8350253002",
+    "score": 3,
+    "list_source": "targeted_list_combined.json",
+    "stage1_pass_reasons": "[\"weak_domain_signal\"]",
+    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": -2}"
+  },
+  {
+    "company": "BEAM THERAPEUTICS",
+    "job_title": "Senior Medical Science  Liaison/Medical Science Liaison \u2013 Gulf Coast Region",
+    "location": "Atlanta/Raleigh",
+    "remote_or_hybrid": "onsite",
+    "posting_date": "2026-01-29",
+    "source": "greenhouse",
+    "job_url": "https://job-boards.greenhouse.io/beamtherapeutics/jobs/8350196002",
+    "score": 3,
+    "list_source": "targeted_list_combined.json",
+    "stage1_pass_reasons": "[\"weak_domain_signal\"]",
+    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": -2}"
+  },
+  {
+    "company": "BEAM THERAPEUTICS",
+    "job_title": "Senior Medical Science  Liaison/Medical Science Liaison \u2013 Mid-Atlantic Region",
+    "location": "DC/Baltimore/Richmond",
+    "remote_or_hybrid": "onsite",
+    "posting_date": "2026-01-29",
+    "source": "greenhouse",
+    "job_url": "https://job-boards.greenhouse.io/beamtherapeutics/jobs/8350150002",
+    "score": 3,
+    "list_source": "targeted_list_combined.json",
+    "stage1_pass_reasons": "[\"weak_domain_signal\"]",
+    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": -2}"
+  },
+  {
+    "company": "BEAM THERAPEUTICS",
+    "job_title": "Senior Medical Science  Liaison/Medical Science Liaison \u2013 New England Region",
+    "location": "NYC/Boston",
+    "remote_or_hybrid": "onsite",
+    "posting_date": "2026-01-29",
+    "source": "greenhouse",
+    "job_url": "https://job-boards.greenhouse.io/beamtherapeutics/jobs/8350073002",
+    "score": 3,
+    "list_source": "targeted_list_combined.json",
+    "stage1_pass_reasons": "[\"weak_domain_signal\"]",
+    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": -2}"
+  },
+  {
+    "company": "BEAM THERAPEUTICS",
+    "job_title": "Senior Medical Science  Liaison/Medical Science Liaison \u2013 South Central Region",
+    "location": "Houston/Dallas",
+    "remote_or_hybrid": "onsite",
+    "posting_date": "2026-01-29",
+    "source": "greenhouse",
+    "job_url": "https://job-boards.greenhouse.io/beamtherapeutics/jobs/8350466002",
+    "score": 3,
+    "list_source": "targeted_list_combined.json",
+    "stage1_pass_reasons": "[\"weak_domain_signal\"]",
+    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": -2}"
+  },
+  {
+    "company": "BEAM THERAPEUTICS",
+    "job_title": "Senior Medical Science  Liaison/Medical Science Liaison \u2013 Southwest Region",
+    "location": "LA/Phoenix",
+    "remote_or_hybrid": "onsite",
+    "posting_date": "2026-01-29",
+    "source": "greenhouse",
+    "job_url": "https://job-boards.greenhouse.io/beamtherapeutics/jobs/8350451002",
+    "score": 3,
+    "list_source": "targeted_list_combined.json",
+    "stage1_pass_reasons": "[\"weak_domain_signal\"]",
+    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": -2}"
   },
   {
     "company": "BEAM THERAPEUTICS",
@@ -433,7 +511,7 @@
     "job_title": "Sr. Translational Medical Scientist",
     "location": "San Carlos, CA",
     "remote_or_hybrid": "onsite",
-    "posting_date": "2026-01-27",
+    "posting_date": "2026-01-29",
     "source": "greenhouse",
     "job_url": "https://job-boards.greenhouse.io/natera/jobs/5712882004",
     "score": 7,
@@ -481,6 +559,32 @@
     "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 1, \"nice_hits\": 0, \"penalties\": -5}"
   },
   {
+    "company": "ABBVIE",
+    "job_title": "2026 Spatial Transcriptomics Intern (PhD)",
+    "location": "Cambridge",
+    "remote_or_hybrid": "onsite",
+    "posting_date": "2026-01-29",
+    "source": "smartrecruiters",
+    "job_url": "https://api.smartrecruiters.com/v1/companies/AbbVie/postings/3743990011422829",
+    "score": 16,
+    "list_source": "targeted_list_combined.json",
+    "stage1_pass_reasons": "[\"title_match\", \"weak_domain_signal\"]",
+    "score_breakdown": "{\"title_bonus\": 5, \"freshness_bonus\": 5, \"strong_hits\": 1, \"medium_hits\": 0, \"nice_hits\": 1, \"penalties\": 0}"
+  },
+  {
+    "company": "BROAD INSTITUTE",
+    "job_title": "Postdoctoral Associate - Proteomics",
+    "location": "NA",
+    "remote_or_hybrid": "onsite",
+    "posting_date": "NA",
+    "source": "careers_url",
+    "job_url": "https://broadinstitute.avature.net/en_US/careers/JobDetail/Postdoctoral-Associate-Proteomics/21312",
+    "score": 5,
+    "list_source": "targeted_list_combined.json",
+    "stage1_pass_reasons": "[\"title_match\", \"weak_domain_signal\"]",
+    "score_breakdown": "{\"title_bonus\": 5, \"freshness_bonus\": 0, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": 0}"
+  },
+  {
     "company": "INSITRO",
     "job_title": "Senior Computational Biologist, Omics",
     "location": "South San Francisco, CA",
@@ -518,19 +622,6 @@
     "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"title_match\"]",
     "score_breakdown": "{\"title_bonus\": 5, \"freshness_bonus\": 6, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": 0}"
-  },
-  {
-    "company": "BROAD INSTITUTE",
-    "job_title": "Postdoctoral Associate - Proteomics",
-    "location": "NA",
-    "remote_or_hybrid": "onsite",
-    "posting_date": "NA",
-    "source": "careers_url",
-    "job_url": "https://broadinstitute.avature.net/en_US/careers/JobDetail/Postdoctoral-Associate-Proteomics/21312",
-    "score": 5,
-    "list_source": "targeted_list_combined.json",
-    "stage1_pass_reasons": "[\"title_match\", \"weak_domain_signal\"]",
-    "score_breakdown": "{\"title_bonus\": 5, \"freshness_bonus\": 0, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": 0}"
   },
   {
     "company": "PERSONALIS",
@@ -585,17 +676,30 @@
     "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 3, \"nice_hits\": 0, \"penalties\": 0}"
   },
   {
-    "company": "Cellworks",
-    "job_title": "SCIENTIST COMPUTATIONAL BIOLOGY Bangalore POSTED ON  January 15, 2024",
+    "company": "BioMarin",
+    "job_title": "Associate Director, Business Insights & Analytics \u2013 Pipeline & BD",
     "location": "NA",
     "remote_or_hybrid": "onsite",
     "posting_date": "NA",
     "source": "careers_url",
-    "job_url": "https://cellworks.life/company/careers/scientist-computational-biology",
-    "score": 11,
+    "job_url": "https://careers.biomarin.com/job/san-rafael/associate-director-business-insights-and-analytics-pipeline-and-bd/5804/90314046992",
+    "score": 5,
     "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"title_match\"]",
-    "score_breakdown": "{\"title_bonus\": 5, \"freshness_bonus\": 6, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": 0}"
+    "score_breakdown": "{\"title_bonus\": 5, \"freshness_bonus\": 0, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": 0}"
+  },
+  {
+    "company": "BIOMARIN PHARMACEUTICAL INC",
+    "job_title": "Associate Director, Business Insights & Analytics \u2013 Pipeline & BD",
+    "location": "NA",
+    "remote_or_hybrid": "onsite",
+    "posting_date": "NA",
+    "source": "careers_url",
+    "job_url": "https://careers.biomarin.com/job/san-rafael/associate-director-business-insights-and-analytics-pipeline-and-bd/5804/90314046992",
+    "score": 5,
+    "list_source": "targeted_list_combined.json",
+    "stage1_pass_reasons": "[\"title_match\"]",
+    "score_breakdown": "{\"title_bonus\": 5, \"freshness_bonus\": 0, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": 0}"
   },
   {
     "company": "PLANET LABS PBC",
