@@ -7,10 +7,10 @@
     "posting_date": "2026-01-26",
     "source": "greenhouse",
     "job_url": "https://boards.greenhouse.io/10xgenomics/jobs/7565668?gh_jid=7565668",
-    "score": 31,
+    "score": 28,
     "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"title_match\", \"weak_domain_signal\"]",
-    "score_breakdown": "{\"title_bonus\": 5, \"freshness_bonus\": 5, \"strong_hits\": 3, \"medium_hits\": 2, \"nice_hits\": 1, \"penalties\": 0}"
+    "score_breakdown": "{\"title_bonus\": 5, \"freshness_bonus\": 2, \"strong_hits\": 3, \"medium_hits\": 2, \"nice_hits\": 1, \"penalties\": 0}"
   },
   {
     "company": "10x Genomics",
@@ -39,56 +39,30 @@
     "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": -5}"
   },
   {
-    "company": "NEWLIMIT",
-    "job_title": "Senior/Research Associate, Drug Product Development",
-    "location": "South San Francisco",
+    "company": "GRAIL",
+    "job_title": "Clinical Laboratory Associate II, Accessioning # 4493",
+    "location": "Durham, NC",
     "remote_or_hybrid": "onsite",
-    "posting_date": "2026-01-22",
-    "source": "greenhouse",
-    "job_url": "https://job-boards.greenhouse.io/newlimit/jobs/5778693004",
-    "score": 8,
+    "posting_date": "2026-01-30",
+    "source": "lever",
+    "job_url": "https://jobs.lever.co/grailbio/79228d04-0dff-4aab-b31e-244a6b145890",
+    "score": 7,
     "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
-    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 2, \"strong_hits\": 0, \"medium_hits\": 3, \"nice_hits\": 0, \"penalties\": 0}"
+    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 1, \"nice_hits\": 0, \"penalties\": 0}"
   },
   {
-    "company": "NEWLIMIT",
-    "job_title": "Senior/Research Associate, Functional Genomics",
-    "location": "South San Francisco, CA",
+    "company": "GRAIL",
+    "job_title": "Commercial Analytics and Forecasting Sr. Manager #4604",
+    "location": "Menlo Park, CA",
     "remote_or_hybrid": "onsite",
-    "posting_date": "2026-01-22",
-    "source": "greenhouse",
-    "job_url": "https://job-boards.greenhouse.io/newlimit/jobs/5570891004",
-    "score": 9,
-    "list_source": "targeted_list_combined.json",
-    "stage1_pass_reasons": "[\"title_match\", \"weak_domain_signal\"]",
-    "score_breakdown": "{\"title_bonus\": 5, \"freshness_bonus\": 2, \"strong_hits\": 0, \"medium_hits\": 1, \"nice_hits\": 0, \"penalties\": 0}"
-  },
-  {
-    "company": "NEWLIMIT",
-    "job_title": "Senior Research Associate, Immunology",
-    "location": "South San Francisco",
-    "remote_or_hybrid": "onsite",
-    "posting_date": "2026-01-22",
-    "source": "greenhouse",
-    "job_url": "https://job-boards.greenhouse.io/newlimit/jobs/5779542004",
-    "score": 6,
+    "posting_date": "2026-01-29",
+    "source": "lever",
+    "job_url": "https://jobs.lever.co/grailbio/2720232f-de30-4040-9aa8-f526817fa76a",
+    "score": 7,
     "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
-    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 2, \"strong_hits\": 0, \"medium_hits\": 2, \"nice_hits\": 0, \"penalties\": 0}"
-  },
-  {
-    "company": "TWIST BIOSCIENCE",
-    "job_title": "Senior / Staff Computational Scientist",
-    "location": "USA - South San Francisco, CA",
-    "remote_or_hybrid": "onsite",
-    "posting_date": "2026-01-22",
-    "source": "greenhouse",
-    "job_url": "https://job-boards.greenhouse.io/twistbioscience/jobs/7545144",
-    "score": 17,
-    "list_source": "targeted_list_combined.json",
-    "stage1_pass_reasons": "[\"title_match\", \"weak_domain_signal\"]",
-    "score_breakdown": "{\"title_bonus\": 5, \"freshness_bonus\": 8, \"strong_hits\": 0, \"medium_hits\": 3, \"nice_hits\": 2, \"penalties\": -5}"
+    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 1, \"nice_hits\": 0, \"penalties\": 0}"
   },
   {
     "company": "GRAIL",
@@ -98,6 +72,19 @@
     "posting_date": "2026-01-27",
     "source": "lever",
     "job_url": "https://jobs.lever.co/grailbio/d0cd0390-840c-43b9-bfb4-a4c4f86d7508",
+    "score": 8,
+    "list_source": "targeted_list_combined.json",
+    "stage1_pass_reasons": "[\"weak_domain_signal\"]",
+    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 1, \"nice_hits\": 0, \"penalties\": 0}"
+  },
+  {
+    "company": "GRAIL",
+    "job_title": "Patient and Provider Navigator (Medical Affairs) # 4474",
+    "location": "Remote- MI",
+    "remote_or_hybrid": "remote",
+    "posting_date": "2026-01-29",
+    "source": "lever",
+    "job_url": "https://jobs.lever.co/grailbio/7b9a7693-8462-47bd-8718-4d675f8a18e3",
     "score": 8,
     "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
@@ -124,10 +111,10 @@
     "posting_date": "2026-01-26",
     "source": "lever",
     "job_url": "https://jobs.lever.co/grailbio/8eef6597-bb71-45f5-8dc4-37092294c2e0",
-    "score": 7,
+    "score": 4,
     "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
-    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 1, \"nice_hits\": 0, \"penalties\": 0}"
+    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 2, \"strong_hits\": 0, \"medium_hits\": 1, \"nice_hits\": 0, \"penalties\": 0}"
   },
   {
     "company": "GRAIL",
@@ -222,19 +209,6 @@
   },
   {
     "company": "BEAM THERAPEUTICS",
-    "job_title": "Associate Director/Director, Biostatistics",
-    "location": "Cambridge, MA",
-    "remote_or_hybrid": "onsite",
-    "posting_date": "2026-01-22",
-    "source": "greenhouse",
-    "job_url": "https://job-boards.greenhouse.io/beamtherapeutics/jobs/8387647002",
-    "score": 2,
-    "list_source": "targeted_list_combined.json",
-    "stage1_pass_reasons": "[\"weak_domain_signal\"]",
-    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 2, \"strong_hits\": 0, \"medium_hits\": 1, \"nice_hits\": 0, \"penalties\": -2}"
-  },
-  {
-    "company": "BEAM THERAPEUTICS",
     "job_title": "Data Analytics and Integration Specialist",
     "location": "Cambridge, MA",
     "remote_or_hybrid": "onsite",
@@ -245,19 +219,6 @@
     "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
     "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 2, \"nice_hits\": 0, \"penalties\": 0}"
-  },
-  {
-    "company": "BEAM THERAPEUTICS",
-    "job_title": "Senior Director, Value, Evidence & Development Strategy",
-    "location": "Cambridge, MA",
-    "remote_or_hybrid": "onsite",
-    "posting_date": "2026-01-22",
-    "source": "greenhouse",
-    "job_url": "https://job-boards.greenhouse.io/beamtherapeutics/jobs/8384849002",
-    "score": 2,
-    "list_source": "targeted_list_combined.json",
-    "stage1_pass_reasons": "[\"weak_domain_signal\"]",
-    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 2, \"strong_hits\": 0, \"medium_hits\": 1, \"nice_hits\": 0, \"penalties\": -2}"
   },
   {
     "company": "BEAM THERAPEUTICS",
@@ -423,10 +384,10 @@
     "posting_date": "2026-01-26",
     "source": "greenhouse",
     "job_url": "https://job-boards.greenhouse.io/natera/jobs/5422443004",
-    "score": 8,
+    "score": 5,
     "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
-    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 4, \"nice_hits\": 0, \"penalties\": -5}"
+    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 2, \"strong_hits\": 0, \"medium_hits\": 4, \"nice_hits\": 0, \"penalties\": -5}"
   },
   {
     "company": "NATERA",
@@ -436,10 +397,10 @@
     "posting_date": "2026-01-26",
     "source": "greenhouse",
     "job_url": "https://job-boards.greenhouse.io/natera/jobs/5734098004",
-    "score": 7,
+    "score": 4,
     "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"title_match\", \"weak_domain_signal\"]",
-    "score_breakdown": "{\"title_bonus\": 5, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 1, \"nice_hits\": 0, \"penalties\": -5}"
+    "score_breakdown": "{\"title_bonus\": 5, \"freshness_bonus\": 2, \"strong_hits\": 0, \"medium_hits\": 1, \"nice_hits\": 0, \"penalties\": -5}"
   },
   {
     "company": "NATERA",
@@ -676,32 +637,6 @@
     "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 3, \"nice_hits\": 0, \"penalties\": 0}"
   },
   {
-    "company": "BioMarin",
-    "job_title": "Associate Director, Business Insights & Analytics \u2013 Pipeline & BD",
-    "location": "NA",
-    "remote_or_hybrid": "onsite",
-    "posting_date": "NA",
-    "source": "careers_url",
-    "job_url": "https://careers.biomarin.com/job/san-rafael/associate-director-business-insights-and-analytics-pipeline-and-bd/5804/90314046992",
-    "score": 5,
-    "list_source": "targeted_list_combined.json",
-    "stage1_pass_reasons": "[\"title_match\"]",
-    "score_breakdown": "{\"title_bonus\": 5, \"freshness_bonus\": 0, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": 0}"
-  },
-  {
-    "company": "BIOMARIN PHARMACEUTICAL INC",
-    "job_title": "Associate Director, Business Insights & Analytics \u2013 Pipeline & BD",
-    "location": "NA",
-    "remote_or_hybrid": "onsite",
-    "posting_date": "NA",
-    "source": "careers_url",
-    "job_url": "https://careers.biomarin.com/job/san-rafael/associate-director-business-insights-and-analytics-pipeline-and-bd/5804/90314046992",
-    "score": 5,
-    "list_source": "targeted_list_combined.json",
-    "stage1_pass_reasons": "[\"title_match\"]",
-    "score_breakdown": "{\"title_bonus\": 5, \"freshness_bonus\": 0, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": 0}"
-  },
-  {
     "company": "PLANET LABS PBC",
     "job_title": "Education & Research Program Manager & Evangelist",
     "location": "United States, Remote",
@@ -722,10 +657,10 @@
     "posting_date": "2026-01-26",
     "source": "greenhouse",
     "job_url": "https://job-boards.greenhouse.io/planetlabs/jobs/7527437",
-    "score": 9,
+    "score": 6,
     "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
-    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 2, \"nice_hits\": 0, \"penalties\": 0}"
+    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 2, \"strong_hits\": 0, \"medium_hits\": 2, \"nice_hits\": 0, \"penalties\": 0}"
   },
   {
     "company": "PLANET LABS PBC",
