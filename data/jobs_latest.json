@@ -20,10 +20,10 @@
     "posting_date": "2026-01-28",
     "source": "greenhouse",
     "job_url": "https://boards.greenhouse.io/10xgenomics/jobs/7516962?gh_jid=7516962",
-    "score": 6,
+    "score": 3,
     "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
-    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 1, \"nice_hits\": 0, \"penalties\": -2}"
+    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 2, \"strong_hits\": 0, \"medium_hits\": 1, \"nice_hits\": 0, \"penalties\": -2}"
   },
   {
     "company": "RECURSION PHARMACEUTICALS",
@@ -33,10 +33,10 @@
     "posting_date": "2026-01-28",
     "source": "greenhouse",
     "job_url": "https://job-boards.greenhouse.io/recursionpharmaceuticals/jobs/7571580",
-    "score": 0,
+    "score": -3,
     "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
-    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": -5}"
+    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 2, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": -5}"
   },
   {
     "company": "GRAIL",
@@ -176,10 +176,10 @@
     "posting_date": "2026-01-28",
     "source": "greenhouse",
     "job_url": "https://job-boards.greenhouse.io/beamtherapeutics/jobs/8345551002",
-    "score": 9,
+    "score": 6,
     "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
-    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 2, \"nice_hits\": 0, \"penalties\": 0}"
+    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 2, \"strong_hits\": 0, \"medium_hits\": 2, \"nice_hits\": 0, \"penalties\": 0}"
   },
   {
     "company": "BEAM THERAPEUTICS",
@@ -293,10 +293,10 @@
     "posting_date": "2026-01-28",
     "source": "greenhouse",
     "job_url": "https://job-boards.greenhouse.io/beamtherapeutics/jobs/8325725002",
-    "score": 5,
+    "score": 2,
     "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
-    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 1, \"nice_hits\": 0, \"penalties\": -2}"
+    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 2, \"strong_hits\": 0, \"medium_hits\": 1, \"nice_hits\": 0, \"penalties\": -2}"
   },
   {
     "company": "BEAM THERAPEUTICS",
@@ -332,10 +332,10 @@
     "posting_date": "2026-01-28",
     "source": "greenhouse",
     "job_url": "https://job-boards.greenhouse.io/natera/jobs/5712966004",
-    "score": 5,
+    "score": 2,
     "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
-    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 1, \"nice_hits\": 0, \"penalties\": -2}"
+    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 2, \"strong_hits\": 0, \"medium_hits\": 1, \"nice_hits\": 0, \"penalties\": -2}"
   },
   {
     "company": "NATERA",
@@ -520,19 +520,6 @@
     "score_breakdown": "{\"title_bonus\": 5, \"freshness_bonus\": 5, \"strong_hits\": 1, \"medium_hits\": 0, \"nice_hits\": 1, \"penalties\": 0}"
   },
   {
-    "company": "BROAD INSTITUTE",
-    "job_title": "Postdoctoral Associate - Proteomics",
-    "location": "NA",
-    "remote_or_hybrid": "onsite",
-    "posting_date": "NA",
-    "source": "careers_url",
-    "job_url": "https://broadinstitute.avature.net/en_US/careers/JobDetail/Postdoctoral-Associate-Proteomics/21312",
-    "score": 5,
-    "list_source": "targeted_list_combined.json",
-    "stage1_pass_reasons": "[\"title_match\", \"weak_domain_signal\"]",
-    "score_breakdown": "{\"title_bonus\": 5, \"freshness_bonus\": 0, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": 0}"
-  },
-  {
     "company": "INSITRO",
     "job_title": "Senior Computational Biologist, Omics",
     "location": "South San Francisco, CA",
@@ -570,6 +557,19 @@
     "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"title_match\"]",
     "score_breakdown": "{\"title_bonus\": 5, \"freshness_bonus\": 6, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": 0}"
+  },
+  {
+    "company": "BROAD INSTITUTE",
+    "job_title": "Postdoctoral Associate - Proteomics",
+    "location": "NA",
+    "remote_or_hybrid": "onsite",
+    "posting_date": "NA",
+    "source": "careers_url",
+    "job_url": "https://broadinstitute.avature.net/en_US/careers/JobDetail/Postdoctoral-Associate-Proteomics/21312",
+    "score": 5,
+    "list_source": "targeted_list_combined.json",
+    "stage1_pass_reasons": "[\"title_match\", \"weak_domain_signal\"]",
+    "score_breakdown": "{\"title_bonus\": 5, \"freshness_bonus\": 0, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": 0}"
   },
   {
     "company": "PERSONALIS",
@@ -611,6 +611,19 @@
     "score_breakdown": "{\"title_bonus\": 5, \"freshness_bonus\": 6, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": 0}"
   },
   {
+    "company": "OMNIAB INC   15.00 EARNOUT",
+    "job_title": "Research Intern - Economics and Computation",
+    "location": "NA",
+    "remote_or_hybrid": "onsite",
+    "posting_date": "NA",
+    "source": "careers_url",
+    "job_url": "https://www.linkedin.com/jobs/view/research-intern-economics-and-computation-at-microsoft-4341525079?position=29&pageNum=0&refId=CADrNpMHVo2m32F9pg5pyg%3D%3D&trackingId=uP9qnNzroT9IC72CpjNFWA%3D%3D",
+    "score": 5,
+    "list_source": "targeted_list_combined.json",
+    "stage1_pass_reasons": "[\"title_match\", \"weak_domain_signal\"]",
+    "score_breakdown": "{\"title_bonus\": 5, \"freshness_bonus\": 0, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": 0}"
+  },
+  {
     "company": "PLANET LABS PBC",
     "job_title": "Education & Research Program Manager & Evangelist",
     "location": "United States, Remote",
@@ -618,10 +631,10 @@
     "posting_date": "2026-01-28",
     "source": "greenhouse",
     "job_url": "https://job-boards.greenhouse.io/planetlabs/jobs/7532263",
-    "score": 6,
+    "score": 3,
     "list_source": "targeted_list_combined.json",
     "stage1_pass_reasons": "[\"weak_domain_signal\"]",
-    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 5, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": 0}"
+    "score_breakdown": "{\"title_bonus\": 0, \"freshness_bonus\": 2, \"strong_hits\": 0, \"medium_hits\": 0, \"nice_hits\": 0, \"penalties\": 0}"
   },
   {
     "company": "PLANET LABS PBC",
